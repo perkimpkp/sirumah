@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SIRUMAH Kota Pangkalpinang v67 — Satu Data, Hunian Layak untuk Semua</title>
+  <title>SIRUMAH Kota Pangkalpinang v68 — Satu Data, Hunian Layak untuk Semua</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -5182,7 +5182,13 @@ function readOfficialSheet(workbook, sheetName){
       if(!hasAnchor && hasFallbackData){
         record[schema.anchor] = `${sheetName}-${String(rowOffset + 1).padStart(4,"0")}`;
       }
-      return {record, keep:hasAnchor || hasFallbackData};
+      let keep = hasAnchor || hasFallbackData;
+      if(sheetName === "BACKLOG_KECAMATAN"){
+        const level = sirText(record["TINGKAT_WILAYAH"]).toUpperCase();
+        const area = sirText(record["KECAMATAN/WILAYAH"]);
+        keep = Boolean(area) && (level === "KECAMATAN" || level === "KOTA");
+      }
+      return {record, keep};
     })
     .filter(item => item.keep)
     .map(item => item.record);
@@ -5253,10 +5259,14 @@ function buildHousingFromExcel(rows){
 function buildBacklogFromExcel(rows){
   const kecamatanRows = rows.filter(row => {
     const level = sirText(rowValue(row,"TINGKAT_WILAYAH")).toUpperCase();
-    const area = sirText(rowValue(row,"KECAMATAN/WILAYAH")).toUpperCase();
-    return level.includes("KECAMATAN") || (!level.includes("KOTA") && area && !area.includes("KOTA PANGKALPINANG"));
+    const area = sirText(rowValue(row,"KECAMATAN/WILAYAH"));
+    return level === "KECAMATAN" && Boolean(area);
   });
-  const cityRows = rows.filter(row => sirText(rowValue(row,"TINGKAT_WILAYAH")).toUpperCase().includes("KOTA"));
+  const cityRows = rows.filter(row => {
+    const level = sirText(rowValue(row,"TINGKAT_WILAYAH")).toUpperCase();
+    const area = sirText(rowValue(row,"KECAMATAN/WILAYAH")).toUpperCase();
+    return level === "KOTA" && Boolean(area);
+  });
 
   const ownership = kecamatanRows.map(row => {
     const jumlahKK = sirNumber(rowValue(row,"JUMLAH_KK"));
@@ -7806,11 +7816,12 @@ loadLayananSummary = async function(options={}){
 
 
 /* =========================================================
-   BACKLOG v67 — status kepemilikan tempat tinggal, unit hunian,
+   BACKLOG v68 — status kepemilikan tempat tinggal, unit hunian,
    backlog kepemilikan, dan backlog penghunian per kecamatan.
    ========================================================= */
 function backlogRowsV67(){
-  return getBacklogKepemilikanVerifiedRows();
+  const allowedDistricts = new Set(["Bukit Intan","Taman Sari","Pangkal Balam","Rangkui","Gerunggang","Gabek","Girimaya"]);
+  return getBacklogKepemilikanVerifiedRows().filter(row => allowedDistricts.has(displayKecamatan(row?.kecamatan)));
 }
 
 function backlogTotalV67(rows,key){
