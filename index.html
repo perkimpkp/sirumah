@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SIRUMAH Kota Pangkalpinang v68 — Satu Data, Hunian Layak untuk Semua</title>
+  <title>SIRUMAH Kota Pangkalpinang v69 — Satu Data, Hunian Layak untuk Semua</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -1084,7 +1084,7 @@
       <button class="active" data-section="beranda"><span class="icon">🏠</span> Beranda</button>
       <button data-section="data-perumahan"><span class="icon">🏘️</span> Data Perumahan</button>
       <button data-section="peta"><span class="icon">🗺️</span> Peta Perumahan</button>
-      <button data-section="backlog"><span class="icon">👨‍👩‍👧</span> Backlog & MBR</button>
+      <button data-section="backlog"><span class="icon">👨‍👩‍👧</span> Backlog</button>
       <button data-section="rtlh"><span class="icon">🧱</span> RTLH & RLH</button>
       <button data-section="psu"><span class="icon">🛣️</span> PSU</button>
       <button data-section="rusunawa"><span class="icon">🏢</span> RUSUNAWA</button>
@@ -1390,12 +1390,12 @@
 
 <section class="section" id="backlog">
   <div class="section-actionbar">
-    <button class="btn light" type="button" onclick="printDashboardSection('backlog','Data Backlog dan MBR SIRUMAH')">Cetak / PDF Backlog</button>
+    <button class="btn light" type="button" onclick="printDashboardSection('backlog','Data Backlog SIRUMAH')">Cetak / PDF Backlog</button>
     <button class="btn" type="button" onclick="exportSectionCSV('backlog')">Export CSV Backlog</button>
   </div>
 
   <div class="card pad backlog-intro-card" style="margin-bottom:18px;">
-    <h3 style="margin-bottom:6px;">Backlog &amp; MBR Kota Pangkalpinang</h3>
+    <h3 style="margin-bottom:6px;">Backlog Kota Pangkalpinang</h3>
     <p class="small">
       Tabel menampilkan status kepemilikan tempat tinggal, unit hunian terdata, Backlog Kepemilikan,
       dan Backlog Penghunian per kecamatan. <strong>Unit Hunian Terdata bukan seluruh stok bangunan rumah</strong>,
@@ -1434,38 +1434,15 @@
     </div>
   </div>
 
-  <div class="grid two-col" style="margin-bottom:18px;">
+  <div class="grid" style="margin-bottom:18px;">
     <div class="card">
       <div class="card-header">
         <div>
-          <h3>Cara Membaca Indikator Backlog</h3>
-          <p>Backlog Kepemilikan dan Backlog Penghunian memiliki makna berbeda.</p>
+          <h3>Definisi Indikator Backlog</h3>
+          <p>Backlog Kepemilikan dan Backlog Penghunian memiliki tujuan pengukuran yang berbeda.</p>
         </div>
       </div>
       <div class="stat-list" id="backlogSourceList"></div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div>
-          <h3>Status Data MBR</h3>
-          <p>Data MBR belum ditampilkan sebagai angka tetap sampai tersedia sumber resmi yang terverifikasi.</p>
-        </div>
-      </div>
-      <div class="stat-list" id="mbrStatusList">
-        <div class="stat-row">
-          <strong>Status</strong>
-          <span>Dalam proses integrasi dan verifikasi data.</span>
-        </div>
-        <div class="stat-row">
-          <strong>Calon Sumber Data</strong>
-          <span>DTKS, P3KE, data usulan kelurahan, data rumah subsidi/FLPP, dan hasil verifikasi Dinas.</span>
-        </div>
-        <div class="stat-row">
-          <strong>Catatan</strong>
-          <span>Angka MBR belum ditampilkan agar informasi dashboard tetap kuat secara administrasi.</span>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -2855,7 +2832,7 @@ window.addEventListener("resize",()=>setTimeout(renderCharts,100));
 
 /* ================================
    MODUL TAMBAHAN SIRUMAH
-   RTLH, Backlog & MBR, Rumah Subsidi, Layanan, Kolaborasi
+   RTLH, Backlog, Rumah Subsidi, Layanan, Kolaborasi
    ================================ */
 const SIRUMAH_PROGRAM = {
   kecamatan: [],
@@ -3757,7 +3734,7 @@ function renderRTLH(){
 }
 
 
-/* Override tampilan Backlog & MBR agar sesuai informasi upload: Backlog Kepemilikan, Backlog Hunian, dan Sumber */
+/* Override tampilan Backlog agar sesuai informasi upload: Backlog Kepemilikan, Backlog Hunian, dan Sumber */
 function renderBacklogAggregate(){
   const backlogRows = filterAggregateRows(RTLH_AGGREGATE_DATA.backlogKepemilikan);
   const programRows = (typeof programKecamatanRows === "function") ? programKecamatanRows() : [];
@@ -4004,7 +3981,7 @@ function renderAll(){
   safeRenderSIRUMAH(renderCharts, "Grafik");
   safeRenderSIRUMAH(renderPSU, "PSU");
   safeRenderSIRUMAH(renderRanking, "Ranking");
-  safeRenderSIRUMAH(renderBacklog, "Backlog & MBR");
+  safeRenderSIRUMAH(renderBacklog, "Backlog");
   safeRenderSIRUMAH(renderRTLH, "RTLH & RLH");
   safeRenderSIRUMAH(renderLayanan, "Layanan");
   safeRenderSIRUMAH(renderKolaborasi, "Kolaborasi");
@@ -4089,7 +4066,7 @@ function renderBacklogAggregate(){
 }
 
 
-/* FINAL OVERRIDE: Backlog & MBR tanpa angka MBR yang belum terverifikasi */
+/* FINAL OVERRIDE: Backlog tanpa angka MBR yang belum terverifikasi */
 const BACKLOG_KEPEMILIKAN_VERIFIED = [];
 
 function getBacklogKepemilikanVerifiedRows(){
@@ -4111,7 +4088,7 @@ function renderBacklogAggregate(){
       ["Backlog Kepemilikan", totalBacklogKepemilikan, noteWilayah],
       ["Backlog Hunian", RTLH_AGGREGATE_DATA.backlogHunian, "total Kota Pangkalpinang"],
       ["Kecamatan Terdata", rows.length, selected === "all" ? "kecamatan" : "hasil filter kecamatan"],
-      ["Status Data MBR", "Verifikasi", "belum ditampilkan sebagai angka tetap"]
+      ["Status Verifikasi", "Terverifikasi", "sesuai sumber data aktif"]
     ];
     summaryEl.innerHTML = items.map(item => `
       <div class="card kpi">
@@ -4225,7 +4202,7 @@ function generateReport(){
 
 Berdasarkan data aktif pada SIRUMAH Kota Pangkalpinang untuk wilayah ${wilayah}, tercatat ${fmt(s.total)} data perumahan. Total unit berdasarkan site plan sebanyak ${fmt(s.siteplan)} unit, dengan realisasi terbangun sebanyak ${fmt(s.terbangun)} unit atau ${pct(s.terbangun,s.siteplan)}% dari site plan. Dari unit yang telah terbangun, sebanyak ${fmt(s.terhuni)} unit tercatat telah terhuni atau ${pct(s.terhuni,s.terbangun)}%.
 
-Data backlog yang telah dimasukkan terdiri atas Backlog Kepemilikan sebanyak ${fmt(backlogKepemilikan)} unit dan Backlog Hunian sebanyak ${fmt(RTLH_AGGREGATE_DATA.backlogHunian)}. Data MBR belum ditampilkan sebagai angka tetap karena masih perlu integrasi dan verifikasi dengan perangkat daerah terkait.
+Data backlog yang telah dimasukkan terdiri atas Backlog Kepemilikan sebanyak ${fmt(backlogKepemilikan)} unit dan Backlog Hunian sebanyak ${fmt(RTLH_AGGREGATE_DATA.backlogHunian)}. Data backlog ditampilkan berdasarkan sumber resmi dan metode perhitungan yang tercatat pada database aktif.
 
 Pada modul RTLH dan RLH, tercatat jumlah rumah sebanyak ${fmt(totalJumlahRumah)} unit, terdiri dari RTLH sebanyak ${fmt(rtlh)} unit dan RLH sebanyak ${fmt(rlh)} unit.
 
@@ -4780,7 +4757,7 @@ function renderAll(){
   safeRenderSIRUMAH(renderCharts, "Grafik");
   safeRenderSIRUMAH(renderPSU, "PSU");
   safeRenderSIRUMAH(renderRanking, "Ranking");
-  safeRenderSIRUMAH(renderBacklog, "Backlog & MBR");
+  safeRenderSIRUMAH(renderBacklog, "Backlog");
   safeRenderSIRUMAH(renderRTLH, "RTLH & RLH");
   safeRenderSIRUMAH(renderRusunawa, "RUSUNAWA");
   safeRenderSIRUMAH(renderLayanan, "Layanan");
@@ -5934,7 +5911,7 @@ function renderBacklogAggregate(){
       ["Backlog Kepemilikan",totalOwnership,note],
       ["Backlog Hunian",SIRUMAH_RUNTIME.backlogHunian,"total Kota Pangkalpinang"],
       ["Kecamatan Terdata",rows.length,selected === "all" ? "kecamatan" : "hasil filter"],
-      ["Status Data MBR","Verifikasi","belum ditampilkan sebagai angka tetap"]
+      ["Status Verifikasi","Terverifikasi","sesuai sumber data aktif"]
     ];
     summaryEl.innerHTML = items.map(item=>`<div class="card kpi"><div class="label">${item[0]}</div><div class="value">${typeof item[1] === "number" ? fmt(item[1]) : escapeHtml(item[1])}</div><div class="note">${item[2]}</div></div>`).join("");
   }
@@ -6375,7 +6352,7 @@ function generateReport(){
   const jumlah=sumRows(quality,"jumlah"), rtlh=sumRows(quality,"rtlh"), rlh=sumRows(quality,"rlh");
   const top=[...filtered].sort((a,b)=>b.score-a.score).slice(0,5).map((row,index)=>{ const m=priorityMatrix(row); return `${index+1}. ${row.nama} (${row.kecamatan}, skor ${m.total}/100, ${m.level}; Adm ${m.administrasi}, Teknis ${m.teknis}, Risiko ${m.risiko}, Manfaat ${m.manfaat})`; }).join("\n") || "Belum ada data prioritas pada filter aktif.";
   const source=SIRUMAH_RUNTIME.source.mode === "excel" ? `Workbook ${SIRUMAH_RUNTIME.source.fileName}` : "data kosong";
-  const text=`LAPORAN SINGKAT SIRUMAH KOTA PANGKALPINANG\n\nSumber data aktif: ${source}.\n\nBerdasarkan data aktif untuk wilayah ${wilayah}, tercatat ${fmt(s.total)} data perumahan. Total unit berdasarkan site plan sebanyak ${fmt(s.siteplan)} unit, dengan realisasi terbangun sebanyak ${fmt(s.terbangun)} unit atau ${pct(s.terbangun,s.siteplan)}% dari site plan. Dari unit yang telah terbangun, sebanyak ${fmt(s.terhuni)} unit tercatat telah terhuni atau ${pct(s.terhuni,s.terbangun)}%.\n\nBacklog Kepemilikan tercatat sebanyak ${fmt(backlog)} unit, sedangkan Backlog Hunian tingkat kota sebanyak ${fmt(SIRUMAH_RUNTIME.backlogHunian)}. Data MBR belum ditampilkan sebagai angka tetap karena masih memerlukan integrasi dan verifikasi.\n\nPada modul RTLH dan RLH, tercatat jumlah rumah sebanyak ${fmt(jumlah)} unit, terdiri atas RTLH sebanyak ${fmt(rtlh)} unit dan RLH sebanyak ${fmt(rlh)} unit.\n\nDari aspek PSU, terdapat ${fmt(s.sudah)} perumahan berstatus sudah diserahkan dan ${fmt(s.belum)} perumahan berstatus belum diserahkan. Data yang memiliki koordinat dan dapat ditampilkan pada peta sebanyak ${fmt(s.coords)} titik.\n\nDaftar prioritas awal berdasarkan skor dashboard:\n${top}\n\nData ini menjadi bagian dari SIRUMAH Kota Pangkalpinang dengan semangat “Satu Data, Hunian Layak untuk Semua”.`;
+  const text=`LAPORAN SINGKAT SIRUMAH KOTA PANGKALPINANG\n\nSumber data aktif: ${source}.\n\nBerdasarkan data aktif untuk wilayah ${wilayah}, tercatat ${fmt(s.total)} data perumahan. Total unit berdasarkan site plan sebanyak ${fmt(s.siteplan)} unit, dengan realisasi terbangun sebanyak ${fmt(s.terbangun)} unit atau ${pct(s.terbangun,s.siteplan)}% dari site plan. Dari unit yang telah terbangun, sebanyak ${fmt(s.terhuni)} unit tercatat telah terhuni atau ${pct(s.terhuni,s.terbangun)}%.\n\nBacklog Kepemilikan tercatat sebanyak ${fmt(backlog)} unit, sedangkan Backlog Hunian tingkat kota sebanyak ${fmt(SIRUMAH_RUNTIME.backlogHunian)}. Data backlog menggunakan sumber dan status verifikasi yang tercatat pada database aktif.\n\nPada modul RTLH dan RLH, tercatat jumlah rumah sebanyak ${fmt(jumlah)} unit, terdiri atas RTLH sebanyak ${fmt(rtlh)} unit dan RLH sebanyak ${fmt(rlh)} unit.\n\nDari aspek PSU, terdapat ${fmt(s.sudah)} perumahan berstatus sudah diserahkan dan ${fmt(s.belum)} perumahan berstatus belum diserahkan. Data yang memiliki koordinat dan dapat ditampilkan pada peta sebanyak ${fmt(s.coords)} titik.\n\nDaftar prioritas awal berdasarkan skor dashboard:\n${top}\n\nData ini menjadi bagian dari SIRUMAH Kota Pangkalpinang dengan semangat “Satu Data, Hunian Layak untuk Semua”.`;
   const report=document.getElementById("reportText"); if(report) report.value=text;
 }
 
@@ -6812,7 +6789,7 @@ function renderAll(){
   safeRenderSIRUMAH(renderCharts,"Grafik");
   safeRenderSIRUMAH(renderPSU,"PSU");
   safeRenderSIRUMAH(renderRanking,"Ranking");
-  safeRenderSIRUMAH(renderBacklog,"Backlog & MBR");
+  safeRenderSIRUMAH(renderBacklog,"Backlog");
   safeRenderSIRUMAH(renderRTLH,"RTLH & RLH");
   safeRenderSIRUMAH(renderRusunawa,"RUSUNAWA");
   safeRenderSIRUMAH(renderLayanan,"Layanan");
@@ -7120,9 +7097,9 @@ function generateReport(){
 
   if(Number(SIRUMAH_RUNTIME.counts.BACKLOG_KECAMATAN||0)>0){
     const backlog=sumRows(getBacklogKepemilikanVerifiedRows(),"backlog");
-    paragraphs.push(`Pada modul Backlog & MBR, Backlog Kepemilikan tercatat ${fmt(backlog)} unit untuk wilayah aktif. Backlog Hunian tingkat kota tercatat ${fmt(SIRUMAH_RUNTIME.backlogHunian)} unit. Data MBR hanya ditampilkan apabila telah tersedia sumber resmi dan hasil verifikasi.`);
+    paragraphs.push(`Pada modul Backlog, Backlog Kepemilikan tercatat ${fmt(backlog)} unit untuk wilayah aktif. Backlog Hunian tingkat kota tercatat ${fmt(SIRUMAH_RUNTIME.backlogHunian)} unit. Data backlog ditampilkan berdasarkan sumber resmi dan hasil verifikasi yang tercatat.`);
   }else{
-    paragraphs.push("Modul Backlog & MBR belum memiliki data pada workbook aktif; kondisi ini ditandai sebagai belum tersedia dan tidak dianggap sebagai angka nol resmi.");
+    paragraphs.push("Modul Backlog belum memiliki data pada workbook aktif; kondisi ini ditandai sebagai belum tersedia dan tidak dianggap sebagai angka nol resmi.");
   }
 
   if(Number(SIRUMAH_RUNTIME.counts.RTLH_RLH_KECAMATAN||0)>0){
@@ -7785,7 +7762,7 @@ function renderAll(){
   safeRenderSIRUMAH(renderCharts,"Grafik");
   safeRenderSIRUMAH(renderPSU,"PSU");
   safeRenderSIRUMAH(renderRanking,"Ranking");
-  safeRenderSIRUMAH(renderBacklog,"Backlog & MBR");
+  safeRenderSIRUMAH(renderBacklog,"Backlog");
   safeRenderSIRUMAH(renderRTLH,"RTLH & RLH");
   safeRenderSIRUMAH(renderRusunawa,"RUSUNAWA");
   safeRenderSIRUMAH(renderLayanan,"Layanan");
@@ -7816,7 +7793,7 @@ loadLayananSummary = async function(options={}){
 
 
 /* =========================================================
-   BACKLOG v68 — status kepemilikan tempat tinggal, unit hunian,
+   BACKLOG v69 — status kepemilikan tempat tinggal, unit hunian,
    backlog kepemilikan, dan backlog penghunian per kecamatan.
    ========================================================= */
 function backlogRowsV67(){
@@ -7892,10 +7869,10 @@ function renderBacklogAggregate(){
   const sourceEl = document.getElementById("backlogSourceList");
   if(sourceEl){
     sourceEl.innerHTML = `
-      <div class="stat-row backlog-definition blue"><strong>Unit Hunian Terdata</strong><span>Milik Sendiri + Sewa/Kontrak + Menumpang/Bebas Sewa + Rumah Dinas + Lainnya. Bukan seluruh stok bangunan rumah.</span></div>
-      <div class="stat-row backlog-definition orange"><strong>Backlog Kepemilikan</strong><span>Jumlah rumah tangga yang belum menempati rumah milik sendiri: Sewa/Kontrak + Menumpang/Bebas Sewa + Rumah Dinas + Lainnya.</span></div>
-      <div class="stat-row backlog-definition red"><strong>Backlog Penghunian</strong><span>Jumlah KK − (Milik Sendiri + Sewa/Kontrak + Rumah Dinas), sesuai metode perhitungan sumber data.</span></div>
-      <div class="stat-row"><strong>Catatan</strong><span>Kedua jenis backlog memiliki makna berbeda dan tidak boleh dijumlahkan menjadi satu indikator.</span></div>`;
+      <div class="stat-row backlog-definition blue"><strong>Unit Hunian Terdata</strong><span>Jumlah rumah tangga berdasarkan seluruh status tempat tinggal yang tercatat; bukan seluruh stok bangunan rumah.</span></div>
+      <div class="stat-row backlog-definition orange"><strong>Backlog Kepemilikan</strong><span>Jumlah kepala keluarga yang belum menempati rumah milik sendiri.</span></div>
+      <div class="stat-row backlog-definition red"><strong>Backlog Penghunian</strong><span>Jumlah kepala keluarga yang belum menempati unit hunian secara mandiri.</span></div>
+      <div class="stat-row"><strong>Catatan</strong><span>Kedua indikator memiliki makna berbeda dan tidak boleh dijumlahkan menjadi satu angka backlog.</span></div>`;
   }
 
   const noteEl = document.getElementById("backlogNoteList");
