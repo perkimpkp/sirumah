@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SIRUMAH Kota Pangkalpinang v66 — Satu Data, Hunian Layak untuk Semua</title>
+  <title>SIRUMAH Kota Pangkalpinang v67 — Satu Data, Hunian Layak untuk Semua</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -1032,6 +1032,35 @@
     }
 
 </style>
+
+  <style>
+    .backlog-intro-card{border-left:5px solid #2563eb}
+    .backlog-summary-grid .backlog-kpi{border-top:4px solid var(--blue)}
+    .backlog-summary-grid .backlog-blue{border-top-color:#2563eb;background:#eff6ff}
+    .backlog-summary-grid .backlog-teal{border-top-color:#0f766e;background:#f0fdfa}
+    .backlog-summary-grid .backlog-orange{border-top-color:#ea580c;background:#fff7ed}
+    .backlog-summary-grid .backlog-red{border-top-color:#dc2626;background:#fef2f2}
+    .backlog-table-card{overflow:hidden}
+    .backlog-data-table{min-width:1480px}
+    .backlog-data-table th,.backlog-data-table td{text-align:right;white-space:nowrap}
+    .backlog-data-table th:nth-child(1),.backlog-data-table td:nth-child(1){text-align:center}
+    .backlog-data-table th:nth-child(2),.backlog-data-table td:nth-child(2){text-align:left}
+    .backlog-data-table .backlog-unit-col{background:#dbeafe;color:#1e3a8a}
+    .backlog-data-table .backlog-own-col{background:#ffedd5;color:#9a3412}
+    .backlog-data-table .backlog-occupancy-col{background:#fee2e2;color:#991b1b}
+    .backlog-unit-cell{background:#eff6ff;color:#1e3a8a}
+    .backlog-own-cell{background:#fff7ed;color:#9a3412}
+    .backlog-occupancy-cell{background:#fef2f2;color:#991b1b}
+    .backlog-total-row td{background:#e2e8f0!important;border-top:2px solid #475569;font-weight:800}
+    .backlog-definition{align-items:flex-start}
+    .backlog-definition.blue{border-left:4px solid #2563eb}
+    .backlog-definition.orange{border-left:4px solid #ea580c}
+    .backlog-definition.red{border-left:4px solid #dc2626}
+    @media(max-width:720px){
+      .backlog-summary-grid{grid-template-columns:1fr 1fr!important}
+      .backlog-data-table{min-width:1380px}
+    }
+  </style>
 </head>
 
 <body class="public-mode">
@@ -1364,61 +1393,58 @@
     <button class="btn light" type="button" onclick="printDashboardSection('backlog','Data Backlog dan MBR SIRUMAH')">Cetak / PDF Backlog</button>
     <button class="btn" type="button" onclick="exportSectionCSV('backlog')">Export CSV Backlog</button>
   </div>
-  <div class="card pad" style="margin-bottom:18px;">
-    <h3 style="margin-bottom:6px;">Backlog & MBR Kota Pangkalpinang</h3>
+
+  <div class="card pad backlog-intro-card" style="margin-bottom:18px;">
+    <h3 style="margin-bottom:6px;">Backlog &amp; MBR Kota Pangkalpinang</h3>
     <p class="small">
-      Menu ini berfokus pada kebutuhan rumah. Data yang sudah ditampilkan sebagai angka resmi adalah
-      <strong>Backlog Kepemilikan</strong> dan <strong>Backlog Hunian</strong>. Data MBR diposisikan sebagai
-      kelompok sasaran prioritas yang masih memerlukan integrasi dan verifikasi dengan perangkat daerah terkait.
+      Tabel menampilkan status kepemilikan tempat tinggal, unit hunian terdata, Backlog Kepemilikan,
+      dan Backlog Penghunian per kecamatan. <strong>Unit Hunian Terdata bukan seluruh stok bangunan rumah</strong>,
+      melainkan jumlah rumah tangga menurut status tempat tinggal yang tercatat pada sumber data.
     </p>
   </div>
 
-  <div class="grid kpi-grid" id="backlogSummaryGrid" style="margin-bottom:18px;"></div>
+  <div class="grid kpi-grid backlog-summary-grid" id="backlogSummaryGrid" style="margin-bottom:18px;"></div>
+
+  <div class="card backlog-table-card" style="margin-bottom:18px;">
+    <div class="card-header">
+      <div>
+        <h3>Status Kepemilikan Tempat Tinggal dan Backlog per Kecamatan</h3>
+        <p>Seluruh angka menggunakan unit rumah tangga/KK sesuai struktur data sumber.</p>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="backlog-data-table">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Kecamatan</th>
+            <th>Jumlah KK</th>
+            <th>Milik Sendiri</th>
+            <th>Sewa/<br>Kontrak</th>
+            <th>Menumpang/<br>Bebas Sewa</th>
+            <th>Rumah Dinas</th>
+            <th>Lainnya</th>
+            <th class="backlog-unit-col">Unit Hunian<br>Terdata</th>
+            <th class="backlog-own-col">Backlog<br>Kepemilikan</th>
+            <th class="backlog-occupancy-col">Backlog<br>Penghunian</th>
+          </tr>
+        </thead>
+        <tbody id="backlogOwnershipBody"></tbody>
+      </table>
+    </div>
+  </div>
 
   <div class="grid two-col" style="margin-bottom:18px;">
     <div class="card">
       <div class="card-header">
         <div>
-          <h3>Backlog Kepemilikan per Kecamatan</h3>
-          <p>Jumlah backlog kepemilikan rumah berdasarkan kecamatan.</p>
+          <h3>Cara Membaca Indikator Backlog</h3>
+          <p>Backlog Kepemilikan dan Backlog Penghunian memiliki makna berbeda.</p>
         </div>
       </div>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>No</th>
-              <th>Kecamatan</th>
-              <th>Backlog<br>Kepemilikan<br>(Unit)</th>
-            </tr>
-          </thead>
-          <tbody id="backlogOwnershipBody">
-          </tbody>
-        </table>
-      </div>
+      <div class="stat-list" id="backlogSourceList"></div>
     </div>
 
-    <div class="card">
-      <div class="card-header">
-        <div>
-          <h3>Korelasi Backlog dan MBR</h3>
-          <p>Backlog menunjukkan kebutuhan rumah, sedangkan MBR menjadi sasaran prioritas intervensi.</p>
-        </div>
-      </div>
-      <div class="stat-list" id="backlogSourceList">
-        <div class="stat-row">
-          <strong>Backlog</strong>
-          <span>Menjawab jumlah kebutuhan rumah.</span>
-        </div>
-        <div class="stat-row">
-          <strong>MBR</strong>
-          <span>Data sasaran prioritas; masih perlu integrasi/verifikasi.</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="grid two-col">
     <div class="card">
       <div class="card-header">
         <div>
@@ -1429,7 +1455,7 @@
       <div class="stat-list" id="mbrStatusList">
         <div class="stat-row">
           <strong>Status</strong>
-          <span>Dalam proses integrasi/verifikasi data.</span>
+          <span>Dalam proses integrasi dan verifikasi data.</span>
         </div>
         <div class="stat-row">
           <strong>Calon Sumber Data</strong>
@@ -1437,28 +1463,26 @@
         </div>
         <div class="stat-row">
           <strong>Catatan</strong>
-          <span>Angka MBR tidak ditampilkan dulu agar dashboard tetap kuat secara administrasi.</span>
+          <span>Angka MBR belum ditampilkan agar informasi dashboard tetap kuat secara administrasi.</span>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="card">
-      <div class="card-header">
-        <div>
-          <h3>Sumber dan Catatan Backlog</h3>
-          <p>Informasi sumber data backlog yang digunakan dalam dashboard.</p>
-        </div>
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <h3>Sumber dan Catatan Data</h3>
+        <p>Informasi tahun, sumber, status verifikasi, dan metode perhitungan.</p>
       </div>
-      <div class="stat-list" id="backlogNoteList">
-        <div class="empty-state">Menunggu data dari sheet BACKLOG_KECAMATAN.</div>
-      </div>
+    </div>
+    <div class="stat-list" id="backlogNoteList">
+      <div class="empty-state">Menunggu data dari sheet BACKLOG_KECAMATAN.</div>
     </div>
   </div>
 </section>
 
-
-
-    <section class="section" id="layanan">
+<section class="section" id="layanan">
         <div class="section-actionbar">
           <button class="btn light" type="button" onclick="printDashboardSection('layanan','Layanan dan Pengaduan SIRUMAH')">Cetak / PDF Layanan</button>
           <button class="btn private-only" type="button" onclick="exportSectionCSV('layanan')">Export CSV Layanan</button>
@@ -4984,7 +5008,8 @@ const SIRUMAH_EXCEL_SCHEMAS = {
   },
   BACKLOG_KECAMATAN: {
     anchor: "ID_BACKLOG",
-    headers: ["ID_BACKLOG","TINGKAT_WILAYAH","KECAMATAN/WILAYAH","BACKLOG_KEPEMILIKAN","BACKLOG_HUNIAN","TAHUN_DATA","SUMBER_DATA","STATUS_VERIFIKASI","TANGGAL_UPDATE","OPERATOR","KETERANGAN"]
+    headers: ["ID_BACKLOG","TINGKAT_WILAYAH","KECAMATAN/WILAYAH","BACKLOG_KEPEMILIKAN","BACKLOG_HUNIAN","TAHUN_DATA","SUMBER_DATA","STATUS_VERIFIKASI","TANGGAL_UPDATE","OPERATOR","KETERANGAN"],
+    optionalHeaders: ["JUMLAH_KK","MILIK_SENDIRI","SEWA_KONTRAK","MENUMPANG_BEBAS_SEWA","RUMAH_DINAS","LAINNYA","UNIT_HUNIAN_TERDATA"]
   },
   RTLH_RLH_KECAMATAN: {
     anchor: "ID_REKAP",
@@ -5232,18 +5257,41 @@ function buildBacklogFromExcel(rows){
     return level.includes("KECAMATAN") || (!level.includes("KOTA") && area && !area.includes("KOTA PANGKALPINANG"));
   });
   const cityRows = rows.filter(row => sirText(rowValue(row,"TINGKAT_WILAYAH")).toUpperCase().includes("KOTA"));
-  const ownership = kecamatanRows.map(row => ({
-    kecamatan: displayKecamatan(rowValue(row,"KECAMATAN/WILAYAH")),
-    backlog: sirNumber(rowValue(row,"BACKLOG_KEPEMILIKAN")),
-    backlogHunian: sirNumber(rowValue(row,"BACKLOG_HUNIAN")),
-    keterangan: sirText(rowValue(row,"KETERANGAN"))
-  })).filter(row => row.kecamatan);
+
+  const ownership = kecamatanRows.map(row => {
+    const jumlahKK = sirNumber(rowValue(row,"JUMLAH_KK"));
+    const milikSendiri = sirNumber(rowValue(row,"MILIK_SENDIRI"));
+    const sewaKontrak = sirNumber(rowValue(row,"SEWA_KONTRAK"));
+    const menumpangBebasSewa = sirNumber(rowValue(row,"MENUMPANG_BEBAS_SEWA","BEBAS_SEWA_MENUMPANG"));
+    const rumahDinas = sirNumber(rowValue(row,"RUMAH_DINAS","DINAS"));
+    const lainnya = sirNumber(rowValue(row,"LAINNYA"));
+    const providedUnit = rowValue(row,"UNIT_HUNIAN_TERDATA","TOTAL_RUMAH");
+    const providedOwnership = rowValue(row,"BACKLOG_KEPEMILIKAN");
+    const providedOccupancy = rowValue(row,"BACKLOG_HUNIAN","BACKLOG_PENGHUNIAN");
+    const hasDetailedStatus = [jumlahKK,milikSendiri,sewaKontrak,menumpangBebasSewa,rumahDinas,lainnya].some(value => Number(value) > 0);
+    const unitHunian = !isBlankExcelValue(providedUnit)
+      ? sirNumber(providedUnit)
+      : (hasDetailedStatus ? milikSendiri + sewaKontrak + menumpangBebasSewa + rumahDinas + lainnya : 0);
+    const backlog = !isBlankExcelValue(providedOwnership)
+      ? sirNumber(providedOwnership)
+      : (hasDetailedStatus ? sewaKontrak + menumpangBebasSewa + rumahDinas + lainnya : 0);
+    const backlogHunian = !isBlankExcelValue(providedOccupancy)
+      ? sirNumber(providedOccupancy)
+      : (hasDetailedStatus ? Math.max(0,jumlahKK-(milikSendiri+sewaKontrak+rumahDinas)) : 0);
+
+    return {
+      kecamatan: displayKecamatan(rowValue(row,"KECAMATAN/WILAYAH")),
+      jumlahKK,milikSendiri,sewaKontrak,menumpangBebasSewa,rumahDinas,lainnya,
+      unitHunian,backlog,backlogHunian,
+      keterangan: sirText(rowValue(row,"KETERANGAN"))
+    };
+  }).filter(row => row.kecamatan);
+
   let backlogHunian = 0;
-  const cityHunian = cityRows.map(row => sirNumber(rowValue(row,"BACKLOG_HUNIAN"))).find(value => value > 0);
+  const cityHunian = cityRows.map(row => sirNumber(rowValue(row,"BACKLOG_HUNIAN","BACKLOG_PENGHUNIAN"))).find(value => value > 0);
   if(cityHunian) backlogHunian = cityHunian;
-  else if(kecamatanRows.some(row => !isBlankExcelValue(rowValue(row,"BACKLOG_HUNIAN")))){
-    backlogHunian = kecamatanRows.reduce((sum,row)=>sum+sirNumber(rowValue(row,"BACKLOG_HUNIAN")),0);
-  }
+  else backlogHunian = ownership.reduce((sum,row)=>sum+Number(row.backlogHunian||0),0);
+
   return {ownership, backlogHunian, meta:collectMeta(rows)};
 }
 
@@ -7754,6 +7802,126 @@ loadLayananSummary = async function(options={}){
   return result;
 };
 
+
+
+
+/* =========================================================
+   BACKLOG v67 — status kepemilikan tempat tinggal, unit hunian,
+   backlog kepemilikan, dan backlog penghunian per kecamatan.
+   ========================================================= */
+function backlogRowsV67(){
+  return getBacklogKepemilikanVerifiedRows();
+}
+
+function backlogTotalV67(rows,key){
+  return rows.reduce((sum,row)=>sum+Number(row?.[key]||0),0);
+}
+
+function renderBacklogAggregate(){
+  const rows = backlogRowsV67();
+  const selected = selectedAggregateKecamatan();
+  const isAll = selected === "all";
+  const totalKK = backlogTotalV67(rows,"jumlahKK");
+  const totalUnit = backlogTotalV67(rows,"unitHunian");
+  const totalOwnership = backlogTotalV67(rows,"backlog");
+  const totalOccupancy = backlogTotalV67(rows,"backlogHunian") || (isAll ? Number(SIRUMAH_RUNTIME.backlogHunian||0) : 0);
+  const note = isAll ? "Kota Pangkalpinang" : `Kecamatan ${selected}`;
+
+  const summaryEl = document.getElementById("backlogSummaryGrid");
+  if(summaryEl){
+    const items = [
+      {label:"Jumlah KK",value:totalKK,note,theme:"blue"},
+      {label:"Unit Hunian Terdata",value:totalUnit,note:"jumlah menurut status tempat tinggal",theme:"teal"},
+      {label:"Backlog Kepemilikan",value:totalOwnership,note:"belum menempati rumah milik sendiri",theme:"orange"},
+      {label:"Backlog Penghunian",value:totalOccupancy,note:"sesuai metode perhitungan sumber data",theme:"red"}
+    ];
+    summaryEl.innerHTML = items.map(item=>`
+      <div class="card kpi backlog-kpi backlog-${item.theme}">
+        <div class="label">${escapeHtml(item.label)}</div>
+        <div class="value">${fmt(item.value)}</div>
+        <div class="note">${escapeHtml(item.note)}</div>
+      </div>`).join("");
+  }
+
+  const body = document.getElementById("backlogOwnershipBody");
+  if(body){
+    if(!rows.length){
+      body.innerHTML = `<tr><td colspan="11" class="empty-state">Belum ada data backlog pada sumber aktif.</td></tr>`;
+    }else{
+      const detailRows = rows.map((row,index)=>`
+        <tr>
+          <td>${index+1}</td>
+          <td><strong>${escapeHtml(row.kecamatan)}</strong></td>
+          <td>${fmt(row.jumlahKK)}</td>
+          <td>${fmt(row.milikSendiri)}</td>
+          <td>${fmt(row.sewaKontrak)}</td>
+          <td>${fmt(row.menumpangBebasSewa)}</td>
+          <td>${fmt(row.rumahDinas)}</td>
+          <td>${fmt(row.lainnya)}</td>
+          <td class="backlog-unit-cell"><strong>${fmt(row.unitHunian)}</strong></td>
+          <td class="backlog-own-cell"><strong>${fmt(row.backlog)}</strong></td>
+          <td class="backlog-occupancy-cell"><strong>${fmt(row.backlogHunian)}</strong></td>
+        </tr>`).join("");
+      body.innerHTML = detailRows + `
+        <tr class="backlog-total-row">
+          <td colspan="2"><strong>${isAll?"TOTAL KOTA PANGKALPINANG":"TOTAL HASIL FILTER"}</strong></td>
+          <td><strong>${fmt(totalKK)}</strong></td>
+          <td><strong>${fmt(backlogTotalV67(rows,"milikSendiri"))}</strong></td>
+          <td><strong>${fmt(backlogTotalV67(rows,"sewaKontrak"))}</strong></td>
+          <td><strong>${fmt(backlogTotalV67(rows,"menumpangBebasSewa"))}</strong></td>
+          <td><strong>${fmt(backlogTotalV67(rows,"rumahDinas"))}</strong></td>
+          <td><strong>${fmt(backlogTotalV67(rows,"lainnya"))}</strong></td>
+          <td class="backlog-unit-cell"><strong>${fmt(totalUnit)}</strong></td>
+          <td class="backlog-own-cell"><strong>${fmt(totalOwnership)}</strong></td>
+          <td class="backlog-occupancy-cell"><strong>${fmt(totalOccupancy)}</strong></td>
+        </tr>`;
+    }
+  }
+
+  const sourceEl = document.getElementById("backlogSourceList");
+  if(sourceEl){
+    sourceEl.innerHTML = `
+      <div class="stat-row backlog-definition blue"><strong>Unit Hunian Terdata</strong><span>Milik Sendiri + Sewa/Kontrak + Menumpang/Bebas Sewa + Rumah Dinas + Lainnya. Bukan seluruh stok bangunan rumah.</span></div>
+      <div class="stat-row backlog-definition orange"><strong>Backlog Kepemilikan</strong><span>Jumlah rumah tangga yang belum menempati rumah milik sendiri: Sewa/Kontrak + Menumpang/Bebas Sewa + Rumah Dinas + Lainnya.</span></div>
+      <div class="stat-row backlog-definition red"><strong>Backlog Penghunian</strong><span>Jumlah KK − (Milik Sendiri + Sewa/Kontrak + Rumah Dinas), sesuai metode perhitungan sumber data.</span></div>
+      <div class="stat-row"><strong>Catatan</strong><span>Kedua jenis backlog memiliki makna berbeda dan tidak boleh dijumlahkan menjadi satu indikator.</span></div>`;
+  }
+
+  const noteEl = document.getElementById("backlogNoteList");
+  if(noteEl){
+    noteEl.innerHTML = `
+      <div class="stat-row"><strong>Sumber Data</strong><span>${escapeHtml(SIRUMAH_RUNTIME.backlogMeta.source)}</span></div>
+      <div class="stat-row"><strong>Tahun Data</strong><span>${escapeHtml(SIRUMAH_RUNTIME.backlogMeta.year)}</span></div>
+      <div class="stat-row"><strong>Status Verifikasi</strong><span>${escapeHtml(SIRUMAH_RUNTIME.backlogMeta.verification)}</span></div>
+      <div class="stat-row"><strong>Cakupan Aktif</strong><span>${escapeHtml(note)} · ${fmt(rows.length)} kecamatan/baris wilayah.</span></div>`;
+  }
+}
+
+/* Beranda publik: tampilkan dua jenis backlog agar maknanya tidak tercampur. */
+const renderKPIBeforeV67 = renderKPI;
+renderKPI = function(){
+  renderKPIBeforeV67();
+  if(!publicMode) return;
+  const group = [...document.querySelectorAll(".home-kpi-group.theme-quality")]
+    .find(node => node.querySelector("h4")?.textContent?.includes("Kebutuhan dan Kelayakan Hunian"));
+  if(!group) return;
+  const rows = backlogRowsV67();
+  const backlogKepemilikan = backlogTotalV67(rows,"backlog");
+  const backlogPenghunian = backlogTotalV67(rows,"backlogHunian") || Number(SIRUMAH_RUNTIME.backlogHunian||0);
+  const qualityRows = filterAggregateRows(SIRUMAH_RUNTIME?.rtlhAggregate || []);
+  const totalHouses = sumRows(qualityRows,"jumlah");
+  const rtlh = sumRows(qualityRows,"rtlh");
+  const rlh = Math.max(0,sumRows(qualityRows,"rlh") || (totalHouses-rtlh));
+  const grid = group.querySelector(".home-kpi-mini-grid");
+  if(grid){
+    grid.innerHTML = [
+      {label:"Backlog Kepemilikan",value:backlogKepemilikan,note:"rumah tangga belum menempati rumah milik sendiri",action:"openHomeTargetV59('backlog')"},
+      {label:"Backlog Penghunian",value:backlogPenghunian,note:"sesuai metode sumber data",action:"openHomeTargetV59('backlog')"},
+      {label:"Rumah Tidak Layak Huni",value:rtlh,note:`${percentValue(rtlh,totalHouses)}% dari rumah terdata agregat`,action:"openHomeTargetV59('rtlh')",alert:rtlh>0},
+      {label:"Rumah Layak Huni",value:rlh,note:"data agregat kecamatan",action:"openHomeTargetV59('rtlh')"}
+    ].map(homeMetricHtmlV60).join("");
+  }
+};
 
 document.addEventListener("DOMContentLoaded", init);
 </script>
