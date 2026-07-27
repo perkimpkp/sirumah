@@ -1,4 +1,4 @@
-# SIRUMAH Kota Pangkalpinang v45
+# SIRUMAH Kota Pangkalpinang
 
 Struktur GitHub Pages:
 
