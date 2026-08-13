@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SIRUMAH Kota Pangkalpinang v91 — Satu Data, Hunian Layak untuk Semua</title>
+  <title>SIRUMAH Kota Pangkalpinang v92 — Satu Data, Hunian Layak untuk Semua</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -1321,7 +1321,7 @@
 
   <style>
     /* =========================================================
-       EXECUTIVE ALERT — SIRUMAH v91
+       EXECUTIVE ALERT — SIRUMAH v92
        ========================================================= */
     .executive-alert-card-v88{
       margin-top:18px;
@@ -1574,7 +1574,7 @@
 
 
   <style>
-    /* Timeline Perumahan v1 — SIRUMAH v91 */
+    /* Timeline Perumahan v1 — SIRUMAH v92 */
     .housing-profile-link-v90{appearance:none;border:0;padding:0;margin:0;background:transparent;color:#0f3f50;font:inherit;font-weight:900;text-align:left;cursor:pointer;text-decoration:underline;text-decoration-color:rgba(15,63,80,.25);text-underline-offset:3px}
     .housing-profile-link-v90:hover,.housing-profile-link-v90:focus-visible{color:#0e7490;text-decoration-color:#0e7490;outline:none}
     .housing-profile-overlay-v90{position:fixed;inset:0;z-index:12000;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(15,23,42,.58);backdrop-filter:blur(5px)}
@@ -1630,7 +1630,7 @@
 
   <style>
     /* =========================================================
-       SNAPSHOT TAHUNAN — SIRUMAH v91
+       SNAPSHOT TAHUNAN — SIRUMAH v92
        ========================================================= */
     .annual-snapshot-card-v91{margin-bottom:18px;overflow:hidden}
     .annual-snapshot-head-v91{align-items:flex-start;gap:16px}
@@ -1686,6 +1686,390 @@
     @media(max-width:1100px){.annual-snapshot-preview-grid-v91{grid-template-columns:repeat(3,minmax(0,1fr))}.annual-snapshot-change-grid-v91{grid-template-columns:repeat(2,minmax(0,1fr))}}
     @media(max-width:760px){.annual-snapshot-head-v91,.annual-snapshot-preview-head-v91,.annual-snapshot-compare-head-v91{flex-direction:column;align-items:flex-start}.annual-snapshot-selects-v91{width:100%;align-items:flex-end;flex-wrap:wrap}.annual-snapshot-selects-v91 label{flex:1 1 140px}.annual-snapshot-selects-v91 select{width:100%;min-width:0}.annual-snapshot-preview-grid-v91,.annual-snapshot-change-grid-v91{grid-template-columns:1fr 1fr}}
     @media(max-width:480px){.annual-snapshot-preview-grid-v91,.annual-snapshot-change-grid-v91{grid-template-columns:1fr}}
+  </style>
+
+
+  <style>
+    /* =========================================================
+       PETA ANALITIK TERPADU v1 — SIRUMAH v92
+       ========================================================= */
+    .housing-analytic-card-v92{
+      overflow:hidden;
+    }
+    .housing-map-head-v92{
+      align-items:flex-start;
+      gap:16px;
+    }
+    .housing-map-eyebrow-v92{
+      margin-bottom:4px;
+      color:#0e7490;
+      font-size:9px;
+      font-weight:950;
+      letter-spacing:.95px;
+    }
+    .housing-map-head-actions-v92{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .housing-map-mode-v92{
+      display:inline-flex;
+      padding:3px;
+      border:1px solid #dbe5ea;
+      border-radius:11px;
+      background:#f8fafc;
+    }
+    .housing-map-mode-v92 button{
+      border:0;
+      border-radius:8px;
+      padding:7px 10px;
+      background:transparent;
+      color:#64748b;
+      font-size:10px;
+      font-weight:900;
+      cursor:pointer;
+    }
+    .housing-map-mode-v92 button.active{
+      background:#0f3f50;
+      color:#fff;
+      box-shadow:0 2px 7px rgba(15,63,80,.14);
+    }
+    .housing-map-fullscreen-v92{
+      min-height:34px;
+      padding:6px 10px;
+      border:1px solid #cbd5e1;
+      border-radius:10px;
+      background:#fff;
+      color:#0f3f50;
+      font-size:10px;
+      font-weight:900;
+      cursor:pointer;
+    }
+    .housing-map-fullscreen-v92:hover{
+      background:#f1f5f9;
+    }
+    .housing-analytic-layout-v92{
+      display:grid;
+      grid-template-columns:230px minmax(0,1fr);
+      min-height:510px;
+      border-top:1px solid #eef2f7;
+    }
+    .housing-analytic-layout-v92:has(.housing-analytic-panel-v92[hidden]){
+      grid-template-columns:1fr;
+    }
+    .housing-analytic-panel-v92{
+      padding:14px;
+      border-right:1px solid #e2e8f0;
+      background:#f8fafc;
+      overflow:auto;
+    }
+    .housing-analytic-panel-v92[hidden]{
+      display:none!important;
+    }
+    .housing-analytic-panel-section-v92 + .housing-analytic-panel-section-v92{
+      margin-top:16px;
+      padding-top:14px;
+      border-top:1px solid #e2e8f0;
+    }
+    .housing-analytic-panel-title-v92{
+      margin-bottom:8px;
+      color:#0f3f50;
+      font-size:10px;
+      font-weight:950;
+      text-transform:uppercase;
+      letter-spacing:.4px;
+    }
+    .housing-layer-toggle-v92{
+      display:block;
+      cursor:pointer;
+    }
+    .housing-layer-toggle-v92 + .housing-layer-toggle-v92{
+      margin-top:7px;
+    }
+    .housing-layer-toggle-v92 input{
+      position:absolute;
+      opacity:0;
+      pointer-events:none;
+    }
+    .housing-layer-toggle-v92 > span{
+      display:grid;
+      grid-template-columns:18px 1fr;
+      column-gap:7px;
+      row-gap:1px;
+      align-items:start;
+      padding:8px 9px;
+      border:1px solid #e2e8f0;
+      border-radius:11px;
+      background:#fff;
+      transition:border-color .15s ease,box-shadow .15s ease;
+    }
+    .housing-layer-toggle-v92 input:checked + span{
+      border-color:#8ec8d2;
+      box-shadow:0 0 0 2px rgba(14,116,144,.08);
+    }
+    .housing-layer-toggle-v92 b{
+      color:#1e293b;
+      font-size:10px;
+      line-height:1.3;
+    }
+    .housing-layer-toggle-v92 small{
+      grid-column:2;
+      color:#64748b;
+      font-size:8px;
+      line-height:1.35;
+    }
+    .housing-layer-symbol-v92{
+      width:12px;
+      height:12px;
+      margin-top:1px;
+      border:2px solid #fff;
+      border-radius:50%;
+      box-shadow:0 0 0 1px #94a3b8;
+    }
+    .housing-layer-symbol-v92.housing{background:#16a34a}
+    .housing-layer-symbol-v92.psu{background:#ea580c}
+    .housing-layer-symbol-v92.flood{background:#0284c7}
+    .housing-layer-symbol-v92.slum{
+      border-radius:3px;
+      background:#a855f7;
+    }
+    .housing-map-presets-v92{
+      display:grid;
+      gap:6px;
+    }
+    .housing-map-presets-v92 button{
+      width:100%;
+      padding:7px 8px;
+      border:1px solid #dbe5ea;
+      border-radius:9px;
+      background:#fff;
+      color:#475569;
+      font-size:9px;
+      font-weight:850;
+      text-align:left;
+      cursor:pointer;
+    }
+    .housing-map-presets-v92 button:hover{
+      border-color:#94a3b8;
+      color:#0f3f50;
+    }
+    .housing-map-scope-v92{
+      color:#0f3f50;
+      font-size:11px;
+      font-weight:900;
+    }
+    .housing-map-scope-note-v92{
+      display:block;
+      margin-top:5px;
+      color:#64748b;
+      font-size:8px;
+      line-height:1.45;
+    }
+    .housing-map-stage-v92{
+      position:relative;
+      min-width:0;
+      background:#eef2f7;
+    }
+    .housing-map-stage-v92 #map{
+      height:510px;
+      min-height:510px;
+      margin:0;
+      border-radius:0;
+    }
+    .housing-map-status-v92{
+      position:absolute;
+      left:12px;
+      bottom:12px;
+      z-index:450;
+      max-width:min(520px,calc(100% - 24px));
+      padding:7px 10px;
+      border:1px solid rgba(203,213,225,.9);
+      border-radius:10px;
+      background:rgba(255,255,255,.93);
+      color:#475569;
+      box-shadow:0 5px 16px rgba(15,23,42,.08);
+      font-size:9px;
+      font-weight:750;
+      line-height:1.4;
+      backdrop-filter:blur(5px);
+    }
+    .housing-map-status-v92.ok{
+      color:#166534;
+      border-color:#bbf7d0;
+    }
+    .housing-map-status-v92.warn{
+      color:#9a3412;
+      border-color:#fed7aa;
+    }
+    .housing-map-insight-v92{
+      display:grid;
+      grid-template-columns:minmax(220px,1.5fr) repeat(4,minmax(120px,.7fr));
+      gap:9px;
+      padding:12px 14px;
+      border-top:1px solid #e2e8f0;
+      background:#fff;
+    }
+    .housing-map-insight-v92[hidden]{
+      display:none!important;
+    }
+    .housing-map-insight-main-v92,
+    .housing-map-insight-stat-v92{
+      padding:10px 11px;
+      border:1px solid #e2e8f0;
+      border-radius:11px;
+      background:#f8fafc;
+    }
+    .housing-map-insight-main-v92 strong{
+      display:block;
+      color:#0f3f50;
+      font-size:10px;
+    }
+    .housing-map-insight-main-v92 span{
+      display:block;
+      margin-top:3px;
+      color:#64748b;
+      font-size:9px;
+      line-height:1.45;
+    }
+    .housing-map-insight-stat-v92 span{
+      display:block;
+      color:#64748b;
+      font-size:8px;
+      font-weight:850;
+      text-transform:uppercase;
+    }
+    .housing-map-insight-stat-v92 strong{
+      display:block;
+      margin-top:4px;
+      color:#0f3f50;
+      font-size:17px;
+      line-height:1.2;
+    }
+    .housing-map-popup-v92{
+      min-width:225px;
+      line-height:1.45;
+    }
+    .housing-map-popup-v92 h4{
+      margin:0 0 3px;
+      color:#0f3f50;
+      font-size:14px;
+    }
+    .housing-map-popup-v92 .meta{
+      color:#64748b;
+      font-size:10px;
+    }
+    .housing-map-popup-v92 .detail{
+      margin-top:7px;
+      color:#334155;
+      font-size:10px;
+    }
+    .housing-map-popup-actions-v92{
+      display:grid;
+      gap:5px;
+      margin-top:9px;
+    }
+    .housing-map-popup-actions-v92 a,
+    .housing-map-popup-actions-v92 button{
+      width:100%;
+      box-sizing:border-box;
+      border:0;
+      padding:0;
+      background:transparent;
+      color:#0e7490;
+      font-size:10px;
+      font-weight:900;
+      text-align:left;
+      text-decoration:underline;
+      cursor:pointer;
+    }
+    .housing-map-popup-actions-v92 a.street{
+      color:#b91c1c;
+    }
+    .housing-map-analytic-legend-v92{
+      display:flex;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+    #housingMapModule:fullscreen{
+      display:flex;
+      flex-direction:column;
+      width:100%;
+      height:100%;
+      margin:0!important;
+      border-radius:0;
+      background:#fff;
+    }
+    #housingMapModule:fullscreen .housing-analytic-layout-v92{
+      flex:1;
+      min-height:0;
+    }
+    #housingMapModule:fullscreen .housing-map-stage-v92 #map{
+      height:100%;
+      min-height:0;
+    }
+
+    @media(max-width:900px){
+      .housing-map-head-v92{
+        flex-direction:column;
+      }
+      .housing-map-head-actions-v92{
+        width:100%;
+        justify-content:flex-start;
+      }
+      .housing-analytic-layout-v92{
+        grid-template-columns:1fr;
+      }
+      .housing-analytic-panel-v92{
+        border-right:0;
+        border-bottom:1px solid #e2e8f0;
+      }
+      .housing-analytic-panel-v92 .housing-analytic-panel-section-v92:first-child{
+        display:grid;
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:7px;
+      }
+      .housing-analytic-panel-v92 .housing-analytic-panel-section-v92:first-child .housing-analytic-panel-title-v92{
+        grid-column:1/-1;
+        margin-bottom:0;
+      }
+      .housing-layer-toggle-v92 + .housing-layer-toggle-v92{
+        margin-top:0;
+      }
+      .housing-map-insight-v92{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+      .housing-map-insight-main-v92{
+        grid-column:1/-1;
+      }
+    }
+    @media(max-width:560px){
+      .housing-map-mode-v92,
+      .housing-map-fullscreen-v92{
+        width:100%;
+      }
+      .housing-map-mode-v92 button{
+        flex:1;
+      }
+      .housing-map-fullscreen-v92{
+        display:block;
+      }
+      .housing-analytic-panel-v92 .housing-analytic-panel-section-v92:first-child{
+        grid-template-columns:1fr;
+      }
+      .housing-map-insight-v92{
+        grid-template-columns:1fr;
+      }
+      .housing-map-insight-main-v92{
+        grid-column:auto;
+      }
+      .housing-map-stage-v92 #map{
+        height:430px;
+        min-height:430px;
+      }
+    }
   </style>
 
 </head>
@@ -1880,16 +2264,71 @@
         </div>
       </div>
     
-      <!-- v75: Peta Persebaran Perumahan dipindahkan ke bawah Modul Data Perumahan. -->
-      <div class="card" id="housingMapModule" style="margin-top:18px;">
-        <div class="card-header">
+      <!-- v92: Peta Persebaran ditingkatkan menjadi Peta Analitik Terpadu tanpa menambah menu sidebar. -->
+      <div class="card housing-analytic-card-v92" id="housingMapModule" style="margin-top:18px;">
+        <div class="card-header housing-map-head-v92">
           <div>
-            <h3>Peta Persebaran Perumahan</h3>
-            <p>Marker hijau = PSU sudah diserahkan. Marker merah = PSU belum diserahkan. Data tanpa koordinat tetap tampil pada tabel, tetapi tidak muncul di peta.</p>
+            <div class="housing-map-eyebrow-v92">DATA SPASIAL SIRUMAH</div>
+            <h3 id="housingMapTitleV92">Peta Persebaran Perumahan</h3>
+            <p id="housingMapDescriptionV92">Marker hijau = PSU sudah diserahkan. Marker merah = PSU belum diserahkan. Data tanpa koordinat tetap tampil pada tabel, tetapi tidak muncul di peta.</p>
+          </div>
+          <div class="housing-map-head-actions-v92">
+            <div class="housing-map-mode-v92" aria-label="Mode peta">
+              <button type="button" class="active" data-housing-map-mode="perumahan" onclick="setHousingMapModeV92('perumahan')">Perumahan</button>
+              <button type="button" data-housing-map-mode="analitik" onclick="setHousingMapModeV92('analitik')">Analitik</button>
+            </div>
+            <button type="button" class="housing-map-fullscreen-v92" onclick="toggleHousingMapFullscreenV92()">⛶ Fullscreen</button>
           </div>
         </div>
-        <div id="map"></div>
-        <div class="legend">
+
+        <div class="housing-analytic-layout-v92">
+          <aside class="housing-analytic-panel-v92" id="housingAnalyticPanelV92" hidden>
+            <div class="housing-analytic-panel-section-v92">
+              <div class="housing-analytic-panel-title-v92">Layer Peta</div>
+              <label class="housing-layer-toggle-v92">
+                <input type="checkbox" id="analyticLayerHousingV92" checked onchange="renderMap()">
+                <span><i class="housing-layer-symbol-v92 housing"></i><b>Perumahan</b><small>Seluruh perumahan berkoordinat</small></span>
+              </label>
+              <label class="housing-layer-toggle-v92 private-only">
+                <input type="checkbox" id="analyticLayerPsuV92" onchange="renderMap()">
+                <span><i class="housing-layer-symbol-v92 psu"></i><b>PSU Prioritas</b><small>PSU milik Pemda skor ≥ 50</small></span>
+              </label>
+              <label class="housing-layer-toggle-v92 private-only">
+                <input type="checkbox" id="analyticLayerFloodV92" onchange="renderMap()">
+                <span><i class="housing-layer-symbol-v92 flood"></i><b>Rawan Genangan/Banjir</b><small>Berdasarkan catatan data aktif</small></span>
+              </label>
+              <label class="housing-layer-toggle-v92">
+                <input type="checkbox" id="analyticLayerSlumV92" checked onchange="renderMap()">
+                <span><i class="housing-layer-symbol-v92 slum"></i><b>Kawasan Kumuh</b><small>Polygon/titik data terkini</small></span>
+              </label>
+            </div>
+
+            <div class="housing-analytic-panel-section-v92">
+              <div class="housing-analytic-panel-title-v92">Analisis Cepat</div>
+              <div class="housing-map-presets-v92">
+                <button type="button" onclick="applyHousingMapPresetV92('housing')">Semua Perumahan</button>
+                <button type="button" class="private-only" onclick="applyHousingMapPresetV92('psu')">PSU Milik Pemda Prioritas</button>
+                <button type="button" class="private-only" onclick="applyHousingMapPresetV92('flood')">Rawan Genangan</button>
+                <button type="button" onclick="applyHousingMapPresetV92('slum')">Kawasan Kumuh</button>
+              </div>
+            </div>
+
+            <div class="housing-analytic-panel-section-v92">
+              <div class="housing-analytic-panel-title-v92">Cakupan</div>
+              <div class="housing-map-scope-v92" id="housingMapScopeV92">Seluruh Kota</div>
+              <small class="housing-map-scope-note-v92">Layer perumahan mengikuti filter aktif Data Perumahan. Kawasan kumuh mengikuti filter Kecamatan global.</small>
+            </div>
+          </aside>
+
+          <div class="housing-map-stage-v92">
+            <div id="map"></div>
+            <div class="housing-map-status-v92" id="housingAnalyticStatusV92">Peta akan aktif ketika menu Data Perumahan dibuka.</div>
+          </div>
+        </div>
+
+        <div class="housing-map-insight-v92" id="housingMapInsightV92" hidden></div>
+
+        <div class="legend" id="housingMapLegendV92">
           <span><i class="dot green"></i> PSU sudah diserahkan</span>
           <span><i class="dot red"></i> PSU belum diserahkan</span>
           <span><i class="dot orange"></i> Data tanpa koordinat tidak ditampilkan di peta</span>
@@ -2869,6 +3308,7 @@ let page = 1;
 let pageSize = 20;
 let map = null;
 let mapLayer = null;
+let housingMapModeV92 = "perumahan";
 let publicMode = true;
 
 /*
@@ -3305,7 +3745,7 @@ function drawDonut(id, values, labels, colors){
 function roundRect(ctx,x,y,w,h,r){ if(h<r) r=Math.max(0,h/2); ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
 
 /* =========================================================
-   PROFIL STATUS PSU PERUMAHAN — SIRUMAH v91
+   PROFIL STATUS PSU PERUMAHAN — SIRUMAH v92
    ========================================================= */
 function renderPSU(){
   const s = summary(filtered);
@@ -3444,8 +3884,11 @@ function renderRanking(){
 }
 
 function initMap(){
+  syncHousingMapControlsV92();
   if(typeof L === "undefined"){
     document.getElementById("map").innerHTML = "<div style='padding:20px;color:#64748b;'>Leaflet tidak dapat dimuat. Pastikan perangkat terhubung internet untuk menampilkan peta.</div>";
+    const status=document.getElementById("housingAnalyticStatusV92");
+    if(status){status.className="housing-map-status-v92 warn";status.textContent="Peta belum dapat ditampilkan karena pustaka Leaflet tidak termuat.";}
     return;
   }
   if(!map){
@@ -3457,38 +3900,331 @@ function initMap(){
   }
   renderMap();
 }
-function renderMap(){
+function housingMapScopeTextV92(){
+  const select=document.getElementById("globalKecamatan");
+  const value=select?.value || "all";
+  const label=select?.selectedOptions?.[0]?.textContent || value;
+  return value==="all" ? "Seluruh Kota" : `Kecamatan ${label}`;
+}
+
+function housingMapLatestSlumYearV92(){
+  const selected=document.getElementById("globalKecamatan")?.value || "all";
+  const rows=(SIRUMAH_RUNTIME?.slumLocations || []).filter(row=>
+    selected==="all" || normalizeKecamatanName(row.district)===normalizeKecamatanName(selected)
+  );
+  const years=rows.map(row=>Number(row.dataYear||0)).filter(Boolean);
+  return years.length ? Math.max(...years) : 0;
+}
+
+function housingMapSlumRowsV92(){
+  const selected=document.getElementById("globalKecamatan")?.value || "all";
+  const latest=housingMapLatestSlumYearV92();
+  if(!latest) return [];
+  return (SIRUMAH_RUNTIME?.slumLocations || []).filter(row=>
+    Number(row.dataYear||0)===latest &&
+    (selected==="all" || normalizeKecamatanName(row.district)===normalizeKecamatanName(selected))
+  );
+}
+
+function housingMapHasCoordinatesV92(row){
+  if(row?.lat===null || row?.lat===undefined || row?.lng===null || row?.lng===undefined) return false;
+  if(String(row.lat).trim()==="" || String(row.lng).trim()==="") return false;
+  const lat=Number(row.lat),lng=Number(row.lng);
+  return Number.isFinite(lat) && Number.isFinite(lng) && lat>=-90 && lat<=90 && lng>=-180 && lng<=180;
+}
+
+function housingMapIsFloodV92(row){
+  return /banjir|genangan/i.test(String(row?.catatan||""));
+}
+
+function housingMapIsPemdaPriorityV92(row){
+  const status=String(row?.statusPSU||"").toUpperCase();
+  return status.includes("SUDAH") && priorityMatrix(row).total>=50;
+}
+
+function housingMapPopupV92(row,variant="housing"){
+  const lat=Number(row.lat),lng=Number(row.lng);
+  const maps=`https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
+  const street=`https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${lat},${lng}`;
+  const matrix=priorityMatrix(row);
+  let detail=`Site plan ${fmt(row.siteplan)} · terbangun ${fmt(row.terbangun)} · terhuni ${fmt(row.terhuni)} unit.`;
+  if(variant==="psu") detail=`PSU milik Pemda · skor prioritas ${matrix.total}/100 (${matrix.level}).`;
+  if(variant==="flood") detail=`Indikasi rawan genangan/banjir berdasarkan catatan data aktif.`;
+  const internalDetail=!publicMode && variant!=="housing"
+    ? `<div class="detail">${escapeHtml(matrix.rincian.slice(0,3).join(" · ") || row.catatan || "Perlu verifikasi kondisi")}</div>`
+    : "";
+  return `<div class="housing-map-popup-v92">
+    <h4>${escapeHtml(row.nama)}</h4>
+    <div class="meta">${escapeHtml(row.kelurahan)}, ${escapeHtml(row.kecamatan)}</div>
+    <div class="detail">${badge(row.statusPSU)}<br>${escapeHtml(detail)}</div>
+    ${internalDetail}
+    <div class="housing-map-popup-actions-v92">
+      ${housingProfileButtonV90(row)}
+      <a href="${maps}" target="_blank" rel="noopener noreferrer">Buka di Google Maps</a>
+      <a class="street" href="${street}" target="_blank" rel="noopener noreferrer">Street View</a>
+    </div>
+  </div>`;
+}
+
+function housingMapSlumPopupV92(row){
+  const maps=Number.isFinite(row.latitude)&&Number.isFinite(row.longitude)
+    ? `<a href="https://www.google.com/maps/search/?api=1&query=${row.latitude},${row.longitude}" target="_blank" rel="noopener noreferrer">Buka di Google Maps</a>`
+    : "";
+  return `<div class="housing-map-popup-v92">
+    <h4>${escapeHtml(row.name||row.village||"Kawasan Kumuh")}</h4>
+    <div class="meta">${escapeHtml(row.village||"-")}${row.district?`, ${escapeHtml(row.district)}`:""}</div>
+    <div class="detail">Data ${escapeHtml(String(row.dataYear||"-"))} · luas ${fmtHaV74(row.areaHa||0)} Ha · ${fmt(row.rtCount||0)} RT.<br>Status penanganan: ${escapeHtml(row.handlingStatus||"-")}.</div>
+    ${maps?`<div class="housing-map-popup-actions-v92">${maps}</div>`:""}
+  </div>`;
+}
+
+function housingMapAddBoundsV92(bounds,layer,row){
+  if(layer?.getBounds){
+    try{
+      const b=layer.getBounds();
+      if(b?.isValid?.()){
+        bounds.push(b.getSouthWest(),b.getNorthEast());
+        return;
+      }
+    }catch(_){}
+  }
+  if(row && Number.isFinite(Number(row.lat)) && Number.isFinite(Number(row.lng))){
+    bounds.push([Number(row.lat),Number(row.lng)]);
+  }else if(row && Number.isFinite(Number(row.latitude)) && Number.isFinite(Number(row.longitude))){
+    bounds.push([Number(row.latitude),Number(row.longitude)]);
+  }
+}
+
+function syncHousingMapControlsV92(){
+  const panel=document.getElementById("housingAnalyticPanelV92");
+  const insight=document.getElementById("housingMapInsightV92");
+  const housingLayer=document.getElementById("analyticLayerHousingV92");
+  const psuLayer=document.getElementById("analyticLayerPsuV92");
+  const floodLayer=document.getElementById("analyticLayerFloodV92");
+  const slumLayer=document.getElementById("analyticLayerSlumV92");
+  if(publicMode){
+    if(psuLayer) psuLayer.checked=false;
+    if(floodLayer) floodLayer.checked=false;
+    if(housingMapModeV92==="analitik" && !housingLayer?.checked && !slumLayer?.checked && housingLayer) housingLayer.checked=true;
+  }
+  const title=document.getElementById("housingMapTitleV92");
+  const description=document.getElementById("housingMapDescriptionV92");
+  const scope=document.getElementById("housingMapScopeV92");
+  document.querySelectorAll("[data-housing-map-mode]").forEach(button=>
+    button.classList.toggle("active",button.dataset.housingMapMode===housingMapModeV92)
+  );
+  const analytic=housingMapModeV92==="analitik";
+  if(panel) panel.hidden=!analytic;
+  if(insight) insight.hidden=!analytic;
+  if(scope) scope.textContent=housingMapScopeTextV92();
+  if(title) title.textContent=analytic ? "Peta Analitik SIRUMAH" : "Peta Persebaran Perumahan";
+  if(description) description.textContent=analytic
+    ? "Gabungkan layer spasial untuk membaca konsentrasi persoalan perumahan dan permukiman. Layer internal hanya tersedia setelah Mode Internal aktif."
+    : "Marker hijau = PSU sudah diserahkan. Marker merah = PSU belum diserahkan. Data tanpa koordinat tetap tampil pada tabel, tetapi tidak muncul di peta.";
+}
+
+function setHousingMapModeV92(mode){
+  housingMapModeV92=mode==="analitik" ? "analitik" : "perumahan";
+  syncHousingMapControlsV92();
+  renderMap();
+  setTimeout(()=>map?.invalidateSize?.(),80);
+}
+
+function applyHousingMapPresetV92(preset){
+  housingMapModeV92="analitik";
+  const housing=document.getElementById("analyticLayerHousingV92");
+  const psu=document.getElementById("analyticLayerPsuV92");
+  const flood=document.getElementById("analyticLayerFloodV92");
+  const slum=document.getElementById("analyticLayerSlumV92");
+  if(housing) housing.checked=preset==="housing";
+  if(psu) psu.checked=!publicMode && preset==="psu";
+  if(flood) flood.checked=!publicMode && preset==="flood";
+  if(slum) slum.checked=preset==="slum";
+  syncHousingMapControlsV92();
+  renderMap();
+}
+
+function toggleHousingMapFullscreenV92(){
+  const module=document.getElementById("housingMapModule");
+  if(!module) return;
+  if(document.fullscreenElement===module){
+    document.exitFullscreen?.();
+  }else{
+    module.requestFullscreen?.();
+  }
+  setTimeout(()=>map?.invalidateSize?.(),160);
+}
+
+function renderHousingMapLegendV92(){
+  const legend=document.getElementById("housingMapLegendV92");
+  if(!legend) return;
+  if(housingMapModeV92!=="analitik"){
+    legend.innerHTML=`<span><i class="dot green"></i> PSU sudah diserahkan</span>
+      <span><i class="dot red"></i> PSU belum diserahkan</span>
+      <span><i class="dot orange"></i> Data tanpa koordinat tidak ditampilkan di peta</span>`;
+    return;
+  }
+  legend.innerHTML=`<div class="housing-map-analytic-legend-v92">
+    <span><i class="dot green"></i> Perumahan / PSU sudah</span>
+    <span class="private-only"><i class="dot orange"></i> PSU Pemda prioritas tinggi</span>
+    <span class="private-only"><i class="dot" style="background:#0284c7"></i> Rawan genangan/banjir</span>
+    <span><i class="dot" style="background:#a855f7"></i> Kawasan kumuh terkini</span>
+  </div>`;
+}
+
+function renderHousingMapInsightV92(stats){
+  const el=document.getElementById("housingMapInsightV92");
+  if(!el || housingMapModeV92!=="analitik") return;
+  const internalSummary=publicMode
+    ? `Peta menampilkan data spasial publik yang tersedia pada ${housingMapScopeTextV92()}.`
+    : `${fmt(stats.psuTotal)} PSU milik Pemda berprioritas Tinggi/Sangat Tinggi dan ${fmt(stats.floodTotal)} perumahan dengan indikasi genangan/banjir terdeteksi pada filter aktif.`;
+  el.innerHTML=`
+    <div class="housing-map-insight-main-v92">
+      <strong>Insight Peta</strong>
+      <span>${escapeHtml(internalSummary)}</span>
+    </div>
+    <div class="housing-map-insight-stat-v92"><span>Perumahan Spasial</span><strong>${fmt(stats.housingSpatial)}</strong></div>
+    <div class="housing-map-insight-stat-v92 private-only"><span>PSU Prioritas</span><strong>${fmt(stats.psuTotal)}</strong></div>
+    <div class="housing-map-insight-stat-v92 private-only"><span>Rawan Genangan</span><strong>${fmt(stats.floodTotal)}</strong></div>
+    <div class="housing-map-insight-stat-v92"><span>Kawasan Kumuh</span><strong>${fmt(stats.slumTotal)}</strong></div>`;
+}
+
+function renderStandardHousingMapV92(){
   if(!map || !mapLayer) return;
   mapLayer.clearLayers();
-  const points = filtered.filter(x=>Number.isFinite(x.lat)&&Number.isFinite(x.lng));
-  points.forEach(x=>{
-    const color = x.statusPSU.includes("SUDAH") ? "#16a34a" : "#dc2626";
-    const lat = Number(x.lat);
-    const lng = Number(x.lng);
-    const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
-    const streetViewUrl = `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${lat},${lng}`;
-    const popupHtml = `
-      <div style="min-width:220px;line-height:1.45;">
-        <strong style="font-size:15px;">${escapeHtml(x.nama)}</strong><br>
-        ${escapeHtml(x.kelurahan)}, ${escapeHtml(x.kecamatan)}<br>
-        ${badge(x.statusPSU)}<br>
-        Site plan: ${fmt(x.siteplan)} unit<br>
-        ${publicMode ? "" : noteBadges(x.catatan)}
-        <div style="margin-top:10px;display:grid;gap:4px;">
-          <a href="${googleMapsUrl}" target="_blank" rel="noopener noreferrer" style="color:#2563eb;font-weight:800;text-decoration:underline;">&gt;&gt; Buka di Google Maps</a>
-          <a href="${streetViewUrl}" target="_blank" rel="noopener noreferrer" style="color:#dc2626;font-weight:800;text-decoration:underline;">&gt;&gt; Street View</a>
-        </div>
-      </div>
-    `;
-    L.circleMarker([lat,lng], {radius:7,color:"#fff",weight:2,fillColor:color,fillOpacity:.9})
-      .bindPopup(popupHtml, {maxWidth: 320})
-      .addTo(mapLayer);
+  const points=filtered.filter(housingMapHasCoordinatesV92);
+  const bounds=[];
+  points.forEach(row=>{
+    const color=String(row.statusPSU||"").includes("SUDAH") ? "#16a34a" : "#dc2626";
+    const layer=L.circleMarker([Number(row.lat),Number(row.lng)],{
+      radius:7,color:"#fff",weight:2,fillColor:color,fillOpacity:.9
+    }).bindPopup(housingMapPopupV92(row,"housing"),{maxWidth:340}).addTo(mapLayer);
+    housingMapAddBoundsV92(bounds,layer,row);
   });
-  if(points.length){
-    const bounds = L.latLngBounds(points.map(x=>[x.lat,x.lng]));
-    map.fitBounds(bounds.pad(0.12));
+  if(bounds.length) map.fitBounds(L.latLngBounds(bounds).pad(.12));
+  else map.setView([-2.12,106.11],12);
+  const status=document.getElementById("housingAnalyticStatusV92");
+  if(status){
+    status.className=`housing-map-status-v92 ${points.length?"ok":"warn"}`;
+    status.textContent=points.length
+      ? `${fmt(points.length)} dari ${fmt(filtered.length)} perumahan pada filter aktif memiliki koordinat dan ditampilkan.`
+      : `${fmt(filtered.length)} perumahan sesuai filter, tetapi belum ada koordinat yang dapat ditampilkan.`;
   }
-  setTimeout(()=>map.invalidateSize(),100);
+}
+
+function renderAnalyticHousingMapV92(){
+  if(!map || !mapLayer) return;
+  mapLayer.clearLayers();
+
+  const layerHousing=Boolean(document.getElementById("analyticLayerHousingV92")?.checked);
+  const layerPsu=!publicMode && Boolean(document.getElementById("analyticLayerPsuV92")?.checked);
+  const layerFlood=!publicMode && Boolean(document.getElementById("analyticLayerFloodV92")?.checked);
+  const layerSlum=Boolean(document.getElementById("analyticLayerSlumV92")?.checked);
+
+  const housingRows=filtered;
+  const housingSpatial=housingRows.filter(housingMapHasCoordinatesV92);
+  const psuRows=housingRows.filter(housingMapIsPemdaPriorityV92);
+  const psuSpatial=psuRows.filter(housingMapHasCoordinatesV92);
+  const floodRows=housingRows.filter(housingMapIsFloodV92);
+  const floodSpatial=floodRows.filter(housingMapHasCoordinatesV92);
+  const slumRows=housingMapSlumRowsV92();
+  const bounds=[];
+  let rendered=0;
+
+  if(layerHousing){
+    housingSpatial.forEach(row=>{
+      const handed=String(row.statusPSU||"").toUpperCase().includes("SUDAH");
+      const layer=L.circleMarker([Number(row.lat),Number(row.lng)],{
+        radius:5,color:"#fff",weight:1.5,
+        fillColor:handed?"#16a34a":"#dc2626",fillOpacity:.68
+      }).bindPopup(housingMapPopupV92(row,"housing"),{maxWidth:340}).addTo(mapLayer);
+      housingMapAddBoundsV92(bounds,layer,row);
+      rendered++;
+    });
+  }
+
+  if(layerPsu){
+    psuSpatial.forEach(row=>{
+      const matrix=priorityMatrix(row);
+      const layer=L.circleMarker([Number(row.lat),Number(row.lng)],{
+        radius:9,color:"#fff",weight:2.5,
+        fillColor:matrix.total>=75?"#dc2626":"#ea580c",fillOpacity:.96
+      }).bindPopup(housingMapPopupV92(row,"psu"),{maxWidth:350}).addTo(mapLayer);
+      housingMapAddBoundsV92(bounds,layer,row);
+      rendered++;
+    });
+  }
+
+  if(layerFlood){
+    floodSpatial.forEach(row=>{
+      const layer=L.circleMarker([Number(row.lat),Number(row.lng)],{
+        radius:9,color:"#fff",weight:2.5,fillColor:"#0284c7",fillOpacity:.93
+      }).bindPopup(housingMapPopupV92(row,"flood"),{maxWidth:350}).addTo(mapLayer);
+      housingMapAddBoundsV92(bounds,layer,row);
+      rendered++;
+    });
+  }
+
+  if(layerSlum){
+    slumRows.forEach(row=>{
+      let layer=null;
+      if(row.geojson){
+        try{
+          const geo=JSON.parse(row.geojson);
+          layer=L.geoJSON(geo,{
+            style:{color:"#7e22ce",weight:2.5,fillColor:"#a855f7",fillOpacity:.20}
+          }).bindPopup(housingMapSlumPopupV92(row),{maxWidth:350}).addTo(mapLayer);
+          housingMapAddBoundsV92(bounds,layer,row);
+          rendered++;
+        }catch(error){
+          console.warn(`GeoJSON Peta Analitik ${row.id||row.name||""} tidak valid:`,error);
+        }
+      }
+      if(!layer && Number.isFinite(row.latitude)&&Number.isFinite(row.longitude)){
+        layer=L.circleMarker([row.latitude,row.longitude],{
+          radius:9,color:"#fff",weight:2.5,fillColor:"#a855f7",fillOpacity:.92
+        }).bindPopup(housingMapSlumPopupV92(row),{maxWidth:350}).addTo(mapLayer);
+        housingMapAddBoundsV92(bounds,layer,row);
+        rendered++;
+      }
+    });
+  }
+
+  if(bounds.length) map.fitBounds(L.latLngBounds(bounds).pad(.14));
+  else map.setView([-2.12,106.11],12);
+
+  const stats={
+    housingSpatial:housingSpatial.length,
+    psuTotal:psuRows.length,
+    psuSpatial:psuSpatial.length,
+    floodTotal:floodRows.length,
+    floodSpatial:floodSpatial.length,
+    slumTotal:slumRows.length
+  };
+  renderHousingMapInsightV92(stats);
+
+  const activeLabels=[
+    layerHousing?"Perumahan":"",
+    layerPsu?"PSU Prioritas":"",
+    layerFlood?"Rawan Genangan/Banjir":"",
+    layerSlum?"Kawasan Kumuh":""
+  ].filter(Boolean);
+  const status=document.getElementById("housingAnalyticStatusV92");
+  if(status){
+    status.className=`housing-map-status-v92 ${rendered?"ok":"warn"}`;
+    status.textContent=activeLabels.length
+      ? `${fmt(rendered)} objek/layer spasial ditampilkan · ${activeLabels.join(" · ")}.`
+      : "Belum ada layer yang dipilih. Aktifkan minimal satu layer pada panel Analitik.";
+  }
+}
+
+function renderMap(){
+  syncHousingMapControlsV92();
+  renderHousingMapLegendV92();
+  if(!map || !mapLayer) return;
+  if(housingMapModeV92==="analitik") renderAnalyticHousingMapV92();
+  else renderStandardHousingMapV92();
+  setTimeout(()=>map?.invalidateSize?.(),100);
 }
 
 
@@ -3737,6 +4473,7 @@ function initNavigation(){
 }
 
 window.addEventListener("resize",()=>setTimeout(renderCharts,100));
+document.addEventListener("fullscreenchange",()=>setTimeout(()=>map?.invalidateSize?.(),140));
 
 
 /* ================================
@@ -5547,7 +6284,7 @@ function getAggregateHousingQualityRows(){
 
 
 /* =========================================================
-   MODUL KANONIK RTLH & RLH — SIRUMAH v91
+   MODUL KANONIK RTLH & RLH — SIRUMAH v92
    Satu implementasi aktif untuk:
    - renderRTLHAggregate()
    - renderRTLH()
@@ -5895,7 +6632,7 @@ function nextRusunawaUnitPage(){
 }
 
 /* =========================================================
-   MODUL KANONIK RUSUNAWA — SIRUMAH v91
+   MODUL KANONIK RUSUNAWA — SIRUMAH v92
    Satu implementasi aktif untuk renderRusunawa().
 
    Modul mempertahankan:
@@ -7076,7 +7813,7 @@ function backlogTotalV67(rows,key){
 }
 
 /* =========================================================
-   MODUL KANONIK BACKLOG — SIRUMAH v91
+   MODUL KANONIK BACKLOG — SIRUMAH v92
    Satu implementasi aktif untuk:
    - renderBacklogAggregate()
    - renderBacklog()
@@ -7167,7 +7904,7 @@ function renderBacklogAggregate(){
 }
 
 /* =========================================================
-   MODUL KANONIK KPI BERANDA — SIRUMAH v91
+   MODUL KANONIK KPI BERANDA — SIRUMAH v92
    Satu implementasi aktif untuk renderKPI().
 
    Konsolidasi mempertahankan secara setara:
@@ -7829,7 +8566,7 @@ function renderKawasanKumuh(){
 
 
 /* =========================================================
-   EXECUTIVE ALERT v1 — SIRUMAH v91
+   EXECUTIVE ALERT v1 — SIRUMAH v92
    Rule-based, khusus Mode Internal.
    Sumber: PSU Pemda, RTLH, RUSUNAWA, Kawasan Kumuh.
    ========================================================= */
@@ -8097,7 +8834,7 @@ function renderExecutiveAlertsV88(){
 
 
 /* =========================================================
-   TIMELINE PERUMAHAN v1 — SIRUMAH v91
+   TIMELINE PERUMAHAN v1 — SIRUMAH v92
    Dibentuk otomatis dari field PERUMAHAN yang tersedia.
    ========================================================= */
 let housingProfileActiveIdV90=null;
@@ -8278,7 +9015,7 @@ document.addEventListener("keydown",event=>{
 
 
 /* =========================================================
-   SNAPSHOT TAHUNAN — SIRUMAH v91
+   SNAPSHOT TAHUNAN — SIRUMAH v92
    Database aktif = kondisi sekarang.
    SNAPSHOT_TAHUNAN = histori kondisi resmi per tahun/wilayah.
    ========================================================= */
@@ -8611,7 +9348,7 @@ function renderAnnualSnapshotV91(){
 
 
 /* =========================================================
-   MODUL KANONIK SIKLUS RENDER — SIRUMAH v91
+   MODUL KANONIK SIKLUS RENDER — SIRUMAH v92
    Konsolidasi bertahap:
    - satu renderCharts()
    - satu renderAll()
@@ -8684,7 +9421,7 @@ function renderAll(){
 }
 
 /* =========================================================
-   MODUL KANONIK LAPORAN & INTEGRASI — SIRUMAH v91
+   MODUL KANONIK LAPORAN & INTEGRASI — SIRUMAH v92
    Satu implementasi aktif untuk:
    - renderReportStats
    - generateReport
@@ -8733,7 +9470,7 @@ document.addEventListener("DOMContentLoaded",()=>{const f=document.getElementByI
 document.addEventListener("DOMContentLoaded", init);
 </script>
 
-  <!-- Timeline Perumahan v1 — SIRUMAH v91 -->
+  <!-- Timeline Perumahan v1 — SIRUMAH v92 -->
   <div class="housing-profile-overlay-v90" id="housingProfileOverlayV90" aria-hidden="true"
        onclick="handleHousingProfileOverlayClickV90(event)">
     <section class="housing-profile-modal-v90" id="housingProfileModalV90"
