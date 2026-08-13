@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SIRUMAH Kota Pangkalpinang — Satu Data, Hunian Layak untuk Semua</title>
+  <title>SIRUMAH Kota Pangkalpinang v85 — Satu Data, Hunian Layak untuk Semua</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -1221,6 +1221,103 @@
     @media(max-width:560px){.rtlh-intro-head-v76{flex-direction:column}.report-actions-v76 .btn{flex:1 1 150px}.report-text-v76{min-height:300px;height:300px}}
   </style>
 
+
+  <style>
+    /* PSU v85 */
+    .psu-profile-card-v85{overflow:hidden}
+    .psu-profile-header-v85{align-items:flex-start;gap:16px}
+    .psu-profile-scope-v85{
+      flex:0 0 auto;display:inline-flex;align-items:center;min-height:30px;
+      padding:6px 11px;border-radius:999px;border:1px solid #cbd5e1;
+      background:#f8fafc;color:#475569;font-size:11px;font-weight:900;white-space:nowrap
+    }
+    .psu-profile-body-v85{
+      display:grid;grid-template-columns:minmax(0,1.15fr) minmax(340px,.85fr);
+      gap:18px;padding:0 18px 18px
+    }
+    .psu-profile-main-v85,.psu-profile-attention-v85{min-width:0}
+    .psu-profile-kpi-grid-v85{
+      display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px
+    }
+    .psu-profile-kpi-v85{
+      min-width:0;padding:14px;border:1px solid var(--line);
+      border-radius:14px;background:#f8fafc
+    }
+    .psu-profile-kpi-v85 .label{
+      color:#64748b;font-size:10px;font-weight:950;letter-spacing:.35px;
+      text-transform:uppercase;line-height:1.35
+    }
+    .psu-profile-kpi-v85 .value{
+      margin-top:6px;color:#0f3f50;font-size:25px;font-weight:950;
+      line-height:1.05;font-variant-numeric:tabular-nums
+    }
+    .psu-profile-kpi-v85 .note{
+      display:block;margin-top:5px;color:#64748b;font-size:10px;line-height:1.4
+    }
+    .psu-profile-kpi-v85.attention .value{color:#b45309}
+    .psu-profile-progress-v85{
+      margin-top:12px;padding:14px;border:1px solid var(--line);
+      border-radius:14px;background:#fff
+    }
+    .psu-profile-progress-head-v85{
+      display:flex;justify-content:space-between;align-items:flex-start;gap:14px
+    }
+    .psu-profile-progress-head-v85 strong{color:#0f3f50;font-size:13px}
+    .psu-profile-progress-head-v85 span{
+      display:block;color:#64748b;font-size:11px;line-height:1.45;margin-top:3px
+    }
+    .psu-profile-progress-head-v85>strong{flex:0 0 auto;font-size:20px}
+    .psu-profile-progress-bar-v85{margin-top:10px}
+    .psu-profile-developer-v85{
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px
+    }
+    .psu-profile-dev-item-v85{
+      padding:11px 13px;border:1px solid var(--line);border-radius:12px;background:#f8fafc
+    }
+    .psu-profile-dev-item-v85 strong{display:block;color:#0f3f50;font-size:12px}
+    .psu-profile-dev-item-v85 span{
+      display:block;color:#64748b;margin-top:3px;font-size:10px;line-height:1.4
+    }
+    .psu-profile-attention-v85{
+      padding:14px;border:1px solid var(--line);border-radius:14px;background:#f8fafc
+    }
+    .psu-profile-section-title-v85 strong{display:block;color:#0f3f50;font-size:13px}
+    .psu-profile-section-title-v85 span{
+      display:block;margin-top:3px;color:#64748b;font-size:10px;line-height:1.45
+    }
+    .psu-attention-grid-v85{
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:12px
+    }
+    .psu-attention-item-v85{
+      display:flex;justify-content:space-between;align-items:center;gap:10px;
+      min-height:54px;padding:10px 11px;border:1px solid #e2e8f0;
+      border-radius:12px;background:#fff
+    }
+    .psu-attention-item-v85 span{
+      color:#475569;font-size:10px;line-height:1.35;font-weight:800
+    }
+    .psu-attention-item-v85 strong{
+      flex:0 0 auto;min-width:28px;text-align:right;color:#b45309;
+      font-size:17px;font-variant-numeric:tabular-nums
+    }
+    .psu-ranking-stack-v85{
+      display:grid;grid-template-columns:minmax(0,1fr);gap:18px
+    }
+    .psu-ranking-card-v85{min-width:0}
+    .psu-ranking-card-v85 .table-wrap{width:100%}
+    @media(max-width:1100px){
+      .psu-profile-body-v85{grid-template-columns:1fr}
+    }
+    @media(max-width:760px){
+      .psu-profile-header-v85{flex-direction:column}
+      .psu-profile-kpi-grid-v85{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .psu-profile-developer-v85,.psu-attention-grid-v85{grid-template-columns:1fr}
+    }
+    @media(max-width:480px){
+      .psu-profile-kpi-grid-v85{grid-template-columns:1fr}
+    }
+  </style>
+
 </head>
 
 <body class="public-mode">
@@ -1928,19 +2025,42 @@
         <button class="btn light" type="button" onclick="printDashboardSection('psu','PSU dan RTH SIRUMAH')">Cetak / PDF PSU</button>
         <button class="btn" type="button" onclick="exportSectionCSV('psu')">Export CSV PSU dan Ranking</button>
       </div>
-      <div class="grid two-col">
-        <div class="card">
-          <div class="card-header"><div><h3>Rekap PSU per Kecamatan</h3><p>Status penyerahan PSU berdasarkan lokasi perumahan. Ranking prioritas kini ditampilkan pada menu PSU.</p></div></div>
-          <div class="table-wrap">
-            <table>
-              <thead><tr><th>Kecamatan</th><th>Total</th><th>Sudah Diserahkan</th><th>Belum Diserahkan</th><th>Persentase</th></tr></thead>
-              <tbody id="psuRekapBody"></tbody>
-            </table>
+      <div class="card psu-profile-card-v85">
+        <div class="card-header psu-profile-header-v85">
+          <div>
+            <h3>Profil Status PSU Perumahan</h3>
+            <p>Gambaran status penyerahan PSU dan faktor yang memerlukan tindak lanjut pada perumahan terdata. Seluruh indikator mengikuti filter wilayah aktif.</p>
           </div>
+          <span class="psu-profile-scope-v85" id="psuProfileScope">Seluruh Kota</span>
         </div>
-        <div class="card">
-          <div class="card-header"><div><h3>Rekap Catatan RTH dan Jalan</h3><p>Identifikasi isu kawasan permukiman dari data catatan.</p></div></div>
-          <div class="stat-list" id="psuIssueList"></div>
+
+        <div class="psu-profile-body-v85">
+          <div class="psu-profile-main-v85">
+            <div class="psu-profile-kpi-grid-v85" id="psuProfileKpiGrid"></div>
+
+            <div class="psu-profile-progress-v85">
+              <div class="psu-profile-progress-head-v85">
+                <div>
+                  <strong>Capaian Penyerahan PSU</strong>
+                  <span id="psuProfileProgressText">Belum ada data aktif.</span>
+                </div>
+                <strong id="psuProfileProgressValue">0%</strong>
+              </div>
+              <div class="progress psu-profile-progress-bar-v85">
+                <i id="psuProfileProgressBar" style="width:0%"></i>
+              </div>
+            </div>
+
+            <div class="psu-profile-developer-v85" id="psuProfileDeveloperSummary"></div>
+          </div>
+
+          <div class="psu-profile-attention-v85">
+            <div class="psu-profile-section-title-v85">
+              <strong>Perlu Perhatian</strong>
+              <span>Indikator masalah yang dapat digunakan sebagai bahan penyaringan awal tindak lanjut.</span>
+            </div>
+            <div class="psu-attention-grid-v85" id="psuProfileAttentionGrid"></div>
+          </div>
         </div>
       </div>
       <div style="height:18px;"></div>
@@ -1978,8 +2098,8 @@
         </div>
       </div>
 
-      <div class="grid two-col">
-        <div class="card">
+      <div class="psu-ranking-stack-v85">
+        <div class="card psu-ranking-card-v85">
           <div class="card-header"><div><h3>Ranking Prioritas - PSU Milik Pengembang</h3><p>Urutan berdasarkan matriks administrasi, teknis, risiko, dan jumlah unit terhuni.</p></div></div>
           <div class="table-wrap">
             <table>
@@ -1988,7 +2108,7 @@
             </table>
           </div>
         </div>
-        <div class="card">
+        <div class="card psu-ranking-card-v85">
           <div class="card-header"><div><h3>Ranking Prioritas - PSU Milik Pemda</h3><p>PSU telah diserahkan; urutan terutama ditentukan kondisi teknis, risiko, usia, dan penerima manfaat.</p></div></div>
           <div class="table-wrap">
             <table>
@@ -2750,28 +2870,119 @@ function drawDonut(id, values, labels, colors){
 }
 function roundRect(ctx,x,y,w,h,r){ if(h<r) r=Math.max(0,h/2); ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
 
+/* =========================================================
+   PROFIL STATUS PSU PERUMAHAN — SIRUMAH v85
+   ========================================================= */
 function renderPSU(){
-  const g = groupByKecamatan(filtered);
-  document.getElementById("psuRekapBody").innerHTML = g.map(x=>`
-    <tr><td><strong>${escapeHtml(x.kecamatan)}</strong></td><td>${fmt(x.total)}</td><td>${fmt(x.sudah)}</td><td>${fmt(x.belum)}</td><td>${pct(x.sudah,x.total)}%</td></tr>
-  `).join("");
+  const s = summary(filtered);
+  const scopeEl = document.getElementById("psuProfileScope");
+  const kpiEl = document.getElementById("psuProfileKpiGrid");
+  const progressText = document.getElementById("psuProfileProgressText");
+  const progressValue = document.getElementById("psuProfileProgressValue");
+  const progressBar = document.getElementById("psuProfileProgressBar");
+  const developerEl = document.getElementById("psuProfileDeveloperSummary");
+  const attentionEl = document.getElementById("psuProfileAttentionGrid");
 
-  const issues = [
-    ["RTH belum terbangun", countNote("RTH belum terbangun")],
-    ["RTH terbangun", countNote("RTH terbangun")],
-    ["RTH beralih fungsi", countNote("RTH beralih fungsi")],
-    ["Jalan belum perkerasan", countNote("Jalan belum perkerasan")],
-    ["Jalan rusak ringan/sedang/berat", filtered.filter(x=>x.catatan.toLowerCase().includes("jalan rusak")).length],
-    ["Titik rawan genangan/banjir", filtered.filter(x=>x.catatan.toLowerCase().includes("genangan") || x.catatan.toLowerCase().includes("banjir")).length]
-  ];
-  document.getElementById("psuIssueList").innerHTML = issues.map(i=>`<div class="stat-row"><strong>${i[0]}</strong><span>${fmt(i[1])} perumahan</span></div>`).join("");
+  const selected = document.getElementById("globalKecamatan")?.value || "all";
+  const selectedLabel = document.getElementById("globalKecamatan")?.selectedOptions?.[0]?.textContent || selected;
+  const scopeText = selected === "all" ? "Seluruh Kota" : `Kecamatan ${selectedLabel}`;
 
-  const belum = filtered.filter(x=>x.statusPSU.includes("BELUM")).sort((a,b)=>b.score-a.score).slice(0,50);
+  const psuStatus = row => String(row?.statusPSU || "").toUpperCase();
+  const note = row => String(row?.catatan || "");
+
+  const isInactiveDeveloper = row=>/(?:pengembang\s+)?tidak aktif/i.test(note(row));
+  const isActiveDeveloper = row=>
+    /(?:pengembang\s+)?aktif/i.test(note(row)) && !isInactiveDeveloper(row);
+
+  const inactive = filtered.filter(isInactiveDeveloper).length;
+  const active = filtered.filter(isActiveDeveloper).length;
+  const inactiveUnsubmitted = filtered.filter(row=>
+    psuStatus(row).includes("BELUM") && isInactiveDeveloper(row)
+  ).length;
+  const unknownDeveloper = Math.max(0,s.total-active-inactive);
+
+  const unknownPsu = filtered.filter(row=>{
+    const value = psuStatus(row);
+    return !value.includes("SUDAH") && !value.includes("BELUM") && !value.includes("DALAM PROSES");
+  }).length;
+
+  const roadUnpaved = filtered.filter(row=>/jalan belum perkerasan/i.test(note(row))).length;
+  const roadDamaged = filtered.filter(row=>/jalan rusak/i.test(note(row))).length;
+  const rthIssue = filtered.filter(row=>/rth belum terbangun|rth beralih fungsi/i.test(note(row))).length;
+  const floodIssue = filtered.filter(row=>/banjir|genangan/i.test(note(row))).length;
+  const olderThan10 = filtered.filter(row=>Number.isFinite(Number(row.age)) && Number(row.age)>10).length;
+  const completion = pct(s.sudah,s.total);
+
+  if(scopeEl) scopeEl.textContent = scopeText;
+
+  if(kpiEl){
+    const items = [
+      ["Sudah Diserahkan",fmt(s.sudah),"perumahan · PSU milik Pemda",false],
+      ["Belum Diserahkan",fmt(s.belum),"perumahan · masih milik pengembang",s.belum>0],
+      ["Capaian Penyerahan",`${completion}%`,"dibanding total perumahan aktif",false],
+      ["Pengembang Tidak Aktif",fmt(inactive),"berdasarkan status/catatan data aktif",inactive>0]
+    ];
+    kpiEl.innerHTML = items.map(([label,value,noteText,attention])=>`
+      <div class="psu-profile-kpi-v85 ${attention?"attention":""}">
+        <div class="label">${escapeHtml(label)}</div>
+        <div class="value">${escapeHtml(String(value))}</div>
+        <span class="note">${escapeHtml(noteText)}</span>
+      </div>`).join("");
+  }
+
+  if(progressText){
+    progressText.textContent = s.total
+      ? `${fmt(s.sudah)} dari ${fmt(s.total)} perumahan telah menyerahkan PSU.`
+      : "Belum ada data perumahan pada filter aktif.";
+  }
+  if(progressValue) progressValue.textContent = `${completion}%`;
+  if(progressBar) progressBar.style.width = `${Math.min(100,Math.max(0,completion))}%`;
+
+  if(developerEl){
+    developerEl.innerHTML = `
+      <div class="psu-profile-dev-item-v85">
+        <strong>Status Pengembang Teridentifikasi</strong>
+        <span>Aktif ${fmt(active)} · Tidak aktif ${fmt(inactive)} · Belum teridentifikasi ${fmt(unknownDeveloper)} perumahan.</span>
+      </div>
+      <div class="psu-profile-dev-item-v85">
+        <strong>Status PSU Belum Jelas</strong>
+        <span>${fmt(unknownPsu)} perumahan belum dapat dikelompokkan sebagai sudah, belum, atau dalam proses penyerahan.</span>
+      </div>`;
+  }
+
+  if(attentionEl){
+    const items = [
+      ["Belum diserahkan + pengembang tidak aktif",inactiveUnsubmitted],
+      ["Jalan belum perkerasan",roadUnpaved],
+      ["Jalan rusak",roadDamaged],
+      ["RTH belum/beralih fungsi",rthIssue],
+      ["Rawan genangan/banjir",floodIssue],
+      ["Usia perumahan >10 tahun",olderThan10]
+    ];
+    attentionEl.innerHTML = items.map(([label,value])=>`
+      <div class="psu-attention-item-v85">
+        <span>${escapeHtml(label)}</span>
+        <strong>${fmt(value)}</strong>
+      </div>`).join("");
+  }
+
+  const belum = filtered
+    .filter(row=>psuStatus(row).includes("BELUM"))
+    .sort((a,b)=>Number(b.score||0)-Number(a.score||0))
+    .slice(0,50);
   const belumPsuBody = document.getElementById("belumPsuBody");
-  if (belumPsuBody) {
-    belumPsuBody.innerHTML = belum.map((x,i)=>`
-      <tr><td>${i+1}</td><td><strong>${escapeHtml(x.nama)}</strong></td><td>${escapeHtml(x.kecamatan)}</td><td>${escapeHtml(x.pengembang)}</td><td>${fmt(x.siteplan)}</td><td>${fmt(x.terbangun)}</td><td>${noteBadges(x.catatan)}</td><td><strong>${x.score}</strong></td></tr>
-    `).join("");
+  if(belumPsuBody){
+    belumPsuBody.innerHTML = belum.length ? belum.map((row,index)=>`
+      <tr>
+        <td>${index+1}</td>
+        <td><strong>${escapeHtml(row.nama)}</strong></td>
+        <td>${escapeHtml(row.kecamatan)}</td>
+        <td>${escapeHtml(row.pengembang)}</td>
+        <td>${fmt(row.siteplan)}</td>
+        <td>${fmt(row.terbangun)}</td>
+        <td>${noteBadges(row.catatan)}</td>
+        <td><strong>${row.score}</strong></td>
+      </tr>`).join("") : `<tr><td colspan="8" class="empty-state">Tidak ada data PSU belum diserahkan pada filter aktif.</td></tr>`;
   }
 }
 
@@ -4834,7 +5045,7 @@ function getAggregateHousingQualityRows(){
 
 
 /* =========================================================
-   MODUL KANONIK RTLH & RLH — SIRUMAH v84
+   MODUL KANONIK RTLH & RLH — SIRUMAH v85
    Satu implementasi aktif untuk:
    - renderRTLHAggregate()
    - renderRTLH()
@@ -5182,7 +5393,7 @@ function nextRusunawaUnitPage(){
 }
 
 /* =========================================================
-   MODUL KANONIK RUSUNAWA — SIRUMAH v84
+   MODUL KANONIK RUSUNAWA — SIRUMAH v85
    Satu implementasi aktif untuk renderRusunawa().
 
    Modul mempertahankan:
@@ -6326,7 +6537,7 @@ function backlogTotalV67(rows,key){
 }
 
 /* =========================================================
-   MODUL KANONIK BACKLOG — SIRUMAH v84
+   MODUL KANONIK BACKLOG — SIRUMAH v85
    Satu implementasi aktif untuk:
    - renderBacklogAggregate()
    - renderBacklog()
@@ -6417,7 +6628,7 @@ function renderBacklogAggregate(){
 }
 
 /* =========================================================
-   MODUL KANONIK KPI BERANDA — SIRUMAH v84
+   MODUL KANONIK KPI BERANDA — SIRUMAH v85
    Satu implementasi aktif untuk renderKPI().
 
    Konsolidasi mempertahankan secara setara:
@@ -7107,7 +7318,7 @@ function renderKawasanKumuh(){
 
 
 /* =========================================================
-   MODUL KANONIK SIKLUS RENDER — SIRUMAH v84
+   MODUL KANONIK SIKLUS RENDER — SIRUMAH v85
    Konsolidasi bertahap:
    - satu renderCharts()
    - satu renderAll()
@@ -7178,7 +7389,7 @@ function renderAll(){
 }
 
 /* =========================================================
-   MODUL KANONIK LAPORAN & INTEGRASI — SIRUMAH v84
+   MODUL KANONIK LAPORAN & INTEGRASI — SIRUMAH v85
    Satu implementasi aktif untuk:
    - renderReportStats
    - generateReport
