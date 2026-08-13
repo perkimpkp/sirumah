@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SIRUMAH Kota Pangkalpinang v87 — Satu Data, Hunian Layak untuk Semua</title>
+  <title>SIRUMAH Kota Pangkalpinang v88 — Satu Data, Hunian Layak untuk Semua</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -1318,6 +1318,260 @@
     }
   </style>
 
+
+  <style>
+    /* =========================================================
+       EXECUTIVE ALERT — SIRUMAH v88
+       ========================================================= */
+    .executive-alert-card-v88{
+      margin-top:18px;
+      margin-bottom:18px;
+      overflow:hidden;
+      border-top:4px solid #b91c1c;
+    }
+    .executive-alert-header-v88{
+      align-items:flex-start;
+      gap:18px;
+    }
+    .executive-alert-eyebrow-v88{
+      margin-bottom:4px;
+      color:#b91c1c;
+      font-size:9px;
+      font-weight:950;
+      letter-spacing:.9px;
+    }
+    .executive-alert-header-right-v88{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .executive-alert-scope-v88,
+    .executive-alert-total-v88{
+      display:inline-flex;
+      align-items:center;
+      min-height:30px;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:10px;
+      font-weight:900;
+      white-space:nowrap;
+    }
+    .executive-alert-scope-v88{
+      color:#475569;
+      background:#f8fafc;
+      border:1px solid #cbd5e1;
+    }
+    .executive-alert-total-v88{
+      color:#991b1b;
+      background:#fef2f2;
+      border:1px solid #fecaca;
+    }
+    .executive-alert-summary-v88{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      padding:0 18px 14px;
+    }
+    .executive-alert-summary-pill-v88{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      min-height:28px;
+      padding:5px 9px;
+      border-radius:999px;
+      border:1px solid #e2e8f0;
+      background:#f8fafc;
+      color:#475569;
+      font-size:10px;
+      font-weight:850;
+    }
+    .executive-alert-summary-pill-v88 strong{
+      font-size:11px;
+      font-variant-numeric:tabular-nums;
+    }
+    .executive-alert-summary-pill-v88.urgent{
+      border-color:#fecaca;
+      background:#fef2f2;
+      color:#991b1b;
+    }
+    .executive-alert-summary-pill-v88.high{
+      border-color:#fed7aa;
+      background:#fff7ed;
+      color:#9a3412;
+    }
+    .executive-alert-summary-pill-v88.verify{
+      border-color:#fde68a;
+      background:#fffbeb;
+      color:#854d0e;
+    }
+    .executive-alert-list-v88{
+      display:grid;
+      gap:10px;
+      padding:0 18px 18px;
+    }
+    .executive-alert-item-v88{
+      display:grid;
+      grid-template-columns:auto minmax(0,1fr) auto;
+      gap:12px;
+      align-items:center;
+      padding:12px 13px;
+      border:1px solid #e2e8f0;
+      border-left:5px solid #cbd5e1;
+      border-radius:14px;
+      background:#fff;
+      transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease;
+    }
+    .executive-alert-item-v88:hover{
+      transform:translateY(-1px);
+      box-shadow:0 8px 20px rgba(15,63,80,.08);
+    }
+    .executive-alert-item-v88.urgent{border-left-color:#dc2626}
+    .executive-alert-item-v88.high{border-left-color:#ea580c}
+    .executive-alert-item-v88.verify{border-left-color:#ca8a04}
+    .executive-alert-icon-v88{
+      width:42px;
+      height:42px;
+      border-radius:13px;
+      display:grid;
+      place-items:center;
+      background:#f8fafc;
+      font-size:21px;
+      flex:0 0 auto;
+    }
+    .executive-alert-content-v88{
+      min-width:0;
+    }
+    .executive-alert-meta-v88{
+      display:flex;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:6px;
+      margin-bottom:4px;
+    }
+    .executive-alert-module-v88,
+    .executive-alert-severity-v88{
+      display:inline-flex;
+      align-items:center;
+      min-height:22px;
+      padding:3px 7px;
+      border-radius:999px;
+      font-size:9px;
+      font-weight:950;
+      letter-spacing:.35px;
+      text-transform:uppercase;
+    }
+    .executive-alert-module-v88{
+      background:#e0f2fe;
+      color:#075985;
+    }
+    .executive-alert-severity-v88.urgent{
+      background:#fee2e2;
+      color:#991b1b;
+    }
+    .executive-alert-severity-v88.high{
+      background:#ffedd5;
+      color:#9a3412;
+    }
+    .executive-alert-severity-v88.verify{
+      background:#fef3c7;
+      color:#854d0e;
+    }
+    .executive-alert-content-v88 h4{
+      margin:0;
+      color:#0f3f50;
+      font-size:13px;
+      line-height:1.35;
+    }
+    .executive-alert-content-v88 p{
+      margin:4px 0 0;
+      color:#64748b;
+      font-size:10px;
+      line-height:1.5;
+    }
+    .executive-alert-action-v88{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:32px;
+      padding:6px 10px;
+      border:1px solid #cbd5e1;
+      border-radius:10px;
+      background:#f8fafc;
+      color:#0f3f50;
+      font-size:10px;
+      font-weight:900;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+    .executive-alert-action-v88:hover{
+      background:#eef6f8;
+      border-color:#94a3b8;
+    }
+    .executive-alert-empty-v88{
+      padding:18px;
+      border:1px dashed #cbd5e1;
+      border-radius:14px;
+      background:#f8fafc;
+      text-align:center;
+      color:#64748b;
+      font-size:11px;
+      line-height:1.5;
+    }
+    .executive-alert-empty-v88 strong{
+      display:block;
+      color:#0f3f50;
+      font-size:13px;
+      margin-bottom:3px;
+    }
+    .executive-alert-footer-v88{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      padding:11px 18px;
+      border-top:1px solid #e2e8f0;
+      background:#f8fafc;
+      color:#64748b;
+      font-size:9px;
+      line-height:1.4;
+    }
+    .executive-alert-rule-v88{
+      text-align:right;
+      font-weight:800;
+    }
+
+    @media(max-width:760px){
+      .executive-alert-header-v88,
+      .executive-alert-footer-v88{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .executive-alert-header-right-v88{
+        justify-content:flex-start;
+      }
+      .executive-alert-item-v88{
+        grid-template-columns:auto minmax(0,1fr);
+      }
+      .executive-alert-action-v88{
+        grid-column:1/-1;
+        width:100%;
+      }
+      .executive-alert-rule-v88{
+        text-align:left;
+      }
+    }
+  </style>
+
+
+  <style>
+    .executive-alert-target-v88{
+      outline:3px solid rgba(14,116,144,.28);
+      box-shadow:0 0 0 6px rgba(14,116,144,.08),0 12px 30px rgba(15,63,80,.12)!important;
+    }
+  </style>
+
 </head>
 
 <body class="public-mode">
@@ -1413,6 +1667,28 @@
 
       <div id="executiveStatusBar" class="executive-status" aria-live="polite"></div>
       <div class="executive-kpi-grid" id="kpiGrid"></div>
+
+      <div class="card private-only executive-alert-card-v88" id="executiveAlertCard">
+        <div class="card-header executive-alert-header-v88">
+          <div>
+            <div class="executive-alert-eyebrow-v88">PENGENDALIAN INTERNAL</div>
+            <h3>Executive Alert</h3>
+            <p>Isu prioritas lintas modul yang memerlukan perhatian berdasarkan data aktif SIRUMAH.</p>
+          </div>
+          <div class="executive-alert-header-right-v88">
+            <span class="executive-alert-scope-v88" id="executiveAlertScope">Seluruh Kota</span>
+            <span class="executive-alert-total-v88" id="executiveAlertTotal">0 alert</span>
+          </div>
+        </div>
+
+        <div class="executive-alert-summary-v88" id="executiveAlertSummary"></div>
+        <div class="executive-alert-list-v88" id="executiveAlertList"></div>
+
+        <div class="executive-alert-footer-v88">
+          <span id="executiveAlertFootnote">Menampilkan maksimal 5 isu dengan prioritas tertinggi.</span>
+          <span class="executive-alert-rule-v88">Rule v1 · PSU Pemda · RTLH · RUSUNAWA · Kawasan Kumuh</span>
+        </div>
+      </div>
 
       <div class="card attention-card private-only home-action-card">
         <div class="card-header">
@@ -2098,7 +2374,7 @@
       </div>
 
       <div class="psu-ranking-stack-v85">
-        <div class="card psu-ranking-card-v85">
+        <div class="card psu-ranking-card-v85" id="psuRankingPemdaCard">
           <div class="card-header"><div><h3>Ranking Prioritas - PSU Milik Pemda</h3><p>PSU telah diserahkan; urutan terutama ditentukan kondisi teknis, risiko, usia, dan penerima manfaat.</p></div></div>
           <div class="table-wrap">
             <table>
@@ -2870,7 +3146,7 @@ function drawDonut(id, values, labels, colors){
 function roundRect(ctx,x,y,w,h,r){ if(h<r) r=Math.max(0,h/2); ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
 
 /* =========================================================
-   PROFIL STATUS PSU PERUMAHAN — SIRUMAH v87
+   PROFIL STATUS PSU PERUMAHAN — SIRUMAH v88
    ========================================================= */
 function renderPSU(){
   const s = summary(filtered);
@@ -5044,7 +5320,7 @@ function getAggregateHousingQualityRows(){
 
 
 /* =========================================================
-   MODUL KANONIK RTLH & RLH — SIRUMAH v87
+   MODUL KANONIK RTLH & RLH — SIRUMAH v88
    Satu implementasi aktif untuk:
    - renderRTLHAggregate()
    - renderRTLH()
@@ -5392,7 +5668,7 @@ function nextRusunawaUnitPage(){
 }
 
 /* =========================================================
-   MODUL KANONIK RUSUNAWA — SIRUMAH v87
+   MODUL KANONIK RUSUNAWA — SIRUMAH v88
    Satu implementasi aktif untuk renderRusunawa().
 
    Modul mempertahankan:
@@ -6573,7 +6849,7 @@ function backlogTotalV67(rows,key){
 }
 
 /* =========================================================
-   MODUL KANONIK BACKLOG — SIRUMAH v87
+   MODUL KANONIK BACKLOG — SIRUMAH v88
    Satu implementasi aktif untuk:
    - renderBacklogAggregate()
    - renderBacklog()
@@ -6664,7 +6940,7 @@ function renderBacklogAggregate(){
 }
 
 /* =========================================================
-   MODUL KANONIK KPI BERANDA — SIRUMAH v87
+   MODUL KANONIK KPI BERANDA — SIRUMAH v88
    Satu implementasi aktif untuk renderKPI().
 
    Konsolidasi mempertahankan secara setara:
@@ -7348,8 +7624,276 @@ function renderKawasanKumuh(){
 }
 
 
+
 /* =========================================================
-   MODUL KANONIK SIKLUS RENDER — SIRUMAH v87
+   EXECUTIVE ALERT v1 — SIRUMAH v88
+   Rule-based, khusus Mode Internal.
+   Sumber: PSU Pemda, RTLH, RUSUNAWA, Kawasan Kumuh.
+   ========================================================= */
+
+function executiveAlertSeverityRankV88(value){
+  return ({"Mendesak":3,"Tinggi":2,"Perlu Verifikasi":1})[String(value||"")] || 0;
+}
+
+function executiveAlertClassV88(value){
+  if(value==="Mendesak") return "urgent";
+  if(value==="Tinggi") return "high";
+  return "verify";
+}
+
+function executiveAlertScopeV88(){
+  const value=document.getElementById("globalKecamatan")?.value || "all";
+  const label=document.getElementById("globalKecamatan")?.selectedOptions?.[0]?.textContent || value;
+  return value==="all" ? "Seluruh Kota" : `Kecamatan ${label}`;
+}
+
+function executiveAlertKumuhLatestYearV88(){
+  const selected=document.getElementById("globalKecamatan")?.value || "all";
+  const scoped=(SIRUMAH_RUNTIME?.slumLocations || []).filter(row=>
+    selected==="all" || normalizeKecamatanName(row.district)===normalizeKecamatanName(selected)
+  );
+  const years=scoped.map(row=>Number(row.dataYear||0)).filter(Boolean);
+  return years.length ? Math.max(...years) : 0;
+}
+
+function executiveAlertKumuhRowsV88(){
+  const latest=executiveAlertKumuhLatestYearV88();
+  const selected=document.getElementById("globalKecamatan")?.value || "all";
+  return (SIRUMAH_RUNTIME?.slumLocations || []).filter(row=>{
+    const sameYear=latest ? Number(row.dataYear||0)===Number(latest) : false;
+    const sameDistrict=selected==="all" || normalizeKecamatanName(row.district)===normalizeKecamatanName(selected);
+    return sameYear && sameDistrict;
+  });
+}
+
+function buildExecutiveAlertsV88(){
+  const alerts=[];
+
+  // 1. PSU MILIK PEMDA
+  [...filtered]
+    .filter(row=>String(row.statusPSU||"").toUpperCase().includes("SUDAH"))
+    .map(row=>({row,matrix:priorityMatrix(row)}))
+    .filter(item=>item.matrix.total>=50)
+    .sort((a,b)=>b.matrix.total-a.matrix.total || Number(b.row.terhuni||0)-Number(a.row.terhuni||0))
+    .slice(0,3)
+    .forEach(({row,matrix})=>{
+      const severity=matrix.total>=75 ? "Mendesak" : "Tinggi";
+      const reasons=matrix.rincian
+        .filter(text=>!/PSU belum diserahkan|pengembang tidak aktif/i.test(text))
+        .slice(0,3);
+      alerts.push({
+        source:"PSU",
+        icon:"🛣️",
+        severity,
+        priority:matrix.total,
+        title:`${row.nama || "Perumahan"} — ${row.kecamatan || "-"}`,
+        description:`PSU telah menjadi milik Pemda · Skor ${matrix.total}/100${reasons.length?` · ${reasons.join(" · ")}`:" · memerlukan verifikasi kondisi teknis"}.`,
+        section:"psu",
+        target:"psu-pemda"
+      });
+    });
+
+  // 2. RTLH
+  const activeRTLH=getHomeRTLHRowsV59().filter(row=>!homeIsFinishedV59(row));
+  const veryHigh=activeRTLH.filter(row=>row.tingkatPrioritas==="Sangat Tinggi");
+  const high=activeRTLH.filter(row=>row.tingkatPrioritas==="Tinggi");
+  const undetermined=activeRTLH.filter(row=>!row.hasSkor || row.tingkatPrioritas==="Belum Dapat Ditentukan");
+
+  if(veryHigh.length){
+    const adminIncomplete=veryHigh.filter(row=>/belum/i.test(String(row.statusAdministrasi||""))).length;
+    alerts.push({
+      source:"RTLH",
+      icon:"🏠",
+      severity:"Mendesak",
+      priority:90 + Math.min(9,veryHigh.length),
+      title:`${fmt(veryHigh.length)} usulan RTLH Prioritas Sangat Tinggi`,
+      description:`Belum selesai ditangani pada ${executiveAlertScopeV88()}${adminIncomplete?` · ${fmt(adminIncomplete)} administrasi belum lengkap`:""}.`,
+      section:"rtlh",
+      filter:"Sangat Tinggi"
+    });
+  }else if(high.length){
+    const adminIncomplete=high.filter(row=>/belum/i.test(String(row.statusAdministrasi||""))).length;
+    alerts.push({
+      source:"RTLH",
+      icon:"🏠",
+      severity:"Tinggi",
+      priority:70 + Math.min(9,high.length),
+      title:`${fmt(high.length)} usulan RTLH Prioritas Tinggi`,
+      description:`Belum selesai ditangani pada ${executiveAlertScopeV88()}${adminIncomplete?` · ${fmt(adminIncomplete)} administrasi belum lengkap`:""}.`,
+      section:"rtlh",
+      filter:"Tinggi"
+    });
+  }
+
+  if(undetermined.length){
+    alerts.push({
+      source:"RTLH",
+      icon:"🏠",
+      severity:"Perlu Verifikasi",
+      priority:30 + Math.min(9,undetermined.length),
+      title:`${fmt(undetermined.length)} usulan RTLH belum dapat ditentukan prioritasnya`,
+      description:"Skor atau data verifikasi belum cukup untuk menetapkan tingkat prioritas.",
+      section:"rtlh"
+    });
+  }
+
+  // 3. RUSUNAWA
+  const units=SIRUMAH_RUNTIME?.rusunawaUnits || [];
+  const unusable=units.filter(row=>
+    /tidak dapat digunakan|tidak dapat dipakai|tidak operasional/i.test(String(row.status||"")) ||
+    /rusak berat/i.test(String(row.condition||""))
+  );
+  if(unusable.length){
+    alerts.push({
+      source:"RUSUNAWA",
+      icon:"🏢",
+      severity:"Mendesak",
+      priority:85 + Math.min(9,unusable.length),
+      title:`${fmt(unusable.length)} unit RUSUNAWA tidak operasional / rusak berat`,
+      description:"Memerlukan evaluasi kondisi unit dan penetapan tindak lanjut teknis.",
+      section:"rusunawa"
+    });
+  }
+
+  const urgentFacilities=(SIRUMAH_RUNTIME?.rusunawaFacilities || []).filter(row=>{
+    const priority=String(row.priority||"");
+    const status=String(row.followupStatus||"");
+    return /tinggi|darurat|mendesak|urgent/i.test(priority) && !/selesai|tuntas/i.test(status);
+  });
+  if(urgentFacilities.length){
+    const critical=urgentFacilities.some(row=>/darurat|mendesak|urgent/i.test(String(row.priority||"")) || /rusak berat/i.test(String(row.condition||"")));
+    alerts.push({
+      source:"RUSUNAWA",
+      icon:"🔧",
+      severity:critical?"Mendesak":"Tinggi",
+      priority:(critical?82:68) + Math.min(9,urgentFacilities.length),
+      title:`${fmt(urgentFacilities.length)} sarpras RUSUNAWA berprioritas tinggi`,
+      description:"Tindak lanjut belum tercatat selesai pada data sarana dan prasarana.",
+      section:"rusunawa"
+    });
+  }
+
+  // 4. KAWASAN KUMUH — hanya data tahun terkini.
+  const latestYear=executiveAlertKumuhLatestYearV88();
+  const slumRows=executiveAlertKumuhRowsV88();
+  const unhandled=slumRows.filter(row=>/belum|tidak ditangani|belum ditangani/i.test(String(row.handlingStatus||"")));
+  const unknownHandling=slumRows.filter(row=>!String(row.handlingStatus||"").trim());
+
+  if(unhandled.length){
+    const area=unhandled.reduce((sum,row)=>sum+Number(row.areaHa||0),0);
+    alerts.push({
+      source:"Kawasan Kumuh",
+      icon:"🗺️",
+      severity:"Tinggi",
+      priority:72 + Math.min(9,unhandled.length),
+      title:`${fmt(unhandled.length)} lokasi kawasan kumuh belum ditangani`,
+      description:`Data terkini ${latestYear||"-"} · total luas ${fmtHaV74(area)} Ha pada ${executiveAlertScopeV88()}.`,
+      section:"kawasan-kumuh"
+    });
+  }
+  if(unknownHandling.length){
+    alerts.push({
+      source:"Kawasan Kumuh",
+      icon:"🗺️",
+      severity:"Perlu Verifikasi",
+      priority:35 + Math.min(9,unknownHandling.length),
+      title:`${fmt(unknownHandling.length)} lokasi belum memiliki status penanganan`,
+      description:`Data kawasan kumuh tahun ${latestYear||"-"} memerlukan pelengkapan status penanganan.`,
+      section:"kawasan-kumuh"
+    });
+  }
+
+  return alerts.sort((a,b)=>
+    executiveAlertSeverityRankV88(b.severity)-executiveAlertSeverityRankV88(a.severity) ||
+    Number(b.priority||0)-Number(a.priority||0) ||
+    String(a.source||"").localeCompare(String(b.source||""),"id")
+  );
+}
+
+function openExecutiveAlertV88(section,filterValue="",target=""){
+  if(section==="rtlh"){
+    openHomeTargetV59("rtlh",filterValue);
+    return;
+  }
+
+  openHomeTargetV59(section);
+
+  if(section==="psu" && target==="psu-pemda"){
+    setTimeout(()=>{
+      const card=document.getElementById("psuRankingPemdaCard");
+      if(card){
+        card.scrollIntoView({behavior:"smooth",block:"start"});
+        card.classList.add("executive-alert-target-v88");
+        setTimeout(()=>card.classList.remove("executive-alert-target-v88"),1800);
+      }
+    },180);
+  }
+}
+
+function renderExecutiveAlertsV88(){
+  const card=document.getElementById("executiveAlertCard");
+  const list=document.getElementById("executiveAlertList");
+  const summary=document.getElementById("executiveAlertSummary");
+  const total=document.getElementById("executiveAlertTotal");
+  const scope=document.getElementById("executiveAlertScope");
+  const footnote=document.getElementById("executiveAlertFootnote");
+  if(!card || !list || !summary || !total) return;
+
+  if(publicMode){
+    list.innerHTML="";
+    summary.innerHTML="";
+    total.textContent="0 alert";
+    if(scope) scope.textContent=executiveAlertScopeV88();
+    return;
+  }
+
+  const alerts=buildExecutiveAlertsV88();
+  const shown=alerts.slice(0,5);
+  const counts={
+    "Mendesak":alerts.filter(item=>item.severity==="Mendesak").length,
+    "Tinggi":alerts.filter(item=>item.severity==="Tinggi").length,
+    "Perlu Verifikasi":alerts.filter(item=>item.severity==="Perlu Verifikasi").length
+  };
+
+  if(scope) scope.textContent=executiveAlertScopeV88();
+  total.textContent=`${fmt(alerts.length)} alert`;
+  summary.innerHTML=`
+    <span class="executive-alert-summary-pill-v88 urgent"><strong>${fmt(counts["Mendesak"])}</strong> Mendesak</span>
+    <span class="executive-alert-summary-pill-v88 high"><strong>${fmt(counts["Tinggi"])}</strong> Tinggi</span>
+    <span class="executive-alert-summary-pill-v88 verify"><strong>${fmt(counts["Perlu Verifikasi"])}</strong> Perlu Verifikasi</span>`;
+
+  if(!shown.length){
+    list.innerHTML=`<div class="executive-alert-empty-v88"><strong>Tidak ada Executive Alert aktif.</strong>Belum ditemukan kondisi yang memenuhi rule prioritas v1 pada data dan filter wilayah saat ini.</div>`;
+  }else{
+    list.innerHTML=shown.map(item=>{
+      const cls=executiveAlertClassV88(item.severity);
+      const filterArg=JSON.stringify(String(item.filter||""));
+      const targetArg=JSON.stringify(String(item.target||""));
+      return `<div class="executive-alert-item-v88 ${cls}">
+        <div class="executive-alert-icon-v88" aria-hidden="true">${item.icon}</div>
+        <div class="executive-alert-content-v88">
+          <div class="executive-alert-meta-v88">
+            <span class="executive-alert-module-v88">${escapeHtml(item.source)}</span>
+            <span class="executive-alert-severity-v88 ${cls}">${escapeHtml(item.severity)}</span>
+          </div>
+          <h4>${escapeHtml(item.title)}</h4>
+          <p>${escapeHtml(item.description)}</p>
+        </div>
+        <button type="button" class="executive-alert-action-v88" onclick='openExecutiveAlertV88(${JSON.stringify(item.section)},${filterArg},${targetArg})'>Buka ${escapeHtml(item.source)} →</button>
+      </div>`;
+    }).join("");
+  }
+
+  if(footnote){
+    footnote.textContent=alerts.length>5
+      ? `Menampilkan 5 dari ${fmt(alerts.length)} alert dengan prioritas tertinggi.`
+      : `Menampilkan ${fmt(alerts.length)} alert aktif berdasarkan rule prioritas v1.`;
+  }
+}
+
+
+/* =========================================================
+   MODUL KANONIK SIKLUS RENDER — SIRUMAH v88
    Konsolidasi bertahap:
    - satu renderCharts()
    - satu renderAll()
@@ -7391,6 +7935,7 @@ function renderCharts(){
 function renderAll(){
   safeRenderSIRUMAH(renderExecutiveStatusV59,"Status Beranda");
   safeRenderSIRUMAH(renderKPI,"KPI Beranda");
+  safeRenderSIRUMAH(renderExecutiveAlertsV88,"Executive Alert");
   safeRenderSIRUMAH(renderPrimaryBerandaChartV34,"Analisis Beranda");
   safeRenderSIRUMAH(renderPublicPsuSummaryV59,"PSU Publik");
   safeRenderSIRUMAH(renderHousingQualityV34,"Kualitas Hunian");
@@ -7420,7 +7965,7 @@ function renderAll(){
 }
 
 /* =========================================================
-   MODUL KANONIK LAPORAN & INTEGRASI — SIRUMAH v87
+   MODUL KANONIK LAPORAN & INTEGRASI — SIRUMAH v88
    Satu implementasi aktif untuk:
    - renderReportStats
    - generateReport
