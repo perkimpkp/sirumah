@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SIRUMAH Kota Pangkalpinang v88 — Satu Data, Hunian Layak untuk Semua</title>
+  <title>SIRUMAH Kota Pangkalpinang v89 — Satu Data, Hunian Layak untuk Semua</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -1321,7 +1321,7 @@
 
   <style>
     /* =========================================================
-       EXECUTIVE ALERT — SIRUMAH v88
+       EXECUTIVE ALERT — SIRUMAH v89
        ========================================================= */
     .executive-alert-card-v88{
       margin-top:18px;
@@ -1651,21 +1651,12 @@
       <div class="access-mode-scope" id="accessModeScope">AKSES PUBLIK</div>
     </div>
 
-    <div id="excelStatusBar" class="data-source-bar" aria-live="polite">
-      <div class="data-source-main">
-        <strong>Menyiapkan sumber data SIRUMAH</strong>
-        <span>Dashboard akan memuat otomatis <b>./data/Template_Resmi_Database_SIRUMAH.xlsx</b>. Jika gagal, seluruh indikator tetap bernilai 0 sampai workbook Excel yang valid berhasil dimuat.</span>
-      </div>
-      <div class="sheet-counts" id="excelSheetCounts"></div>
-    </div>
-
     <!-- Beranda v66: pemisahan usulan aktif dan riwayat penanganan RTLH. -->
     <section class="section active" id="beranda">
       <div class="section-actionbar">
         <button class="btn light" type="button" onclick="printDashboardSection('beranda','Beranda SIRUMAH')">Cetak / PDF Beranda</button>
       </div>
 
-      <div id="executiveStatusBar" class="executive-status" aria-live="polite"></div>
       <div class="executive-kpi-grid" id="kpiGrid"></div>
 
       <div class="card private-only executive-alert-card-v88" id="executiveAlertCard">
@@ -3146,7 +3137,7 @@ function drawDonut(id, values, labels, colors){
 function roundRect(ctx,x,y,w,h,r){ if(h<r) r=Math.max(0,h/2); ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
 
 /* =========================================================
-   PROFIL STATUS PSU PERUMAHAN — SIRUMAH v88
+   PROFIL STATUS PSU PERUMAHAN — SIRUMAH v89
    ========================================================= */
 function renderPSU(){
   const s = summary(filtered);
@@ -5242,7 +5233,10 @@ function showExcelError(message,title="Impor Excel gagal"){
 function updateExcelStatus(){
   const bar = document.getElementById("excelStatusBar");
   const countsEl = document.getElementById("excelSheetCounts");
-  if(!bar || !countsEl) return;
+  if(!bar || !countsEl){
+    renderExcelIntegrationInfo();
+    return;
+  }
   bar.classList.remove("import-error","import-success","import-loading");
   const source = SIRUMAH_RUNTIME.source;
   const main = bar.querySelector(".data-source-main");
@@ -5320,7 +5314,7 @@ function getAggregateHousingQualityRows(){
 
 
 /* =========================================================
-   MODUL KANONIK RTLH & RLH — SIRUMAH v88
+   MODUL KANONIK RTLH & RLH — SIRUMAH v89
    Satu implementasi aktif untuk:
    - renderRTLHAggregate()
    - renderRTLH()
@@ -5668,7 +5662,7 @@ function nextRusunawaUnitPage(){
 }
 
 /* =========================================================
-   MODUL KANONIK RUSUNAWA — SIRUMAH v88
+   MODUL KANONIK RUSUNAWA — SIRUMAH v89
    Satu implementasi aktif untuk renderRusunawa().
 
    Modul mempertahankan:
@@ -6849,7 +6843,7 @@ function backlogTotalV67(rows,key){
 }
 
 /* =========================================================
-   MODUL KANONIK BACKLOG — SIRUMAH v88
+   MODUL KANONIK BACKLOG — SIRUMAH v89
    Satu implementasi aktif untuk:
    - renderBacklogAggregate()
    - renderBacklog()
@@ -6940,7 +6934,7 @@ function renderBacklogAggregate(){
 }
 
 /* =========================================================
-   MODUL KANONIK KPI BERANDA — SIRUMAH v88
+   MODUL KANONIK KPI BERANDA — SIRUMAH v89
    Satu implementasi aktif untuk renderKPI().
 
    Konsolidasi mempertahankan secara setara:
@@ -6963,7 +6957,6 @@ function renderKPI(){
   const rtlhAggregate = sumRows(qualityRows,"rtlh");
   const rlhAggregate = Math.max(0,sumRows(qualityRows,"rlh") || (totalHouses-rtlhAggregate));
   const rus = getBerandaRusunawaV34();
-  const service = homeServiceSummaryV59();
   const el = document.getElementById("kpiGrid");
   if(!el) return;
 
@@ -7017,17 +7010,6 @@ function renderKPI(){
           {label:"Unit Kosong",value:rus.vacant,note:"unit belum dihuni",action:"openHomeTargetV59('rusunawa')"},
           {label:"Tingkat Hunian",display:`${rus.occupancy}%`,note:"perbandingan unit terisi dan total unit",action:"openHomeTargetV59('rusunawa')"}
         ]
-      },
-      {
-        theme:"theme-service",icon:"☎️",title:"Layanan dan Pengaduan",
-        description:"Ringkasan layanan masyarakat tanpa menampilkan identitas pemohon.",
-        scope:"Cakupan: Layanan SIRUMAH",wide:true,
-        items:[
-          {label:"Total Layanan",display:service.loaded?fmt(service.total):"—",note:service.loaded?"layanan tercatat":"rekap layanan belum dimuat",action:"openHomeTargetV59('layanan')"},
-          {label:"Diverifikasi",value:service.diverifikasi,note:"telah melalui verifikasi",action:"openHomeTargetV59('layanan')"},
-          {label:"Ditindaklanjuti",value:service.ditindaklanjuti,note:"sedang atau telah ditangani",action:"openHomeTargetV59('layanan')"},
-          {label:"Selesai",value:service.selesai,note:"layanan telah diselesaikan",action:"openHomeTargetV59('layanan')"}
-        ]
       }
     ];
   }else{
@@ -7039,7 +7021,6 @@ function renderKPI(){
     const undetermined = active.filter(row=>!row.hasSkor || row.tingkatPrioritas==="Belum Dapat Ditentukan").length;
     const units = SIRUMAH_RUNTIME?.rusunawaUnits || [];
     const unitAttention = units.filter(row=>/tidak dapat digunakan|perbaikan|rusak berat/i.test(`${row.status||""} ${row.condition||""}`)).length;
-    const pendingService = Math.max(0,service.total-service.selesai);
 
     introTitle = "Ringkasan Pengendalian Perumahan dan Hunian";
     introText = "Indikator operasional dikelompokkan berdasarkan persoalan yang perlu ditangani, bukan berdasarkan struktur organisasi pengelola data.";
@@ -7087,17 +7068,6 @@ function renderKPI(){
           {label:"Unit Kosong",value:rus.vacant,note:"potensi pemanfaatan unit",action:"openHomeTargetV59('rusunawa')"},
           {label:"Unit Perlu Penanganan",value:unitAttention,note:"rusak, perbaikan, atau tidak dapat digunakan",action:"openHomeTargetV59('rusunawa')",alert:unitAttention>0},
           {label:"Sarpras Prioritas Tinggi",value:rus.highPriority,note:`capaian retribusi: ${rus.achievement===null?"belum tersedia":rus.achievement+"%"}`,action:"openHomeTargetV59('rusunawa')",alert:rus.highPriority>0}
-        ]
-      },
-      {
-        theme:"theme-service",icon:"☎️",title:"Layanan dan Pengaduan",
-        description:"Beban layanan aktif dan progres penyelesaian permohonan masyarakat.",
-        scope:"Cakupan: Layanan SIRUMAH",wide:true,
-        items:[
-          {label:"Total Layanan",display:service.loaded?fmt(service.total):"—",note:service.loaded?"layanan tercatat":"rekap belum dimuat",action:"openHomeTargetV59('layanan')"},
-          {label:"Belum Selesai",value:pendingService,note:"masih dalam proses",action:"openHomeTargetV59('layanan')",alert:pendingService>0},
-          {label:"Ditindaklanjuti",value:service.ditindaklanjuti,note:"telah masuk proses penanganan",action:"openHomeTargetV59('layanan')"},
-          {label:"Selesai",value:service.selesai,note:"layanan telah diselesaikan",action:"openHomeTargetV59('layanan')"}
         ]
       }
     ];
@@ -7626,7 +7596,7 @@ function renderKawasanKumuh(){
 
 
 /* =========================================================
-   EXECUTIVE ALERT v1 — SIRUMAH v88
+   EXECUTIVE ALERT v1 — SIRUMAH v89
    Rule-based, khusus Mode Internal.
    Sumber: PSU Pemda, RTLH, RUSUNAWA, Kawasan Kumuh.
    ========================================================= */
@@ -7893,7 +7863,7 @@ function renderExecutiveAlertsV88(){
 
 
 /* =========================================================
-   MODUL KANONIK SIKLUS RENDER — SIRUMAH v88
+   MODUL KANONIK SIKLUS RENDER — SIRUMAH v89
    Konsolidasi bertahap:
    - satu renderCharts()
    - satu renderAll()
@@ -7933,7 +7903,6 @@ function renderCharts(){
 }
 
 function renderAll(){
-  safeRenderSIRUMAH(renderExecutiveStatusV59,"Status Beranda");
   safeRenderSIRUMAH(renderKPI,"KPI Beranda");
   safeRenderSIRUMAH(renderExecutiveAlertsV88,"Executive Alert");
   safeRenderSIRUMAH(renderPrimaryBerandaChartV34,"Analisis Beranda");
@@ -7965,7 +7934,7 @@ function renderAll(){
 }
 
 /* =========================================================
-   MODUL KANONIK LAPORAN & INTEGRASI — SIRUMAH v88
+   MODUL KANONIK LAPORAN & INTEGRASI — SIRUMAH v89
    Satu implementasi aktif untuk:
    - renderReportStats
    - generateReport
