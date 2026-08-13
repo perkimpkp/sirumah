@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SIRUMAH Kota Pangkalpinang v85 — Satu Data, Hunian Layak untuk Semua</title>
+  <title>SIRUMAH Kota Pangkalpinang v87 — Satu Data, Hunian Layak untuk Semua</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -1425,7 +1425,6 @@
           <button type="button" class="active" data-home-action-tab="rtlh" onclick="setHomeActionTabV59('rtlh')">Hunian Prioritas</button>
           <button type="button" data-home-action-tab="psu" onclick="setHomeActionTabV59('psu')">PSU</button>
           <button type="button" data-home-action-tab="rusunawa" onclick="setHomeActionTabV59('rusunawa')">Hunian Sewa</button>
-          <button type="button" data-home-action-tab="layanan" onclick="setHomeActionTabV59('layanan')">Layanan</button>
         </div>
         <div class="attention-section home-action-content" id="homeActionSummary"></div>
       </div>
@@ -2100,15 +2099,6 @@
 
       <div class="psu-ranking-stack-v85">
         <div class="card psu-ranking-card-v85">
-          <div class="card-header"><div><h3>Ranking Prioritas - PSU Milik Pengembang</h3><p>Urutan berdasarkan matriks administrasi, teknis, risiko, dan jumlah unit terhuni.</p></div></div>
-          <div class="table-wrap">
-            <table>
-              <thead><tr><th>Rank</th><th>Perumahan</th><th>Kecamatan</th><th>Adm.</th><th>Teknis</th><th>Risiko</th><th>Manfaat</th><th>Total</th><th>Level</th><th>Catatan</th></tr></thead>
-              <tbody id="rankBelumBody"></tbody>
-            </table>
-          </div>
-        </div>
-        <div class="card psu-ranking-card-v85">
           <div class="card-header"><div><h3>Ranking Prioritas - PSU Milik Pemda</h3><p>PSU telah diserahkan; urutan terutama ditentukan kondisi teknis, risiko, usia, dan penerima manfaat.</p></div></div>
           <div class="table-wrap">
             <table>
@@ -2117,7 +2107,16 @@
             </table>
           </div>
         </div>
-      </div>
+      <div class="card psu-ranking-card-v85">
+          <div class="card-header"><div><h3>Ranking Prioritas - PSU Milik Pengembang</h3><p>Urutan berdasarkan matriks administrasi, teknis, risiko, dan jumlah unit terhuni.</p></div></div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Rank</th><th>Perumahan</th><th>Kecamatan</th><th>Adm.</th><th>Teknis</th><th>Risiko</th><th>Manfaat</th><th>Total</th><th>Level</th><th>Catatan</th></tr></thead>
+              <tbody id="rankBelumBody"></tbody>
+            </table>
+          </div>
+        </div>
+        </div>
 
     </section>
 
@@ -2871,7 +2870,7 @@ function drawDonut(id, values, labels, colors){
 function roundRect(ctx,x,y,w,h,r){ if(h<r) r=Math.max(0,h/2); ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
 
 /* =========================================================
-   PROFIL STATUS PSU PERUMAHAN — SIRUMAH v85
+   PROFIL STATUS PSU PERUMAHAN — SIRUMAH v87
    ========================================================= */
 function renderPSU(){
   const s = summary(filtered);
@@ -5045,7 +5044,7 @@ function getAggregateHousingQualityRows(){
 
 
 /* =========================================================
-   MODUL KANONIK RTLH & RLH — SIRUMAH v85
+   MODUL KANONIK RTLH & RLH — SIRUMAH v87
    Satu implementasi aktif untuk:
    - renderRTLHAggregate()
    - renderRTLH()
@@ -5393,7 +5392,7 @@ function nextRusunawaUnitPage(){
 }
 
 /* =========================================================
-   MODUL KANONIK RUSUNAWA — SIRUMAH v85
+   MODUL KANONIK RUSUNAWA — SIRUMAH v87
    Satu implementasi aktif untuk renderRusunawa().
 
    Modul mempertahankan:
@@ -5414,21 +5413,63 @@ function renderRusunawa(){
   const totalUnits=units.length;
   const filled=units.filter(row=>String(row.status).toLowerCase().includes("terisi")).length;
   const vacant=units.filter(row=>String(row.status).toLowerCase().includes("kosong")).length;
-  const repair=units.filter(row=>String(row.status).toLowerCase().includes("perbaikan")).length;
-  const good=units.filter(row=>String(row.condition).toLowerCase().includes("baik")).length;
-  const needRepair=units.filter(row=>/rusak|gangguan/i.test(String(row.condition))).length;
-  const ready=units.filter(row=>String(row.status).toLowerCase().includes("kosong") && String(row.condition).toLowerCase().includes("baik")).length;
+  const unavailable=units.filter(row=>/tidak dapat digunakan|tidak dapat dipakai|tidak operasional/i.test(String(row.status||""))).length;
+  const occupancy=pct(filled,totalUnits);
   const target=sumAnnualRusunawaTargets(payments);
   const realization=payments.reduce((sum,row)=>sum+Number(row.realization||0),0);
+  const achievement=target>0?pct(realization,target):null;
+  const highPriority=facilities.filter(row=>/tinggi|mendesak|urgent/i.test(String(row.priority||""))).length;
   const summaryEl=document.getElementById("rusunawaSummaryGrid");
   if(summaryEl){
-    const retributionLabel = `Realisasi Retribusi ${CURRENT_YEAR}`;
-    const retributionNote = target > 0 ? `${pct(realization,target)}% dari target tahunan` : `target tahunan ${CURRENT_YEAR} belum diisi`;
-    const internalOnlyLabels = new Set(["Dalam Perbaikan",retributionLabel,"Kondisi Baik","Perlu Perbaikan"]);
-    const items=[["Jumlah Unit",totalUnits,"unit RUSUNAWA terdata"],["Unit Terisi",filled,`${pct(filled,totalUnits)}% tingkat hunian`],["Unit Kosong",vacant,"perlu verifikasi pemanfaatan"],["Dalam Perbaikan",repair,"unit perlu tindak lanjut"],[retributionLabel,realization,retributionNote,"rupiah"],["Unit Siap Huni",ready,"kosong dengan kondisi baik"],["Kondisi Baik",good,"unit dalam kondisi baik"],["Perlu Perbaikan",needRepair,"unit dengan indikasi kerusakan"]]
-      .filter(item=>!(publicMode && internalOnlyLabels.has(item[0])));
+    const items=[
+      {
+        label:"Jumlah Unit",
+        value:totalUnits,
+        note:"unit RUSUNAWA terdata",
+        public:true
+      },
+      {
+        label:"Unit Terisi",
+        value:filled,
+        note:"unit sedang dihuni",
+        public:true
+      },
+      {
+        label:"Unit Kosong",
+        value:vacant,
+        note:"unit belum dihuni",
+        public:true
+      },
+      {
+        label:"Tingkat Hunian",
+        display:`${occupancy}%`,
+        note:`${fmt(filled)} dari ${fmt(totalUnits)} unit terisi`,
+        public:true
+      },
+      {
+        label:"Unit Tidak Dapat Digunakan",
+        value:unavailable,
+        note:"status unit tidak operasional"
+      },
+      {
+        label:`Realisasi Retribusi ${CURRENT_YEAR}`,
+        display:rupiah(realization),
+        note:"penerimaan retribusi tahun berjalan"
+      },
+      {
+        label:`Capaian Retribusi ${CURRENT_YEAR}`,
+        display:achievement===null?"-":`${achievement}%`,
+        note:target>0?`dari target tahunan ${rupiah(target)}`:`target tahunan ${CURRENT_YEAR} belum diisi`
+      },
+      {
+        label:"Sarpras Prioritas Tinggi",
+        value:highPriority,
+        note:"komponen membutuhkan tindak lanjut"
+      }
+    ].filter(item=>!publicMode || item.public);
+
     summaryEl.className="rusunawa-summary-card";
-    summaryEl.innerHTML=`<div class="summary-combo-card"><div class="summary-combo-head"><div><h3>Ringkasan Utama RUSUNAWA</h3><p>Rekap unit, tingkat hunian, retribusi, kondisi unit, dan kesiapan pemanfaatan unit.</p></div></div><div class="summary-mini-grid">${items.map(item=>`<div class="summary-mini"><div class="mini-label">${item[0]}</div><div class="mini-value">${item[3] === "rupiah" ? rupiah(item[1]) : fmt(item[1])}</div><div class="mini-note">${item[2]}</div></div>`).join("")}</div></div>`;
+    summaryEl.innerHTML=`<div class="summary-combo-card"><div class="summary-combo-head"><div><h3>Ringkasan Utama RUSUNAWA</h3><p>Rekap unit, tingkat hunian, kinerja retribusi, dan kondisi sarana prasarana RUSUNAWA.</p></div></div><div class="summary-mini-grid">${items.map(item=>`<div class="summary-mini"><div class="mini-label">${escapeHtml(item.label)}</div><div class="mini-value">${escapeHtml(String(item.display ?? fmt(item.value||0)))}</div><div class="mini-note">${escapeHtml(item.note)}</div></div>`).join("")}</div></div>`;
   }
   const filteredUnitRows=filterRusunawaUnitRows(units);
   const totalUnitPages=Math.max(1,Math.ceil(filteredUnitRows.length/Math.max(1,rusunawaUnitPageSize)));
@@ -6365,10 +6406,16 @@ function renderHomeActionSummaryV59(){
   if(!el) return;
   document.querySelectorAll("[data-home-action-tab]").forEach(button=>button.classList.toggle("active",button.dataset.homeActionTab===homeActionTabV59));
   if(homeActionTabV59 === "psu"){
-    const rows = [...filtered].filter(row=>String(row.statusPSU).includes("BELUM")).sort((a,b)=>b.score-a.score).slice(0,5);
-    el.innerHTML = `<div class="attention-title">PSU milik pengembang yang perlu ditindaklanjuti</div><div class="attention-list">${rows.length?rows.map((row,index)=>{
-      const matrix=priorityMatrix(row); return `<div class="attention-item" onclick="openHomeTargetV59('psu')"><div><strong>${index+1}. ${escapeHtml(row.nama)}</strong><small>${escapeHtml(row.kecamatan)} · ${escapeHtml(matrix.rincian.slice(0,3).join(" · ")||"PSU belum diserahkan")}</small></div><div class="attention-score">${matrix.total}</div></div>`;
-    }).join(""):`<div class="home-empty">Tidak ada PSU belum diserahkan pada filter aktif.</div>`}</div><button class="home-section-link" onclick="openHomeTargetV59('psu')">Buka matriks PSU →</button>`;
+    const rows = [...filtered]
+      .filter(row=>String(row.statusPSU||"").toUpperCase().includes("SUDAH"))
+      .map(row=>({row,matrix:priorityMatrix(row)}))
+      .filter(item=>item.matrix.total>0)
+      .sort((a,b)=>b.matrix.total-a.matrix.total || Number(b.row.terhuni||0)-Number(a.row.terhuni||0) || String(a.row.nama||"").localeCompare(String(b.row.nama||"")))
+      .slice(0,5);
+    el.innerHTML = `<div class="attention-title">PSU milik Pemda yang perlu ditindaklanjuti</div><div class="attention-list">${rows.length?rows.map((item,index)=>{
+      const row=item.row; const matrix=item.matrix;
+      return `<div class="attention-item" onclick="openHomeTargetV59('psu')"><div><strong>${index+1}. ${escapeHtml(row.nama)}</strong><small>${escapeHtml(row.kecamatan)} · ${escapeHtml(matrix.rincian.slice(0,3).join(" · ")||"Perlu verifikasi kondisi PSU")}</small></div><div class="attention-score">${matrix.total}</div></div>`;
+    }).join(""):`<div class="home-empty">Tidak ada PSU milik Pemda yang memerlukan tindak lanjut pada filter aktif.</div>`}</div><button class="home-section-link" onclick="openHomeTargetV59('psu')">Buka ranking PSU milik Pemda →</button>`;
     return;
   }
   if(homeActionTabV59 === "rusunawa"){
@@ -6380,16 +6427,6 @@ function renderHomeActionSummaryV59(){
       ...facilities.map(row=>({title:row.component||"Sarana prasarana",note:`${row.condition||"-"} · Prioritas ${row.priority||"-"}`}))
     ].slice(0,6);
     el.innerHTML = `<div class="attention-title">Unit dan sarpras yang membutuhkan penanganan</div><div class="attention-list">${list.length?list.map((row,index)=>`<div class="attention-item" onclick="openHomeTargetV59('rusunawa')"><div><strong>${index+1}. ${escapeHtml(row.title)}</strong><small>${escapeHtml(row.note)}</small></div><div class="attention-score">!</div></div>`).join(""):`<div class="home-empty">Tidak ada unit atau sarpras berprioritas tinggi.</div>`}</div><button class="home-section-link" onclick="openHomeTargetV59('rusunawa')">Buka pengelolaan RUSUNAWA →</button>`;
-    return;
-  }
-  if(homeActionTabV59 === "layanan"){
-    const s = homeServiceSummaryV59();
-    el.innerHTML = `<div class="attention-title">Rekap beban layanan</div><div class="home-summary-strip">
-      <div class="home-summary-box"><span>Diterima</span><strong>${fmt(s.diterima)}</strong></div>
-      <div class="home-summary-box"><span>Diverifikasi</span><strong>${fmt(s.diverifikasi)}</strong></div>
-      <div class="home-summary-box"><span>Ditindaklanjuti</span><strong>${fmt(s.ditindaklanjuti)}</strong></div>
-      <div class="home-summary-box"><span>Selesai</span><strong>${fmt(s.selesai)}</strong></div>
-    </div>${s.loaded?"":`<div class="home-empty">Rekap Google Sheets belum dimuat.</div>`}<button class="home-section-link" onclick="openHomeTargetV59('layanan')">Buka layanan dan pengaduan →</button>`;
     return;
   }
   const rows = getHomeRTLHRowsV59().filter(row=>!homeIsFinishedV59(row)).sort((a,b)=>homePriorityOrderV59(a.tingkatPrioritas)-homePriorityOrderV59(b.tingkatPrioritas)||(Number(b.skor||-1)-Number(a.skor||-1))).slice(0,5);
@@ -6514,7 +6551,6 @@ loadLayananSummary = async function(options={}){
   try{
     renderLayananPublicV59();
     renderLayananInternalV59();
-    if(homeActionTabV59 === "layanan") renderHomeActionSummaryV59();
     renderKPI();
   }catch(error){ console.error("Beranda layanan gagal diperbarui:",error); }
   return result;
@@ -6537,7 +6573,7 @@ function backlogTotalV67(rows,key){
 }
 
 /* =========================================================
-   MODUL KANONIK BACKLOG — SIRUMAH v85
+   MODUL KANONIK BACKLOG — SIRUMAH v87
    Satu implementasi aktif untuk:
    - renderBacklogAggregate()
    - renderBacklog()
@@ -6628,7 +6664,7 @@ function renderBacklogAggregate(){
 }
 
 /* =========================================================
-   MODUL KANONIK KPI BERANDA — SIRUMAH v85
+   MODUL KANONIK KPI BERANDA — SIRUMAH v87
    Satu implementasi aktif untuk renderKPI().
 
    Konsolidasi mempertahankan secara setara:
@@ -6725,11 +6761,6 @@ function renderKPI(){
     const high = active.filter(row=>row.tingkatPrioritas==="Tinggi").length;
     const adminIncomplete = active.filter(row=>["Sangat Tinggi","Tinggi"].includes(row.tingkatPrioritas) && /belum/i.test(row.statusAdministrasi)).length;
     const undetermined = active.filter(row=>!row.hasSkor || row.tingkatPrioritas==="Belum Dapat Ditentukan").length;
-    const notes = filtered.map(row=>String(row.catatan||"").toLocaleLowerCase("id-ID"));
-    const roadIssues = notes.filter(note=>/jalan belum perkerasan|jalan rusak/.test(note)).length;
-    const rthIssues = notes.filter(note=>/rth belum terbangun|rth beralih fungsi/.test(note)).length;
-    const floodIssues = notes.filter(note=>/banjir|genangan/.test(note)).length;
-    const inactiveDevelopers = notes.filter(note=>/pengembang tidak aktif/.test(note)).length;
     const units = SIRUMAH_RUNTIME?.rusunawaUnits || [];
     const unitAttention = units.filter(row=>/tidak dapat digunakan|perbaikan|rusak berat/i.test(`${row.status||""} ${row.condition||""}`)).length;
     const pendingService = Math.max(0,service.total-service.selesai);
@@ -6750,14 +6781,14 @@ function renderKPI(){
         ]
       },
       {
-        theme:"theme-infrastructure",icon:"🛣️",title:"PSU dan Lingkungan Perumahan",
-        description:"Status penyerahan PSU dan isu teknis pada kawasan perumahan terdata.",
+        theme:"theme-infrastructure",icon:"🛣️",title:"PSU Perumahan",
+        description:"Status penyerahan prasarana, sarana, dan utilitas pada perumahan terdata.",
         scope:"Cakupan: PSU Perumahan",
         items:[
-          {label:"PSU Belum Diserahkan",value:s.belum,note:`${pct(s.belum,s.total)}% dari perumahan`,action:"openHomeTargetV59('psu')",alert:s.belum>0},
-          {label:"Isu Jalan",value:roadIssues,note:"belum perkerasan atau rusak",action:"openHomeTargetV59('psu')",alert:roadIssues>0},
-          {label:"Isu RTH",value:rthIssues,note:"belum terbangun atau beralih fungsi",action:"openHomeTargetV59('psu')",alert:rthIssues>0},
-          {label:"Banjir/Genangan",value:floodIssues,note:`pengembang tidak aktif: ${fmt(inactiveDevelopers)}`,action:"openHomeTargetV59('psu')",alert:floodIssues>0}
+          {label:"PSU Sudah Diserahkan",value:s.sudah,note:`${pct(s.sudah,s.total)}% dari perumahan terdata`,action:"openHomeTargetV59('data-perumahan','SUDAH DISERAHKAN')"},
+          {label:"PSU Belum Diserahkan",value:s.belum,note:`${pct(s.belum,s.total)}% dari perumahan terdata`,action:"openHomeTargetV59('data-perumahan','BELUM DISERAHKAN')",alert:s.belum>0},
+          {label:"Persentase Penyerahan",display:`${pct(s.sudah,s.total)}%`,note:"dibanding jumlah perumahan terdata",action:"openHomeTargetV59('psu')"},
+          {label:"Perumahan dengan Data PSU",value:s.sudah+s.belum,note:"status PSU yang tercatat",action:"openHomeTargetV59('psu')"}
         ]
       },
       {
@@ -7318,7 +7349,7 @@ function renderKawasanKumuh(){
 
 
 /* =========================================================
-   MODUL KANONIK SIKLUS RENDER — SIRUMAH v85
+   MODUL KANONIK SIKLUS RENDER — SIRUMAH v87
    Konsolidasi bertahap:
    - satu renderCharts()
    - satu renderAll()
@@ -7389,7 +7420,7 @@ function renderAll(){
 }
 
 /* =========================================================
-   MODUL KANONIK LAPORAN & INTEGRASI — SIRUMAH v85
+   MODUL KANONIK LAPORAN & INTEGRASI — SIRUMAH v87
    Satu implementasi aktif untuk:
    - renderReportStats
    - generateReport
