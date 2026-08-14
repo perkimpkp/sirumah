@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SIRUMAH Kota Pangkalpinang v97 — Satu Data, Hunian Layak untuk Semua</title>
+  <title>SIRUMAH Kota Pangkalpinang v98 — Executive Command Center</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -2444,6 +2444,89 @@
     @media(max-width:560px){.rtlh-provenance-v97,.rtlh-detail-kpis-v97,.rtlh-detail-grid-v97,.rtlh-detail-score-grid-v97{grid-template-columns:1fr}.rtlh-provenance-note-v97,.rtlh-detail-field-v97.wide,.rtlh-detail-field-v97.full{grid-column:auto}.rtlh-detail-overlay-v97{padding:10px}.rtlh-detail-modal-v97{max-height:96vh;border-radius:18px}.rtlh-detail-head-v97,.rtlh-detail-body-v97{padding-left:15px;padding-right:15px}}
   </style>
 
+
+  <style>
+    /* =========================================================
+       EXECUTIVE COMMAND CENTER — SIRUMAH v98
+       Civic Intelligence UI: data-first, formal, visual, ringan.
+       ========================================================= */
+    #beranda{position:relative}
+    .command-home-actionbar-v98{padding:0 2px 12px;margin:0 0 4px;border:0;background:transparent}
+    .command-home-action-copy-v98{display:grid;gap:3px;margin-right:auto}
+    .command-home-action-copy-v98 strong{font-size:13px;color:#0f3f50}
+    .command-home-action-copy-v98 span{font-size:12px;color:#475569}
+
+    .command-internal-home-v98,.command-public-home-v98{display:grid;gap:16px}
+    .command-panel-v98{position:relative;min-width:0;overflow:hidden;border:1px solid rgba(203,213,225,.78);border-radius:20px;background:rgba(255,255,255,.94);box-shadow:0 14px 36px rgba(15,23,42,.065)}
+    .command-panel-v98::after{content:"";position:absolute;inset:auto -75px -95px auto;width:190px;height:190px;border-radius:50%;background:radial-gradient(circle,rgba(14,116,144,.055),transparent 70%);pointer-events:none}
+    .command-panel-head-v98{position:relative;z-index:1;display:flex;align-items:flex-start;justify-content:space-between;gap:14px;padding:18px 20px 8px}
+    .command-panel-head-v98.compact{padding-bottom:0}
+    .command-panel-head-v98 h3{margin:3px 0 0;color:#0f3f50;font-size:16px;line-height:1.3}
+    .command-panel-head-v98 p{margin:5px 0 0;color:#475569;font-size:12px;line-height:1.5}
+    .command-panel-kicker-v98{display:block;color:#0e7490;font-size:11px;font-weight:700;letter-spacing:.78px;text-transform:uppercase}
+    .command-panel-kicker-v98.danger{color:#b91c1c}
+    .command-panel-link-v98{flex:0 0 auto;border:1px solid #d7e1e6;border-radius:999px;background:#fff;color:#175b72;padding:7px 10px;font:inherit;font-size:11px;font-weight:700;cursor:pointer;white-space:nowrap}
+    .command-panel-link-v98:hover{background:#eef7fa;border-color:#a9c8d3}
+
+    .command-executive-hero-v98{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:22px;align-items:center;overflow:hidden;padding:20px 22px;border:1px solid #c8dce4;border-left:5px solid #0e7490;border-radius:22px;background:linear-gradient(125deg,#ffffff 0%,#f3fafc 54%,#edf7fb 100%);box-shadow:0 16px 42px rgba(15,63,80,.08)}
+    .command-executive-hero-v98::after{content:"";position:absolute;right:-70px;top:-120px;width:310px;height:310px;border-radius:50%;background:radial-gradient(circle,rgba(14,116,144,.12),rgba(37,99,235,.035) 52%,transparent 72%);pointer-events:none}
+    .command-executive-hero-main-v98{position:relative;z-index:1;display:flex;align-items:flex-start;gap:14px;min-width:0}
+    .command-executive-icon-v98{width:44px;height:44px;border-radius:14px;background:linear-gradient(145deg,#dff6fb,#dbeafe);box-shadow:0 8px 20px rgba(14,116,144,.13)}
+    .command-executive-hero-v98 .executive-narrative-main-v94 h3{font-size:18px;margin-top:4px}
+    .command-executive-hero-v98 .executive-narrative-main-v94 p{font-size:13px;line-height:1.68;max-width:1120px}
+    .command-executive-meta-v98{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,minmax(105px,1fr));gap:8px}
+    .command-executive-meta-v98>div{padding:10px 11px;border:1px solid rgba(186,230,253,.9);border-radius:13px;background:rgba(255,255,255,.76);backdrop-filter:blur(4px)}
+    .command-executive-meta-v98 span{display:block;color:#64748b;font-size:11px;font-weight:600}
+    .command-executive-meta-v98 strong{display:block;margin-top:3px;color:#0f3f50;font-size:12px;line-height:1.35}
+
+    .command-kpi-grid-v98{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+    .command-kpi-card-v98{--accent:#0e7490;--soft:#ecfeff;position:relative;overflow:hidden;min-height:142px;padding:17px 17px 15px;border:1px solid color-mix(in srgb,var(--accent) 20%,#e2e8f0);border-radius:19px;background:linear-gradient(145deg,#fff 0%,var(--soft) 145%);box-shadow:0 12px 28px rgba(15,23,42,.06);cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+    .command-kpi-card-v98:hover{transform:translateY(-3px);box-shadow:0 18px 34px rgba(15,23,42,.10);border-color:color-mix(in srgb,var(--accent) 42%,#e2e8f0)}
+    .command-kpi-card-v98::after{content:"";position:absolute;right:-34px;top:-44px;width:130px;height:130px;border-radius:50%;background:color-mix(in srgb,var(--accent) 10%,transparent)}
+    .command-kpi-card-v98.housing{--accent:#2563eb;--soft:#eff6ff}.command-kpi-card-v98.psu{--accent:#d97706;--soft:#fffbeb}.command-kpi-card-v98.rtlh{--accent:#dc2626;--soft:#fff7ed}.command-kpi-card-v98.rusunawa{--accent:#7c3aed;--soft:#f5f3ff}
+    .command-kpi-head-v98{position:relative;z-index:1;display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+    .command-kpi-icon-v98{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:color-mix(in srgb,var(--accent) 11%,#fff);font-size:19px}
+    .command-kpi-scope-v98{padding:5px 8px;border-radius:999px;background:rgba(255,255,255,.78);border:1px solid color-mix(in srgb,var(--accent) 20%,#e2e8f0);color:color-mix(in srgb,var(--accent) 82%,#334155);font-size:11px;font-weight:700}
+    .command-kpi-label-v98{position:relative;z-index:1;display:block;margin-top:12px;color:#475569;font-size:12px;font-weight:700}
+    .command-kpi-value-v98{position:relative;z-index:1;display:block;margin-top:4px;color:#0f3f50;font-size:31px;font-weight:800;line-height:1;letter-spacing:-.7px}
+    .command-kpi-note-v98{position:relative;z-index:1;display:block;margin-top:6px;color:#475569;font-size:11px;line-height:1.35}
+    .command-kpi-progress-v98{position:relative;z-index:1;height:6px;margin-top:12px;border-radius:999px;background:rgba(148,163,184,.18);overflow:hidden}.command-kpi-progress-v98 i{display:block;height:100%;border-radius:999px;background:var(--accent);transition:width .55s ease}
+
+    .command-analytics-grid-v98{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(310px,.72fr);gap:16px;align-items:stretch}
+    .command-panel-main-v98{min-height:465px}
+    .command-chart-wrap-v98{position:relative;z-index:1;padding:4px 16px 0;min-height:325px}
+    .command-chart-wrap-v98 canvas{width:100%;height:325px;display:block}
+    .command-chart-caption-v98{position:relative;z-index:1;margin:0 20px 18px;padding:10px 12px;border:1px solid #e2e8f0;border-radius:12px;background:#f8fafc;color:#475569;font-size:11px;line-height:1.45}
+    .command-side-analytics-v98{display:grid;grid-template-rows:1fr 1fr;gap:16px;min-width:0}
+    .command-donut-card-v98{min-height:224px}
+    .command-donut-wrap-v98{position:relative;z-index:1;height:142px;padding:0 12px}.command-donut-wrap-v98 canvas{height:142px;width:100%;display:block}
+    .command-donut-foot-v98{position:relative;z-index:1;display:flex;justify-content:center;gap:7px;flex-wrap:wrap;padding:0 14px 14px;color:#475569;font-size:11px}.command-donut-foot-v98 span{display:inline-flex;align-items:center;gap:5px;padding:4px 7px;border-radius:999px;background:#f8fafc;border:1px solid #e2e8f0}.command-donut-foot-v98 i{width:8px;height:8px;border-radius:50%;display:inline-block}
+
+    .command-control-grid-v98{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(320px,.75fr);gap:16px;align-items:start}
+    .command-alert-panel-v98{border-top:4px solid #dc2626}
+    .command-alert-summary-v98{padding:0 20px 7px}.command-alert-list-v98{padding:3px 16px 9px;display:grid;gap:8px}.command-alert-list-v98 .executive-alert-item-v88{padding:11px 12px;min-height:0;border-radius:14px}.command-alert-list-v98 .executive-alert-item-v88 h4{font-size:12px}.command-alert-list-v98 .executive-alert-item-v88 p{font-size:11px;margin-top:3px}.command-alert-list-v98 .executive-alert-icon-v88{width:34px;height:34px;border-radius:10px}.command-alert-list-v98 .executive-alert-action-v88{padding:7px 9px;font-size:11px}.command-alert-footer-v98{padding:9px 18px 12px}
+    .command-alert-more-v98{border:0;background:transparent;color:#175b72;font:inherit;font-size:11px;font-weight:700;cursor:pointer;padding:6px 0}
+    .command-region-list-v98{position:relative;z-index:1;display:grid;gap:8px;padding:8px 16px 17px}
+    .command-region-item-v98{display:grid;grid-template-columns:38px minmax(0,1fr) auto;gap:10px;align-items:center;padding:11px;border:1px solid #e2e8f0;border-radius:14px;background:linear-gradient(135deg,#fff,#f8fafc)}
+    .command-region-icon-v98{width:38px;height:38px;display:grid;place-items:center;border-radius:11px;background:#eef7fa;font-size:18px}.command-region-item-v98 span{display:block;color:#64748b;font-size:11px}.command-region-item-v98 strong{display:block;color:#0f3f50;font-size:12px;margin-top:2px}.command-region-value-v98{color:#0e7490!important;font-size:16px!important;font-weight:800!important;text-align:right;white-space:nowrap}
+
+    .command-queue-panel-v98{padding-bottom:4px}.command-action-tabs-v98{padding:3px 20px 3px}.command-queue-content-v98{padding:8px 16px 13px;min-height:0}.command-queue-list-v98{display:grid;gap:7px}.command-queue-row-v98{display:grid;grid-template-columns:36px minmax(0,1fr) auto auto;gap:10px;align-items:center;padding:10px 11px;border:1px solid #e2e8f0;border-radius:14px;background:#fbfdfe;cursor:pointer;transition:.16s ease}.command-queue-row-v98:hover{background:#eef7fa;border-color:#b9d5df;transform:translateX(2px)}.command-queue-rank-v98{width:32px;height:32px;display:grid;place-items:center;border-radius:10px;background:#eef2f7;color:#475569;font-size:11px;font-weight:800}.command-queue-main-v98{min-width:0}.command-queue-main-v98 strong{display:block;color:#0f3f50;font-size:12px}.command-queue-main-v98 span{display:block;margin-top:2px;color:#475569;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.command-queue-score-v98{min-width:42px;padding:7px 8px;border-radius:10px;background:#fee2e2;color:#991b1b;text-align:center;font-size:13px;font-weight:800}.command-queue-open-v98{color:#175b72;font-size:11px;font-weight:700;white-space:nowrap}.command-queue-footer-v98{display:flex;justify-content:flex-end;padding-top:7px}
+
+    .command-bottom-grid-v98{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(320px,.75fr);gap:16px;align-items:stretch}
+    .command-snapshot-chart-v98{position:relative;z-index:1;min-height:250px;padding:2px 16px 0}.command-snapshot-chart-v98 canvas{width:100%;height:250px;display:block}.command-chart-empty-v98{position:absolute;inset:22px;display:grid;place-items:center;padding:18px;border:1px dashed #cbd5e1;border-radius:14px;background:#f8fafc;color:#475569;text-align:center;font-size:12px;line-height:1.55}.command-snapshot-foot-v98{position:relative;z-index:1;padding:3px 20px 16px;color:#475569;font-size:11px}
+    .command-freshness-list-v98{position:relative;z-index:1;display:grid;gap:7px;padding:8px 16px 17px}.command-freshness-row-v98{display:grid;grid-template-columns:10px minmax(0,1fr) auto;gap:9px;align-items:center;padding:9px 10px;border:1px solid #e2e8f0;border-radius:12px;background:#f8fafc}.command-freshness-dot-v98{width:9px;height:9px;border-radius:50%;background:#64748b}.command-freshness-row-v98.actual .command-freshness-dot-v98{background:#16a34a}.command-freshness-row-v98.warn .command-freshness-dot-v98{background:#f59e0b}.command-freshness-row-v98.stale .command-freshness-dot-v98{background:#dc2626}.command-freshness-main-v98 strong{display:block;color:#0f3f50;font-size:11px}.command-freshness-main-v98 span{display:block;margin-top:2px;color:#64748b;font-size:11px}.command-freshness-status-v98{padding:4px 7px;border-radius:999px;background:#fff;border:1px solid #dbe5ea;color:#475569;font-size:11px;font-weight:700;white-space:nowrap}
+
+    .command-public-hero-v98{position:relative;overflow:hidden;display:flex;justify-content:space-between;align-items:flex-start;gap:18px;padding:22px;border:1px solid #bbf7d0;border-radius:22px;background:linear-gradient(130deg,#fff 0%,#f3fdf7 58%,#effaf6 100%);box-shadow:0 14px 34px rgba(22,101,52,.055)}
+    .command-public-hero-v98::after{content:"";position:absolute;right:-45px;top:-95px;width:250px;height:250px;border-radius:50%;background:radial-gradient(circle,rgba(22,163,74,.12),transparent 70%)}
+    .command-public-hero-copy-v98{position:relative;z-index:1}.command-eyebrow-v98{color:#15803d;font-size:11px;font-weight:700;letter-spacing:.9px}.command-public-hero-v98 h3{margin:5px 0 0;color:#0f3f50;font-size:25px}.command-public-hero-v98 p{margin:7px 0 0;max-width:780px;color:#475569;font-size:12px;line-height:1.6}.command-public-scope-v98{position:relative;z-index:1;padding:9px 11px;border:1px solid #bbf7d0;border-radius:13px;background:rgba(255,255,255,.8)}.command-public-scope-v98 span{display:block;color:#64748b;font-size:11px;font-weight:700}.command-public-scope-v98 strong{display:block;margin-top:3px;color:#166534;font-size:12px}
+    .command-public-kpis-v98{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.command-public-stat-v98{--accent:#0e7490;position:relative;overflow:hidden;padding:15px 16px;border:1px solid #dbe5ea;border-radius:17px;background:#fff;box-shadow:0 9px 24px rgba(15,23,42,.05)}.command-public-stat-v98::after{content:"";position:absolute;right:-24px;top:-34px;width:92px;height:92px;border-radius:50%;background:color-mix(in srgb,var(--accent) 8%,transparent)}.command-public-stat-v98 span{position:relative;z-index:1;display:block;color:#475569;font-size:11px;font-weight:700}.command-public-stat-v98 strong{position:relative;z-index:1;display:block;margin-top:6px;color:#0f3f50;font-size:27px;font-weight:800}.command-public-stat-v98 small{position:relative;z-index:1;display:block;margin-top:5px;color:#64748b;font-size:11px;line-height:1.35}.command-public-stat-v98:nth-child(1){--accent:#2563eb}.command-public-stat-v98:nth-child(2){--accent:#d97706}.command-public-stat-v98:nth-child(3){--accent:#ea580c}.command-public-stat-v98:nth-child(4){--accent:#7c3aed}
+    .public-command-analytics-v98{grid-template-columns:minmax(0,1.75fr) minmax(310px,.72fr)}.public-command-analytics-v98 .command-donut-card-v98{min-height:465px}.public-command-analytics-v98 .command-donut-wrap-v98{height:285px;padding-top:16px}.public-command-analytics-v98 .command-donut-wrap-v98 canvas{height:285px}.command-public-info-grid-v98{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}.command-public-narrative-v98{position:relative;z-index:1;margin:6px 20px 19px;color:#334155;font-size:12px;line-height:1.68}.command-public-trend-v98{position:relative;z-index:1;display:grid;gap:7px;padding:6px 20px 18px}.command-public-trend-v98 .public-transparency-trend-row-v94{padding:9px 0}.command-public-definitions-v98{margin-top:0}
+
+    @media(max-width:1350px){.command-executive-hero-v98{grid-template-columns:1fr}.command-executive-meta-v98{grid-template-columns:repeat(3,minmax(0,1fr))}.command-kpi-grid-v98{grid-template-columns:repeat(2,minmax(0,1fr))}.command-analytics-grid-v98,.public-command-analytics-v98{grid-template-columns:1fr}.command-side-analytics-v98{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:none}.public-command-analytics-v98 .command-donut-card-v98{min-height:250px}.public-command-analytics-v98 .command-donut-wrap-v98{height:155px;padding-top:0}.public-command-analytics-v98 .command-donut-wrap-v98 canvas{height:155px}}
+    @media(max-width:1050px){.command-control-grid-v98,.command-bottom-grid-v98,.command-public-info-grid-v98{grid-template-columns:1fr}.command-public-kpis-v98{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:720px){.command-home-action-copy-v98{display:none}.command-executive-meta-v98{grid-template-columns:1fr}.command-kpi-grid-v98,.command-public-kpis-v98,.command-side-analytics-v98{grid-template-columns:1fr}.command-public-hero-v98{flex-direction:column}.command-public-scope-v98{align-self:flex-start}.command-panel-head-v98{flex-direction:column}.command-panel-link-v98{align-self:flex-start}.command-chart-wrap-v98{min-height:290px;padding-left:8px;padding-right:8px}.command-chart-wrap-v98 canvas{height:290px}.command-queue-row-v98{grid-template-columns:34px minmax(0,1fr) auto}.command-queue-open-v98{display:none}.command-region-item-v98{grid-template-columns:36px minmax(0,1fr)}.command-region-value-v98{grid-column:2;text-align:left}.command-executive-hero-v98{padding:17px}.command-executive-hero-main-v98{gap:10px}}
+  </style>
+
 </head>
 
 <body class="public-mode">
@@ -2528,84 +2611,152 @@
 
     <!-- Beranda v66: pemisahan usulan aktif dan riwayat penanganan RTLH. -->
     <section class="section active" id="beranda">
-      <div class="section-actionbar">
+      <div class="section-actionbar command-home-actionbar-v98">
+        <div class="command-home-action-copy-v98">
+          <strong>Executive Command Center</strong>
+          <span>Ringkasan kondisi kota, analitik, prioritas, dan kesehatan data dalam satu layar.</span>
+        </div>
         <button class="btn light" type="button" onclick="printDashboardSection('beranda','Beranda SIRUMAH')">Cetak / PDF Beranda</button>
       </div>
 
-      <div class="public-only public-transparency-v94" id="publicTransparencyV94">
-        <div class="public-transparency-hero-v94">
-          <div>
-            <div class="public-transparency-eyebrow-v94">PORTAL INFORMASI PERUMAHAN &amp; PERMUKIMAN</div>
+      <!-- MODE PUBLIK — Civic Intelligence Dashboard -->
+      <div class="public-only command-public-home-v98" id="publicTransparencyV94">
+        <section class="command-public-hero-v98">
+          <div class="command-public-hero-copy-v98">
+            <div class="command-eyebrow-v98">PORTAL INFORMASI PERUMAHAN &amp; PERMUKIMAN</div>
             <h3>SIRUMAH Kota Pangkalpinang</h3>
-            <p>Informasi publik mengenai perumahan, PSU, kebutuhan dan kelayakan hunian, kawasan kumuh, serta RUSUNAWA dalam satu portal.</p>
+            <p>Gambaran publik perumahan, PSU, kelayakan hunian, kawasan kumuh, dan RUSUNAWA berdasarkan data aktif SIRUMAH.</p>
           </div>
-          <span class="public-transparency-scope-v94" id="publicTransparencyScopeV94">Kota Pangkalpinang</span>
+          <div class="command-public-scope-v98">
+            <span>CAKUPAN</span>
+            <strong id="publicTransparencyScopeV94">Kota Pangkalpinang</strong>
+          </div>
+        </section>
+
+        <div class="command-public-kpis-v98" id="publicTransparencyStatsV94"></div>
+
+        <div class="command-analytics-grid-v98 public-command-analytics-v98">
+          <article class="command-panel-v98 command-panel-main-v98">
+            <div class="command-panel-head-v98">
+              <div><span class="command-panel-kicker-v98">KONDISI PERUMAHAN</span><h3>Rencana, Terbangun &amp; Terhuni per Kecamatan</h3></div>
+              <button type="button" class="command-panel-link-v98" onclick="openHomeTargetV59('data-perumahan')">Buka Data →</button>
+            </div>
+            <div class="command-chart-wrap-v98"><canvas id="publicHousingChartV98" aria-label="Grafik kondisi perumahan per kecamatan"></canvas></div>
+            <div class="command-chart-caption-v98" id="publicHousingChartNoteV98"></div>
+          </article>
+
+          <article class="command-panel-v98 command-donut-card-v98">
+            <div class="command-panel-head-v98 compact"><div><span class="command-panel-kicker-v98">STATUS PSU</span><h3>Penyerahan PSU</h3></div></div>
+            <div class="command-donut-wrap-v98"><canvas id="publicPsuDonutV98"></canvas></div>
+            <div class="command-donut-foot-v98" id="publicPsuDonutFootV98"></div>
+          </article>
         </div>
-        <div class="public-transparency-stats-v94" id="publicTransparencyStatsV94"></div>
-        <div class="public-transparency-grid-v94">
-          <div class="public-transparency-card-v94">
-            <div class="public-transparency-card-head-v94"><div><span>RINGKASAN KOTA</span><h4>Apa yang ditunjukkan data?</h4></div></div>
-            <p id="publicTransparencyNarrativeV94">Menyiapkan ringkasan data publik.</p>
-          </div>
-          <div class="public-transparency-card-v94">
-            <div class="public-transparency-card-head-v94"><div><span>PERKEMBANGAN</span><h4>Snapshot Tahunan</h4></div></div>
-            <div id="publicTransparencyTrendV94" class="public-transparency-trend-v94"></div>
-          </div>
+
+        <div class="command-public-info-grid-v98">
+          <article class="command-panel-v98">
+            <div class="command-panel-head-v98 compact"><div><span class="command-panel-kicker-v98">RINGKASAN KOTA</span><h3>Apa yang ditunjukkan data?</h3></div></div>
+            <p class="command-public-narrative-v98" id="publicTransparencyNarrativeV94">Menyiapkan ringkasan data publik.</p>
+          </article>
+          <article class="command-panel-v98">
+            <div class="command-panel-head-v98 compact"><div><span class="command-panel-kicker-v98">PERKEMBANGAN</span><h3>Snapshot Tahunan</h3></div></div>
+            <div id="publicTransparencyTrendV94" class="command-public-trend-v98"></div>
+          </article>
         </div>
-        <div class="public-transparency-definitions-v94">
+
+        <div class="public-transparency-definitions-v94 command-public-definitions-v98">
           <div><b>PSU</b><span>Prasarana, sarana, dan utilitas umum pada kawasan perumahan.</span></div>
           <div><b>Backlog</b><span>Gambaran kebutuhan rumah berdasarkan kepemilikan atau penghunian.</span></div>
           <div><b>RTLH</b><span>Rumah yang belum memenuhi persyaratan kelayakan tertentu.</span></div>
         </div>
       </div>
 
-      <div class="executive-kpi-grid" id="kpiGrid"></div>
-
-      <div class="card private-only executive-narrative-card-v94" id="executiveNarrativeCardV94">
-        <div class="executive-narrative-icon-v94" aria-hidden="true">✦</div>
-        <div class="executive-narrative-main-v94">
-          <div class="executive-narrative-eyebrow-v94">RINGKASAN EKSEKUTIF OTOMATIS</div>
-          <h3>Interpretasi Data Aktif</h3>
-          <p id="executiveNarrativeTextV94">Menyiapkan narasi dari indikator aktif SIRUMAH.</p>
-          <div class="executive-narrative-foot-v94">Narasi disusun dengan aturan transparan dari data aktif, Snapshot Tahunan, dan Executive Alert; bukan keluaran AI generatif.</div>
-        </div>
-      </div>
-
-      <div class="card private-only executive-alert-card-v88" id="executiveAlertCard">
-        <div class="card-header executive-alert-header-v88">
-          <div>
-            <div class="executive-alert-eyebrow-v88">PENGENDALIAN INTERNAL</div>
-            <h3>Executive Alert</h3>
-            <p>Isu prioritas lintas modul yang memerlukan perhatian berdasarkan data aktif SIRUMAH.</p>
+      <!-- MODE INTERNAL — Executive Command Center -->
+      <div class="private-only command-internal-home-v98">
+        <section class="command-executive-hero-v98">
+          <div class="command-executive-hero-main-v98">
+            <div class="executive-narrative-icon-v94 command-executive-icon-v98" aria-hidden="true">✦</div>
+            <div class="executive-narrative-main-v94">
+              <div class="executive-narrative-eyebrow-v94">RINGKASAN EKSEKUTIF OTOMATIS</div>
+              <h3>Interpretasi Data Aktif</h3>
+              <p id="executiveNarrativeTextV94">Menyiapkan narasi dari indikator aktif SIRUMAH.</p>
+              <div class="executive-narrative-foot-v94">Narasi rule-based dari database aktif, Snapshot Tahunan, dan Executive Alert; bukan keluaran AI generatif.</div>
+            </div>
           </div>
-          <div class="executive-alert-header-right-v88">
-            <span class="executive-alert-scope-v88" id="executiveAlertScope">Seluruh Kota</span>
-            <span class="executive-alert-total-v88" id="executiveAlertTotal">0 alert</span>
+          <div class="command-executive-meta-v98">
+            <div><span>Sumber Aktif</span><strong id="commandSourceV98">—</strong></div>
+            <div><span>Dimuat</span><strong id="commandLoadedV98">—</strong></div>
+            <div><span>Cakupan</span><strong id="commandScopeV98">Seluruh Kota</strong></div>
+          </div>
+        </section>
+
+        <div class="command-kpi-grid-v98" id="kpiGrid"></div>
+
+        <div class="command-analytics-grid-v98">
+          <article class="command-panel-v98 command-panel-main-v98">
+            <div class="command-panel-head-v98">
+              <div><span class="command-panel-kicker-v98">ANALITIK UTAMA</span><h3>Kondisi Perumahan Terdata per Kecamatan</h3><p>Perbandingan rencana unit, realisasi pembangunan, dan unit terhuni.</p></div>
+              <button type="button" class="command-panel-link-v98" onclick="openHomeTargetV59('data-perumahan')">Eksplorasi Data →</button>
+            </div>
+            <div class="command-chart-wrap-v98"><canvas id="homeHousingChartV98" aria-label="Grafik kondisi perumahan terdata per kecamatan"></canvas></div>
+            <div class="command-chart-caption-v98" id="homeHousingChartNoteV98"></div>
+          </article>
+
+          <div class="command-side-analytics-v98">
+            <article class="command-panel-v98 command-donut-card-v98">
+              <div class="command-panel-head-v98 compact"><div><span class="command-panel-kicker-v98">INFRASTRUKTUR</span><h3>Status PSU</h3></div><button class="command-panel-link-v98" onclick="openHomeTargetV59('psu')">Buka →</button></div>
+              <div class="command-donut-wrap-v98"><canvas id="homePsuDonutV98"></canvas></div>
+              <div class="command-donut-foot-v98" id="homePsuDonutFootV98"></div>
+            </article>
+
+            <article class="command-panel-v98 command-donut-card-v98">
+              <div class="command-panel-head-v98 compact"><div><span class="command-panel-kicker-v98">HUNIAN SEWA</span><h3>Okupansi RUSUNAWA</h3></div><button class="command-panel-link-v98" onclick="openHomeTargetV59('rusunawa')">Buka →</button></div>
+              <div class="command-donut-wrap-v98"><canvas id="homeRusunawaDonutV98"></canvas></div>
+              <div class="command-donut-foot-v98" id="homeRusunawaDonutFootV98"></div>
+            </article>
           </div>
         </div>
 
-        <div class="executive-alert-summary-v88" id="executiveAlertSummary"></div>
-        <div class="executive-alert-list-v88" id="executiveAlertList"></div>
+        <div class="command-control-grid-v98">
+          <article class="command-panel-v98 executive-alert-card-v88 command-alert-panel-v98" id="executiveAlertCard">
+            <div class="command-panel-head-v98">
+              <div><span class="command-panel-kicker-v98 danger">PENGENDALIAN INTERNAL</span><h3>Executive Alert</h3><p>Isu lintas modul dengan urgensi tertinggi dari rule aktif SIRUMAH.</p></div>
+              <div class="executive-alert-header-right-v88"><span class="executive-alert-scope-v88" id="executiveAlertScope">Seluruh Kota</span><span class="executive-alert-total-v88" id="executiveAlertTotal">0 alert</span></div>
+            </div>
+            <div class="executive-alert-summary-v88 command-alert-summary-v98" id="executiveAlertSummary"></div>
+            <div class="executive-alert-list-v88 command-alert-list-v98" id="executiveAlertList"></div>
+            <div class="executive-alert-footer-v88 command-alert-footer-v98"><span id="executiveAlertFootnote">Menampilkan isu dengan prioritas tertinggi.</span><span class="executive-alert-rule-v88">Rule v1 · PSU · RTLH · RUSUNAWA · Kumuh</span></div>
+          </article>
 
-        <div class="executive-alert-footer-v88">
-          <span id="executiveAlertFootnote">Menampilkan maksimal 5 isu dengan prioritas tertinggi.</span>
-          <span class="executive-alert-rule-v88">Rule v1 · PSU Pemda · RTLH · RUSUNAWA · Kawasan Kumuh</span>
+          <article class="command-panel-v98 command-region-panel-v98">
+            <div class="command-panel-head-v98"><div><span class="command-panel-kicker-v98">ANALITIK CEPAT</span><h3>Sorotan Wilayah</h3><p>Wilayah atau objek yang menonjol berdasarkan data aktif.</p></div></div>
+            <div class="command-region-list-v98" id="commandRegionalInsightsV98"></div>
+          </article>
         </div>
-      </div>
 
-      <div class="card attention-card private-only home-action-card">
-        <div class="card-header">
-          <div>
-            <h3>Perlu Tindak Lanjut</h3>
-            <p>Daftar ringkas persoalan operasional yang membutuhkan perhatian.</p>
+        <article class="command-panel-v98 command-queue-panel-v98">
+          <div class="command-panel-head-v98">
+            <div><span class="command-panel-kicker-v98">OPERATIONAL QUEUE</span><h3>Prioritas Tindak Lanjut</h3><p>Daftar ringkas objek yang memerlukan perhatian operasional.</p></div>
           </div>
+          <div class="home-action-tabs command-action-tabs-v98" id="homeActionTabs">
+            <button type="button" class="active" data-home-action-tab="rtlh" onclick="setHomeActionTabV59('rtlh')">Hunian Prioritas</button>
+            <button type="button" data-home-action-tab="psu" onclick="setHomeActionTabV59('psu')">PSU</button>
+            <button type="button" data-home-action-tab="rusunawa" onclick="setHomeActionTabV59('rusunawa')">Hunian Sewa</button>
+          </div>
+          <div class="home-action-content command-queue-content-v98" id="homeActionSummary"></div>
+        </article>
+
+        <div class="command-bottom-grid-v98">
+          <article class="command-panel-v98 command-snapshot-panel-v98">
+            <div class="command-panel-head-v98"><div><span class="command-panel-kicker-v98">SNAPSHOT TAHUNAN</span><h3>Perkembangan Indikator</h3><p>Small multiples menggunakan snapshot FINAL saja; tiap indikator memiliki skala sendiri.</p></div></div>
+            <div class="command-snapshot-chart-v98"><canvas id="homeSnapshotChartV98"></canvas><div class="command-chart-empty-v98" id="homeSnapshotEmptyV98" hidden></div></div>
+            <div class="command-snapshot-foot-v98" id="homeSnapshotFootV98"></div>
+          </article>
+
+          <article class="command-panel-v98 command-freshness-panel-v98">
+            <div class="command-panel-head-v98"><div><span class="command-panel-kicker-v98">DATA HEALTH</span><h3>Kemutakhiran Data</h3><p>Status pembaruan modul utama berdasarkan metadata runtime.</p></div></div>
+            <div class="command-freshness-list-v98" id="commandFreshnessV98"></div>
+          </article>
         </div>
-        <div class="home-action-tabs" id="homeActionTabs">
-          <button type="button" class="active" data-home-action-tab="rtlh" onclick="setHomeActionTabV59('rtlh')">Hunian Prioritas</button>
-          <button type="button" data-home-action-tab="psu" onclick="setHomeActionTabV59('psu')">PSU</button>
-          <button type="button" data-home-action-tab="rusunawa" onclick="setHomeActionTabV59('rusunawa')">Hunian Sewa</button>
-        </div>
-        <div class="attention-section home-action-content" id="homeActionSummary"></div>
       </div>
     </section>
 
@@ -10499,7 +10650,212 @@ document.addEventListener("DOMContentLoaded",()=>{const f=document.getElementByI
 
 
 /* SIRUMAH v97: hierarki RTLH agregat vs usulan, tabel individu ringkas, popup Detail Usulan RTLH, dan pencegahan render/search individu pada Mode Publik. */
+/* SIRUMAH v98: Executive Command Center — hero KPI, grouped bar analytics, donut PSU/RUSUNAWA, alert compact, sorotan wilayah, operational queue, snapshot small multiples, dan data health. */
 document.addEventListener("DOMContentLoaded", init);
+
+
+/* =========================================================
+   EXECUTIVE COMMAND CENTER — SIRUMAH v98
+   ========================================================= */
+let executiveAlertExpandedV98 = false;
+
+function commandHomeStatsV98(){
+  const s=summary(housing||[]);
+  const active=getHomeRTLHRowsV59().filter(row=>!homeIsFinishedV59(row));
+  const veryHigh=active.filter(row=>row.tingkatPrioritas==="Sangat Tinggi").length;
+  const high=active.filter(row=>row.tingkatPrioritas==="Tinggi").length;
+  const rus=getBerandaRusunawaV34();
+  const aggregate=filterAggregateRows(SIRUMAH_RUNTIME?.rtlhAggregate||[]);
+  const houses=sumRows(aggregate,"jumlah"),rtlh=sumRows(aggregate,"rtlh"),rlh=Math.max(0,sumRows(aggregate,"rlh")||(houses-rtlh));
+  return {s,active,veryHigh,high,priority:veryHigh+high,rus,aggregate,houses,rtlh,rlh};
+}
+
+function commandKpiCardV98({theme,icon,label,value,note,progress,scope,action}){
+  return `<button type="button" class="command-kpi-card-v98 ${theme}" onclick="${action||""}">
+    <span class="command-kpi-head-v98"><span class="command-kpi-icon-v98" aria-hidden="true">${icon}</span><span class="command-kpi-scope-v98">${escapeHtml(scope||"Data Aktif")}</span></span>
+    <span class="command-kpi-label-v98">${escapeHtml(label)}</span>
+    <strong class="command-kpi-value-v98">${escapeHtml(String(value))}</strong>
+    <span class="command-kpi-note-v98">${escapeHtml(note||"")}</span>
+    <span class="command-kpi-progress-v98"><i style="width:${Math.max(0,Math.min(100,Number(progress)||0))}%"></i></span>
+  </button>`;
+}
+
+function renderKPI(){
+  const el=document.getElementById("kpiGrid");if(!el)return;
+  if(publicMode){el.innerHTML="";return;}
+  const {s,veryHigh,high,priority,rus}=commandHomeStatsV98();
+  const psuPct=pct(s.sudah,s.total),builtPct=pct(s.terbangun,s.siteplan);
+  el.className="command-kpi-grid-v98";
+  el.innerHTML=[
+    {theme:"housing",icon:"🏘️",label:"Perumahan Terdata",value:fmt(s.total),note:`${fmt(s.siteplan)} rencana unit · ${builtPct}% terbangun`,progress:builtPct,scope:"Perumahan",action:"openHomeTargetV59('data-perumahan')"},
+    {theme:"psu",icon:"🛣️",label:"PSU Diserahkan",value:`${psuPct}%`,note:`${fmt(s.sudah)} sudah · ${fmt(s.belum)} belum`,progress:psuPct,scope:"PSU",action:"openHomeTargetV59('psu')"},
+    {theme:"rtlh",icon:"🏠",label:"RTLH Prioritas",value:fmt(priority),note:`${fmt(veryHigh)} sangat tinggi · ${fmt(high)} tinggi`,progress:priority?Math.min(100,(veryHigh*2+high)*5):0,scope:"Internal",action:"openHomeTargetV59('rtlh')"},
+    {theme:"rusunawa",icon:"🏢",label:"Hunian RUSUNAWA",value:`${rus.occupancy}%`,note:`${fmt(rus.filled)} dari ${fmt(rus.total)} unit terisi`,progress:rus.occupancy,scope:"RUSUNAWA",action:"openHomeTargetV59('rusunawa')"}
+  ].map(commandKpiCardV98).join("");
+}
+
+function commandSourceLabelV98(){
+  const s=SIRUMAH_RUNTIME?.source||{};
+  if(s.mode!=="excel")return"Belum ada workbook";
+  return s.origin==="repository"?"Excel Repository":"Excel Lokal";
+}
+function renderCommandMetaV98(){
+  const source=document.getElementById("commandSourceV98"),loaded=document.getElementById("commandLoadedV98"),scope=document.getElementById("commandScopeV98");
+  if(source)source.textContent=commandSourceLabelV98();
+  if(loaded){const raw=SIRUMAH_RUNTIME?.source?.loadedAt;loaded.textContent=raw?new Intl.DateTimeFormat("id-ID",{day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"}).format(new Date(raw)):"Belum dimuat";}
+  if(scope)scope.textContent="Seluruh Kota";
+}
+
+function commandHousingGroupsV98(){
+  return groupByKecamatan(housing||[]).sort((a,b)=>String(a.kecamatan||"").localeCompare(String(b.kecamatan||""),"id"));
+}
+
+function drawHousingCommandChartV98(id){
+  const canvas=document.getElementById(id);if(!canvas)return;
+  const rows=commandHousingGroupsV98();
+  const ctx=canvas.getContext("2d"),rect=canvas.getBoundingClientRect(),ratio=window.devicePixelRatio||1,w=Math.max(360,rect.width||760),h=325;
+  canvas.width=w*ratio;canvas.height=h*ratio;ctx.setTransform(ratio,0,0,ratio,0,0);ctx.clearRect(0,0,w,h);
+  if(!rows.length){ctx.fillStyle="#64748b";ctx.font="12px Arial";ctx.textAlign="center";ctx.fillText("Belum ada data perumahan untuk divisualisasikan.",w/2,h/2);return;}
+  const series=[{label:"Rencana Unit",key:"siteplan",color:"#2563eb"},{label:"Terbangun",key:"terbangun",color:"#0f766e"},{label:"Terhuni",key:"terhuni",color:"#7c3aed"}];
+  const vals=rows.flatMap(r=>series.map(s=>Number(r[s.key]||0))),max=niceMax(Math.max(...vals,1));
+  const p={top:48,right:18,bottom:66,left:58},plotW=w-p.left-p.right,plotH=h-p.top-p.bottom,groupW=plotW/rows.length,barW=Math.max(6,Math.min(24,(groupW-14)/3));
+  ctx.strokeStyle="#e2e8f0";ctx.lineWidth=1;ctx.font="11px Arial";ctx.fillStyle="#64748b";ctx.textAlign="right";
+  for(let i=0;i<=4;i++){const y=p.top+plotH-(plotH*i/4),v=Math.round(max*i/4);ctx.beginPath();ctx.moveTo(p.left,y);ctx.lineTo(w-p.right,y);ctx.stroke();ctx.fillText(fmt(v),p.left-8,y+4);}
+  series.forEach((s,si)=>rows.forEach((r,i)=>{const value=Number(r[s.key]||0),bh=(value/max)*plotH,x=p.left+i*groupW+(groupW-barW*3)/2+si*barW,y=p.top+plotH-bh;ctx.fillStyle=s.color;roundRect(ctx,x,y,Math.max(4,barW-3),Math.max(1,bh),6);ctx.fill();}));
+  ctx.textAlign="center";ctx.fillStyle="#475569";ctx.font="11px Arial";rows.forEach((r,i)=>{const x=p.left+i*groupW+groupW/2;const label=String(r.kecamatan||"").replace("Pangkal Balam","P. Balam");ctx.save();ctx.translate(x,h-37);if(groupW<90)ctx.rotate(-.34);ctx.fillText(label,0,0);ctx.restore();});
+  ctx.textAlign="left";ctx.font="11px Arial";let lx=p.left;series.forEach(s=>{ctx.fillStyle=s.color;roundRect(ctx,lx,17,10,10,3);ctx.fill();ctx.fillStyle="#475569";ctx.fillText(s.label,lx+16,26);lx+=ctx.measureText(s.label).width+42;});
+}
+
+function drawCommandDonutV98(id,segments,centerMain,centerSub){
+  const canvas=document.getElementById(id);if(!canvas)return;
+  const ctx=canvas.getContext("2d"),rect=canvas.getBoundingClientRect(),ratio=window.devicePixelRatio||1,w=Math.max(250,rect.width||320),h=Math.max(140,rect.height||142);
+  canvas.width=w*ratio;canvas.height=h*ratio;ctx.setTransform(ratio,0,0,ratio,0,0);ctx.clearRect(0,0,w,h);
+  const total=segments.reduce((sum,s)=>sum+Number(s.value||0),0),cx=w/2,cy=h/2,outer=Math.min(52,h*.38),inner=outer*.66;
+  ctx.beginPath();ctx.arc(cx,cy,outer,0,Math.PI*2);ctx.lineWidth=outer-inner;ctx.strokeStyle="#eef2f7";ctx.stroke();
+  if(total>0){let start=-Math.PI/2;segments.forEach(s=>{const angle=Number(s.value||0)/total*Math.PI*2;if(angle<=0)return;ctx.beginPath();ctx.arc(cx,cy,(outer+inner)/2,start,start+angle);ctx.lineWidth=outer-inner;ctx.lineCap="butt";ctx.strokeStyle=s.color;ctx.stroke();start+=angle;});}
+  ctx.textAlign="center";ctx.fillStyle="#0f3f50";ctx.font="800 24px Arial";ctx.fillText(String(centerMain),cx,cy+2);ctx.font="11px Arial";ctx.fillStyle="#64748b";ctx.fillText(String(centerSub||""),cx,cy+20);
+}
+
+function renderCommandDonutFootV98(id,segments){
+  const el=document.getElementById(id);if(!el)return;
+  el.innerHTML=segments.map(s=>`<span><i style="background:${s.color}"></i>${escapeHtml(s.label)} <b>${fmt(s.value)}</b></span>`).join("");
+}
+
+function renderRegionalInsightsV98(){
+  const el=document.getElementById("commandRegionalInsightsV98");if(!el)return;
+  const items=[];
+  const agg=filterAggregateRows(SIRUMAH_RUNTIME?.rtlhAggregate||[]).filter(r=>Number(r.rtlh||0)>=0);
+  const topRTLH=[...agg].sort((a,b)=>Number(b.rtlh||0)-Number(a.rtlh||0))[0];
+  if(topRTLH)items.push({icon:"🏠",label:"RTLH terbanyak",title:topRTLH.kecamatan,value:`${fmt(topRTLH.rtlh)} rumah`});
+  const psuMap=new Map();(housing||[]).filter(r=>String(r.statusPSU||"").toUpperCase().includes("BELUM")).forEach(r=>psuMap.set(r.kecamatan,(psuMap.get(r.kecamatan)||0)+1));
+  const topPsu=[...psuMap.entries()].sort((a,b)=>b[1]-a[1])[0];if(topPsu)items.push({icon:"🛣️",label:"PSU belum diserahkan terbanyak",title:topPsu[0],value:`${fmt(topPsu[1])} objek`});
+  const roadMap=new Map();(housing||[]).filter(r=>/belum perkerasan|rusak ringan|rusak sedang|rusak berat/i.test(String(r.statusJalan||""))).forEach(r=>roadMap.set(r.kecamatan,(roadMap.get(r.kecamatan)||0)+1));
+  const topRoad=[...roadMap.entries()].sort((a,b)=>b[1]-a[1])[0];if(topRoad)items.push({icon:"🚧",label:"Isu jalan terbanyak",title:topRoad[0],value:`${fmt(topRoad[1])} objek`});
+  const latestYear=slumLatestYearV74();const slum=(SIRUMAH_RUNTIME?.slumLocations||[]).filter(r=>Number(r.dataYear||0)===Number(latestYear||0));const topSlum=[...slum].sort((a,b)=>Number(b.areaHa||0)-Number(a.areaHa||0))[0];if(topSlum)items.push({icon:"🏚️",label:"Kawasan kumuh terbesar",title:topSlum.locationName||topSlum.village||"Lokasi",value:`${fmtHaV74(topSlum.areaHa||0)} Ha`});
+  el.innerHTML=items.slice(0,4).map(x=>`<div class="command-region-item-v98"><div class="command-region-icon-v98">${x.icon}</div><div><span>${escapeHtml(x.label)}</span><strong>${escapeHtml(x.title||"-")}</strong></div><strong class="command-region-value-v98">${escapeHtml(x.value)}</strong></div>`).join("")||`<div class="home-empty">Belum ada data yang cukup untuk menyusun sorotan wilayah.</div>`;
+}
+
+function freshnessViewV98(cfg){
+  let cls="neutral",status="Belum tersedia",dateText="Tanggal pembaruan belum tersedia";
+  if(cfg.policy==="designation"){cls=cfg.date?"actual":"neutral";status=cfg.date?"Penetapan":"Belum tersedia";dateText=cfg.date?formatDateShortV94(cfg.date):(cfg.meta?.[0]||dateText);}
+  else if(cfg.policy==="period"){cls=(cfg.meta?.[0]||"").includes("belum")?"neutral":"actual";status=cls==="actual"?"Periode aktif":"Belum tersedia";dateText=cfg.meta?.[0]||dateText;}
+  else if(cfg.policy==="load"){cls=cfg.date?"actual":"neutral";status=cfg.date?"Sumber aktif":"Belum dimuat";dateText=cfg.date?formatDateShortV94(cfg.date):"Workbook belum dimuat";}
+  else{cls=freshnessClassV94(cfg.date,{warnDays:cfg.warnDays||90,staleDays:cfg.staleDays||180});status=freshnessLabelV94(cls);dateText=cfg.date?formatDateShortV94(cfg.date):"Tanggal belum tersedia";}
+  return {cls,status,dateText};
+}
+function renderCommandFreshnessV98(){
+  const el=document.getElementById("commandFreshnessV98");if(!el)return;
+  const all=moduleFreshnessDataV94(),keys=["data-perumahan","rtlh","kawasan-kumuh","rusunawa","layanan","integrasi"];
+  el.innerHTML=keys.map(key=>{const cfg=all[key];if(!cfg)return"";const v=freshnessViewV98(cfg);return `<div class="command-freshness-row-v98 ${v.cls}"><i class="command-freshness-dot-v98"></i><div class="command-freshness-main-v98"><strong>${escapeHtml(cfg.label)}</strong><span>${escapeHtml(v.dateText)}</span></div><span class="command-freshness-status-v98">${escapeHtml(v.status)}</span></div>`;}).join("");
+}
+
+function drawSnapshotSmallMultiplesV98(){
+  const canvas=document.getElementById("homeSnapshotChartV98"),empty=document.getElementById("homeSnapshotEmptyV98"),foot=document.getElementById("homeSnapshotFootV98");if(!canvas)return;
+  const finals=preferredAnnualSnapshotsV91().filter(r=>String(r.status||"").toUpperCase()==="FINAL");
+  if(finals.length<2){canvas.hidden=true;if(empty){empty.hidden=false;empty.innerHTML=`<div><strong>Belum cukup histori untuk grafik tren.</strong><br>${finals.length===1?`Snapshot FINAL ${escapeHtml(finals[0].year)} sudah tersedia. Tambahkan minimal satu snapshot FINAL lain untuk membentuk tren.`:"Belum ada snapshot FINAL pada database."}</div>`;}if(foot)foot.textContent="Grafik tidak dibuat dari data perkiraan atau DRAFT.";return;}
+  canvas.hidden=false;if(empty)empty.hidden=true;
+  const ctx=canvas.getContext("2d"),rect=canvas.getBoundingClientRect(),ratio=window.devicePixelRatio||1,w=Math.max(360,rect.width||700),h=250;canvas.width=w*ratio;canvas.height=h*ratio;ctx.setTransform(ratio,0,0,ratio,0,0);ctx.clearRect(0,0,w,h);
+  const series=[{label:"PSU Diserahkan",key:"psuDelivered",color:"#0f766e",format:v=>fmt(v)},{label:"RTLH",key:"rtlh",color:"#dc2626",format:v=>fmt(v)},{label:"Luas Kumuh",key:"slumArea",color:"#7c3aed",format:v=>`${Number(v||0).toLocaleString("id-ID",{maximumFractionDigits:2})} Ha`}];
+  const left=120,right=74,top=18,rowH=69,plotW=w-left-right;
+  series.forEach((s,si)=>{const y0=top+si*rowH,vals=finals.map(r=>Number(r[s.key])).map(v=>Number.isFinite(v)?v:null),valid=vals.filter(v=>v!==null),min=valid.length?Math.min(...valid):0,max=valid.length?Math.max(...valid):1,range=Math.max(max-min,1);ctx.fillStyle="#0f3f50";ctx.font="700 11px Arial";ctx.textAlign="left";ctx.fillText(s.label,8,y0+25);ctx.strokeStyle="#e2e8f0";ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(left,y0+28);ctx.lineTo(w-right,y0+28);ctx.stroke();let prev=null;vals.forEach((v,i)=>{if(v===null)return;const x=left+(finals.length===1?0:(i/(finals.length-1))*plotW),y=y0+45-((v-min)/range)*34;if(prev){ctx.strokeStyle=s.color;ctx.lineWidth=2.4;ctx.beginPath();ctx.moveTo(prev.x,prev.y);ctx.lineTo(x,y);ctx.stroke();}ctx.fillStyle="#fff";ctx.beginPath();ctx.arc(x,y,4.5,0,Math.PI*2);ctx.fill();ctx.strokeStyle=s.color;ctx.lineWidth=2.5;ctx.stroke();prev={x,y};});const last=valid.length?vals.slice().reverse().find(v=>v!==null):null;ctx.textAlign="right";ctx.fillStyle=s.color;ctx.font="700 11px Arial";ctx.fillText(last===null?"—":s.format(last),w-8,y0+25);});
+  ctx.fillStyle="#64748b";ctx.font="11px Arial";ctx.textAlign="center";finals.forEach((r,i)=>{const x=left+(i/(finals.length-1))*plotW;ctx.fillText(String(r.year),x,h-8);});
+  if(foot)foot.textContent=`${finals.length} snapshot FINAL · ${finals[0].year}–${finals.at(-1).year}. Setiap baris memakai skala sendiri agar indikator berbeda satuan tidak dibandingkan pada satu sumbu.`;
+}
+
+function renderCommandCenterChartsV98(){
+  const {s,rus}=commandHomeStatsV98();
+  ["homeHousingChartV98","publicHousingChartV98"].forEach(id=>{if(document.getElementById(id))drawHousingCommandChartV98(id);});
+  const psuSegments=[{label:"Sudah",value:s.sudah,color:"#0f766e"},{label:"Belum",value:s.belum,color:"#f59e0b"}];
+  if(document.getElementById("homePsuDonutV98")){drawCommandDonutV98("homePsuDonutV98",psuSegments,`${pct(s.sudah,s.total)}%`,"diserahkan");renderCommandDonutFootV98("homePsuDonutFootV98",psuSegments);}
+  if(document.getElementById("publicPsuDonutV98")){drawCommandDonutV98("publicPsuDonutV98",psuSegments,`${pct(s.sudah,s.total)}%`,"PSU diserahkan");renderCommandDonutFootV98("publicPsuDonutFootV98",psuSegments);}
+  const units=SIRUMAH_RUNTIME?.rusunawaUnits||[],countStatus=word=>units.filter(r=>String(r.status||"").toLowerCase()===word.toLowerCase()).length;
+  const rusSegments=[{label:"Terisi",value:countStatus("Terisi"),color:"#7c3aed"},{label:"Kosong",value:countStatus("Kosong"),color:"#38bdf8"},{label:"Tidak Dapat Digunakan",value:countStatus("Tidak Dapat Digunakan"),color:"#ef4444"},{label:"Kantor",value:countStatus("Kantor"),color:"#94a3b8"}].filter(x=>x.value>0);
+  if(document.getElementById("homeRusunawaDonutV98")){drawCommandDonutV98("homeRusunawaDonutV98",rusSegments,`${rus.occupancy}%`,"tingkat hunian");renderCommandDonutFootV98("homeRusunawaDonutFootV98",rusSegments);}
+  const note=`${fmt(s.siteplan)} rencana unit · ${fmt(s.terbangun)} terbangun (${pct(s.terbangun,s.siteplan)}%) · ${fmt(s.terhuni)} terhuni (${pct(s.terhuni,s.terbangun)}% dari unit terbangun).`;
+  ["homeHousingChartNoteV98","publicHousingChartNoteV98"].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=note;});
+  if(!publicMode)drawSnapshotSmallMultiplesV98();
+}
+
+function renderExecutiveCommandCenterV98(){
+  renderCommandMetaV98();
+  if(!publicMode){renderRegionalInsightsV98();renderCommandFreshnessV98();}
+  renderCommandCenterChartsV98();
+}
+
+function renderPublicTransparencyV94(){
+  const root=document.getElementById("publicTransparencyV94");if(!root)return;
+  const statsEl=document.getElementById("publicTransparencyStatsV94"),narrativeEl=document.getElementById("publicTransparencyNarrativeV94"),trendEl=document.getElementById("publicTransparencyTrendV94"),scopeEl=document.getElementById("publicTransparencyScopeV94");
+  if(!publicMode){if(statsEl)statsEl.innerHTML="";return;}
+  const {s,rtlh,rus}=commandHomeStatsV98(),scope="Kota Pangkalpinang";
+  if(scopeEl)scopeEl.textContent=scope;
+  const stats=[
+    ["Perumahan Terdata",fmt(s.total),`${fmt(s.siteplan)} rencana unit`],
+    ["PSU Diserahkan",`${pct(s.sudah,s.total)}%`,`${fmt(s.sudah)} dari ${fmt(s.total)} perumahan`],
+    ["RTLH",fmt(rtlh),"data agregat wilayah"],
+    ["Hunian RUSUNAWA",`${rus.occupancy}%`,`${fmt(rus.filled)} dari ${fmt(rus.total)} unit terisi`]
+  ];
+  if(statsEl)statsEl.innerHTML=stats.map(([l,v,n])=>`<article class="command-public-stat-v98"><span>${escapeHtml(l)}</span><strong>${escapeHtml(v)}</strong><small>${escapeHtml(n)}</small></article>`).join("");
+  const recap=[...(SIRUMAH_RUNTIME?.slumRecap||[])].sort((a,b)=>Number(a.year||0)-Number(b.year||0)),slumArea=recap.length?Number(recap.at(-1).areaHa||0):null;
+  if(narrativeEl)narrativeEl.textContent=`SIRUMAH mencatat ${fmt(s.total)} perumahan terdata dengan ${fmt(s.siteplan)} unit direncanakan. Sebanyak ${fmt(s.sudah)} perumahan telah menyerahkan PSU. Data agregat mencatat ${fmt(rtlh)} RTLH. ${slumArea!==null?`Luas kawasan kumuh terkini yang terbaca adalah ${fmtHaV74(slumArea)} Ha.`:"Data luas kawasan kumuh belum tersedia."}`;
+  if(trendEl){const finals=publicTransparencyFinalSnapshotsV94();if(finals.length>=2){const a=finals.at(-2),b=finals.at(-1),items=[["PSU Diserahkan",a.psuDelivered,b.psuDelivered,"number"],["RTLH",a.rtlh,b.rtlh,"number"],["Luas Kumuh",a.slumArea,b.slumArea,"ha"]];trendEl.innerHTML=items.map(([l,x,y,f])=>`<div class="public-transparency-trend-row-v94"><span>${escapeHtml(l)} · ${a.year} → ${b.year}</span><strong>${x!=null&&y!=null?`${escapeHtml(snapshotFormatValueV91(x,f))} → ${escapeHtml(snapshotFormatValueV91(y,f))}`:"Belum tersedia"}</strong></div>`).join("");}else if(finals.length===1)trendEl.innerHTML=`<div class="public-transparency-trend-row-v94"><span>Snapshot resmi tersedia</span><strong>${escapeHtml(String(finals[0].year))} · FINAL</strong></div><div class="public-transparency-trend-row-v94"><span>Perbandingan tahunan</span><strong>Memerlukan ≥2 snapshot FINAL</strong></div>`;else trendEl.innerHTML=`<div class="public-transparency-trend-row-v94"><span>Snapshot tahunan</span><strong>Belum ada snapshot FINAL</strong></div>`;}
+  renderCommandCenterChartsV98();
+}
+
+function toggleExecutiveAlertV98(){executiveAlertExpandedV98=!executiveAlertExpandedV98;renderExecutiveAlertsV88();}
+function renderExecutiveAlertsV88(){
+  const card=document.getElementById("executiveAlertCard"),list=document.getElementById("executiveAlertList"),summary=document.getElementById("executiveAlertSummary"),scope=document.getElementById("executiveAlertScope"),total=document.getElementById("executiveAlertTotal"),footnote=document.getElementById("executiveAlertFootnote");if(!card||!list||!summary||!scope||!total)return;
+  if(publicMode){list.innerHTML="";summary.innerHTML="";total.textContent="0 alert";return;}
+  const alerts=buildExecutiveAlertsV88(),limit=executiveAlertExpandedV98?5:3,shown=alerts.slice(0,limit),counts={"Mendesak":alerts.filter(i=>i.severity==="Mendesak").length,"Tinggi":alerts.filter(i=>i.severity==="Tinggi").length,"Perlu Verifikasi":alerts.filter(i=>i.severity==="Perlu Verifikasi").length};
+  scope.textContent=executiveAlertScopeV88();total.textContent=`${fmt(alerts.length)} alert`;summary.innerHTML=`<span class="executive-alert-summary-pill-v88 urgent"><strong>${fmt(counts.Mendesak)}</strong> Mendesak</span><span class="executive-alert-summary-pill-v88 high"><strong>${fmt(counts.Tinggi)}</strong> Tinggi</span><span class="executive-alert-summary-pill-v88 verify"><strong>${fmt(counts["Perlu Verifikasi"])}</strong> Perlu Verifikasi</span>`;
+  if(!shown.length)list.innerHTML=`<div class="executive-alert-empty-v88"><strong>Tidak ada Executive Alert aktif.</strong>Belum ditemukan kondisi yang memenuhi rule prioritas v1.</div>`;
+  else list.innerHTML=shown.map(item=>{const cls=executiveAlertClassV88(item.severity),filterArg=JSON.stringify(String(item.filter||"")),targetArg=JSON.stringify(String(item.target||""));return `<div class="executive-alert-item-v88 ${cls}"><div class="executive-alert-icon-v88">${item.icon}</div><div class="executive-alert-content-v88"><div class="executive-alert-meta-v88"><span class="executive-alert-module-v88">${escapeHtml(item.source)}</span><span class="executive-alert-severity-v88 ${cls}">${escapeHtml(item.severity)}</span></div><h4>${escapeHtml(item.title)}</h4><p>${escapeHtml(item.description)}</p></div><button type="button" class="executive-alert-action-v88" onclick='openExecutiveAlertV88(${JSON.stringify(item.section)},${filterArg},${targetArg})'>Buka →</button></div>`;}).join("")+(alerts.length>3?`<button type="button" class="command-alert-more-v98" onclick="toggleExecutiveAlertV98()">${executiveAlertExpandedV98?"Ringkas alert ↑":`Lihat seluruh ${fmt(alerts.length)} alert →`}</button>`:"");
+  if(footnote)footnote.textContent=alerts.length>limit?`Menampilkan ${fmt(limit)} dari ${fmt(alerts.length)} alert dengan prioritas tertinggi.`:`Menampilkan ${fmt(shown.length)} alert aktif.`;
+}
+
+function renderHomeActionSummaryV59(){
+  const el=document.getElementById("homeActionSummary");if(!el)return;if(publicMode){el.innerHTML="";return;}
+  document.querySelectorAll("[data-home-action-tab]").forEach(button=>button.classList.toggle("active",button.dataset.homeActionTab===homeActionTabV59));
+  let rows=[],title="",footer="";
+  if(homeActionTabV59==="psu"){
+    title="PSU milik Pemda yang perlu ditindaklanjuti";footer=`<button class="home-section-link" onclick="openHomeTargetV59('psu')">Buka ranking PSU milik Pemda →</button>`;
+    rows=[...(housing||[])].filter(r=>String(r.statusPSU||"").toUpperCase().includes("SUDAH")).map(r=>({row:r,matrix:priorityMatrix(r)})).filter(x=>x.matrix.total>0).sort((a,b)=>b.matrix.total-a.matrix.total).slice(0,5).map((x,i)=>({rank:i+1,title:x.row.nama,note:`${x.row.kecamatan} · ${x.matrix.rincian.slice(0,2).join(" · ")||"Perlu tindak lanjut"}`,score:x.matrix.total,action:`openHousingProfileV90(${JSON.stringify(String(x.row.id))})`}));
+  }else if(homeActionTabV59==="rusunawa"){
+    title="Unit dan sarpras yang membutuhkan penanganan";footer=`<button class="home-section-link" onclick="openHomeTargetV59('rusunawa')">Buka pengelolaan RUSUNAWA →</button>`;const units=SIRUMAH_RUNTIME?.rusunawaUnits||[],fac=SIRUMAH_RUNTIME?.rusunawaFacilities||[];const raw=[...units.filter(r=>/perbaikan|rusak berat|tidak dapat digunakan/i.test(`${r.status||""} ${r.condition||""}`)).map(r=>({title:`${r.block||"Blok"} / Unit ${r.unit||"-"}`,note:`${r.status||"-"} · ${r.condition||"-"}`})),...fac.filter(r=>/tinggi|darurat|mendesak/i.test(String(r.priority||""))).map(r=>({title:r.component||"Sarana prasarana",note:`${r.condition||"-"} · Prioritas ${r.priority||"-"}`}))].slice(0,5);rows=raw.map((r,i)=>({rank:i+1,title:r.title,note:r.note,score:"!",action:"openHomeTargetV59('rusunawa')"}));
+  }else{
+    title="Usulan RTLH dengan urgensi tertinggi";footer=`<button class="home-section-link" onclick="openHomeTargetV59('rtlh')">Buka data individu RTLH →</button>`;rows=getHomeRTLHRowsV59().filter(r=>!homeIsFinishedV59(r)).sort((a,b)=>homePriorityOrderV59(a.tingkatPrioritas)-homePriorityOrderV59(b.tingkatPrioritas)||(Number(b.skor||-1)-Number(a.skor||-1))).slice(0,5).map((r,i)=>({rank:i+1,title:r.nama,note:`${r.kecamatan||"-"} · ${r.tingkatPrioritas||"Belum Dapat Ditentukan"} · ${r.statusAdministrasi||"-"}`,score:r.skor??"—",action:`openRTLHDetailV97(${JSON.stringify(rtlhDetailKeyV97(r))})`}));
+  }
+  el.innerHTML=`<div class="attention-title">${escapeHtml(title)}</div><div class="command-queue-list-v98">${rows.length?rows.map(r=>`<div class="command-queue-row-v98" role="button" tabindex="0" onclick='${r.action}' onkeydown="if(event.key==='Enter'){this.click()}"><span class="command-queue-rank-v98">${String(r.rank).padStart(2,"0")}</span><span class="command-queue-main-v98"><strong>${escapeHtml(r.title||"-")}</strong><span>${escapeHtml(r.note||"")}</span></span><span class="command-queue-score-v98">${escapeHtml(String(r.score))}</span><span class="command-queue-open-v98">Buka Detail →</span></div>`).join(""):`<div class="home-empty">Tidak ada item tindak lanjut pada kategori ini.</div>`}</div><div class="command-queue-footer-v98">${footer}</div>`;
+}
+
+/* redraw command-center charts together with existing charts */
+const renderChartsV97BeforeCommandCenter = renderCharts;
+renderCharts = function(){renderChartsV97BeforeCommandCenter();try{renderCommandCenterChartsV98();}catch(error){console.error("Grafik Executive Command Center gagal dirender:",error);}};
+
+/* ensure command center follows every canonical render cycle */
+const renderAllV97BeforeCommandCenter = renderAll;
+renderAll = function(){renderAllV97BeforeCommandCenter();safeRenderSIRUMAH(renderExecutiveCommandCenterV98,"Executive Command Center v98");};
+
+
 </script>
 
   <!-- Timeline Perumahan v1 — SIRUMAH v94 -->
