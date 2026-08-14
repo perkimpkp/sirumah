@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>SIRUMAH Kota Pangkalpinang v104 — Brand Logo Integration</title>
+  <title>SIRUMAH Kota Pangkalpinang v105 — One-Screen Command Center</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -3367,9 +3367,140 @@
 
   </style>
 
+
+  <style>
+    /* =========================================================
+       ONE-SCREEN COMMAND CENTER — SIRUMAH v105
+       Informasi inti selesai di viewport pertama. Detail sekunder
+       menggunakan progressive disclosure melalui panel cepat.
+       ========================================================= */
+    .startup-ui-v105{--v105-gap:9px;--v105-radius:20px}
+
+    /* Catatan v104 yang disepakati: header logo +~15%, sidebar tetap. */
+    .startup-ui-v105 .header-brand-v104{gap:9px!important}
+    .startup-ui-v105 .header-logo-shell-v104{width:58px;height:58px;border-radius:15px}
+
+    .v105-side-stack{min-width:0;display:grid;grid-template-columns:1fr;gap:var(--v105-gap)}
+    .v105-quick-dock{
+      display:flex;align-items:center;gap:7px;min-width:0;padding:6px 7px 6px 12px;
+      border:1px solid rgba(43,92,99,.10);border-radius:16px;background:rgba(248,248,245,.88);
+      box-shadow:0 10px 28px rgba(43,92,99,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    }
+    .v105-dock-label{display:grid;gap:0;margin-right:auto;min-width:155px}
+    .v105-dock-label span{color:var(--brand-teal);font-size:9px;font-weight:900;letter-spacing:1px;text-transform:uppercase}
+    .v105-dock-label strong{color:var(--brand-deep);font-size:10.5px;line-height:1.2}
+    .v105-quick-dock button{
+      min-height:34px;border:0;border-radius:11px;padding:7px 9px;background:#ECEDE8;color:var(--brand-deep);
+      font:inherit;font-size:9.5px;font-weight:800;cursor:pointer;white-space:nowrap;transition:.18s ease;
+    }
+    .v105-quick-dock button:hover,.v105-quick-dock button:focus-visible{outline:none;background:var(--brand-deep);color:#fff;transform:translateY(-1px)}
+    .v105-quick-dock button span{margin-left:4px;opacity:.65}
+
+    /* Secondary information drawer */
+    .v105-detail-overlay{display:none;position:fixed;inset:0;z-index:16000;padding:12px;background:rgba(23,59,64,.34);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+    .v105-detail-overlay.open{display:flex;justify-content:flex-end;align-items:stretch;animation:v105Fade .18s ease}
+    .v105-detail-sheet{width:min(680px,calc(100vw - 30px));height:calc(100dvh - 24px);display:grid;grid-template-rows:auto auto minmax(0,1fr);overflow:hidden;border-radius:26px;background:var(--brand-paper);box-shadow:0 30px 90px rgba(23,59,64,.28);animation:v105SheetIn .28s cubic-bezier(.2,.75,.2,1)}
+    @keyframes v105Fade{from{opacity:0}to{opacity:1}}@keyframes v105SheetIn{from{opacity:.5;transform:translateX(26px)}to{opacity:1;transform:none}}
+    .v105-detail-head{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:19px 20px 12px;border-bottom:1px solid var(--brand-line)}
+    .v105-detail-head>div{min-width:0}.v105-detail-head span{display:block;color:var(--brand-teal);font-size:9px;font-weight:900;letter-spacing:1.2px}.v105-detail-head h3{margin:3px 0 0;color:var(--brand-deep);font-size:23px;letter-spacing:-.6px}
+    .v105-detail-head>button{width:38px;height:38px;min-height:38px;border:0;border-radius:12px;background:#ECEDE8;color:var(--brand-deep);font-size:22px;cursor:pointer}
+    .v105-detail-tabs{display:flex;gap:6px;padding:10px 14px;border-bottom:1px solid var(--brand-line);overflow-x:auto;scrollbar-width:none}.v105-detail-tabs::-webkit-scrollbar{display:none}
+    .v105-detail-tabs button{flex:0 0 auto;min-height:34px;border:0;border-radius:999px;padding:7px 10px;background:#ECEDE8;color:var(--brand-muted);font:inherit;font-size:9.5px;font-weight:800;cursor:pointer}.v105-detail-tabs button.active{background:var(--brand-deep);color:#fff}
+    .v105-detail-body{min-height:0;overflow:auto;padding:14px}.v105-detail-page{display:none}.v105-detail-page.active{display:block}
+    .v105-detail-page>.startup-card-v100,.v105-detail-page .startup-card-v100{width:100%!important;min-height:0!important;grid-column:auto!important;border-radius:20px!important;box-shadow:none!important}
+    .v105-detail-page .startup-context-body-v101{min-height:230px}
+    .v105-detail-page .startup-snapshot-chart-v100{min-height:280px}
+    body.v105-panel-open{overflow:hidden}
+
+    /* Dedicated alert detail list */
+    .v105-alert-panel-list{display:grid;gap:9px}.v105-alert-panel-row{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center;padding:12px;border:1px solid var(--brand-line);border-radius:15px;background:#F7F7F3}
+    .v105-alert-panel-icon{width:36px;height:36px;display:grid;place-items:center;border-radius:11px;background:#fff}.v105-alert-panel-main{min-width:0}.v105-alert-panel-meta{display:flex;gap:6px;align-items:center;flex-wrap:wrap;color:var(--brand-muted);font-size:9px;font-weight:850;text-transform:uppercase}.v105-alert-panel-main strong{display:block;margin-top:3px;color:var(--brand-deep);font-size:12px}.v105-alert-panel-main p{margin:3px 0 0;color:#617174;font-size:10.5px;line-height:1.45}.v105-alert-panel-row>button{min-height:34px;border:0;border-radius:10px;padding:7px 9px;background:var(--brand-deep);color:#fff;font:inherit;font-size:9.5px;font-weight:850;cursor:pointer}
+    .v105-severity{padding:3px 6px;border-radius:999px;background:#ECEDE8}.v105-severity.urgent{background:#FEE2E2;color:#B91C1C}.v105-severity.high{background:#FFEDD5;color:#C2410C}.v105-severity.verify{background:#FEF3C7;color:#A16207}
+
+    /* ---------- Desktop command cockpit ---------- */
+    @media(min-width:1101px){
+      .startup-ui-v105 .main{height:100dvh;overflow:hidden;padding:10px 18px 12px!important}
+      .startup-ui-v105 .topbar{height:66px;margin-bottom:4px!important;padding:4px 8px 4px 2px!important}
+      .startup-ui-v105 .header-brand-copy-v104 h2{font-size:23px!important;margin-bottom:2px!important}.startup-ui-v105 .header-brand-copy-v104 p{font-size:11px!important}
+      .startup-ui-v105 #beranda{height:calc(100dvh - 86px);overflow:hidden;display:grid;grid-template-rows:auto minmax(0,1fr)}
+      .startup-ui-v105 #beranda>.startup-home-actionbar-v100{min-height:31px;height:31px;padding:0 2px 5px!important;margin:0!important}
+      .startup-ui-v105 .startup-home-identity-v100 strong{font-size:10.5px}.startup-ui-v105 .startup-home-identity-v100>div span{font-size:9.5px}
+      .startup-ui-v105 .startup-home-actions-v101 .btn{min-height:29px!important;padding:5px 8px!important;font-size:9px!important}
+
+      .startup-ui-v105 .startup-internal-home-v100,.startup-ui-v105 .startup-public-home-v100{display:grid!important;min-height:0;height:100%;gap:var(--v105-gap)!important;align-content:stretch}
+      body.startup-ui-v105.public-mode .startup-public-home-v100{display:grid!important}
+      .startup-ui-v105 .startup-internal-home-v100{grid-template-rows:124px minmax(0,1fr) 43px}
+      .startup-ui-v105 .startup-public-home-v100{grid-template-rows:132px 105px minmax(0,1fr) 43px}
+
+      .startup-ui-v105 .startup-command-hero-v100{min-height:0!important;height:124px;padding:15px 18px!important;border-radius:22px!important;grid-template-columns:minmax(0,1.45fr) minmax(170px,.42fr) minmax(260px,.60fr)!important;gap:13px!important;align-items:center}
+      .startup-ui-v105 .startup-command-copy-v100 h3{font-size:clamp(27px,2.1vw,36px)!important;line-height:.96!important;margin:4px 0 7px!important;max-width:720px}
+      .startup-ui-v105 .startup-command-copy-v100 p{font-size:10.5px!important;line-height:1.4!important;max-width:720px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+      .startup-ui-v105 .startup-hero-foot-v100{margin-top:5px!important;font-size:8.5px!important}
+      .startup-ui-v105 .startup-focus-v100{align-self:stretch;min-height:0!important;padding:12px!important;border-radius:17px!important}.startup-ui-v105 .startup-focus-v100 strong{font-size:22px!important}.startup-ui-v105 .startup-focus-v100 small{font-size:9px!important;line-height:1.3!important}
+      .startup-ui-v105 .startup-meta-v100{grid-column:3!important;grid-row:1!important;align-self:stretch!important;display:grid!important;grid-template-columns:1fr!important;gap:5px!important}.startup-ui-v105 .startup-meta-v100>div{padding:7px 9px!important;border-radius:10px!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:8px}.startup-ui-v105 .startup-meta-v100 span{font-size:8px!important}.startup-ui-v105 .startup-meta-v100 strong{font-size:9.5px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+      .startup-ui-v105 .v105-primary-grid{min-height:0;display:grid!important;grid-template-columns:repeat(12,minmax(0,1fr))!important;grid-template-rows:120px minmax(0,1fr) 70px!important;gap:var(--v105-gap)!important;align-items:stretch!important}
+      .startup-ui-v105 .v105-primary-grid>.startup-kpi-zone-v100{grid-column:1/-1!important;grid-row:1!important;min-height:0!important;padding:9px 10px!important;border-radius:18px!important;overflow:visible!important}
+      .startup-ui-v105 .startup-zone-head-v100{display:none!important}
+      .startup-ui-v105 .startup-kpi-grid-v100{height:100%;display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;grid-template-rows:1fr!important;gap:8px!important}
+      .startup-ui-v105 .startup-kpi-grid-v100 .command-kpi-card-v98{grid-column:auto!important;grid-row:auto!important;min-height:0!important;height:100%!important;padding:10px 12px!important;border-radius:15px!important;overflow:hidden!important}
+      .startup-ui-v105 .startup-kpi-grid-v100 .command-kpi-head-v98{margin-bottom:3px!important}.startup-ui-v105 .command-kpi-icon-v98{width:28px!important;height:28px!important;border-radius:9px!important;font-size:14px!important}.startup-ui-v105 .command-kpi-scope-v98{padding:4px 6px!important;font-size:7.5px!important}
+      .startup-ui-v105 .command-kpi-label-v98{font-size:9px!important}.startup-ui-v105 .startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(1) .command-kpi-value-v98,.startup-ui-v105 .startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(2) .command-kpi-value-v98,.startup-ui-v105 .startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(3) .command-kpi-value-v98,.startup-ui-v105 .startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(4) .command-kpi-value-v98{font-size:clamp(30px,2.4vw,38px)!important;line-height:.92!important;letter-spacing:-1.5px!important;margin-top:1px!important}.startup-ui-v105 .command-kpi-label-v98{margin-top:3px!important}.startup-ui-v105 .command-kpi-note-v98{font-size:8.5px!important;line-height:1.2!important;margin-top:3px!important}.startup-ui-v105 .command-kpi-progress-v98{height:4px!important;margin-top:5px!important}.startup-ui-v105 .v101-kpi-hint{display:none!important}
+      .startup-ui-v105 .v101-kpi-detail{position:absolute;left:8px;right:8px;top:calc(100% - 5px);z-index:80;border-radius:14px;background:color-mix(in srgb,var(--kpi1) 91%,#000);box-shadow:0 22px 55px rgba(23,59,64,.25);padding-inline:10px}.startup-ui-v105 .command-kpi-card-v98.v101-kpi-expanded{overflow:visible!important;z-index:90}.startup-ui-v105 .command-kpi-card-v98.v101-kpi-expanded .v101-kpi-detail{padding-bottom:10px}
+
+      .startup-ui-v105 .v105-primary-grid>.startup-stock-card-v100{grid-column:1/9!important;grid-row:2!important;min-height:0!important;border-radius:20px!important}
+      .startup-ui-v105 .v105-side-stack{grid-column:9/13;grid-row:2;min-height:0;grid-template-rows:1fr 1fr}
+      .startup-ui-v105 .v105-side-stack>.startup-card-v100{min-height:0!important;height:100%!important;border-radius:20px!important;overflow:hidden!important}
+      .startup-ui-v105 .startup-card-head-v100{padding:11px 13px 5px!important;gap:8px!important}.startup-ui-v105 .startup-card-head-v100 span{font-size:8px!important}.startup-ui-v105 .startup-card-head-v100 h3{font-size:15px!important;margin-top:2px!important}.startup-ui-v105 .startup-card-head-v100 p{font-size:8.5px!important;line-height:1.3!important;margin-top:2px!important}.startup-ui-v105 .startup-card-action-v100{min-height:28px!important;padding:5px 7px!important;font-size:8px!important}
+
+      .startup-ui-v105 .startup-stock-dark-v100{height:calc(100% - 51px);padding:2px 13px 11px!important;display:grid!important;grid-template-columns:minmax(180px,.72fr) minmax(0,1.28fr)!important;grid-template-rows:auto minmax(0,1fr)!important;gap:7px 11px!important;align-items:stretch}
+      .startup-ui-v105 .startup-stock-hero-v99{grid-column:1;grid-row:1;display:block!important;padding:4px 0!important}.startup-ui-v105 .startup-stock-hero-v99 strong{font-size:clamp(34px,3.4vw,51px)!important;letter-spacing:-2px!important}.startup-ui-v105 .startup-stock-hero-v99 small{font-size:8.5px!important;line-height:1.3!important}.startup-ui-v105 .startup-stock-rate-v99{margin-top:6px;min-width:0!important;width:max-content;padding:6px 8px!important;text-align:left!important}.startup-ui-v105 .startup-stock-rate-v99 b{font-size:16px!important}.startup-ui-v105 .startup-stock-rate-v99 span{font-size:8px!important}
+      .startup-ui-v105 .startup-stage-list-v99{grid-column:2;grid-row:1/3;gap:5px!important;align-self:stretch}.startup-ui-v105 .startup-stage-v99{padding:7px 9px 8px!important;border-radius:10px!important}.startup-ui-v105 .startup-stage-top-v99 span{font-size:8px!important}.startup-ui-v105 .startup-stage-top-v99 strong{font-size:13px!important}.startup-ui-v105 .startup-stage-top-v99 b{font-size:10px!important}.startup-ui-v105 .startup-stage-track-v99{height:5px!important;margin-top:5px!important}.startup-ui-v105 .startup-stage-v99 small{font-size:8px!important;margin-top:4px!important;line-height:1.25!important}
+      .startup-ui-v105 .startup-stock-gaps-v99{grid-column:1;grid-row:2;grid-template-columns:1fr 1fr!important;gap:5px!important;align-self:end}.startup-ui-v105 .startup-gap-v99{padding:8px!important;border-radius:10px!important}.startup-ui-v105 .startup-gap-v99 span{font-size:7.5px!important}.startup-ui-v105 .startup-gap-v99 strong{font-size:18px!important;margin-top:2px!important}.startup-ui-v105 .startup-gap-v99 small{font-size:7.5px!important;margin-top:3px!important;line-height:1.2!important}
+
+      .startup-ui-v105 .v105-side-stack .startup-card-head-v100 p{display:none!important}.startup-ui-v105 .v105-side-stack .startup-donut-wrap-v100{height:70px!important;min-height:70px!important;padding:0 8px!important}.startup-ui-v105 .v105-side-stack .startup-donut-wrap-v100 canvas{height:70px!important;max-height:70px!important}.startup-ui-v105 .v105-side-stack .startup-donut-foot-v100{padding:2px 8px 7px!important;gap:4px!important;font-size:8px!important}.startup-ui-v105 .v105-side-stack .command-donut-pill-v98{padding:3px 5px!important;font-size:7.5px!important}
+
+      .startup-ui-v105 .v105-primary-grid>.v105-alert-strip{grid-column:1/-1!important;grid-row:3!important;min-height:0!important;height:76px!important;border-radius:18px!important;display:grid!important;grid-template-columns:minmax(180px,29%) minmax(0,1fr)!important;align-items:center!important;padding:8px 10px!important;overflow:hidden!important}
+      .startup-ui-v105 .v105-alert-strip .startup-card-head-v100{padding:0 8px!important;align-items:center!important}.startup-ui-v105 .v105-alert-strip .startup-card-head-v100 p{display:none!important}.startup-ui-v105 .v105-alert-strip .startup-card-head-v100 h3{font-size:13px!important}.startup-ui-v105 .v105-alert-strip .executive-alert-header-right-v88{gap:4px!important}.startup-ui-v105 .v105-alert-strip .executive-alert-scope-v88{display:none!important}.startup-ui-v105 .v105-alert-strip .executive-alert-total-v88{font-size:8px!important;padding:4px 6px!important}.startup-ui-v105 .v105-alert-open{min-height:27px;border:0;border-radius:9px;padding:5px 7px;background:var(--brand-deep);color:#fff;font:inherit;font-size:8px;font-weight:850;cursor:pointer;white-space:nowrap}
+      .startup-ui-v105 .v105-alert-strip .executive-alert-summary-v88,.startup-ui-v105 .v105-alert-strip .executive-alert-footer-v88{display:none!important}.startup-ui-v105 .v105-alert-strip .startup-alert-list-v100{padding:0!important;display:block!important;min-width:0}.startup-ui-v105 .v105-alert-strip .executive-alert-item-v88{display:none!important}.startup-ui-v105 .v105-alert-strip .executive-alert-item-v88:first-child{display:grid!important;grid-template-columns:30px minmax(0,1fr) auto!important;gap:8px!important;align-items:center!important;padding:7px 8px!important;border-radius:12px!important;background:rgba(248,248,245,.76)!important}.startup-ui-v105 .v105-alert-strip .executive-alert-icon-v88{width:30px!important;height:30px!important;border-radius:9px!important}.startup-ui-v105 .v105-alert-strip .executive-alert-meta-v88{gap:4px!important}.startup-ui-v105 .v105-alert-strip .executive-alert-module-v88,.startup-ui-v105 .v105-alert-strip .executive-alert-severity-v88{font-size:7px!important;padding:2px 4px!important}.startup-ui-v105 .v105-alert-strip .executive-alert-item-v88 h4{font-size:9.5px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.startup-ui-v105 .v105-alert-strip .executive-alert-item-v88 p{display:none!important}.startup-ui-v105 .v105-alert-strip .executive-alert-action-v88{min-height:26px!important;padding:5px 7px!important;font-size:7.5px!important}.startup-ui-v105 .v105-alert-strip .command-alert-more-v98{display:none!important}
+
+      .startup-ui-v105 .v105-internal-dock,.startup-ui-v105 .v105-public-dock{height:43px;min-height:43px}
+
+      /* Public one-screen */
+      .startup-ui-v105 .startup-public-hero-v100{height:132px!important;min-height:0!important;padding:16px 18px!important;border-radius:22px!important;display:grid!important;grid-template-columns:minmax(0,1fr) 220px!important;align-items:center!important}.startup-ui-v105 .startup-public-hero-copy-v100 h3{font-size:30px!important;line-height:1!important;margin:4px 0 7px!important;max-width:700px}.startup-ui-v105 .startup-public-hero-copy-v100 p{font-size:10.5px!important;line-height:1.4!important;max-width:700px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.startup-ui-v105 .startup-public-scope-v100{padding:11px!important;border-radius:15px!important}.startup-ui-v105 .startup-public-scope-v100 span,.startup-ui-v105 .startup-public-scope-v100 small{font-size:8.5px!important}.startup-ui-v105 .startup-public-scope-v100 strong{font-size:14px!important}
+      .startup-ui-v105 .startup-public-kpis-v100{height:105px!important;display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:8px!important}.startup-ui-v105 .startup-public-kpis-v100 .command-public-stat-v98{min-height:0!important;height:105px!important;padding:12px!important;border-radius:17px!important}.startup-ui-v105 .startup-public-kpis-v100 .command-public-stat-v98 strong{font-size:34px!important}.startup-ui-v105 .startup-public-kpis-v100 .command-public-stat-v98 span{font-size:9px!important}.startup-ui-v105 .startup-public-kpis-v100 .command-public-stat-v98 small{font-size:8.5px!important}
+      .startup-ui-v105 .v105-public-primary-grid{min-height:0!important;height:100%;display:grid!important;grid-template-columns:repeat(12,minmax(0,1fr))!important;gap:var(--v105-gap)!important}.startup-ui-v105 .v105-public-primary-grid>.public-stock-card-v100{grid-column:1/9!important;min-height:0!important;height:100%!important}.startup-ui-v105 .v105-public-primary-grid>.v105-public-psu-card{grid-column:9/13!important;min-height:0!important;height:100%!important}.startup-ui-v105 .v105-public-primary-grid .startup-stock-dark-v100{height:calc(100% - 51px)}.startup-ui-v105 .v105-public-psu-card .startup-donut-wrap-v100{height:135px!important;min-height:135px!important;padding:0 10px!important}.startup-ui-v105 .v105-public-psu-card .startup-donut-wrap-v100 canvas{height:135px!important;max-height:135px!important}
+    }
+
+    @media(min-width:1101px) and (max-height:820px){
+      .startup-ui-v105 .startup-internal-home-v100{grid-template-rows:102px minmax(0,1fr) 39px}.startup-ui-v105 .startup-public-home-v100{grid-template-rows:105px 92px minmax(0,1fr) 39px}
+      .startup-ui-v105 .startup-command-hero-v100{height:102px;padding:10px 14px!important}.startup-ui-v105 .startup-command-copy-v100 h3{font-size:26px!important;margin-bottom:4px!important}.startup-ui-v105 .startup-command-copy-v100 p{font-size:9px!important;-webkit-line-clamp:1}.startup-ui-v105 .startup-hero-foot-v100{display:none!important}.startup-ui-v105 .startup-focus-v100{padding:8px!important}.startup-ui-v105 .startup-focus-v100 strong{font-size:18px!important}.startup-ui-v105 .startup-meta-v100>div{padding:5px 7px!important}
+      .startup-ui-v105 .v105-primary-grid{grid-template-rows:94px minmax(0,1fr) 62px!important}.startup-ui-v105 .startup-kpi-grid-v100 .command-kpi-card-v98{padding:7px 10px!important}.startup-ui-v105 .startup-kpi-grid-v100 .command-kpi-icon-v98{width:24px!important;height:24px!important}.startup-ui-v105 .startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(1) .command-kpi-value-v98,.startup-ui-v105 .startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(2) .command-kpi-value-v98,.startup-ui-v105 .startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(3) .command-kpi-value-v98,.startup-ui-v105 .startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(4) .command-kpi-value-v98{font-size:29px!important}.startup-ui-v105 .command-kpi-note-v98{display:none!important}.startup-ui-v105 .startup-card-head-v100 p{display:none!important}.startup-ui-v105 .startup-stock-dark-v100{height:calc(100% - 42px)}.startup-ui-v105 .v105-side-stack .startup-donut-wrap-v100{height:58px!important;min-height:58px!important}.startup-ui-v105 .v105-side-stack .startup-donut-wrap-v100 canvas{height:58px!important;max-height:58px!important}.startup-ui-v105 .v105-primary-grid>.v105-alert-strip{height:65px!important}.startup-ui-v105 .startup-public-hero-v100{height:105px!important;padding:11px 15px!important}.startup-ui-v105 .startup-public-hero-copy-v100 h3{font-size:25px!important}.startup-ui-v105 .startup-public-hero-copy-v100 p{display:none!important}.startup-ui-v105 .startup-public-kpis-v100,.startup-ui-v105 .startup-public-kpis-v100 .command-public-stat-v98{height:92px!important}.startup-ui-v105 .v105-internal-dock,.startup-ui-v105 .v105-public-dock{height:39px;min-height:39px;padding-block:4px}.startup-ui-v105 .v105-quick-dock button{min-height:30px;padding-block:5px}
+    }
+
+    /* Tablet/mobile retain v103 responsive philosophy; secondary data becomes a sheet. */
+    @media(max-width:1100px){
+      .startup-ui-v105 .header-logo-shell-v104{width:53px;height:53px;border-radius:14px}.startup-ui-v105 .header-brand-v104{gap:8px!important}
+      .startup-ui-v105 .v105-primary-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}.startup-ui-v105 .v105-primary-grid>.startup-kpi-zone-v100,.startup-ui-v105 .v105-primary-grid>.startup-stock-card-v100,.startup-ui-v105 .v105-primary-grid>.v105-alert-strip{grid-column:1/-1!important}.startup-ui-v105 .v105-side-stack{grid-column:1/-1;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.startup-ui-v105 .v105-side-stack>.startup-card-v100{min-width:0}
+      .startup-ui-v105 .v105-quick-dock{margin-top:0;overflow-x:auto;scrollbar-width:none;padding-left:9px}.startup-ui-v105 .v105-quick-dock::-webkit-scrollbar{display:none}.startup-ui-v105 .v105-dock-label{min-width:145px;flex:0 0 auto}.startup-ui-v105 .v105-quick-dock button{flex:0 0 auto;min-height:42px;padding:8px 10px}
+      .startup-ui-v105 .v105-detail-overlay.open{align-items:stretch}.startup-ui-v105 .v105-detail-sheet{width:min(650px,calc(100vw - 20px));height:calc(100dvh - 20px)}
+      .startup-ui-v105 .v105-public-primary-grid{display:grid!important;grid-template-columns:1fr!important;gap:12px!important}.startup-ui-v105 .v105-public-primary-grid>*{grid-column:1!important}.startup-ui-v105 .v105-public-psu-card{min-height:300px!important}
+    }
+
+    @media(max-width:720px){
+      .startup-ui-v105 .header-logo-shell-v104{width:48px;height:48px;border-radius:13px}
+      .startup-ui-v105 .v105-primary-grid{grid-template-columns:1fr!important}.startup-ui-v105 .v105-side-stack{grid-template-columns:1fr!important}.startup-ui-v105 .v105-alert-strip{min-height:0!important}.startup-ui-v105 .v105-quick-dock{border-radius:15px;padding:7px;gap:6px}.startup-ui-v105 .v105-dock-label{display:none}.startup-ui-v105 .v105-quick-dock button{font-size:10px}
+      .startup-ui-v105 .v105-detail-overlay{padding:7px;align-items:flex-end!important}.startup-ui-v105 .v105-detail-sheet{width:100%;height:min(88dvh,760px);border-radius:24px 24px 15px 15px;animation:v105SheetUp .28s cubic-bezier(.2,.75,.2,1)}@keyframes v105SheetUp{from{opacity:.5;transform:translateY(28px)}to{opacity:1;transform:none}}
+      .startup-ui-v105 .v105-detail-head{padding:15px 15px 10px}.startup-ui-v105 .v105-detail-head h3{font-size:20px}.startup-ui-v105 .v105-detail-tabs{padding:8px 10px}.startup-ui-v105 .v105-detail-tabs button{min-height:40px;font-size:10px}.startup-ui-v105 .v105-detail-body{padding:10px}
+      .startup-ui-v105 .v105-alert-panel-row{grid-template-columns:34px minmax(0,1fr)}.startup-ui-v105 .v105-alert-panel-row>button{grid-column:2;justify-self:start}
+    }
+    @media(max-width:390px){.startup-ui-v105 .header-logo-shell-v104{width:46px;height:46px}}
+    @media(prefers-reduced-motion:reduce){.startup-ui-v105 .v105-detail-sheet,.startup-ui-v105 .v105-detail-overlay{animation:none!important}}
+  </style>
+
 </head>
 
-<body class="public-mode startup-ui-v100 startup-ui-v101 startup-ui-v102 startup-ui-v103 startup-ui-v104">
+<body class="public-mode startup-ui-v100 startup-ui-v101 startup-ui-v102 startup-ui-v103 startup-ui-v104 startup-ui-v105">
 <div class="app">
   <aside class="sidebar" id="sidebar">
     <div class="brand brand-v104">
@@ -3492,7 +3623,7 @@
 
         <div class="command-public-kpis-v98 startup-public-kpis-v100" id="publicTransparencyStatsV94"></div>
 
-        <div class="startup-public-bento-v100">
+        <div class="startup-public-bento-v100 v105-public-primary-grid">
           <article class="startup-card-v100 startup-stock-card-v100 public-stock-card-v100">
             <div class="startup-card-head-v100 light-on-dark">
               <div><span>PERKEMBANGAN HUNIAN</span><h3>Perkembangan Stok Hunian</h3><p>Dari unit yang direncanakan sampai benar-benar dihuni.</p></div>
@@ -3501,27 +3632,53 @@
             <div class="startup-stock-v99 startup-stock-dark-v100" id="publicHousingStockV99"></div>
           </article>
 
-          <article class="startup-card-v100 startup-psu-card-v100" data-v101-topics="psu infrastructure">
+          <article class="startup-card-v100 startup-psu-card-v100 v105-public-psu-card" data-v101-topics="psu infrastructure">
             <div class="startup-card-head-v100"><div><span>STATUS PSU</span><h3>Penyerahan PSU</h3><p>Proporsi kawasan yang telah diserahkan.</p></div></div>
             <div class="command-donut-wrap-v98 startup-donut-wrap-v100"><canvas id="publicPsuDonutV98"></canvas></div>
             <div class="command-donut-foot-v98 startup-donut-foot-v100" id="publicPsuDonutFootV98"></div>
           </article>
-
-          <article class="startup-card-v100 startup-public-narrative-card-v100">
-            <div class="startup-card-head-v100"><div><span>RINGKASAN KOTA</span><h3>Apa yang ditunjukkan data?</h3></div></div>
-            <p class="command-public-narrative-v98 startup-public-narrative-v100" id="publicTransparencyNarrativeV94">Menyiapkan ringkasan data publik.</p>
-          </article>
-
-          <article class="startup-card-v100 startup-public-trend-card-v100">
-            <div class="startup-card-head-v100"><div><span>REKAM TAHUNAN</span><h3>Perkembangan Tahunan</h3></div></div>
-            <div id="publicTransparencyTrendV94" class="command-public-trend-v98 startup-public-trend-v100"></div>
-          </article>
         </div>
 
-        <div class="public-transparency-definitions-v94 startup-public-definitions-v100">
-          <div><b>PSU</b><span>Prasarana, sarana, dan utilitas umum kawasan perumahan.</span></div>
-          <div><b>Backlog</b><span>Gambaran kebutuhan rumah berdasarkan kepemilikan atau penghunian.</span></div>
-          <div><b>RTLH</b><span>Rumah yang belum memenuhi persyaratan kelayakan tertentu.</span></div>
+        <nav class="v105-quick-dock v105-public-dock" aria-label="Informasi publik lanjutan">
+          <div class="v105-dock-label"><span>Informasi lanjutan</span><strong>Tanpa memenuhi layar utama</strong></div>
+          <button type="button" onclick="openPublicPanelV105('ringkasan')">Ringkasan Kota <span>↗</span></button>
+          <button type="button" onclick="openPublicPanelV105('rekam')">Rekam Tahunan <span>↗</span></button>
+          <button type="button" onclick="openPublicPanelV105('definisi')">Definisi Data <span>↗</span></button>
+        </nav>
+
+        <div class="v105-detail-overlay v105-public-detail-overlay" id="v105PublicOverlay" aria-hidden="true" onclick="handleV105OverlayBackdrop(event,'public')">
+          <aside class="v105-detail-sheet" role="dialog" aria-modal="true" aria-labelledby="v105PublicPanelTitle">
+            <header class="v105-detail-head">
+              <div><span>INFORMASI PUBLIK</span><h3 id="v105PublicPanelTitle">Ringkasan Kota</h3></div>
+              <button type="button" onclick="closePublicPanelV105()" aria-label="Tutup panel">×</button>
+            </header>
+            <div class="v105-detail-tabs" role="tablist" aria-label="Panel publik">
+              <button type="button" data-v105-public-tab="ringkasan" onclick="openPublicPanelV105('ringkasan')">Ringkasan</button>
+              <button type="button" data-v105-public-tab="rekam" onclick="openPublicPanelV105('rekam')">Rekam Tahunan</button>
+              <button type="button" data-v105-public-tab="definisi" onclick="openPublicPanelV105('definisi')">Definisi</button>
+            </div>
+            <div class="v105-detail-body">
+              <section class="v105-detail-page" data-v105-public-panel="ringkasan">
+                <article class="startup-card-v100 startup-public-narrative-card-v100">
+                  <div class="startup-card-head-v100"><div><span>RINGKASAN KOTA</span><h3>Apa yang ditunjukkan data?</h3></div></div>
+                  <p class="command-public-narrative-v98 startup-public-narrative-v100" id="publicTransparencyNarrativeV94">Menyiapkan ringkasan data publik.</p>
+                </article>
+              </section>
+              <section class="v105-detail-page" data-v105-public-panel="rekam">
+                <article class="startup-card-v100 startup-public-trend-card-v100">
+                  <div class="startup-card-head-v100"><div><span>REKAM TAHUNAN</span><h3>Perkembangan Tahunan</h3></div></div>
+                  <div id="publicTransparencyTrendV94" class="command-public-trend-v98 startup-public-trend-v100"></div>
+                </article>
+              </section>
+              <section class="v105-detail-page" data-v105-public-panel="definisi">
+                <div class="public-transparency-definitions-v94 startup-public-definitions-v100 v105-public-definitions-panel">
+                  <div><b>PSU</b><span>Prasarana, sarana, dan utilitas umum kawasan perumahan.</span></div>
+                  <div><b>Backlog</b><span>Gambaran kebutuhan rumah berdasarkan kepemilikan atau penghunian.</span></div>
+                  <div><b>RTLH</b><span>Rumah yang belum memenuhi persyaratan kelayakan tertentu.</span></div>
+                </div>
+              </section>
+            </div>
+          </aside>
         </div>
       </div>
 
@@ -3545,7 +3702,7 @@
           </div>
         </section>
 
-        <div class="startup-bento-grid-v100">
+        <div class="startup-bento-grid-v100 v105-primary-grid">
           <section class="startup-kpi-zone-v100">
             <div class="startup-zone-head-v100"><span>INDIKATOR UTAMA</span><strong>Kondisi dalam angka</strong></div>
             <div class="command-kpi-grid-v98 startup-kpi-grid-v100" id="kpiGrid"></div>
@@ -3559,62 +3716,95 @@
             <div class="startup-stock-v99 startup-stock-dark-v100" id="homeHousingStockV99"></div>
           </article>
 
-          <article class="startup-card-v100 startup-psu-card-v100" data-v101-topics="psu infrastructure">
-            <div class="startup-card-head-v100"><div><span>INFRASTRUKTUR</span><h3>Status PSU</h3><p>Sudah diserahkan vs masih menunggu.</p></div><button class="startup-card-action-v100" onclick="openHomeTargetV59('psu')">Buka ↗</button></div>
-            <div class="command-donut-wrap-v98 startup-donut-wrap-v100"><canvas id="homePsuDonutV98"></canvas></div>
-            <div class="command-donut-foot-v98 startup-donut-foot-v100" id="homePsuDonutFootV98"></div>
-          </article>
+          <div class="v105-side-stack">
+            <article class="startup-card-v100 startup-psu-card-v100" data-v101-topics="psu infrastructure">
+              <div class="startup-card-head-v100"><div><span>INFRASTRUKTUR</span><h3>Status PSU</h3><p>Sudah diserahkan vs masih menunggu.</p></div><button class="startup-card-action-v100" onclick="openHomeTargetV59('psu')">Buka ↗</button></div>
+              <div class="command-donut-wrap-v98 startup-donut-wrap-v100"><canvas id="homePsuDonutV98"></canvas></div>
+              <div class="command-donut-foot-v98 startup-donut-foot-v100" id="homePsuDonutFootV98"></div>
+            </article>
 
-          <article class="startup-card-v100 startup-rusun-card-v100" data-v101-topics="rusunawa">
-            <div class="startup-card-head-v100"><div><span>HUNIAN SEWA</span><h3>Okupansi RUSUNAWA</h3><p>Pemanfaatan unit hunian sewa saat ini.</p></div><button class="startup-card-action-v100" onclick="openHomeTargetV59('rusunawa')">Buka ↗</button></div>
-            <div class="command-donut-wrap-v98 startup-donut-wrap-v100"><canvas id="homeRusunawaDonutV98"></canvas></div>
-            <div class="command-donut-foot-v98 startup-donut-foot-v100" id="homeRusunawaDonutFootV98"></div>
-          </article>
+            <article class="startup-card-v100 startup-rusun-card-v100" data-v101-topics="rusunawa">
+              <div class="startup-card-head-v100"><div><span>HUNIAN SEWA</span><h3>Okupansi RUSUNAWA</h3><p>Pemanfaatan unit hunian sewa saat ini.</p></div><button class="startup-card-action-v100" onclick="openHomeTargetV59('rusunawa')">Buka ↗</button></div>
+              <div class="command-donut-wrap-v98 startup-donut-wrap-v100"><canvas id="homeRusunawaDonutV98"></canvas></div>
+              <div class="command-donut-foot-v98 startup-donut-foot-v100" id="homeRusunawaDonutFootV98"></div>
+            </article>
+          </div>
 
-          <article class="startup-card-v100 startup-infra-card-v100" data-v101-topics="infrastructure psu road rth flood">
-            <div class="startup-card-head-v100">
-              <div><span>KONDISI INFRASTRUKTUR</span><h3>Apa yang paling membutuhkan perhatian?</h3><p>Isu terstruktur pada perumahan aktif, diurutkan lewat besaran kondisi.</p></div>
-              <button type="button" class="startup-card-action-v100" onclick="openHomeTargetV59('data-perumahan')">Lihat data ↗</button>
-            </div>
-            <div class="startup-infra-v99 startup-infra-v100" id="homeInfrastructureV99"></div>
-          </article>
-
-          <article class="startup-card-v100 startup-alert-card-v100 executive-alert-card-v88" id="executiveAlertCard" data-v101-topics="alerts rtlh psu rusunawa slum">
+          <article class="startup-card-v100 startup-alert-card-v100 executive-alert-card-v88 v105-alert-strip" id="executiveAlertCard" data-v101-topics="alerts rtlh psu rusunawa slum">
             <div class="startup-card-head-v100 alert-head-v100">
               <div><span>PERINGATAN PRIORITAS</span><h3>Yang perlu dilihat sekarang</h3><p>Isu lintas modul dengan urgensi tertinggi.</p></div>
-              <div class="executive-alert-header-right-v88"><span class="executive-alert-scope-v88" id="executiveAlertScope">Seluruh Kota</span><span class="executive-alert-total-v88" id="executiveAlertTotal">0 alert</span></div>
+              <div class="executive-alert-header-right-v88"><span class="executive-alert-scope-v88" id="executiveAlertScope">Seluruh Kota</span><span class="executive-alert-total-v88" id="executiveAlertTotal">0 alert</span><button type="button" class="v105-alert-open" onclick="openCommandPanelV105('peringatan')">Lihat semua ↗</button></div>
             </div>
             <div class="executive-alert-summary-v88 command-alert-summary-v98 startup-alert-summary-v100" id="executiveAlertSummary"></div>
             <div class="executive-alert-list-v88 command-alert-list-v98 startup-alert-list-v100" id="executiveAlertList"></div>
             <div class="executive-alert-footer-v88 command-alert-footer-v98 startup-alert-footer-v100"><span id="executiveAlertFootnote">Menampilkan isu dengan prioritas tertinggi.</span><span class="executive-alert-rule-v88">PSU · RTLH · RUSUNAWA · Kumuh</span></div>
           </article>
+        </div>
 
-          <article class="startup-card-v100 startup-region-card-v100 startup-context-card-v101" id="startupContextCardV101" data-v101-topics="context">
-            <div class="startup-card-head-v100 light-on-dark"><div><span>SOROTAN KONTEKSTUAL</span><h3>Apa arti angka yang sedang dilihat?</h3><p>Panel ini mengikuti KPI dan visual yang sedang kamu jelajahi.</p></div></div>
-            <div class="startup-context-body-v101" id="contextualInsightV101"></div>
-            <div id="commandRegionalInsightsV98" hidden></div>
-          </article>
+        <nav class="v105-quick-dock v105-internal-dock" aria-label="Panel analitik lanjutan">
+          <div class="v105-dock-label"><span>Panel cepat</span><strong>Detail tersedia saat dibutuhkan</strong></div>
+          <button type="button" data-v105-dock="infrastruktur" onclick="openCommandPanelV105('infrastruktur')">Infrastruktur <span>↗</span></button>
+          <button type="button" data-v105-dock="prioritas" onclick="openCommandPanelV105('prioritas')">Prioritas <span>↗</span></button>
+          <button type="button" data-v105-dock="sorotan" onclick="openCommandPanelV105('sorotan')">Sorotan <span>↗</span></button>
+          <button type="button" data-v105-dock="data" onclick="openCommandPanelV105('data')">Kesehatan Data <span>↗</span></button>
+          <button type="button" data-v105-dock="rekam" onclick="openCommandPanelV105('rekam')">Rekam Tahunan <span>↗</span></button>
+        </nav>
 
-          <article class="startup-card-v100 startup-queue-card-v100" data-v101-topics="actions rtlh psu rusunawa">
-            <div class="startup-card-head-v100"><div><span>PRIORITAS TINDAK LANJUT</span><h3>Antrian kerja utama</h3><p>Objek yang perlu masuk radar tindak lanjut.</p></div></div>
-            <div class="home-action-tabs command-action-tabs-v98 startup-action-tabs-v100" id="homeActionTabs">
-              <button type="button" class="active" data-home-action-tab="rtlh" onclick="setHomeActionTabV59('rtlh')">Hunian Prioritas</button>
-              <button type="button" data-home-action-tab="psu" onclick="setHomeActionTabV59('psu')">PSU</button>
-              <button type="button" data-home-action-tab="rusunawa" onclick="setHomeActionTabV59('rusunawa')">Hunian Sewa</button>
+        <div class="v105-detail-overlay" id="v105DetailOverlay" aria-hidden="true" onclick="handleV105OverlayBackdrop(event,'internal')">
+          <aside class="v105-detail-sheet" role="dialog" aria-modal="true" aria-labelledby="v105PanelTitle">
+            <header class="v105-detail-head">
+              <div><span>ANALITIK LANJUTAN</span><h3 id="v105PanelTitle">Kondisi Infrastruktur</h3></div>
+              <button type="button" onclick="closeCommandPanelV105()" aria-label="Tutup panel">×</button>
+            </header>
+            <div class="v105-detail-tabs" role="tablist" aria-label="Panel analitik lanjutan">
+              <button type="button" data-v105-tab="peringatan" onclick="openCommandPanelV105('peringatan')">Peringatan</button>
+              <button type="button" data-v105-tab="infrastruktur" onclick="openCommandPanelV105('infrastruktur')">Infrastruktur</button>
+              <button type="button" data-v105-tab="prioritas" onclick="openCommandPanelV105('prioritas')">Prioritas</button>
+              <button type="button" data-v105-tab="sorotan" onclick="openCommandPanelV105('sorotan')">Sorotan</button>
+              <button type="button" data-v105-tab="data" onclick="openCommandPanelV105('data')">Kesehatan Data</button>
+              <button type="button" data-v105-tab="rekam" onclick="openCommandPanelV105('rekam')">Rekam Tahunan</button>
             </div>
-            <div class="home-action-content command-queue-content-v98 startup-queue-content-v100" id="homeActionSummary"></div>
-          </article>
-
-          <article class="startup-card-v100 startup-freshness-card-v100" data-v101-topics="data">
-            <div class="startup-card-head-v100"><div><span>KESEHATAN DATA</span><h3>Seberapa segar datanya?</h3><p>Status pembaruan modul utama.</p></div></div>
-            <div class="command-freshness-list-v98 startup-freshness-list-v100" id="commandFreshnessV98"></div>
-          </article>
-
-          <article class="startup-card-v100 startup-snapshot-card-v100" data-v101-topics="history">
-            <div class="startup-card-head-v100"><div><span>REKAM TAHUNAN</span><h3>Pergerakan indikator dari waktu ke waktu</h3><p>Hanya memakai snapshot FINAL; tidak membuat tren dari data DRAFT.</p></div></div>
-            <div class="command-snapshot-chart-v98 startup-snapshot-chart-v100"><canvas id="homeSnapshotChartV98"></canvas><div class="command-chart-empty-v98" id="homeSnapshotEmptyV98" hidden></div></div>
-            <div class="command-snapshot-foot-v98 startup-snapshot-foot-v100" id="homeSnapshotFootV98"></div>
-          </article>
+            <div class="v105-detail-body">
+              <section class="v105-detail-page" data-v105-panel="peringatan"><div id="v105AlertPanel"></div></section>
+              <section class="v105-detail-page" data-v105-panel="infrastruktur">
+                <article class="startup-card-v100 startup-infra-card-v100" data-v101-topics="infrastructure psu road rth flood">
+                  <div class="startup-card-head-v100"><div><span>KONDISI INFRASTRUKTUR</span><h3>Apa yang paling membutuhkan perhatian?</h3><p>Isu terstruktur pada perumahan aktif, diurutkan lewat besaran kondisi.</p></div><button type="button" class="startup-card-action-v100" onclick="openHomeTargetV59('data-perumahan')">Lihat data ↗</button></div>
+                  <div class="startup-infra-v99 startup-infra-v100" id="homeInfrastructureV99"></div>
+                </article>
+              </section>
+              <section class="v105-detail-page" data-v105-panel="prioritas">
+                <article class="startup-card-v100 startup-queue-card-v100" data-v101-topics="actions rtlh psu rusunawa">
+                  <div class="startup-card-head-v100"><div><span>PRIORITAS TINDAK LANJUT</span><h3>Antrian kerja utama</h3><p>Objek yang perlu masuk radar tindak lanjut.</p></div></div>
+                  <div class="home-action-tabs command-action-tabs-v98 startup-action-tabs-v100" id="homeActionTabs">
+                    <button type="button" class="active" data-home-action-tab="rtlh" onclick="setHomeActionTabV59('rtlh')">Hunian Prioritas</button>
+                    <button type="button" data-home-action-tab="psu" onclick="setHomeActionTabV59('psu')">PSU</button>
+                    <button type="button" data-home-action-tab="rusunawa" onclick="setHomeActionTabV59('rusunawa')">Hunian Sewa</button>
+                  </div>
+                  <div class="home-action-content command-queue-content-v98 startup-queue-content-v100" id="homeActionSummary"></div>
+                </article>
+              </section>
+              <section class="v105-detail-page" data-v105-panel="sorotan">
+                <article class="startup-card-v100 startup-region-card-v100 startup-context-card-v101" id="startupContextCardV101" data-v101-topics="context">
+                  <div class="startup-card-head-v100 light-on-dark"><div><span>SOROTAN KONTEKSTUAL</span><h3>Apa arti angka yang sedang dilihat?</h3><p>Panel mengikuti KPI dan visual yang sedang dijelajahi.</p></div></div>
+                  <div class="startup-context-body-v101" id="contextualInsightV101"></div>
+                  <div id="commandRegionalInsightsV98" hidden></div>
+                </article>
+              </section>
+              <section class="v105-detail-page" data-v105-panel="data">
+                <article class="startup-card-v100 startup-freshness-card-v100" data-v101-topics="data">
+                  <div class="startup-card-head-v100"><div><span>KESEHATAN DATA</span><h3>Seberapa segar datanya?</h3><p>Status pembaruan modul utama.</p></div></div>
+                  <div class="command-freshness-list-v98 startup-freshness-list-v100" id="commandFreshnessV98"></div>
+                </article>
+              </section>
+              <section class="v105-detail-page" data-v105-panel="rekam">
+                <article class="startup-card-v100 startup-snapshot-card-v100" data-v101-topics="history">
+                  <div class="startup-card-head-v100"><div><span>REKAM TAHUNAN</span><h3>Pergerakan indikator dari waktu ke waktu</h3><p>Hanya memakai snapshot FINAL; tidak membuat tren dari data DRAFT.</p></div></div>
+                  <div class="command-snapshot-chart-v98 startup-snapshot-chart-v100"><canvas id="homeSnapshotChartV98"></canvas><div class="command-chart-empty-v98" id="homeSnapshotEmptyV98" hidden></div></div>
+                  <div class="command-snapshot-foot-v98 startup-snapshot-foot-v100" id="homeSnapshotFootV98"></div>
+                </article>
+              </section>
+            </div>
+          </aside>
         </div>
       </div>
       <button type="button" class="startup-focus-exit-v101" id="focusModeExitV101" onclick="toggleFocusModeV101(false)">Keluar Mode Fokus <span>Esc</span></button>
@@ -12005,6 +12195,55 @@ const renderAllV100BeforeV101=renderAll;
 renderAll=function(){renderAllV100BeforeV101();safeRenderSIRUMAH(renderStartupExperienceV101,'Pengalaman Produk Interaktif v101');};
 
 
+
+
+/* =========================================================
+   ONE-SCREEN COMMAND CENTER — SIRUMAH v105
+   Secondary details use an on-demand drawer instead of page scroll.
+   ========================================================= */
+const v105InternalTitles={peringatan:'Peringatan Prioritas',infrastruktur:'Kondisi Infrastruktur',prioritas:'Prioritas Tindak Lanjut',sorotan:'Sorotan Kontekstual',data:'Kesehatan Data',rekam:'Rekam Tahunan'};
+const v105PublicTitles={ringkasan:'Ringkasan Kota',rekam:'Rekam Tahunan',definisi:'Definisi Data'};
+
+function setV105Pages(group,key){
+  const panelAttr=group==='public'?'data-v105-public-panel':'data-v105-panel',tabAttr=group==='public'?'data-v105-public-tab':'data-v105-tab';
+  document.querySelectorAll(`[${panelAttr}]`).forEach(el=>el.classList.toggle('active',el.getAttribute(panelAttr)===key));
+  document.querySelectorAll(`[${tabAttr}]`).forEach(el=>{const active=el.getAttribute(tabAttr)===key;el.classList.toggle('active',active);el.setAttribute('aria-selected',active?'true':'false')});
+}
+function v105AlertSeverityClass(severity){const s=String(severity||'').toLowerCase();return s.includes('mendesak')?'urgent':s.includes('tinggi')?'high':'verify'}
+function renderAlertPanelV105(){
+  const el=document.getElementById('v105AlertPanel');if(!el||publicMode)return;
+  const alerts=buildExecutiveAlertsV88();
+  if(!alerts.length){el.innerHTML='<div class="empty-state">Tidak ada peringatan prioritas aktif.</div>';return;}
+  el.innerHTML=`<div class="v105-alert-panel-list">${alerts.map(item=>{const filterArg=JSON.stringify(String(item.filter||'')),targetArg=JSON.stringify(String(item.target||''));return `<div class="v105-alert-panel-row"><span class="v105-alert-panel-icon">${item.icon}</span><div class="v105-alert-panel-main"><div class="v105-alert-panel-meta"><span>${escapeHtml(item.source)}</span><span class="v105-severity ${v105AlertSeverityClass(item.severity)}">${escapeHtml(item.severity)}</span></div><strong>${escapeHtml(item.title)}</strong><p>${escapeHtml(item.description)}</p></div><button type="button" onclick='closeCommandPanelV105();openExecutiveAlertV88(${JSON.stringify(item.section)},${filterArg},${targetArg})'>Buka →</button></div>`}).join('')}</div>`;
+}
+function openCommandPanelV105(key='infrastruktur'){
+  if(publicMode)return;
+  const overlay=document.getElementById('v105DetailOverlay');if(!overlay)return;
+  const safe=v105InternalTitles[key]?key:'infrastruktur';
+  setV105Pages('internal',safe);const title=document.getElementById('v105PanelTitle');if(title)title.textContent=v105InternalTitles[safe];
+  if(safe==='peringatan')renderAlertPanelV105();
+  overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');document.body.classList.add('v105-panel-open');
+  setTimeout(()=>{if(safe==='rekam'){try{renderCommandCenterChartsV98()}catch(_){}};overlay.querySelector('.v105-detail-head>button')?.focus()},80);
+}
+function closeCommandPanelV105(){const overlay=document.getElementById('v105DetailOverlay');if(overlay){overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true')}document.body.classList.remove('v105-panel-open')}
+function openPublicPanelV105(key='ringkasan'){
+  if(!publicMode)return;
+  const overlay=document.getElementById('v105PublicOverlay');if(!overlay)return;
+  const safe=v105PublicTitles[key]?key:'ringkasan';setV105Pages('public',safe);const title=document.getElementById('v105PublicPanelTitle');if(title)title.textContent=v105PublicTitles[safe];
+  overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');document.body.classList.add('v105-panel-open');
+  setTimeout(()=>overlay.querySelector('.v105-detail-head>button')?.focus(),50);
+}
+function closePublicPanelV105(){const overlay=document.getElementById('v105PublicOverlay');if(overlay){overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true')}document.body.classList.remove('v105-panel-open')}
+function handleV105OverlayBackdrop(event,group){if(event?.target?.classList?.contains('v105-detail-overlay'))group==='public'?closePublicPanelV105():closeCommandPanelV105()}
+document.addEventListener('keydown',event=>{if(event.key!=='Escape')return;if(document.getElementById('v105DetailOverlay')?.classList.contains('open')){closeCommandPanelV105();return}if(document.getElementById('v105PublicOverlay')?.classList.contains('open'))closePublicPanelV105()});
+
+function renderOneScreenV105(){
+  if(publicMode){closeCommandPanelV105()}else{closePublicPanelV105();renderAlertPanelV105()}
+  if(!document.querySelector('[data-v105-panel].active'))setV105Pages('internal','infrastruktur');
+  if(!document.querySelector('[data-v105-public-panel].active'))setV105Pages('public','ringkasan');
+}
+const renderAllV104BeforeV105=renderAll;
+renderAll=function(){renderAllV104BeforeV105();safeRenderSIRUMAH(renderOneScreenV105,'One-Screen Command Center v105');};
 </script>
 
   <!-- Timeline Perumahan v1 — SIRUMAH v94 -->
