@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SIRUMAH Kota Pangkalpinang v99 — Pusat Kendali Generasi Baru</title>
+  <title>SIRUMAH Kota Pangkalpinang v100 — Beranda Generasi Baru</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -2569,9 +2569,90 @@
     @media(max-width:620px){.startup-infra-item-v99{grid-template-columns:1fr auto}.startup-infra-track-v99{grid-column:1/-1;grid-row:2}.startup-stock-v99,.startup-infra-v99{padding-left:14px;padding-right:14px}}
   </style>
 
+
+  <style>
+    /* =========================================================
+       STARTUP UI REBUILD — SIRUMAH v100
+       Produk data modern: bento, warna solid, hierarchy besar.
+       ========================================================= */
+    body.startup-ui-v100{--startup-ink:#0a1020;--startup-surface:#f5f7fb;--startup-line:rgba(15,23,42,.08);background:radial-gradient(circle at 82% 4%,rgba(99,102,241,.09),transparent 24%),radial-gradient(circle at 56% 0%,rgba(14,165,233,.07),transparent 22%),#f5f7fb}
+    .startup-ui-v100 .app{grid-template-columns:270px minmax(0,1fr)}
+    .startup-ui-v100 .sidebar{background:#0a1020;padding:18px 16px;border-right:1px solid rgba(255,255,255,.06);box-shadow:18px 0 60px rgba(15,23,42,.12)}
+    .startup-ui-v100 .brand{padding:6px 8px 18px;margin-bottom:8px;border-color:rgba(255,255,255,.08)}
+    .startup-ui-v100 .logo{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,#22d3ee,#6366f1);color:#fff;box-shadow:0 14px 28px rgba(79,70,229,.28)}
+    .startup-ui-v100 .brand h1{font-size:20px;letter-spacing:-.55px}.startup-ui-v100 .brand p{color:#94a3b8;font-size:11px}
+    .startup-ui-v100 .tagline{background:linear-gradient(135deg,rgba(99,102,241,.14),rgba(34,211,238,.08));border-color:rgba(129,140,248,.18);color:#cbd5e1;margin:10px 4px 14px}
+    .startup-ui-v100 .nav-title{padding-left:10px;color:#64748b;font-size:11px;letter-spacing:1.2px}
+    .startup-ui-v100 .nav{display:grid;gap:3px}.startup-ui-v100 .nav button{min-height:43px;padding:10px 11px;border-radius:12px;color:#aeb9ca;font-size:13px;font-weight:600;gap:9px}
+    .startup-ui-v100 .nav button:hover{background:rgba(255,255,255,.055);color:#fff;transform:none}.startup-ui-v100 .nav button.active{background:linear-gradient(135deg,rgba(99,102,241,.30),rgba(14,165,233,.18));color:#fff;box-shadow:inset 0 0 0 1px rgba(129,140,248,.18),0 10px 24px rgba(2,6,23,.18);transform:none}
+    .startup-ui-v100 .nav .icon{opacity:.92}.startup-ui-v100 .sidebar-owner-card{margin:16px 4px 0;background:#111827;border-color:rgba(255,255,255,.08);box-shadow:none}.startup-ui-v100 .sidebar-owner-version{color:#67e8f9}
+    .startup-ui-v100 .main{padding:20px 24px 34px;background:transparent}
+    .startup-ui-v100 .topbar{position:relative;z-index:20;align-items:center;margin-bottom:12px;padding:10px 12px 10px 4px}
+    .startup-ui-v100 .title-block h2{font-size:24px;color:#0f172a;letter-spacing:-.65px;margin-bottom:3px}.startup-ui-v100 .title-block p{font-size:12px;color:#64748b}
+    .startup-ui-v100 .command-search-trigger-v94{border:1px solid rgba(148,163,184,.25)!important;background:rgba(255,255,255,.78)!important;box-shadow:0 10px 30px rgba(15,23,42,.07)!important;backdrop-filter:blur(14px)}
+    .startup-ui-v100 .access-mode-control{background:rgba(255,255,255,.68);border:1px solid rgba(148,163,184,.20);border-radius:15px;padding:4px;box-shadow:0 10px 30px rgba(15,23,42,.05);backdrop-filter:blur(12px)}
+    .startup-ui-v100 #modeToggleButton{border-radius:11px;background:#0f172a;color:#fff}
+    .startup-ui-v100 .access-mode-banner{display:none!important}
+
+    #beranda{--v100-gap:14px}
+    .startup-home-actionbar-v100{min-height:44px;padding:0 2px 9px;margin:0;border:0;background:transparent;display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .startup-home-identity-v100{display:flex;align-items:center;gap:9px}.startup-home-identity-v100>div{display:grid;gap:1px}.startup-home-identity-v100 strong{font-size:12px;color:#0f172a}.startup-home-identity-v100 span{font-size:11px;color:#64748b}
+    .startup-live-dot-v100{width:9px;height:9px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 5px rgba(34,197,94,.10),0 0 18px rgba(34,197,94,.35);animation:startupPulseV100 2.2s infinite}
+    @keyframes startupPulseV100{0%,100%{box-shadow:0 0 0 5px rgba(34,197,94,.10),0 0 15px rgba(34,197,94,.25)}50%{box-shadow:0 0 0 8px rgba(34,197,94,.04),0 0 24px rgba(34,197,94,.42)}}
+    .startup-print-v100{min-height:36px!important;padding:8px 11px!important;border-radius:11px!important;background:rgba(255,255,255,.82)!important;font-size:11px!important}
+
+    .startup-internal-home-v100,.startup-public-home-v100{display:grid;gap:var(--v100-gap)}
+    .startup-command-hero-v100{position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.55fr) minmax(220px,.45fr);gap:18px;min-height:260px;padding:28px;border-radius:28px;background:linear-gradient(132deg,#0a1020 0%,#111b3c 52%,#14385a 100%);color:#fff;box-shadow:0 28px 70px rgba(15,23,42,.20)}
+    .startup-command-hero-v100::before{content:"";position:absolute;width:420px;height:420px;right:-120px;top:-210px;border-radius:50%;background:radial-gradient(circle,rgba(56,189,248,.34),rgba(99,102,241,.14) 45%,transparent 70%)}
+    .startup-command-hero-v100::after{content:"";position:absolute;width:300px;height:300px;left:38%;bottom:-230px;border-radius:50%;background:radial-gradient(circle,rgba(45,212,191,.20),transparent 67%)}
+    .startup-hero-noise-v100{position:absolute;inset:0;opacity:.13;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.65) .55px,transparent .55px);background-size:12px 12px;mask-image:linear-gradient(to right,transparent,black 40%,black)}
+    .startup-command-copy-v100{position:relative;z-index:2;max-width:850px;align-self:center}.startup-eyebrow-v100{font-size:11px;font-weight:800;letter-spacing:1.35px;color:#67e8f9}.startup-command-copy-v100 h3{max-width:760px;margin:8px 0 12px;font-size:34px;line-height:1.05;letter-spacing:-1.4px;color:#fff}.startup-command-copy-v100 p{max-width:850px;font-size:13px;line-height:1.65;color:#cbd5e1}.startup-hero-foot-v100{margin-top:12px;font-size:11px;color:#8291aa}
+    .startup-focus-v100{position:relative;z-index:2;align-self:center;justify-self:stretch;padding:18px;border:1px solid rgba(255,255,255,.12);border-radius:22px;background:rgba(255,255,255,.075);backdrop-filter:blur(14px);box-shadow:inset 0 1px rgba(255,255,255,.10)}
+    .startup-focus-v100 span{display:block;color:#94a3b8;font-size:11px;font-weight:700}.startup-focus-v100 strong{display:block;margin-top:5px;color:#fff;font-size:38px;line-height:1;letter-spacing:-1.4px}.startup-focus-v100 small{display:block;margin-top:7px;color:#cbd5e1;font-size:11px;line-height:1.4}
+    .startup-meta-v100{position:relative;z-index:2;grid-column:1/-1;display:flex;gap:8px;align-self:end}.startup-meta-v100>div{min-width:120px;padding:8px 11px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:rgba(255,255,255,.045)}.startup-meta-v100 span{display:block;color:#718096;font-size:10px}.startup-meta-v100 strong{display:block;margin-top:2px;color:#e2e8f0;font-size:11px}
+
+    .startup-bento-grid-v100{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-auto-flow:row dense;gap:var(--v100-gap);align-items:stretch}
+    .startup-card-v100,.startup-kpi-zone-v100{position:relative;overflow:hidden;min-width:0;border-radius:24px;border:0;box-shadow:0 16px 45px rgba(15,23,42,.08)}
+    .startup-card-v100{background:#fff}.startup-card-v100::after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;right:-95px;bottom:-110px;background:rgba(255,255,255,.14);pointer-events:none}
+    .startup-card-head-v100{position:relative;z-index:2;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:20px 21px 8px}.startup-card-head-v100>div{min-width:0}.startup-card-head-v100 span{display:block;color:#667085;font-size:10px;font-weight:800;letter-spacing:1.05px}.startup-card-head-v100 h3{margin-top:5px;color:#0f172a;font-size:17px;line-height:1.25;letter-spacing:-.25px}.startup-card-head-v100 p{margin-top:5px;color:#64748b;font-size:11px;line-height:1.45}.startup-card-head-v100.light-on-dark span{color:#7dd3fc}.startup-card-head-v100.light-on-dark h3{color:#fff}.startup-card-head-v100.light-on-dark p{color:#94a3b8}
+    .startup-card-action-v100{flex:0 0 auto;border:0;border-radius:999px;padding:8px 10px;background:rgba(15,23,42,.06);color:#334155;font:inherit;font-size:10px;font-weight:800;cursor:pointer;transition:.18s ease}.startup-card-action-v100:hover{transform:translateY(-2px);background:rgba(15,23,42,.10)}.startup-card-action-v100.dark{background:rgba(255,255,255,.08);color:#e2e8f0}.startup-card-action-v100.dark:hover{background:rgba(255,255,255,.14)}
+
+    .startup-kpi-zone-v100{grid-column:span 5;padding:18px;background:linear-gradient(145deg,#ffffff,#f8fafc);border:1px solid rgba(148,163,184,.12)}
+    .startup-zone-head-v100{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-bottom:11px}.startup-zone-head-v100 span{color:#64748b;font-size:10px;font-weight:800;letter-spacing:1px}.startup-zone-head-v100 strong{color:#0f172a;font-size:13px}
+    .startup-kpi-grid-v100{display:grid!important;grid-template-columns:1.18fr .82fr!important;grid-template-rows:repeat(2,minmax(118px,1fr)) auto;gap:10px!important}
+    .startup-kpi-grid-v100 .command-kpi-card-v98{--kpi1:#2563eb;--kpi2:#3b82f6;min-height:0!important;height:auto;border:0!important;border-radius:19px!important;padding:15px!important;background:linear-gradient(145deg,var(--kpi1),var(--kpi2))!important;color:#fff!important;box-shadow:0 16px 28px color-mix(in srgb,var(--kpi1) 20%,transparent)!important;transform:none!important;text-align:left}
+    .startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(1){grid-row:1/3;--kpi1:#1d4ed8;--kpi2:#2563eb}.startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(2){--kpi1:#d97706;--kpi2:#f59e0b}.startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(3){--kpi1:#e11d48;--kpi2:#f43f5e}.startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(4){grid-column:1/-1;min-height:108px!important;--kpi1:#6d28d9;--kpi2:#8b5cf6}
+    .startup-kpi-grid-v100 .command-kpi-card-v98::before{content:"";position:absolute;right:-22px;top:-35px;width:110px;height:110px;border-radius:50%;background:rgba(255,255,255,.13)}.startup-kpi-grid-v100 .command-kpi-card-v98::after{right:auto!important;top:auto!important;left:-48px!important;bottom:-72px!important;width:150px!important;height:150px!important;background:transparent!important;border:24px solid rgba(255,255,255,.10)!important}
+    .startup-kpi-grid-v100 .command-kpi-card-v98:hover{transform:translateY(-3px)!important;filter:saturate(1.06)}
+    .startup-kpi-grid-v100 .command-kpi-icon-v98{background:rgba(255,255,255,.16)!important;color:#fff!important}.startup-kpi-grid-v100 .command-kpi-scope-v98{background:rgba(255,255,255,.12)!important;border-color:rgba(255,255,255,.12)!important;color:rgba(255,255,255,.86)!important}.startup-kpi-grid-v100 .command-kpi-label-v98{color:rgba(255,255,255,.82)!important}.startup-kpi-grid-v100 .command-kpi-value-v98{color:#fff!important;font-size:34px!important}.startup-kpi-grid-v100 .command-kpi-note-v98{color:rgba(255,255,255,.79)!important}.startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(1) .command-kpi-value-v98{font-size:48px!important;letter-spacing:-1.8px!important}.startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(4) .command-kpi-value-v98{font-size:39px!important}.startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(1)::after{display:none!important}.startup-kpi-grid-v100 .command-kpi-progress-v98{background:rgba(255,255,255,.16)!important}.startup-kpi-grid-v100 .command-kpi-progress-v98 i{background:#fff!important;opacity:.88}
+
+    .startup-stock-card-v100{grid-column:span 7;min-height:485px;background:linear-gradient(145deg,#0b1224,#111c38 68%,#172554);box-shadow:0 24px 65px rgba(15,23,42,.18)}
+    .startup-stock-card-v100::after{background:rgba(59,130,246,.13);width:320px;height:320px;right:-150px;bottom:-190px}.startup-stock-dark-v100{padding:10px 21px 22px!important}.startup-stock-dark-v100 .startup-stock-hero-v99{padding-top:6px}.startup-stock-dark-v100 .startup-stock-hero-v99 span,.startup-stock-dark-v100 .startup-stock-hero-v99 small{color:#8494ad!important}.startup-stock-dark-v100 .startup-stock-hero-v99 strong{color:#fff!important;font-size:43px!important}.startup-stock-dark-v100 .startup-stock-rate-v99{background:rgba(255,255,255,.06)!important;border-color:rgba(255,255,255,.08)!important}.startup-stock-dark-v100 .startup-stock-rate-v99 b{color:#60a5fa!important}.startup-stock-dark-v100 .startup-stage-v99{background:rgba(255,255,255,.055)!important;border-color:rgba(255,255,255,.075)!important}.startup-stock-dark-v100 .startup-stage-top-v99 span,.startup-stock-dark-v100 .startup-stage-v99 small{color:#8494ad!important}.startup-stock-dark-v100 .startup-stage-top-v99 strong{color:#f8fafc!important}.startup-stock-dark-v100 .startup-stage-track-v99{background:rgba(255,255,255,.08)!important}.startup-stock-dark-v100 .startup-gap-v99{background:linear-gradient(135deg,#075985,#0ea5e9)!important}.startup-stock-dark-v100 .startup-gap-v99.secondary{background:linear-gradient(135deg,#5b21b6,#8b5cf6)!important}
+
+    .startup-psu-card-v100{grid-column:span 3;min-height:280px;background:linear-gradient(145deg,#ccfbf1,#99f6e4)}
+    .startup-rusun-card-v100{grid-column:span 3;min-height:280px;background:linear-gradient(145deg,#ede9fe,#ddd6fe)}
+    .startup-donut-wrap-v100{height:150px!important;padding:0 10px!important}.startup-donut-wrap-v100 canvas{height:150px!important}.startup-donut-foot-v100{padding:0 14px 16px!important;color:#334155!important}.startup-donut-foot-v100 span{border:0!important;background:rgba(255,255,255,.55)!important;backdrop-filter:blur(8px)}
+    .startup-infra-card-v100{grid-column:span 6;min-height:280px;background:linear-gradient(145deg,#fff7ed,#ffedd5)}.startup-infra-v100{grid-template-columns:1fr!important;padding:6px 20px 20px!important;gap:7px!important}.startup-infra-v100 .startup-infra-item-v99{grid-template-columns:minmax(130px,.65fr) minmax(130px,1fr) auto;padding:8px 10px;border:0;background:rgba(255,255,255,.62);border-radius:11px}.startup-infra-v100 .startup-infra-label-v99 span{font-size:9px}.startup-infra-v100 .startup-infra-label-v99 strong{font-size:11px}.startup-infra-v100 .startup-infra-track-v99{height:6px}.startup-infra-v100 .startup-infra-value-v99{font-size:14px}
+
+    .startup-alert-card-v100{grid-column:span 8;min-height:430px;background:linear-gradient(145deg,#fff1f2,#ffe4e6)}.startup-alert-card-v100::before{content:"";position:absolute;right:-80px;top:-110px;width:230px;height:230px;border-radius:50%;background:radial-gradient(circle,rgba(244,63,94,.17),transparent 68%)}.alert-head-v100>div:first-child>span{color:#be123c}.startup-alert-summary-v100{padding:0 20px 7px!important}.startup-alert-list-v100{padding:3px 16px 12px!important}.startup-alert-list-v100 .executive-alert-item-v88{border:0!important;background:rgba(255,255,255,.72)!important;border-radius:16px!important;box-shadow:0 9px 22px rgba(136,19,55,.06)}.startup-alert-list-v100 .executive-alert-action-v88{background:#0f172a!important;color:#fff!important;border:0!important;border-radius:999px!important}.startup-alert-footer-v100{border-top:1px solid rgba(190,18,60,.08)!important;color:#8f5364!important}
+    .startup-region-card-v100{grid-column:span 4;min-height:430px;background:linear-gradient(145deg,#dbeafe,#bfdbfe)}.startup-region-list-v100{padding:6px 16px 17px!important;gap:8px!important}.startup-region-list-v100 .command-region-item-v98{grid-template-columns:38px minmax(0,1fr);border:0!important;border-radius:15px!important;background:rgba(255,255,255,.62)!important;box-shadow:none}.startup-region-list-v100 .command-region-icon-v98{background:rgba(255,255,255,.72)!important}.startup-region-list-v100 .command-region-value-v98{grid-column:2;text-align:left!important;color:#1d4ed8!important;font-size:14px!important}
+
+    .startup-queue-card-v100{grid-column:span 7;min-height:420px;background:linear-gradient(145deg,#ffffff,#f1f5f9)}.startup-action-tabs-v100{padding:4px 20px 2px!important}.startup-action-tabs-v100 button{border:0!important;background:#e2e8f0!important;color:#64748b!important;border-radius:999px!important;padding:8px 11px!important}.startup-action-tabs-v100 button.active{background:#0f172a!important;color:#fff!important}.startup-queue-content-v100{padding:7px 16px 14px!important}.startup-queue-content-v100 .command-queue-row-v98{border:0!important;border-radius:15px!important;background:#f8fafc!important}.startup-queue-content-v100 .command-queue-row-v98:hover{background:#eef2ff!important;transform:translateX(3px)!important}.startup-queue-content-v100 .command-queue-rank-v98{background:#0f172a!important;color:#fff!important}.startup-queue-content-v100 .command-queue-score-v98{background:#ffe4e6!important;color:#be123c!important}.startup-queue-content-v100 .command-queue-open-v98{color:#4f46e5!important}
+    .startup-freshness-card-v100{grid-column:span 5;min-height:420px;background:linear-gradient(145deg,#ecfdf5,#d1fae5)}.startup-freshness-list-v100{padding:7px 16px 17px!important}.startup-freshness-list-v100 .command-freshness-row-v98{border:0!important;background:rgba(255,255,255,.66)!important;border-radius:14px!important}.startup-freshness-list-v100 .command-freshness-status-v98{background:rgba(255,255,255,.60)!important;border:0!important}
+    .startup-snapshot-card-v100{grid-column:1/-1;min-height:350px;background:linear-gradient(145deg,#eef2ff,#e0e7ff)}.startup-snapshot-chart-v100{padding:4px 20px 0!important}.startup-snapshot-foot-v100{color:#6366f1!important}
+
+    .startup-public-hero-v100{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:230px;padding:30px;border-radius:28px;background:linear-gradient(130deg,#0f766e,#0ea5e9 60%,#4f46e5);color:#fff;box-shadow:0 28px 70px rgba(14,116,144,.20)}.startup-public-orb-v100{position:absolute;right:-80px;top:-110px;width:320px;height:320px;border-radius:50%;border:55px solid rgba(255,255,255,.08);box-shadow:0 0 0 25px rgba(255,255,255,.035)}.startup-public-hero-copy-v100{position:relative;z-index:2;max-width:780px}.startup-public-hero-copy-v100 .startup-eyebrow-v100{color:#ccfbf1}.startup-public-hero-copy-v100 h3{margin:8px 0 10px;max-width:700px;font-size:33px;line-height:1.08;letter-spacing:-1px;color:#fff}.startup-public-hero-copy-v100 p{max-width:750px;color:rgba(255,255,255,.82);font-size:12px;line-height:1.6}.startup-public-scope-v100{position:relative;z-index:2;min-width:190px;padding:16px;border:1px solid rgba(255,255,255,.17);border-radius:20px;background:rgba(255,255,255,.12);backdrop-filter:blur(14px)}.startup-public-scope-v100 span,.startup-public-scope-v100 small{display:block;color:rgba(255,255,255,.72);font-size:10px}.startup-public-scope-v100 strong{display:block;margin:5px 0 7px;font-size:15px;color:#fff}
+    .startup-public-kpis-v100{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:10px!important}.startup-public-kpis-v100 .command-public-stat-v98{border:0!important;border-radius:20px!important;min-height:132px;padding:17px!important;color:#fff;box-shadow:0 16px 35px rgba(15,23,42,.10)}.startup-public-kpis-v100 .command-public-stat-v98:nth-child(1){background:linear-gradient(145deg,#1d4ed8,#3b82f6)}.startup-public-kpis-v100 .command-public-stat-v98:nth-child(2){background:linear-gradient(145deg,#d97706,#f59e0b)}.startup-public-kpis-v100 .command-public-stat-v98:nth-child(3){background:linear-gradient(145deg,#e11d48,#fb7185)}.startup-public-kpis-v100 .command-public-stat-v98:nth-child(4){background:linear-gradient(145deg,#6d28d9,#8b5cf6)}.startup-public-kpis-v100 .command-public-stat-v98 span,.startup-public-kpis-v100 .command-public-stat-v98 small{color:rgba(255,255,255,.82)!important}.startup-public-kpis-v100 .command-public-stat-v98 strong{color:#fff!important;font-size:31px!important}.startup-public-kpis-v100 .command-public-stat-v98::after{background:rgba(255,255,255,.10)!important;width:120px!important;height:120px!important}
+    .startup-public-bento-v100{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--v100-gap)}.public-stock-card-v100{grid-column:span 8}.startup-public-bento-v100 .startup-psu-card-v100{grid-column:span 4;min-height:485px}.startup-public-bento-v100 .startup-psu-card-v100 .startup-donut-wrap-v100{height:300px!important;padding-top:18px!important}.startup-public-bento-v100 .startup-psu-card-v100 .startup-donut-wrap-v100 canvas{height:300px!important}.startup-public-narrative-card-v100{grid-column:span 7;background:linear-gradient(145deg,#ecfeff,#cffafe)}.startup-public-trend-card-v100{grid-column:span 5;background:linear-gradient(145deg,#f5f3ff,#ede9fe)}.startup-public-narrative-v100{margin:7px 21px 21px!important;font-size:13px!important;line-height:1.72!important;color:#164e63!important}.startup-public-trend-v100{padding:6px 20px 20px!important}.startup-public-definitions-v100{margin:0!important;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:10px!important}.startup-public-definitions-v100>div{border:0!important;border-radius:18px!important;background:rgba(255,255,255,.76)!important;box-shadow:0 10px 28px rgba(15,23,42,.05)!important}
+
+    @media(max-width:1280px){.startup-kpi-zone-v100{grid-column:span 6}.startup-stock-card-v100{grid-column:span 6}.startup-psu-card-v100,.startup-rusun-card-v100{grid-column:span 3}.startup-infra-card-v100{grid-column:span 6}.startup-alert-card-v100{grid-column:span 7}.startup-region-card-v100{grid-column:span 5}.startup-queue-card-v100,.startup-freshness-card-v100{grid-column:span 6}.public-stock-card-v100{grid-column:span 7}.startup-public-bento-v100 .startup-psu-card-v100{grid-column:span 5}}
+    @media(max-width:1020px){.startup-command-hero-v100{grid-template-columns:1fr}.startup-focus-v100{max-width:280px}.startup-meta-v100{grid-column:1}.startup-bento-grid-v100>*{grid-column:1/-1!important}.startup-kpi-grid-v100{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:auto!important}.startup-kpi-grid-v100 .command-kpi-card-v98{grid-column:auto!important;grid-row:auto!important;min-height:135px!important}.startup-public-bento-v100>*{grid-column:1/-1!important}.startup-public-bento-v100 .startup-psu-card-v100{min-height:300px}.startup-public-bento-v100 .startup-psu-card-v100 .startup-donut-wrap-v100{height:170px!important;padding-top:0!important}.startup-public-bento-v100 .startup-psu-card-v100 .startup-donut-wrap-v100 canvas{height:170px!important}.startup-public-kpis-v100{grid-template-columns:repeat(2,minmax(0,1fr))!important}.startup-public-hero-v100{align-items:flex-start;flex-direction:column}.startup-public-scope-v100{min-width:0}}
+    @media(max-width:720px){.startup-ui-v100 .main{padding:16px 12px 28px}.startup-command-hero-v100,.startup-public-hero-v100{padding:22px 18px;border-radius:22px}.startup-command-copy-v100 h3,.startup-public-hero-copy-v100 h3{font-size:27px}.startup-meta-v100{display:grid;grid-template-columns:1fr}.startup-kpi-grid-v100,.startup-public-kpis-v100{grid-template-columns:1fr!important}.startup-public-definitions-v100{grid-template-columns:1fr!important}.startup-card-v100,.startup-kpi-zone-v100{border-radius:20px}.startup-card-head-v100{padding:17px 16px 8px}.startup-stock-dark-v100{padding-left:16px!important;padding-right:16px!important}.startup-home-identity-v100>div span{display:none}.startup-infra-v100 .startup-infra-item-v99{grid-template-columns:1fr auto}.startup-infra-v100 .startup-infra-track-v99{grid-column:1/-1}}
+  </style>
+
 </head>
 
-<body class="public-mode">
+<body class="public-mode startup-ui-v100">
 <div class="app">
   <aside class="sidebar" id="sidebar">
     <div class="brand">
@@ -2653,156 +2734,153 @@
 
     <!-- Beranda v66: pemisahan usulan aktif dan riwayat penanganan RTLH. -->
     <section class="section active" id="beranda">
-      <div class="section-actionbar command-home-actionbar-v98">
-        <div class="command-home-action-copy-v98">
-          <strong>Pusat Kendali SIRUMAH</strong>
-          <span>Kondisi kota, perkembangan hunian, prioritas, dan kesehatan data dalam satu pengalaman terpadu.</span>
+      <div class="section-actionbar startup-home-actionbar-v100">
+        <div class="startup-home-identity-v100">
+          <span class="startup-live-dot-v100"></span>
+          <div><strong>Beranda SIRUMAH</strong><span>Data aktif · sorotan cepat · tindakan prioritas</span></div>
         </div>
-        <button class="btn light" type="button" onclick="printDashboardSection('beranda','Beranda SIRUMAH')">Cetak / PDF Beranda</button>
+        <button class="btn light startup-print-v100" type="button" onclick="printDashboardSection('beranda','Beranda SIRUMAH')">↗ Cetak / PDF</button>
       </div>
 
-      <!-- MODE PUBLIK — Civic Intelligence Dashboard -->
-      <div class="public-only command-public-home-v98" id="publicTransparencyV94">
-        <section class="command-public-hero-v98">
-          <div class="command-public-hero-copy-v98">
-            <div class="command-eyebrow-v98">PORTAL INFORMASI PERUMAHAN &amp; PERMUKIMAN</div>
-            <h3>SIRUMAH Kota Pangkalpinang</h3>
-            <p>Gambaran publik perumahan, PSU, kelayakan hunian, kawasan kumuh, dan RUSUNAWA berdasarkan data aktif SIRUMAH.</p>
+      <!-- MODE PUBLIK — Startup Data Experience -->
+      <div class="public-only startup-public-home-v100" id="publicTransparencyV94">
+        <section class="startup-public-hero-v100">
+          <div class="startup-public-orb-v100" aria-hidden="true"></div>
+          <div class="startup-public-hero-copy-v100">
+            <div class="startup-eyebrow-v100">DATA PERUMAHAN KOTA PANGKALPINANG</div>
+            <h3>Satu pandangan untuk memahami kondisi hunian kota.</h3>
+            <p>Data perumahan, PSU, kelayakan hunian, kawasan kumuh, dan RUSUNAWA disajikan dalam pengalaman yang ringkas dan mudah dibaca.</p>
           </div>
-          <div class="command-public-scope-v98">
-            <span>CAKUPAN</span>
+          <div class="startup-public-scope-v100">
+            <span>Cakupan data</span>
             <strong id="publicTransparencyScopeV94">Kota Pangkalpinang</strong>
+            <small>Mode Publik</small>
           </div>
         </section>
 
-        <div class="command-public-kpis-v98" id="publicTransparencyStatsV94"></div>
+        <div class="command-public-kpis-v98 startup-public-kpis-v100" id="publicTransparencyStatsV94"></div>
 
-        <div class="command-analytics-grid-v98 public-command-analytics-v98">
-          <article class="command-panel-v98 command-panel-main-v98 startup-stock-panel-v99">
-            <div class="command-panel-head-v98">
-              <div><span class="command-panel-kicker-v98">PERKEMBANGAN HUNIAN</span><h3>Perkembangan Stok Hunian</h3><p>Dari unit yang direncanakan hingga hunian yang telah ditempati.</p></div>
-              <button type="button" class="command-panel-link-v98" onclick="openHomeTargetV59('data-perumahan')">Buka Data →</button>
+        <div class="startup-public-bento-v100">
+          <article class="startup-card-v100 startup-stock-card-v100 public-stock-card-v100">
+            <div class="startup-card-head-v100 light-on-dark">
+              <div><span>PERKEMBANGAN HUNIAN</span><h3>Perkembangan Stok Hunian</h3><p>Dari unit yang direncanakan sampai benar-benar dihuni.</p></div>
+              <button type="button" class="startup-card-action-v100 dark" onclick="openHomeTargetV59('data-perumahan')">Buka data ↗</button>
             </div>
-            <div class="startup-stock-v99" id="publicHousingStockV99"></div>
+            <div class="startup-stock-v99 startup-stock-dark-v100" id="publicHousingStockV99"></div>
           </article>
 
-          <article class="command-panel-v98 command-donut-card-v98">
-            <div class="command-panel-head-v98 compact"><div><span class="command-panel-kicker-v98">STATUS PSU</span><h3>Penyerahan PSU</h3></div></div>
-            <div class="command-donut-wrap-v98"><canvas id="publicPsuDonutV98"></canvas></div>
-            <div class="command-donut-foot-v98" id="publicPsuDonutFootV98"></div>
+          <article class="startup-card-v100 startup-psu-card-v100">
+            <div class="startup-card-head-v100"><div><span>STATUS PSU</span><h3>Penyerahan PSU</h3><p>Proporsi kawasan yang telah diserahkan.</p></div></div>
+            <div class="command-donut-wrap-v98 startup-donut-wrap-v100"><canvas id="publicPsuDonutV98"></canvas></div>
+            <div class="command-donut-foot-v98 startup-donut-foot-v100" id="publicPsuDonutFootV98"></div>
+          </article>
+
+          <article class="startup-card-v100 startup-public-narrative-card-v100">
+            <div class="startup-card-head-v100"><div><span>RINGKASAN KOTA</span><h3>Apa yang ditunjukkan data?</h3></div></div>
+            <p class="command-public-narrative-v98 startup-public-narrative-v100" id="publicTransparencyNarrativeV94">Menyiapkan ringkasan data publik.</p>
+          </article>
+
+          <article class="startup-card-v100 startup-public-trend-card-v100">
+            <div class="startup-card-head-v100"><div><span>REKAM TAHUNAN</span><h3>Perkembangan Tahunan</h3></div></div>
+            <div id="publicTransparencyTrendV94" class="command-public-trend-v98 startup-public-trend-v100"></div>
           </article>
         </div>
 
-        <div class="command-public-info-grid-v98">
-          <article class="command-panel-v98">
-            <div class="command-panel-head-v98 compact"><div><span class="command-panel-kicker-v98">RINGKASAN KOTA</span><h3>Apa yang ditunjukkan data?</h3></div></div>
-            <p class="command-public-narrative-v98" id="publicTransparencyNarrativeV94">Menyiapkan ringkasan data publik.</p>
-          </article>
-          <article class="command-panel-v98">
-            <div class="command-panel-head-v98 compact"><div><span class="command-panel-kicker-v98">PERKEMBANGAN</span><h3>Snapshot Tahunan</h3></div></div>
-            <div id="publicTransparencyTrendV94" class="command-public-trend-v98"></div>
-          </article>
-        </div>
-
-        <div class="public-transparency-definitions-v94 command-public-definitions-v98">
-          <div><b>PSU</b><span>Prasarana, sarana, dan utilitas umum pada kawasan perumahan.</span></div>
+        <div class="public-transparency-definitions-v94 startup-public-definitions-v100">
+          <div><b>PSU</b><span>Prasarana, sarana, dan utilitas umum kawasan perumahan.</span></div>
           <div><b>Backlog</b><span>Gambaran kebutuhan rumah berdasarkan kepemilikan atau penghunian.</span></div>
           <div><b>RTLH</b><span>Rumah yang belum memenuhi persyaratan kelayakan tertentu.</span></div>
         </div>
       </div>
 
-      <!-- MODE INTERNAL — Executive Command Center -->
-      <div class="private-only command-internal-home-v98">
-        <section class="command-executive-hero-v98">
-          <div class="command-executive-hero-main-v98">
-            <div class="executive-narrative-icon-v94 command-executive-icon-v98" aria-hidden="true">✦</div>
-            <div class="executive-narrative-main-v94">
-              <div class="executive-narrative-eyebrow-v94">RINGKASAN EKSEKUTIF OTOMATIS</div>
-              <h3>Interpretasi Data Aktif</h3>
-              <p id="executiveNarrativeTextV94">Menyiapkan narasi dari indikator aktif SIRUMAH.</p>
-              <div class="executive-narrative-foot-v94">Narasi berbasis aturan dari database aktif, Snapshot Tahunan, dan Peringatan Prioritas; bukan keluaran AI generatif.</div>
-            </div>
+      <!-- MODE INTERNAL — Startup UI Rebuild -->
+      <div class="private-only startup-internal-home-v100">
+        <section class="startup-command-hero-v100">
+          <div class="startup-hero-noise-v100" aria-hidden="true"></div>
+          <div class="startup-command-copy-v100">
+            <div class="startup-eyebrow-v100">PUSAT KENDALI SIRUMAH</div>
+            <h3>Kondisi kota. Prioritas nyata. Satu layar.</h3>
+            <p id="executiveNarrativeTextV94">Menyiapkan narasi dari indikator aktif SIRUMAH.</p>
+            <div class="startup-hero-foot-v100">Ringkasan otomatis berbasis aturan dan database aktif SIRUMAH.</div>
           </div>
-          <div class="command-executive-meta-v98">
-            <div><span>Sumber Aktif</span><strong id="commandSourceV98">—</strong></div>
+          <div class="startup-focus-v100" id="startupFocusV100">
+            <span>Fokus saat ini</span><strong>—</strong><small>Menyiapkan isu prioritas</small>
+          </div>
+          <div class="startup-meta-v100">
+            <div><span>Sumber</span><strong id="commandSourceV98">—</strong></div>
             <div><span>Dimuat</span><strong id="commandLoadedV98">—</strong></div>
             <div><span>Cakupan</span><strong id="commandScopeV98">Seluruh Kota</strong></div>
           </div>
         </section>
 
-        <div class="command-kpi-grid-v98" id="kpiGrid"></div>
+        <div class="startup-bento-grid-v100">
+          <section class="startup-kpi-zone-v100">
+            <div class="startup-zone-head-v100"><span>INDIKATOR UTAMA</span><strong>Kondisi dalam angka</strong></div>
+            <div class="command-kpi-grid-v98 startup-kpi-grid-v100" id="kpiGrid"></div>
+          </section>
 
-        <div class="command-analytics-grid-v98">
-          <article class="command-panel-v98 command-panel-main-v98 startup-stock-panel-v99">
-            <div class="command-panel-head-v98">
-              <div><span class="command-panel-kicker-v98">ANALITIK UTAMA</span><h3>Perkembangan Stok Hunian</h3><p>Alur rencana unit, pembangunan, hunian terisi, dan celah yang masih tersisa.</p></div>
-              <button type="button" class="command-panel-link-v98" onclick="openHomeTargetV59('data-perumahan')">Eksplorasi Data →</button>
+          <article class="startup-card-v100 startup-stock-card-v100">
+            <div class="startup-card-head-v100 light-on-dark">
+              <div><span>ALUR HUNIAN</span><h3>Perkembangan Stok Hunian</h3><p>Rencana → terbangun → terhuni, beserta celah yang masih tersisa.</p></div>
+              <button type="button" class="startup-card-action-v100 dark" onclick="openHomeTargetV59('data-perumahan')">Eksplorasi ↗</button>
             </div>
-            <div class="startup-stock-v99" id="homeHousingStockV99"></div>
+            <div class="startup-stock-v99 startup-stock-dark-v100" id="homeHousingStockV99"></div>
           </article>
 
-          <div class="command-side-analytics-v98">
-            <article class="command-panel-v98 command-donut-card-v98">
-              <div class="command-panel-head-v98 compact"><div><span class="command-panel-kicker-v98">INFRASTRUKTUR</span><h3>Status PSU</h3></div><button class="command-panel-link-v98" onclick="openHomeTargetV59('psu')">Buka →</button></div>
-              <div class="command-donut-wrap-v98"><canvas id="homePsuDonutV98"></canvas></div>
-              <div class="command-donut-foot-v98" id="homePsuDonutFootV98"></div>
-            </article>
+          <article class="startup-card-v100 startup-psu-card-v100">
+            <div class="startup-card-head-v100"><div><span>INFRASTRUKTUR</span><h3>Status PSU</h3><p>Sudah diserahkan vs masih menunggu.</p></div><button class="startup-card-action-v100" onclick="openHomeTargetV59('psu')">Buka ↗</button></div>
+            <div class="command-donut-wrap-v98 startup-donut-wrap-v100"><canvas id="homePsuDonutV98"></canvas></div>
+            <div class="command-donut-foot-v98 startup-donut-foot-v100" id="homePsuDonutFootV98"></div>
+          </article>
 
-            <article class="command-panel-v98 command-donut-card-v98">
-              <div class="command-panel-head-v98 compact"><div><span class="command-panel-kicker-v98">HUNIAN SEWA</span><h3>Okupansi RUSUNAWA</h3></div><button class="command-panel-link-v98" onclick="openHomeTargetV59('rusunawa')">Buka →</button></div>
-              <div class="command-donut-wrap-v98"><canvas id="homeRusunawaDonutV98"></canvas></div>
-              <div class="command-donut-foot-v98" id="homeRusunawaDonutFootV98"></div>
-            </article>
-          </div>
-        </div>
+          <article class="startup-card-v100 startup-rusun-card-v100">
+            <div class="startup-card-head-v100"><div><span>HUNIAN SEWA</span><h3>Okupansi RUSUNAWA</h3><p>Pemanfaatan unit hunian sewa saat ini.</p></div><button class="startup-card-action-v100" onclick="openHomeTargetV59('rusunawa')">Buka ↗</button></div>
+            <div class="command-donut-wrap-v98 startup-donut-wrap-v100"><canvas id="homeRusunawaDonutV98"></canvas></div>
+            <div class="command-donut-foot-v98 startup-donut-foot-v100" id="homeRusunawaDonutFootV98"></div>
+          </article>
 
-        <article class="command-panel-v98 startup-infra-panel-v99">
-          <div class="command-panel-head-v98">
-            <div><span class="command-panel-kicker-v98">KONDISI INFRASTRUKTUR</span><h3>Apa yang Paling Membutuhkan Perhatian?</h3><p>Perbandingan isu pada perumahan terdata berdasarkan status terstruktur di database aktif.</p></div>
-            <button type="button" class="command-panel-link-v98" onclick="openHomeTargetV59('data-perumahan')">Lihat Data →</button>
-          </div>
-          <div class="startup-infra-v99" id="homeInfrastructureV99"></div>
-        </article>
+          <article class="startup-card-v100 startup-infra-card-v100">
+            <div class="startup-card-head-v100">
+              <div><span>KONDISI INFRASTRUKTUR</span><h3>Apa yang paling membutuhkan perhatian?</h3><p>Isu terstruktur pada perumahan aktif, diurutkan lewat besaran kondisi.</p></div>
+              <button type="button" class="startup-card-action-v100" onclick="openHomeTargetV59('data-perumahan')">Lihat data ↗</button>
+            </div>
+            <div class="startup-infra-v99 startup-infra-v100" id="homeInfrastructureV99"></div>
+          </article>
 
-        <div class="command-control-grid-v98">
-          <article class="command-panel-v98 executive-alert-card-v88 command-alert-panel-v98" id="executiveAlertCard">
-            <div class="command-panel-head-v98">
-              <div><span class="command-panel-kicker-v98 danger">PERINGATAN PRIORITAS</span><h3>Isu yang Membutuhkan Perhatian</h3><p>Isu lintas modul dengan urgensi tertinggi berdasarkan aturan aktif SIRUMAH.</p></div>
+          <article class="startup-card-v100 startup-alert-card-v100 executive-alert-card-v88" id="executiveAlertCard">
+            <div class="startup-card-head-v100 alert-head-v100">
+              <div><span>PERINGATAN PRIORITAS</span><h3>Yang perlu dilihat sekarang</h3><p>Isu lintas modul dengan urgensi tertinggi.</p></div>
               <div class="executive-alert-header-right-v88"><span class="executive-alert-scope-v88" id="executiveAlertScope">Seluruh Kota</span><span class="executive-alert-total-v88" id="executiveAlertTotal">0 alert</span></div>
             </div>
-            <div class="executive-alert-summary-v88 command-alert-summary-v98" id="executiveAlertSummary"></div>
-            <div class="executive-alert-list-v88 command-alert-list-v98" id="executiveAlertList"></div>
-            <div class="executive-alert-footer-v88 command-alert-footer-v98"><span id="executiveAlertFootnote">Menampilkan isu dengan prioritas tertinggi.</span><span class="executive-alert-rule-v88">Rule v1 · PSU · RTLH · RUSUNAWA · Kumuh</span></div>
+            <div class="executive-alert-summary-v88 command-alert-summary-v98 startup-alert-summary-v100" id="executiveAlertSummary"></div>
+            <div class="executive-alert-list-v88 command-alert-list-v98 startup-alert-list-v100" id="executiveAlertList"></div>
+            <div class="executive-alert-footer-v88 command-alert-footer-v98 startup-alert-footer-v100"><span id="executiveAlertFootnote">Menampilkan isu dengan prioritas tertinggi.</span><span class="executive-alert-rule-v88">PSU · RTLH · RUSUNAWA · Kumuh</span></div>
           </article>
 
-          <article class="command-panel-v98 command-region-panel-v98">
-            <div class="command-panel-head-v98"><div><span class="command-panel-kicker-v98">ANALITIK CEPAT</span><h3>Sorotan Wilayah</h3><p>Wilayah atau objek yang menonjol berdasarkan data aktif.</p></div></div>
-            <div class="command-region-list-v98" id="commandRegionalInsightsV98"></div>
-          </article>
-        </div>
-
-        <article class="command-panel-v98 command-queue-panel-v98">
-          <div class="command-panel-head-v98">
-            <div><span class="command-panel-kicker-v98">OPERATIONAL QUEUE</span><h3>Prioritas Tindak Lanjut</h3><p>Daftar ringkas objek yang memerlukan perhatian operasional.</p></div>
-          </div>
-          <div class="home-action-tabs command-action-tabs-v98" id="homeActionTabs">
-            <button type="button" class="active" data-home-action-tab="rtlh" onclick="setHomeActionTabV59('rtlh')">Hunian Prioritas</button>
-            <button type="button" data-home-action-tab="psu" onclick="setHomeActionTabV59('psu')">PSU</button>
-            <button type="button" data-home-action-tab="rusunawa" onclick="setHomeActionTabV59('rusunawa')">Hunian Sewa</button>
-          </div>
-          <div class="home-action-content command-queue-content-v98" id="homeActionSummary"></div>
-        </article>
-
-        <div class="command-bottom-grid-v98">
-          <article class="command-panel-v98 command-snapshot-panel-v98">
-            <div class="command-panel-head-v98"><div><span class="command-panel-kicker-v98">SNAPSHOT TAHUNAN</span><h3>Perkembangan Indikator</h3><p>Small multiples menggunakan snapshot FINAL saja; tiap indikator memiliki skala sendiri.</p></div></div>
-            <div class="command-snapshot-chart-v98"><canvas id="homeSnapshotChartV98"></canvas><div class="command-chart-empty-v98" id="homeSnapshotEmptyV98" hidden></div></div>
-            <div class="command-snapshot-foot-v98" id="homeSnapshotFootV98"></div>
+          <article class="startup-card-v100 startup-region-card-v100">
+            <div class="startup-card-head-v100"><div><span>SOROTAN WILAYAH</span><h3>Di mana isu menonjol?</h3><p>Insight lokasi yang paling menonjol dari data aktif.</p></div></div>
+            <div class="command-region-list-v98 startup-region-list-v100" id="commandRegionalInsightsV98"></div>
           </article>
 
-          <article class="command-panel-v98 command-freshness-panel-v98">
-            <div class="command-panel-head-v98"><div><span class="command-panel-kicker-v98">DATA HEALTH</span><h3>Kemutakhiran Data</h3><p>Status pembaruan modul utama berdasarkan metadata runtime.</p></div></div>
-            <div class="command-freshness-list-v98" id="commandFreshnessV98"></div>
+          <article class="startup-card-v100 startup-queue-card-v100">
+            <div class="startup-card-head-v100"><div><span>PRIORITAS TINDAK LANJUT</span><h3>Antrian kerja utama</h3><p>Objek yang perlu masuk radar tindak lanjut.</p></div></div>
+            <div class="home-action-tabs command-action-tabs-v98 startup-action-tabs-v100" id="homeActionTabs">
+              <button type="button" class="active" data-home-action-tab="rtlh" onclick="setHomeActionTabV59('rtlh')">Hunian Prioritas</button>
+              <button type="button" data-home-action-tab="psu" onclick="setHomeActionTabV59('psu')">PSU</button>
+              <button type="button" data-home-action-tab="rusunawa" onclick="setHomeActionTabV59('rusunawa')">Hunian Sewa</button>
+            </div>
+            <div class="home-action-content command-queue-content-v98 startup-queue-content-v100" id="homeActionSummary"></div>
+          </article>
+
+          <article class="startup-card-v100 startup-freshness-card-v100">
+            <div class="startup-card-head-v100"><div><span>KESEHATAN DATA</span><h3>Seberapa segar datanya?</h3><p>Status pembaruan modul utama.</p></div></div>
+            <div class="command-freshness-list-v98 startup-freshness-list-v100" id="commandFreshnessV98"></div>
+          </article>
+
+          <article class="startup-card-v100 startup-snapshot-card-v100">
+            <div class="startup-card-head-v100"><div><span>REKAM TAHUNAN</span><h3>Pergerakan indikator dari waktu ke waktu</h3><p>Hanya memakai snapshot FINAL; tidak membuat tren dari data DRAFT.</p></div></div>
+            <div class="command-snapshot-chart-v98 startup-snapshot-chart-v100"><canvas id="homeSnapshotChartV98"></canvas><div class="command-chart-empty-v98" id="homeSnapshotEmptyV98" hidden></div></div>
+            <div class="command-snapshot-foot-v98 startup-snapshot-foot-v100" id="homeSnapshotFootV98"></div>
           </article>
         </div>
       </div>
@@ -9667,14 +9745,14 @@ function renderExecutiveAlertsV88(){
   };
 
   if(scope) scope.textContent=executiveAlertScopeV88();
-  total.textContent=`${fmt(alerts.length)} alert`;
+  total.textContent=`${fmt(alerts.length)} peringatan`;
   summary.innerHTML=`
     <span class="executive-alert-summary-pill-v88 urgent"><strong>${fmt(counts["Mendesak"])}</strong> Mendesak</span>
     <span class="executive-alert-summary-pill-v88 high"><strong>${fmt(counts["Tinggi"])}</strong> Tinggi</span>
     <span class="executive-alert-summary-pill-v88 verify"><strong>${fmt(counts["Perlu Verifikasi"])}</strong> Perlu Verifikasi</span>`;
 
   if(!shown.length){
-    list.innerHTML=`<div class="executive-alert-empty-v88"><strong>Tidak ada Peringatan Prioritas aktif.</strong>Belum ditemukan kondisi yang memenuhi rule prioritas v1 pada data dan filter wilayah saat ini.</div>`;
+    list.innerHTML=`<div class="executive-alert-empty-v88"><strong>Tidak ada Peringatan Prioritas aktif.</strong>Belum ditemukan kondisi yang memenuhi aturan prioritas v1 pada data dan filter wilayah saat ini.</div>`;
   }else{
     list.innerHTML=shown.map(item=>{
       const cls=executiveAlertClassV88(item.severity);
@@ -9698,7 +9776,7 @@ function renderExecutiveAlertsV88(){
   if(footnote){
     footnote.textContent=alerts.length>5
       ? `Menampilkan 5 dari ${fmt(alerts.length)} alert dengan prioritas tertinggi.`
-      : `Menampilkan ${fmt(alerts.length)} alert aktif berdasarkan rule prioritas v1.`;
+      : `Menampilkan ${fmt(alerts.length)} alert aktif berdasarkan aturan prioritas v1.`;
   }
 }
 
@@ -10465,7 +10543,7 @@ function executiveNarrativeTrendV94(){
   const latest=finals.at(-1),live=buildLiveAnnualSnapshotV91();
   if(Number(latest.year)<Number(live.year)){
     const n=snapshotNarrativeV91(latest,live);
-    return n.startsWith("Belum tersedia")?"":`Dibanding snapshot FINAL ${latest.year}, kondisi aktif menunjukkan bahwa ${n.replace(/^Dibandingkan \d+,\s*/i,"").replace(/\.$/,"")}.`;
+    return n.startsWith("Belum tersedia")?"":`Dibanding rekam tahunan FINAL ${latest.year}, kondisi aktif menunjukkan bahwa ${n.replace(/^Dibandingkan \d+,\s*/i,"").replace(/\.$/,"")}.`;
   }
   if(finals.length>=2){const n=snapshotNarrativeV91(finals.at(-2),latest);return n.startsWith("Belum tersedia")?"":n;}
   return"";
@@ -10480,7 +10558,7 @@ function buildExecutiveNarrativeV94(){
   else sentences.push("Tidak ditemukan usulan RTLH aktif pada tingkat Prioritas Sangat Tinggi atau Tinggi dalam filter saat ini.");
   if((document.getElementById("globalKecamatan")?.value||"all")==="all"&&rus.total>0)sentences.push(`RUSUNAWA memiliki tingkat hunian ${rus.occupancy}% (${fmt(rus.filled)} dari ${fmt(rus.total)} unit terisi).`);
   if(alerts.length)sentences.push(`Peringatan Prioritas mendeteksi ${fmt(alerts.length)} isu lintas modul: ${fmt(urgent)} Mendesak dan ${fmt(highAlert)} Tinggi${alerts.length-urgent-highAlert?`, sisanya memerlukan verifikasi`:""}.`);
-  else sentences.push("Peringatan Prioritas tidak mendeteksi kondisi yang memenuhi rule prioritas v1 pada filter aktif.");
+  else sentences.push("Peringatan Prioritas tidak mendeteksi kondisi yang memenuhi aturan prioritas v1 pada filter aktif.");
   const trend=executiveNarrativeTrendV94();if(trend)sentences.push(trend);
   return sentences.slice(0,5).join(" ");
 }
@@ -10508,8 +10586,8 @@ function renderPublicTransparencyV94(){
     if(finals.length>=2){
       const a=finals.at(-2),b=finals.at(-1),items=[["PSU Diserahkan",a.psuDelivered,b.psuDelivered,"number"],["RTLH",a.rtlh,b.rtlh,"number"],["Luas Kumuh",a.slumArea,b.slumArea,"ha"]];
       trendEl.innerHTML=items.map(([l,x,y,f])=>`<div class="public-transparency-trend-row-v94"><span>${escapeHtml(l)} · ${a.year} → ${b.year}</span><strong>${x!=null&&y!=null?`${escapeHtml(snapshotFormatValueV91(x,f))} → ${escapeHtml(snapshotFormatValueV91(y,f))}`:"Belum tersedia"}</strong></div>`).join("");
-    }else if(finals.length===1)trendEl.innerHTML=`<div class="public-transparency-trend-row-v94"><span>Snapshot resmi tersedia</span><strong>${escapeHtml(String(finals[0].year))} · FINAL</strong></div><div class="public-transparency-trend-row-v94"><span>Perbandingan tahunan</span><strong>Memerlukan ≥2 snapshot FINAL</strong></div>`;
-    else trendEl.innerHTML=`<div class="public-transparency-trend-row-v94"><span>Snapshot tahunan</span><strong>Belum ada snapshot FINAL</strong></div><div class="public-transparency-trend-row-v94"><span>Sumber tampilan</span><strong>Database aktif SIRUMAH</strong></div>`;
+    }else if(finals.length===1)trendEl.innerHTML=`<div class="public-transparency-trend-row-v94"><span>Rekam tahunan resmi tersedia</span><strong>${escapeHtml(String(finals[0].year))} · FINAL</strong></div><div class="public-transparency-trend-row-v94"><span>Perbandingan tahunan</span><strong>Memerlukan ≥2 rekam tahunan FINAL</strong></div>`;
+    else trendEl.innerHTML=`<div class="public-transparency-trend-row-v94"><span>Rekam tahunan</span><strong>Belum ada rekam tahunan FINAL</strong></div><div class="public-transparency-trend-row-v94"><span>Sumber tampilan</span><strong>Database aktif SIRUMAH</strong></div>`;
   }
 }
 
@@ -10700,6 +10778,7 @@ document.addEventListener("DOMContentLoaded",()=>{const f=document.getElementByI
 /* SIRUMAH v97: hierarki RTLH agregat vs usulan, tabel individu ringkas, popup Detail Usulan RTLH, dan pencegahan render/search individu pada Mode Publik. */
 /* SIRUMAH v98: Pusat Kendali — hero KPI, analitik, donut PSU/RUSUNAWA, alert compact, sorotan wilayah, antrean tindak lanjut, snapshot small multiples, dan kesehatan data. */
 /* SIRUMAH v99: Beranda gaya startup — grafik per Kecamatan diganti Perkembangan Stok Hunian dan Kondisi Infrastruktur Perumahan. */
+/* SIRUMAH v100: Startup UI Rebuild — bento asimetris, KPI solid/gradient, shell SaaS, dan visual hierarchy baru. */
 document.addEventListener("DOMContentLoaded", init);
 
 
@@ -10821,14 +10900,14 @@ function renderCommandFreshnessV98(){
 function drawSnapshotSmallMultiplesV98(){
   const canvas=document.getElementById("homeSnapshotChartV98"),empty=document.getElementById("homeSnapshotEmptyV98"),foot=document.getElementById("homeSnapshotFootV98");if(!canvas)return;
   const finals=preferredAnnualSnapshotsV91().filter(r=>String(r.status||"").toUpperCase()==="FINAL");
-  if(finals.length<2){canvas.hidden=true;if(empty){empty.hidden=false;empty.innerHTML=`<div><strong>Belum cukup histori untuk grafik tren.</strong><br>${finals.length===1?`Snapshot FINAL ${escapeHtml(finals[0].year)} sudah tersedia. Tambahkan minimal satu snapshot FINAL lain untuk membentuk tren.`:"Belum ada snapshot FINAL pada database."}</div>`;}if(foot)foot.textContent="Grafik tidak dibuat dari data perkiraan atau DRAFT.";return;}
+  if(finals.length<2){canvas.hidden=true;if(empty){empty.hidden=false;empty.innerHTML=`<div><strong>Belum cukup histori untuk grafik tren.</strong><br>${finals.length===1?`Rekam tahunan FINAL ${escapeHtml(finals[0].year)} sudah tersedia. Tambahkan minimal satu rekam tahunan FINAL lain untuk membentuk tren.`:"Belum ada rekam tahunan FINAL pada database."}</div>`;}if(foot)foot.textContent="Grafik tidak dibuat dari data perkiraan atau DRAFT.";return;}
   canvas.hidden=false;if(empty)empty.hidden=true;
   const ctx=canvas.getContext("2d"),rect=canvas.getBoundingClientRect(),ratio=window.devicePixelRatio||1,w=Math.max(360,rect.width||700),h=250;canvas.width=w*ratio;canvas.height=h*ratio;ctx.setTransform(ratio,0,0,ratio,0,0);ctx.clearRect(0,0,w,h);
   const series=[{label:"PSU Diserahkan",key:"psuDelivered",color:"#0f766e",format:v=>fmt(v)},{label:"RTLH",key:"rtlh",color:"#dc2626",format:v=>fmt(v)},{label:"Luas Kumuh",key:"slumArea",color:"#7c3aed",format:v=>`${Number(v||0).toLocaleString("id-ID",{maximumFractionDigits:2})} Ha`}];
   const left=120,right=74,top=18,rowH=69,plotW=w-left-right;
   series.forEach((s,si)=>{const y0=top+si*rowH,vals=finals.map(r=>Number(r[s.key])).map(v=>Number.isFinite(v)?v:null),valid=vals.filter(v=>v!==null),min=valid.length?Math.min(...valid):0,max=valid.length?Math.max(...valid):1,range=Math.max(max-min,1);ctx.fillStyle="#0f3f50";ctx.font="700 11px Arial";ctx.textAlign="left";ctx.fillText(s.label,8,y0+25);ctx.strokeStyle="#e2e8f0";ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(left,y0+28);ctx.lineTo(w-right,y0+28);ctx.stroke();let prev=null;vals.forEach((v,i)=>{if(v===null)return;const x=left+(finals.length===1?0:(i/(finals.length-1))*plotW),y=y0+45-((v-min)/range)*34;if(prev){ctx.strokeStyle=s.color;ctx.lineWidth=2.4;ctx.beginPath();ctx.moveTo(prev.x,prev.y);ctx.lineTo(x,y);ctx.stroke();}ctx.fillStyle="#fff";ctx.beginPath();ctx.arc(x,y,4.5,0,Math.PI*2);ctx.fill();ctx.strokeStyle=s.color;ctx.lineWidth=2.5;ctx.stroke();prev={x,y};});const last=valid.length?vals.slice().reverse().find(v=>v!==null):null;ctx.textAlign="right";ctx.fillStyle=s.color;ctx.font="700 11px Arial";ctx.fillText(last===null?"—":s.format(last),w-8,y0+25);});
   ctx.fillStyle="#64748b";ctx.font="11px Arial";ctx.textAlign="center";finals.forEach((r,i)=>{const x=left+(i/(finals.length-1))*plotW;ctx.fillText(String(r.year),x,h-8);});
-  if(foot)foot.textContent=`${finals.length} snapshot FINAL · ${finals[0].year}–${finals.at(-1).year}. Setiap baris memakai skala sendiri agar indikator berbeda satuan tidak dibandingkan pada satu sumbu.`;
+  if(foot)foot.textContent=`${finals.length} rekam tahunan FINAL · ${finals[0].year}–${finals.at(-1).year}. Setiap baris memakai skala sendiri agar indikator berbeda satuan tidak dibandingkan pada satu sumbu.`;
 }
 
 function renderCommandCenterChartsV98(){
@@ -10866,7 +10945,7 @@ function renderPublicTransparencyV94(){
   if(statsEl)statsEl.innerHTML=stats.map(([l,v,n])=>`<article class="command-public-stat-v98"><span>${escapeHtml(l)}</span><strong>${escapeHtml(v)}</strong><small>${escapeHtml(n)}</small></article>`).join("");
   const recap=[...(SIRUMAH_RUNTIME?.slumRecap||[])].sort((a,b)=>Number(a.year||0)-Number(b.year||0)),slumArea=recap.length?Number(recap.at(-1).areaHa||0):null;
   if(narrativeEl)narrativeEl.textContent=`SIRUMAH mencatat ${fmt(s.total)} perumahan terdata dengan ${fmt(s.siteplan)} unit direncanakan. Sebanyak ${fmt(s.sudah)} perumahan telah menyerahkan PSU. Data agregat mencatat ${fmt(rtlh)} RTLH. ${slumArea!==null?`Luas kawasan kumuh terkini yang terbaca adalah ${fmtHaV74(slumArea)} Ha.`:"Data luas kawasan kumuh belum tersedia."}`;
-  if(trendEl){const finals=publicTransparencyFinalSnapshotsV94();if(finals.length>=2){const a=finals.at(-2),b=finals.at(-1),items=[["PSU Diserahkan",a.psuDelivered,b.psuDelivered,"number"],["RTLH",a.rtlh,b.rtlh,"number"],["Luas Kumuh",a.slumArea,b.slumArea,"ha"]];trendEl.innerHTML=items.map(([l,x,y,f])=>`<div class="public-transparency-trend-row-v94"><span>${escapeHtml(l)} · ${a.year} → ${b.year}</span><strong>${x!=null&&y!=null?`${escapeHtml(snapshotFormatValueV91(x,f))} → ${escapeHtml(snapshotFormatValueV91(y,f))}`:"Belum tersedia"}</strong></div>`).join("");}else if(finals.length===1)trendEl.innerHTML=`<div class="public-transparency-trend-row-v94"><span>Snapshot resmi tersedia</span><strong>${escapeHtml(String(finals[0].year))} · FINAL</strong></div><div class="public-transparency-trend-row-v94"><span>Perbandingan tahunan</span><strong>Memerlukan ≥2 snapshot FINAL</strong></div>`;else trendEl.innerHTML=`<div class="public-transparency-trend-row-v94"><span>Snapshot tahunan</span><strong>Belum ada snapshot FINAL</strong></div>`;}
+  if(trendEl){const finals=publicTransparencyFinalSnapshotsV94();if(finals.length>=2){const a=finals.at(-2),b=finals.at(-1),items=[["PSU Diserahkan",a.psuDelivered,b.psuDelivered,"number"],["RTLH",a.rtlh,b.rtlh,"number"],["Luas Kumuh",a.slumArea,b.slumArea,"ha"]];trendEl.innerHTML=items.map(([l,x,y,f])=>`<div class="public-transparency-trend-row-v94"><span>${escapeHtml(l)} · ${a.year} → ${b.year}</span><strong>${x!=null&&y!=null?`${escapeHtml(snapshotFormatValueV91(x,f))} → ${escapeHtml(snapshotFormatValueV91(y,f))}`:"Belum tersedia"}</strong></div>`).join("");}else if(finals.length===1)trendEl.innerHTML=`<div class="public-transparency-trend-row-v94"><span>Rekam tahunan resmi tersedia</span><strong>${escapeHtml(String(finals[0].year))} · FINAL</strong></div><div class="public-transparency-trend-row-v94"><span>Perbandingan tahunan</span><strong>Memerlukan ≥2 rekam tahunan FINAL</strong></div>`;else trendEl.innerHTML=`<div class="public-transparency-trend-row-v94"><span>Rekam tahunan</span><strong>Belum ada rekam tahunan FINAL</strong></div>`;}
   renderCommandCenterChartsV98();
 }
 
@@ -10875,10 +10954,10 @@ function renderExecutiveAlertsV88(){
   const card=document.getElementById("executiveAlertCard"),list=document.getElementById("executiveAlertList"),summary=document.getElementById("executiveAlertSummary"),scope=document.getElementById("executiveAlertScope"),total=document.getElementById("executiveAlertTotal"),footnote=document.getElementById("executiveAlertFootnote");if(!card||!list||!summary||!scope||!total)return;
   if(publicMode){list.innerHTML="";summary.innerHTML="";total.textContent="0 alert";return;}
   const alerts=buildExecutiveAlertsV88(),limit=executiveAlertExpandedV98?5:3,shown=alerts.slice(0,limit),counts={"Mendesak":alerts.filter(i=>i.severity==="Mendesak").length,"Tinggi":alerts.filter(i=>i.severity==="Tinggi").length,"Perlu Verifikasi":alerts.filter(i=>i.severity==="Perlu Verifikasi").length};
-  scope.textContent=executiveAlertScopeV88();total.textContent=`${fmt(alerts.length)} alert`;summary.innerHTML=`<span class="executive-alert-summary-pill-v88 urgent"><strong>${fmt(counts.Mendesak)}</strong> Mendesak</span><span class="executive-alert-summary-pill-v88 high"><strong>${fmt(counts.Tinggi)}</strong> Tinggi</span><span class="executive-alert-summary-pill-v88 verify"><strong>${fmt(counts["Perlu Verifikasi"])}</strong> Perlu Verifikasi</span>`;
-  if(!shown.length)list.innerHTML=`<div class="executive-alert-empty-v88"><strong>Tidak ada Peringatan Prioritas aktif.</strong>Belum ditemukan kondisi yang memenuhi rule prioritas v1.</div>`;
-  else list.innerHTML=shown.map(item=>{const cls=executiveAlertClassV88(item.severity),filterArg=JSON.stringify(String(item.filter||"")),targetArg=JSON.stringify(String(item.target||""));return `<div class="executive-alert-item-v88 ${cls}"><div class="executive-alert-icon-v88">${item.icon}</div><div class="executive-alert-content-v88"><div class="executive-alert-meta-v88"><span class="executive-alert-module-v88">${escapeHtml(item.source)}</span><span class="executive-alert-severity-v88 ${cls}">${escapeHtml(item.severity)}</span></div><h4>${escapeHtml(item.title)}</h4><p>${escapeHtml(item.description)}</p></div><button type="button" class="executive-alert-action-v88" onclick='openExecutiveAlertV88(${JSON.stringify(item.section)},${filterArg},${targetArg})'>Buka →</button></div>`;}).join("")+(alerts.length>3?`<button type="button" class="command-alert-more-v98" onclick="toggleExecutiveAlertV98()">${executiveAlertExpandedV98?"Ringkas alert ↑":`Lihat seluruh ${fmt(alerts.length)} alert →`}</button>`:"");
-  if(footnote)footnote.textContent=alerts.length>limit?`Menampilkan ${fmt(limit)} dari ${fmt(alerts.length)} alert dengan prioritas tertinggi.`:`Menampilkan ${fmt(shown.length)} alert aktif.`;
+  scope.textContent=executiveAlertScopeV88();total.textContent=`${fmt(alerts.length)} peringatan`;summary.innerHTML=`<span class="executive-alert-summary-pill-v88 urgent"><strong>${fmt(counts.Mendesak)}</strong> Mendesak</span><span class="executive-alert-summary-pill-v88 high"><strong>${fmt(counts.Tinggi)}</strong> Tinggi</span><span class="executive-alert-summary-pill-v88 verify"><strong>${fmt(counts["Perlu Verifikasi"])}</strong> Perlu Verifikasi</span>`;
+  if(!shown.length)list.innerHTML=`<div class="executive-alert-empty-v88"><strong>Tidak ada Peringatan Prioritas aktif.</strong>Belum ditemukan kondisi yang memenuhi aturan prioritas v1.</div>`;
+  else list.innerHTML=shown.map(item=>{const cls=executiveAlertClassV88(item.severity),filterArg=JSON.stringify(String(item.filter||"")),targetArg=JSON.stringify(String(item.target||""));return `<div class="executive-alert-item-v88 ${cls}"><div class="executive-alert-icon-v88">${item.icon}</div><div class="executive-alert-content-v88"><div class="executive-alert-meta-v88"><span class="executive-alert-module-v88">${escapeHtml(item.source)}</span><span class="executive-alert-severity-v88 ${cls}">${escapeHtml(item.severity)}</span></div><h4>${escapeHtml(item.title)}</h4><p>${escapeHtml(item.description)}</p></div><button type="button" class="executive-alert-action-v88" onclick='openExecutiveAlertV88(${JSON.stringify(item.section)},${filterArg},${targetArg})'>Buka →</button></div>`;}).join("")+(alerts.length>3?`<button type="button" class="command-alert-more-v98" onclick="toggleExecutiveAlertV98()">${executiveAlertExpandedV98?"Ringkas alert ↑":`Lihat seluruh ${fmt(alerts.length)} peringatan →`}</button>`:"");
+  if(footnote)footnote.textContent=alerts.length>limit?`Menampilkan ${fmt(limit)} dari ${fmt(alerts.length)} alert dengan prioritas tertinggi.`:`Menampilkan ${fmt(shown.length)} peringatan aktif.`;
 }
 
 function renderHomeActionSummaryV59(){
@@ -10941,6 +11020,37 @@ const renderAllV98BeforeStartupV99=renderAll;
 renderAll=function(){renderAllV98BeforeStartupV99();safeRenderSIRUMAH(renderStartupHomeV99,"Beranda gaya startup v99");};
 
 
+/* =========================================================
+   STARTUP UI REBUILD — SIRUMAH v100
+   Fokus visual: bento asimetris, KPI solid, data pulse.
+   ========================================================= */
+function renderStartupFocusV100(){
+  const el=document.getElementById("startupFocusV100");if(!el||publicMode)return;
+  const alerts=buildExecutiveAlertsV88(),urgent=alerts.filter(x=>x.severity==="Mendesak").length,high=alerts.filter(x=>x.severity==="Tinggi").length;
+  const total=alerts.length;
+  const label=urgent?`${fmt(urgent)} mendesak`:high?`${fmt(high)} prioritas tinggi`:total?`${fmt(total)} isu aktif`:"Terkendali";
+  const note=urgent?`${fmt(total)} isu aktif · ${fmt(high)} berprioritas tinggi`:high?`${fmt(total)} isu aktif lintas modul`:total?"Perlu verifikasi dan tindak lanjut":"Tidak ada rule prioritas yang terpicu";
+  el.innerHTML=`<span>Fokus saat ini</span><strong>${escapeHtml(label)}</strong><small>${escapeHtml(note)}</small>`;
+}
+const commandKpiCardV98BeforeV100=commandKpiCardV98;
+commandKpiCardV98=function({theme,icon,label,value,note,progress,scope,action}){
+  const validProgress=theme!=="rtlh" && Number.isFinite(Number(progress));
+  return `<button type="button" class="command-kpi-card-v98 ${theme}" onclick="${action||""}">
+    <span class="command-kpi-head-v98"><span class="command-kpi-icon-v98" aria-hidden="true">${icon}</span><span class="command-kpi-scope-v98">${escapeHtml(scope||"Data Aktif")}</span></span>
+    <span class="command-kpi-label-v98">${escapeHtml(label)}</span>
+    <strong class="command-kpi-value-v98">${escapeHtml(String(value))}</strong>
+    <span class="command-kpi-note-v98">${escapeHtml(note||"")}</span>
+    ${validProgress?`<span class="command-kpi-progress-v98"><i style="width:${Math.max(0,Math.min(100,Number(progress)||0))}%"></i></span>`:""}
+  </button>`;
+};
+const renderKPIBeforeStartupV100=renderKPI;
+renderKPI=function(){
+  renderKPIBeforeStartupV100();
+  const el=document.getElementById("kpiGrid");
+  if(el)el.classList.add("startup-kpi-grid-v100");
+};
+const renderAllV99BeforeStartupV100=renderAll;
+renderAll=function(){renderAllV99BeforeStartupV100();safeRenderSIRUMAH(renderStartupFocusV100,"Startup UI v100");};
 
 </script>
 
