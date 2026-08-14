@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SIRUMAH Kota Pangkalpinang v100 — Beranda Generasi Baru</title>
+  <title>SIRUMAH Kota Pangkalpinang v102 — Brand Palette Rework</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -2650,9 +2650,391 @@
     @media(max-width:720px){.startup-ui-v100 .main{padding:16px 12px 28px}.startup-command-hero-v100,.startup-public-hero-v100{padding:22px 18px;border-radius:22px}.startup-command-copy-v100 h3,.startup-public-hero-copy-v100 h3{font-size:27px}.startup-meta-v100{display:grid;grid-template-columns:1fr}.startup-kpi-grid-v100,.startup-public-kpis-v100{grid-template-columns:1fr!important}.startup-public-definitions-v100{grid-template-columns:1fr!important}.startup-card-v100,.startup-kpi-zone-v100{border-radius:20px}.startup-card-head-v100{padding:17px 16px 8px}.startup-stock-dark-v100{padding-left:16px!important;padding-right:16px!important}.startup-home-identity-v100>div span{display:none}.startup-infra-v100 .startup-infra-item-v99{grid-template-columns:1fr auto}.startup-infra-v100 .startup-infra-track-v99{grid-column:1/-1}}
   </style>
 
+
+  <style>
+    /* =========================================================
+       PENGALAMAN PRODUK INTERAKTIF — SIRUMAH v101
+       Micro-interaction, visual gravity, cross-highlight, focus.
+       ========================================================= */
+    body.startup-ui-v101{--v101-fast:180ms;--v101-slow:560ms;--v101-ease:cubic-bezier(.2,.8,.2,1)}
+    .startup-ui-v101 #beranda{--v100-gap:16px}
+    .startup-ui-v101 .startup-home-actions-v101{display:flex;align-items:center;gap:8px}
+    .startup-ui-v101 .startup-focus-toggle-v101{min-height:36px!important;padding:8px 12px!important;border:1px solid rgba(99,102,241,.16)!important;background:linear-gradient(135deg,#eef2ff,#fff)!important;color:#4338ca!important;border-radius:11px!important;font-size:11px!important;font-weight:800!important;box-shadow:0 9px 24px rgba(79,70,229,.08)!important}
+    .startup-ui-v101 .startup-focus-toggle-v101:hover{transform:translateY(-2px);box-shadow:0 13px 28px rgba(79,70,229,.13)!important}
+
+    /* visual gravity: headline data owns more space */
+    .startup-ui-v101 .startup-kpi-zone-v100{grid-column:span 4}
+    .startup-ui-v101 .startup-stock-card-v100{grid-column:span 8}
+    .startup-ui-v101 .startup-psu-card-v100,.startup-ui-v101 .startup-rusun-card-v100,.startup-ui-v101 .startup-infra-card-v100{grid-column:span 4}
+    .startup-ui-v101 .startup-alert-card-v100{grid-column:span 7}
+    .startup-ui-v101 .startup-region-card-v100{grid-column:span 5}
+    .startup-ui-v101 .startup-queue-card-v100{grid-column:span 8}
+    .startup-ui-v101 .startup-freshness-card-v100{grid-column:span 4}
+    .startup-ui-v101 .startup-internal-home-v100.v101-has-urgent .startup-alert-card-v100{grid-column:span 8}
+    .startup-ui-v101 .startup-internal-home-v100.v101-has-urgent .startup-region-card-v100{grid-column:span 4}
+    .startup-ui-v101 .startup-internal-home-v100.v101-has-urgent .startup-focus-v100{border-color:rgba(251,113,133,.34);box-shadow:inset 0 1px rgba(255,255,255,.10),0 0 0 1px rgba(244,63,94,.08),0 18px 50px rgba(190,24,93,.13)}
+
+    /* typography hierarchy: data first, metadata quiet */
+    .startup-ui-v101 .startup-command-copy-v100 h3{font-size:clamp(37px,3.2vw,50px);max-width:900px;letter-spacing:-2px;line-height:.98}
+    .startup-ui-v101 .startup-command-copy-v100 p{font-size:14px;line-height:1.7;max-width:930px}
+    .startup-ui-v101 .startup-focus-v100 strong{font-size:clamp(31px,2.25vw,43px);letter-spacing:-1.8px;line-height:.98}
+    .startup-ui-v101 .startup-card-head-v100 h3{font-size:19px;letter-spacing:-.45px}
+    .startup-ui-v101 .startup-card-head-v100 p{max-width:620px}
+    .startup-ui-v101 .startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(1) .command-kpi-value-v98{font-size:clamp(55px,4.9vw,78px)!important;letter-spacing:-3px!important;line-height:.9}
+    .startup-ui-v101 .startup-kpi-grid-v100 .command-kpi-card-v98:not(:nth-child(1)) .command-kpi-value-v98{font-size:clamp(36px,3vw,49px)!important;letter-spacing:-2px!important;line-height:.93}
+    .startup-ui-v101 .startup-stock-dark-v100 .startup-stock-hero-v99 strong{font-size:clamp(50px,4.2vw,70px)!important;letter-spacing:-2.8px!important}
+    .startup-ui-v101 .startup-gap-v99 strong{font-size:30px!important;letter-spacing:-1.2px}
+
+    /* KPI progressive disclosure */
+    .startup-ui-v101 .command-kpi-card-v98{cursor:pointer;outline:none;transition:transform var(--v101-fast) ease,filter var(--v101-fast) ease,box-shadow var(--v101-fast) ease,min-height var(--v101-slow) var(--v101-ease)!important}
+    .startup-ui-v101 .command-kpi-progress-v98{display:block!important;width:100%!important}
+    .startup-ui-v101 .command-kpi-card-v98:focus-visible{box-shadow:0 0 0 3px rgba(255,255,255,.70),0 0 0 6px rgba(79,70,229,.38),0 18px 36px rgba(15,23,42,.18)!important}
+    .startup-ui-v101 .v101-kpi-hint{display:flex;justify-content:space-between;align-items:center;margin-top:9px;color:rgba(255,255,255,.67);font-size:9px;font-weight:700;letter-spacing:.25px}
+    .startup-ui-v101 .v101-kpi-hint b{font-size:14px;transition:transform var(--v101-fast) ease}
+    .startup-ui-v101 .v101-kpi-detail{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows 420ms var(--v101-ease),opacity 220ms ease,margin-top 420ms var(--v101-ease);margin-top:0}
+    .startup-ui-v101 .v101-kpi-detail>div{overflow:hidden}
+    .startup-ui-v101 .command-kpi-card-v98.v101-kpi-expanded .v101-kpi-detail{grid-template-rows:1fr;opacity:1;margin-top:12px}
+    .startup-ui-v101 .command-kpi-card-v98.v101-kpi-expanded .v101-kpi-hint b{transform:rotate(45deg)}
+    .startup-ui-v101 .v101-kpi-detail-inner{padding-top:10px;border-top:1px solid rgba(255,255,255,.18);display:grid;gap:8px}
+    .startup-ui-v101 .v101-kpi-detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+    .startup-ui-v101 .v101-kpi-detail-grid span{padding:8px;border-radius:10px;background:rgba(255,255,255,.10);color:rgba(255,255,255,.75);font-size:9px}
+    .startup-ui-v101 .v101-kpi-detail-grid strong{display:block;margin-top:2px;color:#fff;font-size:13px}
+    .startup-ui-v101 .v101-kpi-open{justify-self:start;border:0;border-radius:999px;padding:7px 10px;background:#fff;color:#111827;font:inherit;font-size:9px;font-weight:900;cursor:pointer}
+
+    /* semantic hover + cross-highlight */
+    .startup-ui-v101 [data-v101-topics]{transition:opacity 260ms ease,filter 260ms ease,transform 260ms var(--v101-ease),box-shadow 260ms ease}
+    .startup-ui-v101 [data-v101-topics].v101-context-muted{opacity:.36;filter:saturate(.62) contrast(.96);transform:scale(.995)}
+    .startup-ui-v101 [data-v101-topics].v101-context-active{transform:translateY(-4px) scale(1.004);filter:saturate(1.05);box-shadow:0 24px 65px rgba(15,23,42,.16)}
+    .startup-ui-v101 #startupContextCardV101{opacity:1!important;filter:none!important}
+
+    /* interactive stock story */
+    .startup-ui-v101 .startup-stage-v99,.startup-ui-v101 .startup-gap-v99{cursor:pointer;transition:transform 220ms var(--v101-ease),background 220ms ease,opacity 220ms ease,box-shadow 220ms ease}
+    .startup-ui-v101 .startup-stage-v99:hover,.startup-ui-v101 .startup-stage-v99:focus-visible{transform:translateX(7px);background:rgba(255,255,255,.095)!important;outline:none;box-shadow:inset 3px 0 0 rgba(96,165,250,.85)}
+    .startup-ui-v101 .startup-gap-v99:hover,.startup-ui-v101 .startup-gap-v99:focus-visible{transform:translateY(-4px) scale(1.01);outline:none;box-shadow:0 18px 34px rgba(2,132,199,.18)}
+    .startup-ui-v101 .startup-stage-track-v99 i{transition:width 720ms var(--v101-ease)!important}
+    .startup-ui-v101 .v101-stage-action{float:right;color:#7dd3fc;font-size:9px;font-weight:800;opacity:0;transform:translateX(-4px);transition:.18s ease}
+    .startup-ui-v101 .startup-stage-v99:hover .v101-stage-action,.startup-ui-v101 .startup-stage-v99:focus-visible .v101-stage-action{opacity:1;transform:none}
+
+    /* infrastructure is now navigable */
+    .startup-ui-v101 .startup-infra-v100 .startup-infra-item-v99{cursor:pointer;position:relative;transition:transform 180ms ease,background 180ms ease,box-shadow 180ms ease}
+    .startup-ui-v101 .startup-infra-v100 .startup-infra-item-v99:hover,.startup-ui-v101 .startup-infra-v100 .startup-infra-item-v99:focus-visible{transform:translateX(6px);background:#fff!important;box-shadow:0 12px 24px rgba(124,45,18,.08);outline:none}
+    .startup-ui-v101 .v101-infra-open{font-size:9px;font-weight:800;color:#9a3412;opacity:0;transition:opacity 160ms ease}
+    .startup-ui-v101 .startup-infra-item-v99:hover .v101-infra-open,.startup-ui-v101 .startup-infra-item-v99:focus-visible .v101-infra-open{opacity:1}
+
+    /* contextual narrator */
+    .startup-ui-v101 .startup-context-card-v101{background:radial-gradient(circle at 90% 8%,rgba(56,189,248,.23),transparent 28%),linear-gradient(145deg,#0b1224,#162a56 62%,#173f64);color:#fff;box-shadow:0 22px 55px rgba(15,23,42,.16)}
+    .startup-ui-v101 .startup-context-card-v101::after{background:rgba(56,189,248,.12)}
+    .startup-ui-v101 .startup-context-body-v101{position:relative;z-index:2;padding:8px 21px 22px;display:grid;gap:12px;min-height:290px;align-content:start}
+    .startup-ui-v101 .v101-context-kicker{color:#7dd3fc;font-size:10px;font-weight:850;letter-spacing:1px}
+    .startup-ui-v101 .v101-context-value{margin-top:2px;color:#fff;font-size:clamp(45px,4.2vw,68px);font-weight:900;letter-spacing:-3px;line-height:.9}
+    .startup-ui-v101 .v101-context-title{max-width:390px;color:#f8fafc;font-size:18px;font-weight:850;line-height:1.16;letter-spacing:-.35px}
+    .startup-ui-v101 .v101-context-copy{max-width:430px;color:#a8b8d0;font-size:11px;line-height:1.55}
+    .startup-ui-v101 .v101-context-action{justify-self:start;margin-top:3px;border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:8px 11px;background:rgba(255,255,255,.08);color:#e0f2fe;font:inherit;font-size:10px;font-weight:850;cursor:pointer;transition:.18s ease}
+    .startup-ui-v101 .v101-context-action:hover{background:#fff;color:#0f172a;transform:translateY(-2px)}
+    .startup-ui-v101 .v101-context-foot{margin-top:auto;padding-top:10px;border-top:1px solid rgba(255,255,255,.08);color:#7084a0;font-size:9px;line-height:1.45}
+    .startup-ui-v101 .v101-context-shift{animation:v101ContextShift 330ms var(--v101-ease)}
+    @keyframes v101ContextShift{0%{opacity:.25;transform:translateY(7px)}100%{opacity:1;transform:none}}
+
+    /* one-time urgency cue, not an endless alarm */
+    .startup-ui-v101 .executive-alert-item-v88.urgent.v101-urgent-cue{animation:v101UrgentCue 780ms var(--v101-ease) 1}
+    @keyframes v101UrgentCue{0%{transform:translateX(0);box-shadow:0 0 0 rgba(244,63,94,0)}35%{transform:translateX(5px);box-shadow:0 12px 35px rgba(244,63,94,.18)}100%{transform:none}}
+
+    /* focus/presentation mode */
+    .startup-focus-exit-v101{display:none;position:fixed;right:24px;top:20px;z-index:9999;border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:10px 13px;background:rgba(10,16,32,.88);backdrop-filter:blur(16px);color:#fff;font:inherit;font-size:10px;font-weight:850;box-shadow:0 16px 44px rgba(2,6,23,.28);cursor:pointer}
+    .startup-focus-exit-v101 span{margin-left:6px;padding:2px 6px;border-radius:6px;background:rgba(255,255,255,.10);color:#cbd5e1}
+    body.v101-focus-mode .app{grid-template-columns:1fr!important}
+    body.v101-focus-mode .sidebar,body.v101-focus-mode .topbar,body.v101-focus-mode .access-mode-banner,body.v101-focus-mode #beranda>.startup-home-actionbar-v100{display:none!important}
+    body.v101-focus-mode .main{padding:22px 30px 38px!important;max-width:none!important}
+    body.v101-focus-mode #beranda{max-width:1680px;margin:0 auto}
+    body.v101-focus-mode #focusModeExitV101{display:block}
+    body.v101-focus-mode .startup-command-hero-v100{min-height:300px}
+    body.v101-focus-mode .startup-command-copy-v100 h3{font-size:clamp(45px,4vw,64px)}
+    body.v101-focus-mode .startup-card-v100,body.v101-focus-mode .startup-kpi-zone-v100{box-shadow:0 24px 70px rgba(15,23,42,.12)}
+
+    @media(max-width:1280px){
+      .startup-ui-v101 .startup-kpi-zone-v100,.startup-ui-v101 .startup-stock-card-v100{grid-column:span 6}
+      .startup-ui-v101 .startup-psu-card-v100,.startup-ui-v101 .startup-rusun-card-v100,.startup-ui-v101 .startup-infra-card-v100{grid-column:span 4}
+      .startup-ui-v101 .startup-alert-card-v100,.startup-ui-v101 .startup-region-card-v100{grid-column:span 6!important}
+      .startup-ui-v101 .startup-queue-card-v100,.startup-ui-v101 .startup-freshness-card-v100{grid-column:span 6}
+    }
+    @media(max-width:1020px){.startup-ui-v101 .startup-bento-grid-v100>*{grid-column:1/-1!important}.startup-ui-v101 .startup-context-body-v101{min-height:230px}}
+    @media(max-width:720px){
+      .startup-ui-v101 .startup-home-actions-v101{gap:5px}.startup-ui-v101 .startup-focus-toggle-v101{padding:8px 9px!important}
+      .startup-ui-v101 .startup-command-copy-v100 h3{font-size:34px}.startup-ui-v101 .startup-command-copy-v100 p{font-size:12px}
+      .startup-ui-v101 .startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(1) .command-kpi-value-v98{font-size:55px!important}
+      .startup-ui-v101 .v101-kpi-detail-grid{grid-template-columns:1fr}.startup-focus-exit-v101{right:12px;top:12px}
+      body.v101-focus-mode .main{padding:16px 12px 28px!important}
+    }
+    @media(prefers-reduced-motion:reduce){.startup-ui-v101 *, .startup-ui-v101 *::before,.startup-ui-v101 *::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
+  </style>
+
+
+
+  <style>
+    /* =========================================================
+       BRAND PALETTE REWORK — SIRUMAH v102
+       Referensi warna pengguna:
+       Deep Teal #2B5C63 · Teal Blue #1A6372 · Sand #D3B881
+       Warm Beige #DDCAAC · Soft Off-White #EFEFED
+       Semantic red/amber/green tetap dipertahankan untuk status.
+       ========================================================= */
+    body.startup-ui-v102{
+      --brand-deep:#2B5C63;
+      --brand-teal:#1A6372;
+      --brand-sand:#D3B881;
+      --brand-beige:#DDCAAC;
+      --brand-ivory:#EFEFED;
+      --brand-ink:#203B3F;
+      --brand-muted:#68777A;
+      --brand-line:#D8DDD8;
+      --brand-paper:#F8F8F5;
+      --brand-deepest:#173B40;
+      --brand-teal-soft:#E3ECEB;
+      --brand-sand-soft:#F2E8D5;
+      --brand-beige-soft:#F4EDE2;
+      --bg:var(--brand-ivory);
+      --card:var(--brand-paper);
+      --text:var(--brand-ink);
+      --muted:var(--brand-muted);
+      --line:var(--brand-line);
+      --primary:var(--brand-teal);
+      --primary-dark:var(--brand-deep);
+      --gold:var(--brand-sand);
+      --teal:var(--brand-deep);
+      --blue:var(--brand-teal);
+      --purple:#6F8587;
+      --orange:#D97706;
+      --shadow:0 14px 34px rgba(43,92,99,.09);
+      background:
+        radial-gradient(circle at 92% 2%,rgba(211,184,129,.20),transparent 23%),
+        radial-gradient(circle at 64% -8%,rgba(26,99,114,.10),transparent 26%),
+        var(--brand-ivory)!important;
+      color:var(--brand-ink);
+    }
+
+    /* Shell / navigasi */
+    .startup-ui-v102 .sidebar{
+      background:linear-gradient(180deg,#173B40 0%,#214D53 54%,#2B5C63 100%)!important;
+      border-right:1px solid rgba(239,239,237,.08)!important;
+      box-shadow:18px 0 55px rgba(32,59,63,.14)!important;
+    }
+    .startup-ui-v102 .logo{
+      background:linear-gradient(145deg,var(--brand-sand),var(--brand-beige))!important;
+      color:var(--brand-deepest)!important;
+      box-shadow:0 14px 30px rgba(211,184,129,.22)!important;
+    }
+    .startup-ui-v102 .brand p,.startup-ui-v102 .sidebar-owner-note{color:#C9D8D8!important}
+    .startup-ui-v102 .tagline{
+      background:linear-gradient(135deg,rgba(221,202,172,.11),rgba(211,184,129,.06))!important;
+      border-color:rgba(221,202,172,.16)!important;color:#DCE6E5!important;
+    }
+    .startup-ui-v102 .nav-title{color:#8FA9AA!important}
+    .startup-ui-v102 .nav button{color:#C7D5D5!important}
+    .startup-ui-v102 .nav button:hover{background:rgba(239,239,237,.075)!important;color:#fff!important}
+    .startup-ui-v102 .nav button.active{
+      background:linear-gradient(135deg,rgba(211,184,129,.24),rgba(221,202,172,.10))!important;
+      color:#FFF9EE!important;
+      box-shadow:inset 0 0 0 1px rgba(211,184,129,.22),0 12px 28px rgba(16,50,55,.18)!important;
+    }
+    .startup-ui-v102 .sidebar-owner-card{background:rgba(23,59,64,.58)!important;border-color:rgba(221,202,172,.14)!important}
+    .startup-ui-v102 .sidebar-owner-icon{background:rgba(211,184,129,.15)!important}
+    .startup-ui-v102 .sidebar-owner-version{color:var(--brand-sand)!important}
+    .startup-ui-v102 .main{background:transparent!important}
+    .startup-ui-v102 .title-block h2{color:var(--brand-deepest)!important}
+    .startup-ui-v102 .title-block p{color:var(--brand-muted)!important}
+    .startup-ui-v102 .command-search-trigger-v94,
+    .startup-ui-v102 .access-mode-control{
+      background:rgba(248,248,245,.82)!important;border-color:rgba(43,92,99,.13)!important;
+      box-shadow:0 10px 30px rgba(43,92,99,.07)!important;
+    }
+    .startup-ui-v102 #modeToggleButton{background:var(--brand-deep)!important;color:#fff!important}
+    .startup-ui-v102 .startup-focus-toggle-v101{
+      border-color:rgba(26,99,114,.18)!important;background:linear-gradient(135deg,#E5ECEA,#F8F8F5)!important;
+      color:var(--brand-deep)!important;box-shadow:0 9px 24px rgba(43,92,99,.08)!important;
+    }
+    .startup-ui-v102 .startup-focus-toggle-v101:hover{box-shadow:0 13px 28px rgba(43,92,99,.13)!important}
+    .startup-ui-v102 .startup-home-identity-v100 strong{color:var(--brand-deepest)!important}
+    .startup-ui-v102 .startup-home-identity-v100 span{color:var(--brand-muted)!important}
+    .startup-ui-v102 .startup-print-v100{background:rgba(248,248,245,.88)!important;color:var(--brand-deep)!important}
+
+    /* Elemen umum seluruh modul */
+    .startup-ui-v102 .card,
+    .startup-ui-v102 .section-actionbar,
+    .startup-ui-v102 .data-source-card,
+    .startup-ui-v102 .housing-profile-modal-v90,
+    .startup-ui-v102 .rtlh-detail-modal-v97,
+    .startup-ui-v102 .command-search-modal-v94{
+      background:var(--brand-paper)!important;border-color:var(--brand-line)!important;
+      box-shadow:0 16px 42px rgba(43,92,99,.09);
+    }
+    .startup-ui-v102 .card-header h3,.startup-ui-v102 .info-block h4{color:var(--brand-deep)!important}
+    .startup-ui-v102 .btn{background:var(--brand-teal);color:#fff}
+    .startup-ui-v102 .btn.light{background:var(--brand-paper);color:var(--brand-deep);border-color:var(--brand-line)}
+    .startup-ui-v102 .btn.gold{background:var(--brand-sand);color:var(--brand-deepest)}
+    .startup-ui-v102 select,.startup-ui-v102 input,.startup-ui-v102 textarea{
+      background:#FBFBF8;border-color:var(--brand-line);color:var(--brand-ink)
+    }
+    .startup-ui-v102 select:focus,.startup-ui-v102 input:focus,.startup-ui-v102 textarea:focus{
+      border-color:rgba(26,99,114,.45);box-shadow:0 0 0 3px rgba(26,99,114,.08)
+    }
+    .startup-ui-v102 th{background:var(--brand-deep)!important;color:#F8F4EA!important}
+    .startup-ui-v102 .table-wrap th:nth-child(1),.startup-ui-v102 .table-wrap th:nth-child(2){background:var(--brand-deep)!important;color:#F8F4EA!important}
+    .startup-ui-v102 tr:hover,.startup-ui-v102 .table-wrap tbody tr:hover td:not([colspan]):nth-child(1),.startup-ui-v102 .table-wrap tbody tr:hover td:not([colspan]):nth-child(2){background:#E7EFED!important}
+    .startup-ui-v102 .stat-row,.startup-ui-v102 .sheet-chip,.startup-ui-v102 .excel-info-item{background:#F2F2EE!important;border-color:var(--brand-line)!important}
+    .startup-ui-v102 .progress{background:#E3E5E0}.startup-ui-v102 .progress i{background:linear-gradient(90deg,var(--brand-sand),var(--brand-teal))}
+    .startup-ui-v102 .pagination button{background:var(--brand-deep)!important;color:#F8F4EA!important}
+    .startup-ui-v102 #map{background:#E4ECE9!important;border-color:var(--brand-line)!important}
+    .startup-ui-v102 .legend span{background:var(--brand-paper)!important;border-color:var(--brand-line)!important}
+    .startup-ui-v102 .footer-note{background:rgba(248,248,245,.82)!important;border-color:#C9D1CB!important}
+    .startup-ui-v102 .note{background:#E5E8E3;color:#42565A}
+    .startup-ui-v102 .badge.blue{background:#DCE9E8;color:#1A5965}
+    .startup-ui-v102 .badge.purple{background:#ECE3D4;color:#725C39}
+
+    /* Popup/profile/search mengikuti brand palette */
+    .startup-ui-v102 .housing-profile-head-v90,
+    .startup-ui-v102 .rtlh-detail-head-v97{
+      background:linear-gradient(135deg,#F8F8F5 0%,#E4ECEA 100%)!important;
+      border-color:var(--brand-line)!important;
+    }
+    .startup-ui-v102 .housing-profile-eyebrow-v90,.startup-ui-v102 .rtlh-detail-eyebrow-v97{color:var(--brand-teal)!important}
+    .startup-ui-v102 .housing-profile-head-v90 h2,.startup-ui-v102 .rtlh-detail-head-v97 h2{color:var(--brand-deep)!important}
+    .startup-ui-v102 .rtlh-detail-link-v97{color:var(--brand-deep)!important;text-decoration-color:rgba(43,92,99,.28)!important}
+    .startup-ui-v102 .rtlh-detail-link-v97:hover{color:var(--brand-teal)!important;text-decoration-color:var(--brand-teal)!important}
+    .startup-ui-v102 .rtlh-detail-kpi-v97,.startup-ui-v102 .rtlh-detail-section-v97,.startup-ui-v102 .rtlh-detail-field-v97,.startup-ui-v102 .rtlh-detail-component-v97,.startup-ui-v102 .rtlh-detail-score-v97{background:#F7F7F3!important;border-color:var(--brand-line)!important}
+    .startup-ui-v102 .command-search-head-v94,.startup-ui-v102 .command-search-foot-v94{background:#F2F2EE!important;border-color:var(--brand-line)!important}
+
+    /* Hero internal/public */
+    .startup-ui-v102 .startup-command-hero-v100{
+      background:
+        radial-gradient(circle at 88% 12%,rgba(211,184,129,.22),transparent 27%),
+        linear-gradient(132deg,#173B40 0%,#2B5C63 52%,#1A6372 100%)!important;
+      box-shadow:0 30px 74px rgba(43,92,99,.24)!important;
+    }
+    .startup-ui-v102 .startup-command-hero-v100::before{background:radial-gradient(circle,rgba(221,202,172,.23),rgba(211,184,129,.10) 45%,transparent 70%)!important}
+    .startup-ui-v102 .startup-command-hero-v100::after{background:radial-gradient(circle,rgba(239,239,237,.11),transparent 67%)!important}
+    .startup-ui-v102 .startup-eyebrow-v100{color:#E4D4B8!important}
+    .startup-ui-v102 .startup-command-copy-v100 p{color:#D4DFDE!important}
+    .startup-ui-v102 .startup-hero-foot-v100{color:#9EB2B3!important}
+    .startup-ui-v102 .startup-focus-v100{background:rgba(239,239,237,.075)!important;border-color:rgba(221,202,172,.16)!important}
+    .startup-ui-v102 .startup-focus-v100 span{color:#B7C7C6!important}.startup-ui-v102 .startup-focus-v100 small{color:#D4DFDE!important}
+    .startup-ui-v102 .startup-meta-v100>div{background:rgba(239,239,237,.045)!important;border-color:rgba(221,202,172,.10)!important}
+    .startup-ui-v102 .startup-meta-v100 span{color:#9EB2B3!important}.startup-ui-v102 .startup-meta-v100 strong{color:#F0F1EC!important}
+
+    .startup-ui-v102 .startup-public-hero-v100{
+      background:
+        radial-gradient(circle at 84% 8%,rgba(211,184,129,.30),transparent 28%),
+        linear-gradient(130deg,#2B5C63 0%,#1A6372 72%,#245F68 100%)!important;
+      box-shadow:0 28px 70px rgba(43,92,99,.22)!important;
+    }
+    .startup-ui-v102 .startup-public-hero-copy-v100 .startup-eyebrow-v100{color:#E8D8BB!important}
+
+    /* KPI: empat warna dari palet referensi, bukan rainbow SaaS */
+    .startup-ui-v102 .startup-kpi-zone-v100{background:linear-gradient(145deg,#F8F8F5,#ECEDE8)!important;border-color:rgba(43,92,99,.10)!important}
+    .startup-ui-v102 .startup-zone-head-v100 span{color:var(--brand-muted)!important}.startup-ui-v102 .startup-zone-head-v100 strong{color:var(--brand-deep)!important}
+    .startup-ui-v102 .startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(1){--kpi1:#2B5C63;--kpi2:#1A6372}
+    .startup-ui-v102 .startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(2){--kpi1:#1A6372;--kpi2:#2B5C63}
+    .startup-ui-v102 .startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(3){--kpi1:#D3B881;--kpi2:#C8A96C}
+    .startup-ui-v102 .startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(4){--kpi1:#DDCAAC;--kpi2:#D3B881}
+    .startup-ui-v102 .startup-kpi-grid-v100 .command-kpi-card-v98{box-shadow:0 17px 34px color-mix(in srgb,var(--kpi1) 22%,transparent)!important}
+    .startup-ui-v102 .startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(3),.startup-ui-v102 .startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(4){color:var(--brand-deepest)!important}
+    .startup-ui-v102 .startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(3) :is(.command-kpi-label-v98,.command-kpi-note-v98,.command-kpi-scope-v98,.v101-kpi-hint),
+    .startup-ui-v102 .startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(4) :is(.command-kpi-label-v98,.command-kpi-note-v98,.command-kpi-scope-v98,.v101-kpi-hint){color:rgba(32,59,63,.78)!important}
+    .startup-ui-v102 .startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(3) :is(.command-kpi-value-v98,.v101-kpi-detail-grid strong),
+    .startup-ui-v102 .startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(4) :is(.command-kpi-value-v98,.v101-kpi-detail-grid strong){color:var(--brand-deepest)!important}
+    .startup-ui-v102 .startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(3) :is(.command-kpi-icon-v98,.command-kpi-scope-v98,.v101-kpi-detail-grid span),
+    .startup-ui-v102 .startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(4) :is(.command-kpi-icon-v98,.command-kpi-scope-v98,.v101-kpi-detail-grid span){background:rgba(248,248,245,.30)!important;border-color:rgba(43,92,99,.10)!important}
+    .startup-ui-v102 .startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(3) .v101-kpi-detail-inner,
+    .startup-ui-v102 .startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(4) .v101-kpi-detail-inner{border-color:rgba(43,92,99,.18)!important}
+    .startup-ui-v102 .startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(3) .v101-kpi-open,
+    .startup-ui-v102 .startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(4) .v101-kpi-open{background:var(--brand-deep)!important;color:#fff!important}
+    .startup-ui-v102 .startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(3) .command-kpi-progress-v98,
+    .startup-ui-v102 .startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(4) .command-kpi-progress-v98{background:rgba(43,92,99,.13)!important}
+    .startup-ui-v102 .startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(3) .command-kpi-progress-v98 i,
+    .startup-ui-v102 .startup-kpi-grid-v100 .command-kpi-card-v98:nth-child(4) .command-kpi-progress-v98 i{background:var(--brand-deep)!important}
+    .startup-ui-v102 .command-kpi-card-v98:focus-visible{box-shadow:0 0 0 3px rgba(239,239,237,.82),0 0 0 6px rgba(26,99,114,.36),0 18px 36px rgba(43,92,99,.18)!important}
+
+    /* KPI publik menggunakan keluarga palet yang sama */
+    .startup-ui-v102 .startup-public-kpis-v100 .command-public-stat-v98:nth-child(1){background:linear-gradient(145deg,#2B5C63,#1A6372)!important}
+    .startup-ui-v102 .startup-public-kpis-v100 .command-public-stat-v98:nth-child(2){background:linear-gradient(145deg,#1A6372,#2B5C63)!important}
+    .startup-ui-v102 .startup-public-kpis-v100 .command-public-stat-v98:nth-child(3){background:linear-gradient(145deg,#D3B881,#C8A96C)!important}
+    .startup-ui-v102 .startup-public-kpis-v100 .command-public-stat-v98:nth-child(4){background:linear-gradient(145deg,#DDCAAC,#D3B881)!important}
+    .startup-ui-v102 .startup-public-kpis-v100 .command-public-stat-v98:nth-child(3) :is(span,strong,small),
+    .startup-ui-v102 .startup-public-kpis-v100 .command-public-stat-v98:nth-child(4) :is(span,strong,small){color:var(--brand-deepest)!important}
+
+    /* Bento surfaces */
+    .startup-ui-v102 .startup-stock-card-v100{
+      background:radial-gradient(circle at 92% 12%,rgba(211,184,129,.13),transparent 26%),linear-gradient(145deg,#173B40,#2B5C63 68%,#1A6372)!important;
+      box-shadow:0 24px 65px rgba(43,92,99,.19)!important;
+    }
+    .startup-ui-v102 .startup-stock-card-v100::after{background:rgba(211,184,129,.10)!important}
+    .startup-ui-v102 .startup-stock-dark-v100 .startup-stock-rate-v99 b{color:#E3C992!important}
+    .startup-ui-v102 .startup-stock-dark-v100 .startup-stage-v99{--stage:#D3B881}
+    .startup-ui-v102 .startup-stock-dark-v100 .startup-stage-v99.built{--stage:#89A9A7}.startup-ui-v102 .startup-stock-dark-v100 .startup-stage-v99.occupied{--stage:#DDCAAC}
+    .startup-ui-v102 .startup-stock-dark-v100 .startup-gap-v99{background:linear-gradient(135deg,#1A6372,#2B5C63)!important}
+    .startup-ui-v102 .startup-stock-dark-v100 .startup-gap-v99.secondary{background:linear-gradient(135deg,#B89963,#D3B881)!important;color:var(--brand-deepest)!important}
+    .startup-ui-v102 .startup-stock-dark-v100 .startup-gap-v99.secondary :is(span,small){color:rgba(32,59,63,.75)!important}
+    .startup-ui-v102 .v101-stage-action{color:#E1C99C!important}
+    .startup-ui-v102 .startup-stage-v99:hover,.startup-ui-v102 .startup-stage-v99:focus-visible{box-shadow:inset 3px 0 0 rgba(211,184,129,.85)!important}
+
+    .startup-ui-v102 .startup-psu-card-v100{background:linear-gradient(145deg,#E2ECEA,#C7D9D7)!important}
+    .startup-ui-v102 .startup-rusun-card-v100{background:linear-gradient(145deg,#F0E7D7,#DDCAAC)!important}
+    .startup-ui-v102 .startup-infra-card-v100{background:linear-gradient(145deg,#F5EEE2,#E8D9BF)!important}
+    .startup-ui-v102 .startup-infra-v100 .startup-infra-item-v99{background:rgba(248,248,245,.70)!important}
+    .startup-ui-v102 .startup-infra-v100 .startup-infra-item-v99:hover{box-shadow:0 12px 24px rgba(43,92,99,.08)!important}
+    .startup-ui-v102 .v101-infra-open{color:var(--brand-teal)!important}
+
+    /* Alert tetap memakai semantic red, tetapi surface tidak keluar dari brand system */
+    .startup-ui-v102 .startup-alert-card-v100{background:linear-gradient(145deg,#F6F0E8,#F0E4D4)!important}
+    .startup-ui-v102 .startup-alert-card-v100::before{background:radial-gradient(circle,rgba(220,38,38,.10),transparent 68%)!important}
+    .startup-ui-v102 .alert-head-v100>div:first-child>span{color:#9A594D!important}
+    .startup-ui-v102 .startup-alert-list-v100 .executive-alert-item-v88{background:rgba(248,248,245,.76)!important;box-shadow:0 9px 22px rgba(43,92,99,.05)!important}
+    .startup-ui-v102 .startup-alert-list-v100 .executive-alert-action-v88{background:var(--brand-deep)!important}
+    .startup-ui-v102 .startup-alert-footer-v100{border-color:rgba(43,92,99,.08)!important;color:#7A6E63!important}
+
+    .startup-ui-v102 .startup-context-card-v101{
+      background:radial-gradient(circle at 90% 8%,rgba(211,184,129,.20),transparent 28%),linear-gradient(145deg,#173B40,#2B5C63 62%,#1A6372)!important;
+      box-shadow:0 22px 55px rgba(43,92,99,.18)!important;
+    }
+    .startup-ui-v102 .startup-context-card-v101::after{background:rgba(211,184,129,.10)!important}
+    .startup-ui-v102 .v101-context-kicker{color:#E4C998!important}.startup-ui-v102 .v101-context-copy{color:#C8D6D5!important}.startup-ui-v102 .v101-context-foot{color:#91A9A9!important}
+    .startup-ui-v102 .v101-context-action{color:#F3E8D5!important}.startup-ui-v102 .v101-context-action:hover{background:var(--brand-sand)!important;color:var(--brand-deepest)!important}
+
+    .startup-ui-v102 .startup-queue-card-v100{background:linear-gradient(145deg,#F8F8F5,#ECEDE8)!important}
+    .startup-ui-v102 .startup-action-tabs-v100 button{background:#E2E5E0!important;color:#657477!important}.startup-ui-v102 .startup-action-tabs-v100 button.active{background:var(--brand-deep)!important;color:#fff!important}
+    .startup-ui-v102 .startup-queue-content-v100 .command-queue-row-v98{background:#F1F2ED!important}.startup-ui-v102 .startup-queue-content-v100 .command-queue-row-v98:hover{background:#E3ECEA!important}
+    .startup-ui-v102 .startup-queue-content-v100 .command-queue-rank-v98{background:var(--brand-deep)!important}.startup-ui-v102 .startup-queue-content-v100 .command-queue-open-v98{color:var(--brand-teal)!important}
+    .startup-ui-v102 .startup-freshness-card-v100{background:linear-gradient(145deg,#E6EEEB,#CFDEDA)!important}
+    .startup-ui-v102 .startup-snapshot-card-v100{background:linear-gradient(145deg,#F1E8DA,#E3D2B6)!important}.startup-ui-v102 .startup-snapshot-foot-v100{color:#775E3A!important}
+
+    /* Public supporting cards */
+    .startup-ui-v102 .startup-public-narrative-card-v100{background:linear-gradient(145deg,#E6EFED,#D6E4E1)!important}
+    .startup-ui-v102 .startup-public-trend-card-v100{background:linear-gradient(145deg,#F2E9DA,#E4D2B4)!important}
+    .startup-ui-v102 .startup-public-narrative-v100{color:#2B5C63!important}
+    .startup-ui-v102 .startup-public-definitions-v100>div{background:rgba(248,248,245,.80)!important;box-shadow:0 10px 28px rgba(43,92,99,.05)!important}
+
+    /* Legacy module-theme cards disatukan ke brand family */
+    .startup-ui-v102 .home-kpi-group.theme-housing{--theme-accent:#1A6372;--theme-soft:#E4ECEB;--theme-dark:#2B5C63;--theme-border:#C6D7D5}
+    .startup-ui-v102 .home-kpi-group.theme-infrastructure{--theme-accent:#B89963;--theme-soft:#F2E8D5;--theme-dark:#725B38;--theme-border:#E0CDAA}
+    .startup-ui-v102 .home-kpi-group.theme-housingneed{--theme-accent:#A06A5E;--theme-soft:#F3E8DE;--theme-dark:#73483F;--theme-border:#E3CBC1}
+    .startup-ui-v102 .home-kpi-group.theme-rusunawa{--theme-accent:#2B5C63;--theme-soft:#E8E2D8;--theme-dark:#254B50;--theme-border:#D9C8AC}
+    .startup-ui-v102 .backlog-summary-grid .backlog-blue,.startup-ui-v102 .collaboration-summary-grid .collab-blue,.startup-ui-v102 .slum-summary-grid .slum-blue{border-top-color:var(--brand-teal)!important;background:#E4ECEB!important}
+    .startup-ui-v102 .backlog-summary-grid .backlog-teal{border-top-color:var(--brand-deep)!important;background:#E6EEEB!important}
+    .startup-ui-v102 .collaboration-summary-grid .collab-purple{border-top-color:var(--brand-sand)!important;background:#F1E8DA!important}
+    .startup-ui-v102 .backlog-intro-card,.startup-ui-v102 .backlog-definition.blue{border-left-color:var(--brand-teal)!important}
+
+    /* Focus mode memakai warna brand */
+    .startup-ui-v102 .startup-focus-exit-v101{background:rgba(23,59,64,.92)!important;border-color:rgba(221,202,172,.18)!important;box-shadow:0 16px 44px rgba(43,92,99,.28)!important}
+    .startup-ui-v102 [data-v101-topics].v101-context-active{box-shadow:0 24px 65px rgba(43,92,99,.17)!important}
+
+    @media(prefers-color-scheme:dark){
+      /* SIRUMAH tetap light-first; jangan otomatis mengubah brand palette. */
+      body.startup-ui-v102{color-scheme:light}
+    }
+  </style>
+
 </head>
 
-<body class="public-mode startup-ui-v100">
+<body class="public-mode startup-ui-v100 startup-ui-v101 startup-ui-v102">
 <div class="app">
   <aside class="sidebar" id="sidebar">
     <div class="brand">
@@ -2739,7 +3121,10 @@
           <span class="startup-live-dot-v100"></span>
           <div><strong>Beranda SIRUMAH</strong><span>Data aktif · sorotan cepat · tindakan prioritas</span></div>
         </div>
-        <button class="btn light startup-print-v100" type="button" onclick="printDashboardSection('beranda','Beranda SIRUMAH')">↗ Cetak / PDF</button>
+        <div class="startup-home-actions-v101">
+          <button class="btn light startup-focus-toggle-v101 private-only" type="button" id="focusModeToggleV101" onclick="toggleFocusModeV101()">◎ Mode Fokus</button>
+          <button class="btn light startup-print-v100" type="button" onclick="printDashboardSection('beranda','Beranda SIRUMAH')">↗ Cetak / PDF</button>
+        </div>
       </div>
 
       <!-- MODE PUBLIK — Startup Data Experience -->
@@ -2769,7 +3154,7 @@
             <div class="startup-stock-v99 startup-stock-dark-v100" id="publicHousingStockV99"></div>
           </article>
 
-          <article class="startup-card-v100 startup-psu-card-v100">
+          <article class="startup-card-v100 startup-psu-card-v100" data-v101-topics="psu infrastructure">
             <div class="startup-card-head-v100"><div><span>STATUS PSU</span><h3>Penyerahan PSU</h3><p>Proporsi kawasan yang telah diserahkan.</p></div></div>
             <div class="command-donut-wrap-v98 startup-donut-wrap-v100"><canvas id="publicPsuDonutV98"></canvas></div>
             <div class="command-donut-foot-v98 startup-donut-foot-v100" id="publicPsuDonutFootV98"></div>
@@ -2819,7 +3204,7 @@
             <div class="command-kpi-grid-v98 startup-kpi-grid-v100" id="kpiGrid"></div>
           </section>
 
-          <article class="startup-card-v100 startup-stock-card-v100">
+          <article class="startup-card-v100 startup-stock-card-v100" data-v101-topics="housing">
             <div class="startup-card-head-v100 light-on-dark">
               <div><span>ALUR HUNIAN</span><h3>Perkembangan Stok Hunian</h3><p>Rencana → terbangun → terhuni, beserta celah yang masih tersisa.</p></div>
               <button type="button" class="startup-card-action-v100 dark" onclick="openHomeTargetV59('data-perumahan')">Eksplorasi ↗</button>
@@ -2827,19 +3212,19 @@
             <div class="startup-stock-v99 startup-stock-dark-v100" id="homeHousingStockV99"></div>
           </article>
 
-          <article class="startup-card-v100 startup-psu-card-v100">
+          <article class="startup-card-v100 startup-psu-card-v100" data-v101-topics="psu infrastructure">
             <div class="startup-card-head-v100"><div><span>INFRASTRUKTUR</span><h3>Status PSU</h3><p>Sudah diserahkan vs masih menunggu.</p></div><button class="startup-card-action-v100" onclick="openHomeTargetV59('psu')">Buka ↗</button></div>
             <div class="command-donut-wrap-v98 startup-donut-wrap-v100"><canvas id="homePsuDonutV98"></canvas></div>
             <div class="command-donut-foot-v98 startup-donut-foot-v100" id="homePsuDonutFootV98"></div>
           </article>
 
-          <article class="startup-card-v100 startup-rusun-card-v100">
+          <article class="startup-card-v100 startup-rusun-card-v100" data-v101-topics="rusunawa">
             <div class="startup-card-head-v100"><div><span>HUNIAN SEWA</span><h3>Okupansi RUSUNAWA</h3><p>Pemanfaatan unit hunian sewa saat ini.</p></div><button class="startup-card-action-v100" onclick="openHomeTargetV59('rusunawa')">Buka ↗</button></div>
             <div class="command-donut-wrap-v98 startup-donut-wrap-v100"><canvas id="homeRusunawaDonutV98"></canvas></div>
             <div class="command-donut-foot-v98 startup-donut-foot-v100" id="homeRusunawaDonutFootV98"></div>
           </article>
 
-          <article class="startup-card-v100 startup-infra-card-v100">
+          <article class="startup-card-v100 startup-infra-card-v100" data-v101-topics="infrastructure psu road rth flood">
             <div class="startup-card-head-v100">
               <div><span>KONDISI INFRASTRUKTUR</span><h3>Apa yang paling membutuhkan perhatian?</h3><p>Isu terstruktur pada perumahan aktif, diurutkan lewat besaran kondisi.</p></div>
               <button type="button" class="startup-card-action-v100" onclick="openHomeTargetV59('data-perumahan')">Lihat data ↗</button>
@@ -2847,7 +3232,7 @@
             <div class="startup-infra-v99 startup-infra-v100" id="homeInfrastructureV99"></div>
           </article>
 
-          <article class="startup-card-v100 startup-alert-card-v100 executive-alert-card-v88" id="executiveAlertCard">
+          <article class="startup-card-v100 startup-alert-card-v100 executive-alert-card-v88" id="executiveAlertCard" data-v101-topics="alerts rtlh psu rusunawa slum">
             <div class="startup-card-head-v100 alert-head-v100">
               <div><span>PERINGATAN PRIORITAS</span><h3>Yang perlu dilihat sekarang</h3><p>Isu lintas modul dengan urgensi tertinggi.</p></div>
               <div class="executive-alert-header-right-v88"><span class="executive-alert-scope-v88" id="executiveAlertScope">Seluruh Kota</span><span class="executive-alert-total-v88" id="executiveAlertTotal">0 alert</span></div>
@@ -2857,12 +3242,13 @@
             <div class="executive-alert-footer-v88 command-alert-footer-v98 startup-alert-footer-v100"><span id="executiveAlertFootnote">Menampilkan isu dengan prioritas tertinggi.</span><span class="executive-alert-rule-v88">PSU · RTLH · RUSUNAWA · Kumuh</span></div>
           </article>
 
-          <article class="startup-card-v100 startup-region-card-v100">
-            <div class="startup-card-head-v100"><div><span>SOROTAN WILAYAH</span><h3>Di mana isu menonjol?</h3><p>Insight lokasi yang paling menonjol dari data aktif.</p></div></div>
-            <div class="command-region-list-v98 startup-region-list-v100" id="commandRegionalInsightsV98"></div>
+          <article class="startup-card-v100 startup-region-card-v100 startup-context-card-v101" id="startupContextCardV101" data-v101-topics="context">
+            <div class="startup-card-head-v100 light-on-dark"><div><span>SOROTAN KONTEKSTUAL</span><h3>Apa arti angka yang sedang dilihat?</h3><p>Panel ini mengikuti KPI dan visual yang sedang kamu jelajahi.</p></div></div>
+            <div class="startup-context-body-v101" id="contextualInsightV101"></div>
+            <div id="commandRegionalInsightsV98" hidden></div>
           </article>
 
-          <article class="startup-card-v100 startup-queue-card-v100">
+          <article class="startup-card-v100 startup-queue-card-v100" data-v101-topics="actions rtlh psu rusunawa">
             <div class="startup-card-head-v100"><div><span>PRIORITAS TINDAK LANJUT</span><h3>Antrian kerja utama</h3><p>Objek yang perlu masuk radar tindak lanjut.</p></div></div>
             <div class="home-action-tabs command-action-tabs-v98 startup-action-tabs-v100" id="homeActionTabs">
               <button type="button" class="active" data-home-action-tab="rtlh" onclick="setHomeActionTabV59('rtlh')">Hunian Prioritas</button>
@@ -2872,18 +3258,19 @@
             <div class="home-action-content command-queue-content-v98 startup-queue-content-v100" id="homeActionSummary"></div>
           </article>
 
-          <article class="startup-card-v100 startup-freshness-card-v100">
+          <article class="startup-card-v100 startup-freshness-card-v100" data-v101-topics="data">
             <div class="startup-card-head-v100"><div><span>KESEHATAN DATA</span><h3>Seberapa segar datanya?</h3><p>Status pembaruan modul utama.</p></div></div>
             <div class="command-freshness-list-v98 startup-freshness-list-v100" id="commandFreshnessV98"></div>
           </article>
 
-          <article class="startup-card-v100 startup-snapshot-card-v100">
+          <article class="startup-card-v100 startup-snapshot-card-v100" data-v101-topics="history">
             <div class="startup-card-head-v100"><div><span>REKAM TAHUNAN</span><h3>Pergerakan indikator dari waktu ke waktu</h3><p>Hanya memakai snapshot FINAL; tidak membuat tren dari data DRAFT.</p></div></div>
             <div class="command-snapshot-chart-v98 startup-snapshot-chart-v100"><canvas id="homeSnapshotChartV98"></canvas><div class="command-chart-empty-v98" id="homeSnapshotEmptyV98" hidden></div></div>
             <div class="command-snapshot-foot-v98 startup-snapshot-foot-v100" id="homeSnapshotFootV98"></div>
           </article>
         </div>
       </div>
+      <button type="button" class="startup-focus-exit-v101" id="focusModeExitV101" onclick="toggleFocusModeV101(false)">Keluar Mode Fokus <span>Esc</span></button>
     </section>
 
     <section class="section" id="data-perumahan">
@@ -5762,17 +6149,17 @@ function getAggregateHousingQualityRows(){
 
 /* FINAL OVERRIDE: tema warna dan template seluruh grafik/diagram SIRUMAH */
 const SIRUMAH_CHART_THEME = {
-  primary: "#175b72",
-  primaryDark: "#0f3f50",
-  gold: "#d3c584",
-  goldSoft: "#eadf9f",
-  teal: "#0f766e",
-  tealSoft: "#75b5ac",
-  copper: "#b7793b",
-  clay: "#9a6a4f",
-  slate: "#64748b",
-  grid: "#e2e8f0",
-  card: "#ffffff"
+  primary: "#1A6372",
+  primaryDark: "#2B5C63",
+  gold: "#D3B881",
+  goldSoft: "#DDCAAC",
+  teal: "#2B5C63",
+  tealSoft: "#78979A",
+  copper: "#B89963",
+  clay: "#A98E70",
+  slate: "#68777A",
+  grid: "#D7DBD6",
+  card: "#F8F8F5"
 };
 
 function themeColor(label, index){
@@ -10798,7 +11185,7 @@ function commandHomeStatsV98(){
   return {s,active,veryHigh,high,priority:veryHigh+high,rus,aggregate,houses,rtlh,rlh};
 }
 
-function commandKpiCardV98({theme,icon,label,value,note,progress,scope,action}){
+commandKpiCardV98=function({theme,icon,label,value,note,progress,scope,action}){
   return `<button type="button" class="command-kpi-card-v98 ${theme}" onclick="${action||""}">
     <span class="command-kpi-head-v98"><span class="command-kpi-icon-v98" aria-hidden="true">${icon}</span><span class="command-kpi-scope-v98">${escapeHtml(scope||"Data Aktif")}</span></span>
     <span class="command-kpi-label-v98">${escapeHtml(label)}</span>
@@ -10844,14 +11231,14 @@ function drawHousingCommandChartV98(id){
   const ctx=canvas.getContext("2d"),rect=canvas.getBoundingClientRect(),ratio=window.devicePixelRatio||1,w=Math.max(360,rect.width||760),h=325;
   canvas.width=w*ratio;canvas.height=h*ratio;ctx.setTransform(ratio,0,0,ratio,0,0);ctx.clearRect(0,0,w,h);
   if(!rows.length){ctx.fillStyle="#64748b";ctx.font="12px Arial";ctx.textAlign="center";ctx.fillText("Belum ada data perumahan untuk divisualisasikan.",w/2,h/2);return;}
-  const series=[{label:"Rencana Unit",key:"siteplan",color:"#2563eb"},{label:"Terbangun",key:"terbangun",color:"#0f766e"},{label:"Terhuni",key:"terhuni",color:"#7c3aed"}];
+  const series=[{label:"Rencana Unit",key:"siteplan",color:"#2B5C63"},{label:"Terbangun",key:"terbangun",color:"#1A6372"},{label:"Terhuni",key:"terhuni",color:"#D3B881"}];
   const vals=rows.flatMap(r=>series.map(s=>Number(r[s.key]||0))),max=niceMax(Math.max(...vals,1));
   const p={top:48,right:18,bottom:66,left:58},plotW=w-p.left-p.right,plotH=h-p.top-p.bottom,groupW=plotW/rows.length,barW=Math.max(6,Math.min(24,(groupW-14)/3));
-  ctx.strokeStyle="#e2e8f0";ctx.lineWidth=1;ctx.font="11px Arial";ctx.fillStyle="#64748b";ctx.textAlign="right";
+  ctx.strokeStyle="#D7DBD6";ctx.lineWidth=1;ctx.font="11px Arial";ctx.fillStyle="#68777A";ctx.textAlign="right";
   for(let i=0;i<=4;i++){const y=p.top+plotH-(plotH*i/4),v=Math.round(max*i/4);ctx.beginPath();ctx.moveTo(p.left,y);ctx.lineTo(w-p.right,y);ctx.stroke();ctx.fillText(fmt(v),p.left-8,y+4);}
   series.forEach((s,si)=>rows.forEach((r,i)=>{const value=Number(r[s.key]||0),bh=(value/max)*plotH,x=p.left+i*groupW+(groupW-barW*3)/2+si*barW,y=p.top+plotH-bh;ctx.fillStyle=s.color;roundRect(ctx,x,y,Math.max(4,barW-3),Math.max(1,bh),6);ctx.fill();}));
-  ctx.textAlign="center";ctx.fillStyle="#475569";ctx.font="11px Arial";rows.forEach((r,i)=>{const x=p.left+i*groupW+groupW/2;const label=String(r.kecamatan||"").replace("Pangkal Balam","P. Balam");ctx.save();ctx.translate(x,h-37);if(groupW<90)ctx.rotate(-.34);ctx.fillText(label,0,0);ctx.restore();});
-  ctx.textAlign="left";ctx.font="11px Arial";let lx=p.left;series.forEach(s=>{ctx.fillStyle=s.color;roundRect(ctx,lx,17,10,10,3);ctx.fill();ctx.fillStyle="#475569";ctx.fillText(s.label,lx+16,26);lx+=ctx.measureText(s.label).width+42;});
+  ctx.textAlign="center";ctx.fillStyle="#596B6E";ctx.font="11px Arial";rows.forEach((r,i)=>{const x=p.left+i*groupW+groupW/2;const label=String(r.kecamatan||"").replace("Pangkal Balam","P. Balam");ctx.save();ctx.translate(x,h-37);if(groupW<90)ctx.rotate(-.34);ctx.fillText(label,0,0);ctx.restore();});
+  ctx.textAlign="left";ctx.font="11px Arial";let lx=p.left;series.forEach(s=>{ctx.fillStyle=s.color;roundRect(ctx,lx,17,10,10,3);ctx.fill();ctx.fillStyle="#596B6E";ctx.fillText(s.label,lx+16,26);lx+=ctx.measureText(s.label).width+42;});
 }
 
 function drawCommandDonutV98(id,segments,centerMain,centerSub){
@@ -10859,9 +11246,9 @@ function drawCommandDonutV98(id,segments,centerMain,centerSub){
   const ctx=canvas.getContext("2d"),rect=canvas.getBoundingClientRect(),ratio=window.devicePixelRatio||1,w=Math.max(250,rect.width||320),h=Math.max(140,rect.height||142);
   canvas.width=w*ratio;canvas.height=h*ratio;ctx.setTransform(ratio,0,0,ratio,0,0);ctx.clearRect(0,0,w,h);
   const total=segments.reduce((sum,s)=>sum+Number(s.value||0),0),cx=w/2,cy=h/2,outer=Math.min(52,h*.38),inner=outer*.66;
-  ctx.beginPath();ctx.arc(cx,cy,outer,0,Math.PI*2);ctx.lineWidth=outer-inner;ctx.strokeStyle="#eef2f7";ctx.stroke();
+  ctx.beginPath();ctx.arc(cx,cy,outer,0,Math.PI*2);ctx.lineWidth=outer-inner;ctx.strokeStyle="#E5E6E1";ctx.stroke();
   if(total>0){let start=-Math.PI/2;segments.forEach(s=>{const angle=Number(s.value||0)/total*Math.PI*2;if(angle<=0)return;ctx.beginPath();ctx.arc(cx,cy,(outer+inner)/2,start,start+angle);ctx.lineWidth=outer-inner;ctx.lineCap="butt";ctx.strokeStyle=s.color;ctx.stroke();start+=angle;});}
-  ctx.textAlign="center";ctx.fillStyle="#0f3f50";ctx.font="800 24px Arial";ctx.fillText(String(centerMain),cx,cy+2);ctx.font="11px Arial";ctx.fillStyle="#64748b";ctx.fillText(String(centerSub||""),cx,cy+20);
+  ctx.textAlign="center";ctx.fillStyle="#2B5C63";ctx.font="800 24px Arial";ctx.fillText(String(centerMain),cx,cy+2);ctx.font="11px Arial";ctx.fillStyle="#68777A";ctx.fillText(String(centerSub||""),cx,cy+20);
 }
 
 function renderCommandDonutFootV98(id,segments){
@@ -10903,7 +11290,7 @@ function drawSnapshotSmallMultiplesV98(){
   if(finals.length<2){canvas.hidden=true;if(empty){empty.hidden=false;empty.innerHTML=`<div><strong>Belum cukup histori untuk grafik tren.</strong><br>${finals.length===1?`Rekam tahunan FINAL ${escapeHtml(finals[0].year)} sudah tersedia. Tambahkan minimal satu rekam tahunan FINAL lain untuk membentuk tren.`:"Belum ada rekam tahunan FINAL pada database."}</div>`;}if(foot)foot.textContent="Grafik tidak dibuat dari data perkiraan atau DRAFT.";return;}
   canvas.hidden=false;if(empty)empty.hidden=true;
   const ctx=canvas.getContext("2d"),rect=canvas.getBoundingClientRect(),ratio=window.devicePixelRatio||1,w=Math.max(360,rect.width||700),h=250;canvas.width=w*ratio;canvas.height=h*ratio;ctx.setTransform(ratio,0,0,ratio,0,0);ctx.clearRect(0,0,w,h);
-  const series=[{label:"PSU Diserahkan",key:"psuDelivered",color:"#0f766e",format:v=>fmt(v)},{label:"RTLH",key:"rtlh",color:"#dc2626",format:v=>fmt(v)},{label:"Luas Kumuh",key:"slumArea",color:"#7c3aed",format:v=>`${Number(v||0).toLocaleString("id-ID",{maximumFractionDigits:2})} Ha`}];
+  const series=[{label:"PSU Diserahkan",key:"psuDelivered",color:"#1A6372",format:v=>fmt(v)},{label:"RTLH",key:"rtlh",color:"#dc2626",format:v=>fmt(v)},{label:"Luas Kumuh",key:"slumArea",color:"#D3B881",format:v=>`${Number(v||0).toLocaleString("id-ID",{maximumFractionDigits:2})} Ha`}];
   const left=120,right=74,top=18,rowH=69,plotW=w-left-right;
   series.forEach((s,si)=>{const y0=top+si*rowH,vals=finals.map(r=>Number(r[s.key])).map(v=>Number.isFinite(v)?v:null),valid=vals.filter(v=>v!==null),min=valid.length?Math.min(...valid):0,max=valid.length?Math.max(...valid):1,range=Math.max(max-min,1);ctx.fillStyle="#0f3f50";ctx.font="700 11px Arial";ctx.textAlign="left";ctx.fillText(s.label,8,y0+25);ctx.strokeStyle="#e2e8f0";ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(left,y0+28);ctx.lineTo(w-right,y0+28);ctx.stroke();let prev=null;vals.forEach((v,i)=>{if(v===null)return;const x=left+(finals.length===1?0:(i/(finals.length-1))*plotW),y=y0+45-((v-min)/range)*34;if(prev){ctx.strokeStyle=s.color;ctx.lineWidth=2.4;ctx.beginPath();ctx.moveTo(prev.x,prev.y);ctx.lineTo(x,y);ctx.stroke();}ctx.fillStyle="#fff";ctx.beginPath();ctx.arc(x,y,4.5,0,Math.PI*2);ctx.fill();ctx.strokeStyle=s.color;ctx.lineWidth=2.5;ctx.stroke();prev={x,y};});const last=valid.length?vals.slice().reverse().find(v=>v!==null):null;ctx.textAlign="right";ctx.fillStyle=s.color;ctx.font="700 11px Arial";ctx.fillText(last===null?"—":s.format(last),w-8,y0+25);});
   ctx.fillStyle="#64748b";ctx.font="11px Arial";ctx.textAlign="center";finals.forEach((r,i)=>{const x=left+(i/(finals.length-1))*plotW;ctx.fillText(String(r.year),x,h-8);});
@@ -10913,11 +11300,11 @@ function drawSnapshotSmallMultiplesV98(){
 function renderCommandCenterChartsV98(){
   const {s,rus}=commandHomeStatsV98();
   ["homeHousingChartV98","publicHousingChartV98"].forEach(id=>{if(document.getElementById(id))drawHousingCommandChartV98(id);});
-  const psuSegments=[{label:"Sudah",value:s.sudah,color:"#0f766e"},{label:"Belum",value:s.belum,color:"#f59e0b"}];
+  const psuSegments=[{label:"Sudah",value:s.sudah,color:"#2B5C63"},{label:"Belum",value:s.belum,color:"#D3B881"}];
   if(document.getElementById("homePsuDonutV98")){drawCommandDonutV98("homePsuDonutV98",psuSegments,`${pct(s.sudah,s.total)}%`,"diserahkan");renderCommandDonutFootV98("homePsuDonutFootV98",psuSegments);}
   if(document.getElementById("publicPsuDonutV98")){drawCommandDonutV98("publicPsuDonutV98",psuSegments,`${pct(s.sudah,s.total)}%`,"PSU diserahkan");renderCommandDonutFootV98("publicPsuDonutFootV98",psuSegments);}
   const units=SIRUMAH_RUNTIME?.rusunawaUnits||[],countStatus=word=>units.filter(r=>String(r.status||"").toLowerCase()===word.toLowerCase()).length;
-  const rusSegments=[{label:"Terisi",value:countStatus("Terisi"),color:"#7c3aed"},{label:"Kosong",value:countStatus("Kosong"),color:"#38bdf8"},{label:"Tidak Dapat Digunakan",value:countStatus("Tidak Dapat Digunakan"),color:"#ef4444"},{label:"Kantor",value:countStatus("Kantor"),color:"#94a3b8"}].filter(x=>x.value>0);
+  const rusSegments=[{label:"Terisi",value:countStatus("Terisi"),color:"#1A6372"},{label:"Kosong",value:countStatus("Kosong"),color:"#DDCAAC"},{label:"Tidak Dapat Digunakan",value:countStatus("Tidak Dapat Digunakan"),color:"#ef4444"},{label:"Kantor",value:countStatus("Kantor"),color:"#9AA4A2"}].filter(x=>x.value>0);
   if(document.getElementById("homeRusunawaDonutV98")){drawCommandDonutV98("homeRusunawaDonutV98",rusSegments,`${rus.occupancy}%`,"tingkat hunian");renderCommandDonutFootV98("homeRusunawaDonutFootV98",rusSegments);}
   const note=`${fmt(s.siteplan)} rencana unit · ${fmt(s.terbangun)} terbangun (${pct(s.terbangun,s.siteplan)}%) · ${fmt(s.terhuni)} terhuni (${pct(s.terhuni,s.terbangun)}% dari unit terbangun).`;
   ["homeHousingChartNoteV98","publicHousingChartNoteV98"].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=note;});
@@ -10997,13 +11384,13 @@ function housingStockMarkupV99(){
 function infrastructureRowsV99(){
   const rows=housing||[],count=fn=>rows.filter(fn).length;
   return [
-    {label:"PSU",title:"Belum diserahkan",value:count(r=>String(r.statusPSU||"").toUpperCase().includes("BELUM")),color:"#f59e0b"},
-    {label:"JALAN",title:"Belum perkerasan",value:count(r=>/belum\s*perkerasan|tanah\s*puru|tanah/i.test(String(r.statusJalan||""))),color:"#8b5e3c"},
+    {label:"PSU",title:"Belum diserahkan",value:count(r=>String(r.statusPSU||"").toUpperCase().includes("BELUM")),color:"#D3B881"},
+    {label:"JALAN",title:"Belum perkerasan",value:count(r=>/belum\s*perkerasan|tanah\s*puru|tanah/i.test(String(r.statusJalan||""))),color:"#B89963"},
     {label:"JALAN",title:"Rusak berat",value:count(r=>/rusak\s*berat/i.test(String(r.statusJalan||""))),color:"#dc2626"},
     {label:"JALAN",title:"Rusak sedang",value:count(r=>/rusak\s*sedang/i.test(String(r.statusJalan||""))),color:"#ea580c"},
     {label:"JALAN",title:"Rusak ringan",value:count(r=>/rusak\s*ringan/i.test(String(r.statusJalan||""))),color:"#eab308"},
-    {label:"RTH",title:"Belum terbangun",value:count(r=>/belum.*terbangun/i.test(String(r.statusRTH||""))),color:"#65a30d"},
-    {label:"LINGKUNGAN",title:"Rawan genangan / banjir",value:count(r=>/banjir|genangan|rawan/i.test(String(r.statusRawanBanjir||""))),color:"#0284c7"}
+    {label:"RTH",title:"Belum terbangun",value:count(r=>/belum.*terbangun/i.test(String(r.statusRTH||""))),color:"#A98E70"},
+    {label:"LINGKUNGAN",title:"Rawan genangan / banjir",value:count(r=>/banjir|genangan|rawan/i.test(String(r.statusRawanBanjir||""))),color:"#1A6372"}
   ];
 }
 function renderInfrastructureV99(){
@@ -11051,6 +11438,203 @@ renderKPI=function(){
 };
 const renderAllV99BeforeStartupV100=renderAll;
 renderAll=function(){renderAllV99BeforeStartupV100();safeRenderSIRUMAH(renderStartupFocusV100,"Startup UI v100");};
+
+/* =========================================================
+   PENGALAMAN PRODUK INTERAKTIF — SIRUMAH v101
+   Micro-interaction, contextual narrator, focus & navigation.
+   ========================================================= */
+let v101ContextLocked="";
+let v101FocusMode=false;
+let v101UrgencyCueDone=false;
+const v101MorphCache=new Map();
+
+function v101TopicFamily(topic){
+  const t=String(topic||"");
+  if(/^housing-|^gap-/.test(t))return"housing";
+  if(/^infra-/.test(t))return"infrastructure";
+  return t||"default";
+}
+function v101TopicsMatch(raw,topic){
+  const family=v101TopicFamily(topic),tokens=String(raw||"").split(/\s+/).filter(Boolean);
+  return tokens.includes(topic)||tokens.includes(family)||(family==="infrastructure"&&tokens.some(x=>["infrastructure","road","rth","flood","psu"].includes(x)));
+}
+function setDashboardContextV101(topic){
+  if(publicMode)return;
+  const family=v101TopicFamily(topic);
+  document.querySelectorAll('.startup-internal-home-v100 [data-v101-topics]').forEach(el=>{
+    if(el.id==='startupContextCardV101'){el.classList.remove('v101-context-muted');return;}
+    const match=v101TopicsMatch(el.dataset.v101Topics,topic);
+    el.classList.toggle('v101-context-active',match);
+    el.classList.toggle('v101-context-muted',!match && !['context'].includes(family));
+  });
+  renderContextualInsightV101(topic);
+}
+function clearDashboardContextV101(){
+  if(publicMode)return;
+  if(v101ContextLocked){setDashboardContextV101(v101ContextLocked);return;}
+  document.querySelectorAll('.startup-internal-home-v100 [data-v101-topics]').forEach(el=>el.classList.remove('v101-context-active','v101-context-muted'));
+  renderContextualInsightV101('default');
+}
+
+function v101KpiDetails(theme){
+  const {s,veryHigh,high,priority,rus}=commandHomeStatsV98();
+  const units=SIRUMAH_RUNTIME?.rusunawaUnits||[];
+  const countStatus=word=>units.filter(r=>String(r.status||'').toLowerCase()===word.toLowerCase()).length;
+  const details={
+    housing:[["Rencana unit",fmt(s.siteplan)],["Sudah terbangun",`${fmt(s.terbangun)} · ${pct(s.terbangun,s.siteplan)}%`],["Sudah terhuni",fmt(s.terhuni)],["Celah pembangunan",fmt(Math.max(0,s.siteplan-s.terbangun))]],
+    psu:[["Sudah diserahkan",fmt(s.sudah)],["Belum diserahkan",fmt(s.belum)],["Persentase",`${pct(s.sudah,s.total)}%`],["Perumahan terdata",fmt(s.total)]],
+    rtlh:[["Sangat tinggi",fmt(veryHigh)],["Tinggi",fmt(high)],["Total prioritas",fmt(priority)],["Usulan aktif",fmt((commandHomeStatsV98().active||[]).length)]],
+    rusunawa:[["Terisi",fmt(rus.filled)],["Kosong",fmt(countStatus('Kosong'))],["Tidak dapat digunakan",fmt(countStatus('Tidak Dapat Digunakan'))],["Total unit",fmt(rus.total)]]
+  };
+  return details[theme]||[];
+}
+commandKpiCardV98=function({theme,icon,label,value,note,progress,scope,action}){
+  const validProgress=theme!=="rtlh" && Number.isFinite(Number(progress));
+  const numeric=Number(String(value).replace(/\./g,'').replace(',','.').replace(/[^0-9.-]/g,''));
+  const suffix=String(value).includes('%')?'%':'';
+  const details=v101KpiDetails(theme);
+  return `<article role="button" tabindex="0" aria-expanded="false" class="command-kpi-card-v98 ${theme}" data-v101-topics="${escapeHtml(theme)}" data-v101-kpi="${escapeHtml(theme)}" onmouseenter="setDashboardContextV101('${theme}')" onmouseleave="clearDashboardContextV101()" onclick="toggleKpiDetailV101(event,this,'${theme}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleKpiDetailV101(event,this,'${theme}')}" >
+    <span class="command-kpi-head-v98"><span class="command-kpi-icon-v98" aria-hidden="true">${icon}</span><span class="command-kpi-scope-v98">${escapeHtml(scope||"Data Aktif")}</span></span>
+    <span class="command-kpi-label-v98">${escapeHtml(label)}</span>
+    <strong class="command-kpi-value-v98 v101-morph-number" data-v101-value="${Number.isFinite(numeric)?numeric:0}" data-v101-suffix="${suffix}">${escapeHtml(String(value))}</strong>
+    <span class="command-kpi-note-v98">${escapeHtml(note||"")}</span>
+    ${validProgress?`<span class="command-kpi-progress-v98"><i data-v101-target-width="${Math.max(0,Math.min(100,Number(progress)||0))}" style="width:0%"></i></span>`:""}
+    <span class="v101-kpi-hint"><span>Klik untuk melihat detail</span><b>＋</b></span>
+    <span class="v101-kpi-detail"><div><span class="v101-kpi-detail-inner"><span class="v101-kpi-detail-grid">${details.map(([l,v])=>`<span>${escapeHtml(l)}<strong>${escapeHtml(v)}</strong></span>`).join('')}</span><button type="button" class="v101-kpi-open" onclick="event.stopPropagation();${action||''}">Buka modul →</button></span></div></span>
+  </article>`;
+};
+function toggleKpiDetailV101(event,el,theme){
+  if(event?.target?.closest?.('button'))return;
+  document.querySelectorAll('#kpiGrid .command-kpi-card-v98.v101-kpi-expanded').forEach(x=>{if(x!==el){x.classList.remove('v101-kpi-expanded');x.setAttribute('aria-expanded','false')}});
+  const opening=!el.classList.contains('v101-kpi-expanded');
+  el.classList.toggle('v101-kpi-expanded',opening);el.setAttribute('aria-expanded',opening?'true':'false');
+  v101ContextLocked=opening?theme:"";
+  opening?setDashboardContextV101(theme):clearDashboardContextV101();
+}
+
+function housingStockMarkupV99(){
+  const s=summary(housing||[]),planned=Number(s.siteplan||0),built=Number(s.terbangun||0),occupied=Number(s.terhuni||0);
+  const builtPct=pct(built,planned),occupiedOfBuilt=pct(occupied,built),occupiedOfPlan=pct(occupied,planned);
+  const notBuilt=Math.max(0,planned-built),builtNotOccupied=Math.max(0,built-occupied);
+  const stage=(cls,label,value,percent,note,topic)=>`<div class="startup-stage-v99 ${cls}" role="button" tabindex="0" data-v101-context="${topic}" onmouseenter="setDashboardContextV101('${topic}')" onmouseleave="clearDashboardContextV101()" onclick="openHomeTargetV59('data-perumahan')" onkeydown="if(event.key==='Enter'){this.click()}"><div class="startup-stage-top-v99"><div><span>${escapeHtml(label)}</span><strong class="v101-morph-number" data-v101-value="${Number(value)||0}" data-v101-suffix=" unit">${fmt(value)} unit</strong></div><b>${escapeHtml(String(percent))}%</b></div><div class="startup-stage-track-v99"><i data-v101-target-width="${Math.max(0,Math.min(100,Number(percent)||0))}" style="width:0%"></i></div>${note?`<small style="display:block;margin-top:6px;color:#8494ad;font-size:11px">${escapeHtml(note)} <span class="v101-stage-action">Buka data →</span></small>`:""}</div>`;
+  return `<div class="startup-stock-hero-v99"><div><span>STOK HUNIAN TERDATA</span><strong class="v101-morph-number" data-v101-value="${planned}">${fmt(planned)}</strong><small>unit direncanakan pada perumahan terdata SIRUMAH</small></div><div class="startup-stock-rate-v99"><b>${builtPct}%</b><span>rencana telah terbangun</span></div></div><div class="startup-stage-list-v99">${stage("","Rencana Unit",planned,100,"Basis rencana pada site plan terdata","housing-plan")}${stage("built","Sudah Terbangun",built,builtPct,`${fmt(notBuilt)} unit masih menjadi celah pembangunan`,"housing-built")}${stage("occupied","Sudah Terhuni",occupied,occupiedOfPlan,`${occupiedOfBuilt}% dari unit terbangun telah terhuni`,"housing-occupied")}</div><div class="startup-stock-gaps-v99"><div class="startup-gap-v99" role="button" tabindex="0" onmouseenter="setDashboardContextV101('gap-build')" onmouseleave="clearDashboardContextV101()" onclick="openHomeTargetV59('data-perumahan')"><span>CELAH PEMBANGUNAN</span><strong class="v101-morph-number" data-v101-value="${notBuilt}">${fmt(notBuilt)}</strong><small>unit rencana belum terbangun</small></div><div class="startup-gap-v99 secondary" role="button" tabindex="0" onmouseenter="setDashboardContextV101('gap-occupied')" onmouseleave="clearDashboardContextV101()" onclick="openHomeTargetV59('data-perumahan')"><span>CELAH HUNIAN</span><strong class="v101-morph-number" data-v101-value="${builtNotOccupied}">${fmt(builtNotOccupied)}</strong><small>unit terbangun belum terhuni</small></div></div>`;
+}
+
+function infrastructureKeyV101(row){
+  const title=String(row?.title||'').toLowerCase();
+  if(row?.label==='PSU')return'infra-psu';
+  if(/belum perkerasan/.test(title))return'infra-road-unpaved';
+  if(/rusak berat/.test(title))return'infra-road-heavy';
+  if(/rusak sedang/.test(title))return'infra-road-medium';
+  if(/rusak ringan/.test(title))return'infra-road-light';
+  if(row?.label==='RTH')return'infra-rth';
+  if(/genangan|banjir/.test(title))return'infra-flood';
+  return'infrastructure';
+}
+function renderInfrastructureV99(){
+  const el=document.getElementById("homeInfrastructureV99");if(!el)return;if(publicMode){el.innerHTML="";return;}
+  const rows=[...infrastructureRowsV99()].sort((a,b)=>Number(b.value||0)-Number(a.value||0)),max=Math.max(...rows.map(r=>Number(r.value||0)),1);
+  el.innerHTML=rows.map(r=>{const key=infrastructureKeyV101(r);return `<div class="startup-infra-item-v99" role="button" tabindex="0" style="--issue:${r.color}" data-v101-context="${key}" onmouseenter="setDashboardContextV101('${key}')" onmouseleave="clearDashboardContextV101()" onclick="openInfrastructureInsightV101('${key}')" onkeydown="if(event.key==='Enter'){this.click()}"><div class="startup-infra-label-v99"><span>${escapeHtml(r.label)}</span><strong>${escapeHtml(r.title)}</strong></div><div class="startup-infra-track-v99"><i style="width:${Math.max(r.value?4:0,(Number(r.value||0)/max)*100)}%"></i></div><div class="startup-infra-value-v99">${fmt(r.value)}<span class="v101-infra-open"> ↗</span></div></div>`}).join("")||`<div class="startup-infra-empty-v99">Belum ada data kondisi infrastruktur yang dapat dibandingkan.</div>`;
+}
+
+function v101ContextPayload(topic='default'){
+  const {s,veryHigh,high,priority,rus}=commandHomeStatsV98();
+  const planned=Number(s.siteplan||0),built=Number(s.terbangun||0),occupied=Number(s.terhuni||0),notBuilt=Math.max(0,planned-built),notOccupied=Math.max(0,built-occupied);
+  const infra=[...infrastructureRowsV99()].sort((a,b)=>Number(b.value||0)-Number(a.value||0));
+  const byKey=key=>infra.find(r=>infrastructureKeyV101(r)===key);
+  const base={kicker:'SOROTAN OTOMATIS',value:'—',title:'Arahkan kursor ke angka atau visual.',copy:'SIRUMAH akan menjelaskan konteks data yang sedang kamu lihat dan menampilkan jalur eksplorasi yang relevan.',cta:'Jelajahi data perumahan →',action:"openHomeTargetV59('data-perumahan')"};
+  if(topic==='default'){
+    const top=infra[0];if(!top)return base;
+    return {kicker:'KONDISI PALING MENONJOL',value:fmt(top.value),title:`${top.title} menjadi indikator kondisi dengan jumlah objek terbanyak.`,copy:`Dari indikator infrastruktur yang dapat dihitung saat ini, kategori ${top.title.toLowerCase()} mencakup ${fmt(top.value)} perumahan. Kategori dapat saling tumpang tindih.`,cta:'Lihat pada data spasial →',action:`openInfrastructureInsightV101('${infrastructureKeyV101(top)}')`};
+  }
+  if(topic==='housing'||topic==='housing-plan')return {kicker:'STOK HUNIAN',value:fmt(planned),title:'unit tercatat sebagai rencana pembangunan.',copy:`Sebanyak ${fmt(built)} unit telah terbangun (${pct(built,planned)}%), dan ${fmt(occupied)} unit telah terhuni.`,cta:'Buka Data Perumahan →',action:"openHomeTargetV59('data-perumahan')"};
+  if(topic==='housing-built')return {kicker:'REALISASI PEMBANGUNAN',value:`${pct(built,planned)}%`,title:`${fmt(built)} unit telah terbangun dari rencana yang tercatat.`,copy:`Masih terdapat celah pembangunan sebanyak ${fmt(notBuilt)} unit dari total ${fmt(planned)} rencana unit.`,cta:'Lihat perumahan terdata →',action:"openHomeTargetV59('data-perumahan')"};
+  if(topic==='housing-occupied')return {kicker:'KETERHUNIAN',value:`${pct(occupied,built)}%`,title:'dari unit yang sudah terbangun telah terhuni.',copy:`Tercatat ${fmt(occupied)} unit terhuni dan ${fmt(notOccupied)} unit terbangun yang belum tercatat sebagai terhuni.`,cta:'Buka data hunian →',action:"openHomeTargetV59('data-perumahan')"};
+  if(topic==='gap-build')return {kicker:'CELAH PEMBANGUNAN',value:fmt(notBuilt),title:'unit rencana belum tercatat sebagai terbangun.',copy:`Celah ini merupakan selisih antara ${fmt(planned)} rencana unit dan ${fmt(built)} unit yang telah terbangun.`,cta:'Telusuri Data Perumahan →',action:"openHomeTargetV59('data-perumahan')"};
+  if(topic==='gap-occupied')return {kicker:'CELAH HUNIAN',value:fmt(notOccupied),title:'unit terbangun belum tercatat sebagai terhuni.',copy:`Dihitung dari selisih ${fmt(built)} unit terbangun dan ${fmt(occupied)} unit terhuni.`,cta:'Telusuri Data Perumahan →',action:"openHomeTargetV59('data-perumahan')"};
+  if(topic==='psu')return {kicker:'STATUS PSU',value:`${pct(s.sudah,s.total)}%`,title:'perumahan terdata telah menyerahkan PSU.',copy:`${fmt(s.sudah)} sudah diserahkan dan ${fmt(s.belum)} masih tercatat belum diserahkan dari ${fmt(s.total)} perumahan.`,cta:'Buka modul PSU →',action:"openHomeTargetV59('psu')"};
+  if(topic==='rtlh')return {kicker:'PRIORITAS RTLH',value:fmt(priority),title:'usulan aktif berada pada prioritas tinggi atau sangat tinggi.',copy:`Terdiri dari ${fmt(veryHigh)} prioritas sangat tinggi dan ${fmt(high)} prioritas tinggi berdasarkan data aktif.`,cta:'Buka RTLH & RLH →',action:"openHomeTargetV59('rtlh')"};
+  if(topic==='rusunawa')return {kicker:'HUNIAN RUSUNAWA',value:`${rus.occupancy}%`,title:'tingkat hunian unit RUSUNAWA saat ini.',copy:`${fmt(rus.filled)} dari ${fmt(rus.total)} unit tercatat terisi. Status unit lainnya tetap tersedia pada modul RUSUNAWA.`,cta:'Buka RUSUNAWA →',action:"openHomeTargetV59('rusunawa')"};
+  if(topic==='alerts'){const alerts=buildExecutiveAlertsV88(),urgent=alerts.filter(x=>x.severity==='Mendesak').length;return {kicker:'PERINGATAN PRIORITAS',value:fmt(alerts.length),title:'peringatan aktif terdeteksi oleh aturan prioritas.',copy:`${fmt(urgent)} di antaranya berstatus Mendesak. Daftar disusun dari data aktif, bukan keluaran AI generatif.`,cta:'Lihat peringatan →',action:"document.getElementById('executiveAlertCard')?.scrollIntoView({behavior:'smooth',block:'center'})"};}
+  if(topic.startsWith('infra-')){const r=byKey(topic);if(r)return {kicker:r.label,value:fmt(r.value),title:`perumahan tercatat pada kondisi “${r.title}”.`,copy:'Klik visual ini untuk membuka data atau layer peta yang paling relevan. Satu perumahan dapat muncul pada lebih dari satu kondisi.',cta:/psu/.test(topic)?'Buka daftar terkait →':'Tampilkan di Peta Analitik →',action:`openInfrastructureInsightV101('${topic}')`};}
+  return base;
+}
+function renderContextualInsightV101(topic='default'){
+  const el=document.getElementById('contextualInsightV101');if(!el||publicMode)return;
+  const p=v101ContextPayload(topic);
+  el.classList.remove('v101-context-shift');void el.offsetWidth;el.classList.add('v101-context-shift');
+  el.innerHTML=`<div class="v101-context-kicker">${escapeHtml(p.kicker)}</div><div class="v101-context-value">${escapeHtml(p.value)}</div><div class="v101-context-title">${escapeHtml(p.title)}</div><div class="v101-context-copy">${escapeHtml(p.copy)}</div><button type="button" class="v101-context-action" onclick="${p.action}">${escapeHtml(p.cta)}</button><div class="v101-context-foot">Arahkan kursor ke KPI, tahap stok hunian, donut, atau indikator infrastruktur untuk mengubah sorotan ini.</div>`;
+}
+
+function openInfrastructureInsightV101(key){
+  if(publicMode)return;
+  if(key==='infra-psu'){openHomeTargetV59('data-perumahan','BELUM DISERAHKAN');setTimeout(()=>document.getElementById('housingTable')?.scrollIntoView?.({behavior:'smooth',block:'start'}),220);return;}
+  const mapIds={
+    'infra-road-unpaved':'analyticLayerRoadUnpavedV96','infra-road-heavy':'analyticLayerRoadHeavyV96','infra-road-medium':'analyticLayerRoadMediumV96','infra-road-light':'analyticLayerRoadLightV96','infra-rth':'analyticLayerRthUnbuiltV96','infra-flood':'analyticLayerFloodV92'
+  };
+  openHomeTargetV59('data-perumahan');
+  setTimeout(()=>{
+    housingMapModeV92='analitik';
+    const ids=['analyticLayerHousingV92','analyticLayerSlumV92','analyticLayerPsuV92','analyticLayerFloodV92','analyticLayerRoadUnpavedV96','analyticLayerRoadHeavyV96','analyticLayerRoadMediumV96','analyticLayerRoadLightV96','analyticLayerRthUnbuiltV96'];
+    ids.forEach(id=>{const x=document.getElementById(id);if(x)x.checked=false});
+    const target=document.getElementById(mapIds[key]);if(target)target.checked=true;
+    const housingBase=document.getElementById('analyticLayerHousingV92');if(housingBase)housingBase.checked=true;
+    try{syncHousingMapControlsV92();renderMap();}catch(_){ }
+    document.getElementById('housingMapModule')?.scrollIntoView?.({behavior:'smooth',block:'start'});
+  },260);
+}
+
+function formatMorphValueV101(v,suffix){return `${fmt(Math.round(Number(v)||0))}${suffix||''}`;}
+function animateMorphV101(el,key){
+  if(!el)return;const target=Number(el.dataset.v101Value||0),suffix=el.dataset.v101Suffix||'',old=v101MorphCache.get(key);
+  if(old===target){el.textContent=formatMorphValueV101(target,suffix);return;}
+  const start=Number.isFinite(old)?old:0;v101MorphCache.set(key,target);const reduce=window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+  if(reduce){el.textContent=formatMorphValueV101(target,suffix);return;}
+  const duration=620,t0=performance.now();
+  const tick=now=>{const p=Math.min(1,(now-t0)/duration),e=1-Math.pow(1-p,3),val=start+(target-start)*e;el.textContent=formatMorphValueV101(val,suffix);if(p<1)requestAnimationFrame(tick)};requestAnimationFrame(tick);
+}
+function animateDashboardNumbersV101(){
+  document.querySelectorAll('#kpiGrid .v101-morph-number').forEach((el,i)=>animateMorphV101(el,`kpi:${el.closest('[data-v101-kpi]')?.dataset.v101Kpi||i}`));
+  document.querySelectorAll('#homeHousingStockV99 .v101-morph-number').forEach((el,i)=>animateMorphV101(el,`stock:${i}`));
+  document.querySelectorAll('#publicTransparencyStatsV94 .command-public-stat-v98 strong').forEach((el,i)=>{const raw=el.textContent||'',target=Number(raw.replace(/\./g,'').replace(',','.').replace(/[^0-9.-]/g,''));if(Number.isFinite(target)){el.dataset.v101Value=target;el.dataset.v101Suffix=raw.includes('%')?'%':'';animateMorphV101(el,`public:${i}`)}});
+}
+function animateProgressV101(){
+  requestAnimationFrame(()=>document.querySelectorAll('[data-v101-target-width]').forEach(el=>{el.style.width=`${Math.max(0,Math.min(100,Number(el.dataset.v101TargetWidth)||0))}%`}));
+}
+function bindSemanticNodesV101(){
+  if(publicMode)return;
+  const binds=[['.startup-psu-card-v100','psu'],['.startup-rusun-card-v100','rusunawa'],['.startup-infra-card-v100','infrastructure'],['.startup-alert-card-v100','alerts']];
+  binds.forEach(([sel,topic])=>document.querySelectorAll(`.startup-internal-home-v100 ${sel}`).forEach(el=>{if(el.dataset.v101Bound)return;el.dataset.v101Bound='1';el.addEventListener('mouseenter',()=>setDashboardContextV101(topic));el.addEventListener('mouseleave',clearDashboardContextV101)}));
+  const canvasActions=[['homePsuDonutV98','psu',()=>openHomeTargetV59('psu')],['homeRusunawaDonutV98','rusunawa',()=>openHomeTargetV59('rusunawa')]];
+  canvasActions.forEach(([id,topic,action])=>{const c=document.getElementById(id);if(!c||c.dataset.v101Bound)return;c.dataset.v101Bound='1';c.style.cursor='pointer';c.addEventListener('mouseenter',()=>setDashboardContextV101(topic));c.addEventListener('mouseleave',clearDashboardContextV101);c.addEventListener('click',action)});
+}
+function renderVisualGravityV101(){
+  const home=document.querySelector('.startup-internal-home-v100');if(!home)return;
+  const urgent=publicMode?0:buildExecutiveAlertsV88().filter(x=>x.severity==='Mendesak').length;
+  home.classList.toggle('v101-has-urgent',urgent>0);
+}
+function cueUrgencyOnceV101(){
+  if(v101UrgencyCueDone||publicMode)return;const el=document.querySelector('#executiveAlertList .executive-alert-item-v88.urgent');if(!el)return;v101UrgencyCueDone=true;el.classList.add('v101-urgent-cue');setTimeout(()=>el.classList.remove('v101-urgent-cue'),900);
+}
+function toggleFocusModeV101(force){
+  if(publicMode)return;
+  v101FocusMode=typeof force==='boolean'?force:!v101FocusMode;
+  document.body.classList.toggle('v101-focus-mode',v101FocusMode);
+  const btn=document.getElementById('focusModeToggleV101');if(btn)btn.textContent=v101FocusMode?'◉ Mode Fokus Aktif':'◎ Mode Fokus';
+  if(v101FocusMode)setTimeout(()=>window.scrollTo({top:0,behavior:'smooth'}),20);
+  setTimeout(()=>{try{renderCommandCenterChartsV98();}catch(_){ }},180);
+}
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&v101FocusMode)toggleFocusModeV101(false)});
+
+function renderStartupExperienceV101(){
+  if(publicMode&&v101FocusMode)toggleFocusModeV101(false);
+  renderVisualGravityV101();
+  if(!publicMode)renderContextualInsightV101(v101ContextLocked||'default');
+  animateDashboardNumbersV101();animateProgressV101();bindSemanticNodesV101();cueUrgencyOnceV101();
+}
+const renderAllV100BeforeV101=renderAll;
+renderAll=function(){renderAllV100BeforeV101();safeRenderSIRUMAH(renderStartupExperienceV101,'Pengalaman Produk Interaktif v101');};
+
 
 </script>
 
