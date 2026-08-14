@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SIRUMAH Kota Pangkalpinang v98 — Executive Command Center</title>
+  <title>SIRUMAH Kota Pangkalpinang v99 — Pusat Kendali Generasi Baru</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -2527,6 +2527,48 @@
     @media(max-width:720px){.command-home-action-copy-v98{display:none}.command-executive-meta-v98{grid-template-columns:1fr}.command-kpi-grid-v98,.command-public-kpis-v98,.command-side-analytics-v98{grid-template-columns:1fr}.command-public-hero-v98{flex-direction:column}.command-public-scope-v98{align-self:flex-start}.command-panel-head-v98{flex-direction:column}.command-panel-link-v98{align-self:flex-start}.command-chart-wrap-v98{min-height:290px;padding-left:8px;padding-right:8px}.command-chart-wrap-v98 canvas{height:290px}.command-queue-row-v98{grid-template-columns:34px minmax(0,1fr) auto}.command-queue-open-v98{display:none}.command-region-item-v98{grid-template-columns:36px minmax(0,1fr)}.command-region-value-v98{grid-column:2;text-align:left}.command-executive-hero-v98{padding:17px}.command-executive-hero-main-v98{gap:10px}}
   </style>
 
+
+  <style>
+    /* =========================================================
+       BERANDA GAYA STARTUP — SIRUMAH v99
+       ========================================================= */
+    .command-panel-v98{border-color:rgba(203,213,225,.62);box-shadow:0 18px 46px rgba(15,23,42,.075)}
+    .command-kpi-card-v98{min-height:150px;border-radius:22px;box-shadow:0 16px 36px rgba(15,23,42,.075);transition:transform .2s ease,box-shadow .2s ease}
+    .command-kpi-card-v98:hover{transform:translateY(-5px) scale(1.008);box-shadow:0 24px 50px rgba(15,23,42,.13)}
+    .command-kpi-value-v98{font-size:34px;letter-spacing:-1px}
+    .startup-stock-panel-v99{min-height:465px;background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(248,250,252,.96) 52%,rgba(239,246,255,.86))}
+    .startup-stock-panel-v99::before{content:"";position:absolute;inset:-110px auto auto -90px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.10),transparent 68%);pointer-events:none}
+    .startup-stock-v99{position:relative;z-index:1;display:grid;gap:14px;padding:10px 20px 20px}
+    .startup-stock-hero-v99{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;padding:10px 2px 8px}
+    .startup-stock-hero-v99 span{display:block;color:#64748b;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+    .startup-stock-hero-v99 strong{display:block;margin-top:3px;color:#0f3f50;font-size:38px;line-height:1;letter-spacing:-1.4px}
+    .startup-stock-hero-v99 small{display:block;margin-top:6px;color:#475569;font-size:12px}
+    .startup-stock-rate-v99{min-width:148px;padding:10px 12px;border:1px solid rgba(37,99,235,.16);border-radius:14px;background:rgba(255,255,255,.76);backdrop-filter:blur(7px);text-align:right}
+    .startup-stock-rate-v99 b{display:block;color:#2563eb;font-size:21px}.startup-stock-rate-v99 span{margin-top:2px;color:#64748b;font-size:11px;text-transform:none;letter-spacing:0}
+    .startup-stage-list-v99{display:grid;gap:10px}
+    .startup-stage-v99{--stage:#2563eb;position:relative;padding:12px 14px 13px;border:1px solid #e2e8f0;border-radius:15px;background:rgba(255,255,255,.86);overflow:hidden}
+    .startup-stage-v99.built{--stage:#0f766e}.startup-stage-v99.occupied{--stage:#7c3aed}
+    .startup-stage-top-v99{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .startup-stage-top-v99 div{min-width:0}.startup-stage-top-v99 span{display:block;color:#64748b;font-size:11px;font-weight:700}.startup-stage-top-v99 strong{display:block;margin-top:2px;color:#0f3f50;font-size:19px}.startup-stage-top-v99 b{flex:0 0 auto;color:var(--stage);font-size:14px}
+    .startup-stage-track-v99{height:9px;margin-top:10px;border-radius:999px;background:#edf2f7;overflow:hidden}.startup-stage-track-v99 i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--stage),color-mix(in srgb,var(--stage) 70%,#60a5fa));box-shadow:0 0 22px color-mix(in srgb,var(--stage) 25%,transparent);transition:width .65s cubic-bezier(.2,.7,.2,1)}
+    .startup-stock-gaps-v99{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .startup-gap-v99{position:relative;padding:12px 13px;border-radius:14px;background:#0f172a;color:#fff;overflow:hidden}
+    .startup-gap-v99.secondary{background:linear-gradient(135deg,#312e81,#6d28d9)}
+    .startup-gap-v99::after{content:"";position:absolute;right:-22px;bottom:-44px;width:110px;height:110px;border-radius:50%;background:rgba(255,255,255,.08)}
+    .startup-gap-v99 span{position:relative;z-index:1;display:block;color:#cbd5e1;font-size:11px}.startup-gap-v99 strong{position:relative;z-index:1;display:block;margin-top:4px;font-size:22px;line-height:1}.startup-gap-v99 small{position:relative;z-index:1;display:block;margin-top:5px;color:#e2e8f0;font-size:11px}
+
+    .startup-infra-panel-v99{background:linear-gradient(145deg,#fff 0%,#fffaf6 48%,#f8fafc 100%)}
+    .startup-infra-v99{position:relative;z-index:1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:8px 20px 20px}
+    .startup-infra-item-v99{--issue:#f59e0b;display:grid;grid-template-columns:minmax(160px,.72fr) minmax(180px,1fr) auto;align-items:center;gap:14px;padding:12px 13px;border:1px solid #e2e8f0;border-radius:15px;background:rgba(255,255,255,.9);transition:transform .18s ease,border-color .18s ease}
+    .startup-infra-item-v99:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--issue) 36%,#e2e8f0)}
+    .startup-infra-label-v99{min-width:0}.startup-infra-label-v99 span{display:block;color:#64748b;font-size:11px}.startup-infra-label-v99 strong{display:block;margin-top:2px;color:#0f3f50;font-size:12px;line-height:1.35}
+    .startup-infra-track-v99{height:8px;border-radius:999px;background:#eef2f7;overflow:hidden}.startup-infra-track-v99 i{display:block;height:100%;border-radius:999px;background:var(--issue);transition:width .55s ease}
+    .startup-infra-value-v99{min-width:42px;text-align:right;color:#0f3f50;font-size:16px;font-weight:800}
+    .startup-infra-empty-v99{grid-column:1/-1;padding:20px;border:1px dashed #cbd5e1;border-radius:14px;color:#64748b;text-align:center;font-size:12px}
+    @media(max-width:900px){.startup-infra-v99{grid-template-columns:1fr}.startup-stock-hero-v99{align-items:flex-start;flex-direction:column}.startup-stock-rate-v99{text-align:left}.startup-stock-gaps-v99{grid-template-columns:1fr}}
+    @media(max-width:620px){.startup-infra-item-v99{grid-template-columns:1fr auto}.startup-infra-track-v99{grid-column:1/-1;grid-row:2}.startup-stock-v99,.startup-infra-v99{padding-left:14px;padding-right:14px}}
+  </style>
+
 </head>
 
 <body class="public-mode">
@@ -2613,8 +2655,8 @@
     <section class="section active" id="beranda">
       <div class="section-actionbar command-home-actionbar-v98">
         <div class="command-home-action-copy-v98">
-          <strong>Executive Command Center</strong>
-          <span>Ringkasan kondisi kota, analitik, prioritas, dan kesehatan data dalam satu layar.</span>
+          <strong>Pusat Kendali SIRUMAH</strong>
+          <span>Kondisi kota, perkembangan hunian, prioritas, dan kesehatan data dalam satu pengalaman terpadu.</span>
         </div>
         <button class="btn light" type="button" onclick="printDashboardSection('beranda','Beranda SIRUMAH')">Cetak / PDF Beranda</button>
       </div>
@@ -2636,13 +2678,12 @@
         <div class="command-public-kpis-v98" id="publicTransparencyStatsV94"></div>
 
         <div class="command-analytics-grid-v98 public-command-analytics-v98">
-          <article class="command-panel-v98 command-panel-main-v98">
+          <article class="command-panel-v98 command-panel-main-v98 startup-stock-panel-v99">
             <div class="command-panel-head-v98">
-              <div><span class="command-panel-kicker-v98">KONDISI PERUMAHAN</span><h3>Rencana, Terbangun &amp; Terhuni per Kecamatan</h3></div>
+              <div><span class="command-panel-kicker-v98">PERKEMBANGAN HUNIAN</span><h3>Perkembangan Stok Hunian</h3><p>Dari unit yang direncanakan hingga hunian yang telah ditempati.</p></div>
               <button type="button" class="command-panel-link-v98" onclick="openHomeTargetV59('data-perumahan')">Buka Data →</button>
             </div>
-            <div class="command-chart-wrap-v98"><canvas id="publicHousingChartV98" aria-label="Grafik kondisi perumahan per kecamatan"></canvas></div>
-            <div class="command-chart-caption-v98" id="publicHousingChartNoteV98"></div>
+            <div class="startup-stock-v99" id="publicHousingStockV99"></div>
           </article>
 
           <article class="command-panel-v98 command-donut-card-v98">
@@ -2679,7 +2720,7 @@
               <div class="executive-narrative-eyebrow-v94">RINGKASAN EKSEKUTIF OTOMATIS</div>
               <h3>Interpretasi Data Aktif</h3>
               <p id="executiveNarrativeTextV94">Menyiapkan narasi dari indikator aktif SIRUMAH.</p>
-              <div class="executive-narrative-foot-v94">Narasi rule-based dari database aktif, Snapshot Tahunan, dan Executive Alert; bukan keluaran AI generatif.</div>
+              <div class="executive-narrative-foot-v94">Narasi berbasis aturan dari database aktif, Snapshot Tahunan, dan Peringatan Prioritas; bukan keluaran AI generatif.</div>
             </div>
           </div>
           <div class="command-executive-meta-v98">
@@ -2692,13 +2733,12 @@
         <div class="command-kpi-grid-v98" id="kpiGrid"></div>
 
         <div class="command-analytics-grid-v98">
-          <article class="command-panel-v98 command-panel-main-v98">
+          <article class="command-panel-v98 command-panel-main-v98 startup-stock-panel-v99">
             <div class="command-panel-head-v98">
-              <div><span class="command-panel-kicker-v98">ANALITIK UTAMA</span><h3>Kondisi Perumahan Terdata per Kecamatan</h3><p>Perbandingan rencana unit, realisasi pembangunan, dan unit terhuni.</p></div>
+              <div><span class="command-panel-kicker-v98">ANALITIK UTAMA</span><h3>Perkembangan Stok Hunian</h3><p>Alur rencana unit, pembangunan, hunian terisi, dan celah yang masih tersisa.</p></div>
               <button type="button" class="command-panel-link-v98" onclick="openHomeTargetV59('data-perumahan')">Eksplorasi Data →</button>
             </div>
-            <div class="command-chart-wrap-v98"><canvas id="homeHousingChartV98" aria-label="Grafik kondisi perumahan terdata per kecamatan"></canvas></div>
-            <div class="command-chart-caption-v98" id="homeHousingChartNoteV98"></div>
+            <div class="startup-stock-v99" id="homeHousingStockV99"></div>
           </article>
 
           <div class="command-side-analytics-v98">
@@ -2716,10 +2756,18 @@
           </div>
         </div>
 
+        <article class="command-panel-v98 startup-infra-panel-v99">
+          <div class="command-panel-head-v98">
+            <div><span class="command-panel-kicker-v98">KONDISI INFRASTRUKTUR</span><h3>Apa yang Paling Membutuhkan Perhatian?</h3><p>Perbandingan isu pada perumahan terdata berdasarkan status terstruktur di database aktif.</p></div>
+            <button type="button" class="command-panel-link-v98" onclick="openHomeTargetV59('data-perumahan')">Lihat Data →</button>
+          </div>
+          <div class="startup-infra-v99" id="homeInfrastructureV99"></div>
+        </article>
+
         <div class="command-control-grid-v98">
           <article class="command-panel-v98 executive-alert-card-v88 command-alert-panel-v98" id="executiveAlertCard">
             <div class="command-panel-head-v98">
-              <div><span class="command-panel-kicker-v98 danger">PENGENDALIAN INTERNAL</span><h3>Executive Alert</h3><p>Isu lintas modul dengan urgensi tertinggi dari rule aktif SIRUMAH.</p></div>
+              <div><span class="command-panel-kicker-v98 danger">PERINGATAN PRIORITAS</span><h3>Isu yang Membutuhkan Perhatian</h3><p>Isu lintas modul dengan urgensi tertinggi berdasarkan aturan aktif SIRUMAH.</p></div>
               <div class="executive-alert-header-right-v88"><span class="executive-alert-scope-v88" id="executiveAlertScope">Seluruh Kota</span><span class="executive-alert-total-v88" id="executiveAlertTotal">0 alert</span></div>
             </div>
             <div class="executive-alert-summary-v88 command-alert-summary-v98" id="executiveAlertSummary"></div>
@@ -9626,7 +9674,7 @@ function renderExecutiveAlertsV88(){
     <span class="executive-alert-summary-pill-v88 verify"><strong>${fmt(counts["Perlu Verifikasi"])}</strong> Perlu Verifikasi</span>`;
 
   if(!shown.length){
-    list.innerHTML=`<div class="executive-alert-empty-v88"><strong>Tidak ada Executive Alert aktif.</strong>Belum ditemukan kondisi yang memenuhi rule prioritas v1 pada data dan filter wilayah saat ini.</div>`;
+    list.innerHTML=`<div class="executive-alert-empty-v88"><strong>Tidak ada Peringatan Prioritas aktif.</strong>Belum ditemukan kondisi yang memenuhi rule prioritas v1 pada data dan filter wilayah saat ini.</div>`;
   }else{
     list.innerHTML=shown.map(item=>{
       const cls=executiveAlertClassV88(item.severity);
@@ -10431,8 +10479,8 @@ function buildExecutiveNarrativeV94(){
   if(veryHigh||high){const p=[];if(veryHigh)p.push(`${fmt(veryHigh)} usulan RTLH Prioritas Sangat Tinggi`);if(high)p.push(`${fmt(high)} Prioritas Tinggi`);sentences.push(`Pada data RTLH aktif terdapat ${p.join(" dan ")} yang masih memerlukan penyelesaian atau tindak lanjut.`);}
   else sentences.push("Tidak ditemukan usulan RTLH aktif pada tingkat Prioritas Sangat Tinggi atau Tinggi dalam filter saat ini.");
   if((document.getElementById("globalKecamatan")?.value||"all")==="all"&&rus.total>0)sentences.push(`RUSUNAWA memiliki tingkat hunian ${rus.occupancy}% (${fmt(rus.filled)} dari ${fmt(rus.total)} unit terisi).`);
-  if(alerts.length)sentences.push(`Executive Alert mendeteksi ${fmt(alerts.length)} isu lintas modul: ${fmt(urgent)} Mendesak dan ${fmt(highAlert)} Tinggi${alerts.length-urgent-highAlert?`, sisanya memerlukan verifikasi`:""}.`);
-  else sentences.push("Executive Alert tidak mendeteksi kondisi yang memenuhi rule prioritas v1 pada filter aktif.");
+  if(alerts.length)sentences.push(`Peringatan Prioritas mendeteksi ${fmt(alerts.length)} isu lintas modul: ${fmt(urgent)} Mendesak dan ${fmt(highAlert)} Tinggi${alerts.length-urgent-highAlert?`, sisanya memerlukan verifikasi`:""}.`);
+  else sentences.push("Peringatan Prioritas tidak mendeteksi kondisi yang memenuhi rule prioritas v1 pada filter aktif.");
   const trend=executiveNarrativeTrendV94();if(trend)sentences.push(trend);
   return sentences.slice(0,5).join(" ");
 }
@@ -10650,7 +10698,8 @@ document.addEventListener("DOMContentLoaded",()=>{const f=document.getElementByI
 
 
 /* SIRUMAH v97: hierarki RTLH agregat vs usulan, tabel individu ringkas, popup Detail Usulan RTLH, dan pencegahan render/search individu pada Mode Publik. */
-/* SIRUMAH v98: Executive Command Center — hero KPI, grouped bar analytics, donut PSU/RUSUNAWA, alert compact, sorotan wilayah, operational queue, snapshot small multiples, dan data health. */
+/* SIRUMAH v98: Pusat Kendali — hero KPI, analitik, donut PSU/RUSUNAWA, alert compact, sorotan wilayah, antrean tindak lanjut, snapshot small multiples, dan kesehatan data. */
+/* SIRUMAH v99: Beranda gaya startup — grafik per Kecamatan diganti Perkembangan Stok Hunian dan Kondisi Infrastruktur Perumahan. */
 document.addEventListener("DOMContentLoaded", init);
 
 
@@ -10827,7 +10876,7 @@ function renderExecutiveAlertsV88(){
   if(publicMode){list.innerHTML="";summary.innerHTML="";total.textContent="0 alert";return;}
   const alerts=buildExecutiveAlertsV88(),limit=executiveAlertExpandedV98?5:3,shown=alerts.slice(0,limit),counts={"Mendesak":alerts.filter(i=>i.severity==="Mendesak").length,"Tinggi":alerts.filter(i=>i.severity==="Tinggi").length,"Perlu Verifikasi":alerts.filter(i=>i.severity==="Perlu Verifikasi").length};
   scope.textContent=executiveAlertScopeV88();total.textContent=`${fmt(alerts.length)} alert`;summary.innerHTML=`<span class="executive-alert-summary-pill-v88 urgent"><strong>${fmt(counts.Mendesak)}</strong> Mendesak</span><span class="executive-alert-summary-pill-v88 high"><strong>${fmt(counts.Tinggi)}</strong> Tinggi</span><span class="executive-alert-summary-pill-v88 verify"><strong>${fmt(counts["Perlu Verifikasi"])}</strong> Perlu Verifikasi</span>`;
-  if(!shown.length)list.innerHTML=`<div class="executive-alert-empty-v88"><strong>Tidak ada Executive Alert aktif.</strong>Belum ditemukan kondisi yang memenuhi rule prioritas v1.</div>`;
+  if(!shown.length)list.innerHTML=`<div class="executive-alert-empty-v88"><strong>Tidak ada Peringatan Prioritas aktif.</strong>Belum ditemukan kondisi yang memenuhi rule prioritas v1.</div>`;
   else list.innerHTML=shown.map(item=>{const cls=executiveAlertClassV88(item.severity),filterArg=JSON.stringify(String(item.filter||"")),targetArg=JSON.stringify(String(item.target||""));return `<div class="executive-alert-item-v88 ${cls}"><div class="executive-alert-icon-v88">${item.icon}</div><div class="executive-alert-content-v88"><div class="executive-alert-meta-v88"><span class="executive-alert-module-v88">${escapeHtml(item.source)}</span><span class="executive-alert-severity-v88 ${cls}">${escapeHtml(item.severity)}</span></div><h4>${escapeHtml(item.title)}</h4><p>${escapeHtml(item.description)}</p></div><button type="button" class="executive-alert-action-v88" onclick='openExecutiveAlertV88(${JSON.stringify(item.section)},${filterArg},${targetArg})'>Buka →</button></div>`;}).join("")+(alerts.length>3?`<button type="button" class="command-alert-more-v98" onclick="toggleExecutiveAlertV98()">${executiveAlertExpandedV98?"Ringkas alert ↑":`Lihat seluruh ${fmt(alerts.length)} alert →`}</button>`:"");
   if(footnote)footnote.textContent=alerts.length>limit?`Menampilkan ${fmt(limit)} dari ${fmt(alerts.length)} alert dengan prioritas tertinggi.`:`Menampilkan ${fmt(shown.length)} alert aktif.`;
 }
@@ -10854,6 +10903,43 @@ renderCharts = function(){renderChartsV97BeforeCommandCenter();try{renderCommand
 /* ensure command center follows every canonical render cycle */
 const renderAllV97BeforeCommandCenter = renderAll;
 renderAll = function(){renderAllV97BeforeCommandCenter();safeRenderSIRUMAH(renderExecutiveCommandCenterV98,"Executive Command Center v98");};
+
+/* =========================================================
+   BERANDA GAYA STARTUP — SIRUMAH v99
+   Fokus: stok hunian + kondisi infrastruktur, tanpa grafik Kecamatan.
+   ========================================================= */
+function housingStockMarkupV99(){
+  const s=summary(housing||[]),planned=Number(s.siteplan||0),built=Number(s.terbangun||0),occupied=Number(s.terhuni||0);
+  const builtPct=pct(built,planned),occupiedOfBuilt=pct(occupied,built),occupiedOfPlan=pct(occupied,planned);
+  const notBuilt=Math.max(0,planned-built),builtNotOccupied=Math.max(0,built-occupied);
+  const stage=(cls,label,value,percent,note)=>`<div class="startup-stage-v99 ${cls}"><div class="startup-stage-top-v99"><div><span>${escapeHtml(label)}</span><strong>${fmt(value)} unit</strong></div><b>${escapeHtml(String(percent))}%</b></div><div class="startup-stage-track-v99"><i style="width:${Math.max(0,Math.min(100,Number(percent)||0))}%"></i></div>${note?`<small style="display:block;margin-top:6px;color:#64748b;font-size:11px">${escapeHtml(note)}</small>`:""}</div>`;
+  return `<div class="startup-stock-hero-v99"><div><span>STOK HUNIAN TERDATA</span><strong>${fmt(planned)}</strong><small>unit direncanakan pada perumahan terdata SIRUMAH</small></div><div class="startup-stock-rate-v99"><b>${builtPct}%</b><span>rencana telah terbangun</span></div></div><div class="startup-stage-list-v99">${stage("","Rencana Unit",planned,100,"Basis rencana pada site plan terdata")}${stage("built","Sudah Terbangun",built,builtPct,`${fmt(notBuilt)} unit masih menjadi celah pembangunan`)}${stage("occupied","Sudah Terhuni",occupied,occupiedOfPlan,`${occupiedOfBuilt}% dari unit terbangun telah terhuni`)}</div><div class="startup-stock-gaps-v99"><div class="startup-gap-v99"><span>CELAH PEMBANGUNAN</span><strong>${fmt(notBuilt)}</strong><small>unit rencana belum terbangun</small></div><div class="startup-gap-v99 secondary"><span>CELAH HUNIAN</span><strong>${fmt(builtNotOccupied)}</strong><small>unit terbangun belum terhuni</small></div></div>`;
+}
+function infrastructureRowsV99(){
+  const rows=housing||[],count=fn=>rows.filter(fn).length;
+  return [
+    {label:"PSU",title:"Belum diserahkan",value:count(r=>String(r.statusPSU||"").toUpperCase().includes("BELUM")),color:"#f59e0b"},
+    {label:"JALAN",title:"Belum perkerasan",value:count(r=>/belum\s*perkerasan|tanah\s*puru|tanah/i.test(String(r.statusJalan||""))),color:"#8b5e3c"},
+    {label:"JALAN",title:"Rusak berat",value:count(r=>/rusak\s*berat/i.test(String(r.statusJalan||""))),color:"#dc2626"},
+    {label:"JALAN",title:"Rusak sedang",value:count(r=>/rusak\s*sedang/i.test(String(r.statusJalan||""))),color:"#ea580c"},
+    {label:"JALAN",title:"Rusak ringan",value:count(r=>/rusak\s*ringan/i.test(String(r.statusJalan||""))),color:"#eab308"},
+    {label:"RTH",title:"Belum terbangun",value:count(r=>/belum.*terbangun/i.test(String(r.statusRTH||""))),color:"#65a30d"},
+    {label:"LINGKUNGAN",title:"Rawan genangan / banjir",value:count(r=>/banjir|genangan|rawan/i.test(String(r.statusRawanBanjir||""))),color:"#0284c7"}
+  ];
+}
+function renderInfrastructureV99(){
+  const el=document.getElementById("homeInfrastructureV99");if(!el)return;if(publicMode){el.innerHTML="";return;}
+  const rows=infrastructureRowsV99(),max=Math.max(...rows.map(r=>Number(r.value||0)),1);
+  el.innerHTML=rows.map(r=>`<div class="startup-infra-item-v99" style="--issue:${r.color}"><div class="startup-infra-label-v99"><span>${escapeHtml(r.label)}</span><strong>${escapeHtml(r.title)}</strong></div><div class="startup-infra-track-v99"><i style="width:${Math.max(r.value?4:0,(Number(r.value||0)/max)*100)}%"></i></div><div class="startup-infra-value-v99">${fmt(r.value)}</div></div>`).join("")||`<div class="startup-infra-empty-v99">Belum ada data kondisi infrastruktur yang dapat dibandingkan.</div>`;
+}
+function renderStartupHomeV99(){
+  const markup=housingStockMarkupV99();
+  ["homeHousingStockV99","publicHousingStockV99"].forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML=markup;});
+  renderInfrastructureV99();
+}
+const renderAllV98BeforeStartupV99=renderAll;
+renderAll=function(){renderAllV98BeforeStartupV99();safeRenderSIRUMAH(renderStartupHomeV99,"Beranda gaya startup v99");};
+
 
 
 </script>
