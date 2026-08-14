@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>SIRUMAH Kota Pangkalpinang v103 — Responsive Experience Rebuild</title>
+  <title>SIRUMAH Kota Pangkalpinang v104 — Brand Logo Integration</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -3263,16 +3263,121 @@
       .startup-ui-v103 button,.startup-ui-v103 select,.startup-ui-v103 input,.startup-ui-v103 textarea{min-height:44px}
       .startup-ui-v103 .nav button{min-height:46px!important}
     }
+
+    /* =========================================================
+       v104 — Brand Logo Integration
+       Dua aset logo independen agar sidebar gelap dan header terang
+       dapat memakai artwork yang berbeda tanpa mengubah HTML.
+       ========================================================= */
+    .startup-ui-v104 .brand-v104{
+      gap:13px!important;align-items:center!important;
+    }
+    .startup-ui-v104 .logo-shell-v104,
+    .startup-ui-v104 .header-logo-shell-v104{
+      position:relative;display:grid;place-items:center;flex:0 0 auto;
+      overflow:hidden;isolation:isolate;
+    }
+    .startup-ui-v104 .brand-v104 .logo-shell-v104{
+      width:62px!important;height:62px!important;
+      border-radius:17px!important;background:transparent!important;
+      box-shadow:none!important;color:inherit!important;
+    }
+    .startup-ui-v104 .sirumah-logo-img-v104{
+      width:100%;height:100%;display:block;object-fit:contain;object-position:center;
+      position:relative;z-index:2;
+    }
+    .startup-ui-v104 .logo-fallback-v104{
+      position:absolute;inset:0;z-index:1;place-items:center;
+      font-weight:900;letter-spacing:-.75px;
+    }
+    .startup-ui-v104 .logo-fallback-v104[hidden]{display:none!important}
+    .startup-ui-v104 .logo-fallback-sidebar-v104{
+      display:grid;border-radius:17px;
+      background:linear-gradient(145deg,var(--brand-sand),var(--brand-beige));
+      color:var(--brand-deepest);font-size:20px;
+      box-shadow:0 12px 25px rgba(0,0,0,.15);
+    }
+    .startup-ui-v104 .brand-copy-v104{min-width:0}
+    .startup-ui-v104 .brand-copy-v104 h1{white-space:nowrap}
+    .startup-ui-v104 .brand-copy-v104 p{max-width:150px;line-height:1.35!important}
+
+    /* Header brand — artwork terang/brand version berdiri sendiri dari sidebar. */
+    .startup-ui-v104 .title-block-v104{
+      display:flex;align-items:center;gap:12px;min-width:0;
+    }
+    .startup-ui-v104 .header-brand-v104{
+      display:flex;align-items:center;gap:12px;min-width:0;
+    }
+    .startup-ui-v104 .header-logo-shell-v104{
+      width:50px;height:50px;border-radius:14px;background:transparent;
+    }
+    .startup-ui-v104 .logo-fallback-header-v104{
+      display:grid;border-radius:14px;background:var(--brand-deep);
+      color:var(--brand-sand);font-size:17px;
+      box-shadow:0 9px 22px rgba(43,92,99,.14);
+    }
+    .startup-ui-v104 .header-brand-copy-v104{min-width:0}
+    .startup-ui-v104 .header-brand-copy-v104 h2{margin:0 0 4px!important}
+    .startup-ui-v104 .header-brand-copy-v104 p{margin:0!important}
+
+    /* Tablet: logo sedikit lebih compact tetapi tetap menjadi identitas utama. */
+    @media(max-width:1100px){
+      .startup-ui-v104 .brand-v104 .logo-shell-v104{width:56px!important;height:56px!important}
+      .startup-ui-v104 .header-logo-shell-v104{width:46px;height:46px}
+      .startup-ui-v104 .title-block-v104{display:flex!important;align-items:center!important}
+      .startup-ui-v104 .header-brand-v104{flex:1 1 auto;min-width:0}
+    }
+
+    /* Mobile: Menu tetap touch-friendly, logo + identitas menjadi satu unit compact. */
+    @media(max-width:720px){
+      .startup-ui-v104 .title-block-v104{
+        display:grid!important;grid-template-columns:auto minmax(0,1fr)!important;
+        grid-template-rows:1fr!important;column-gap:10px!important;row-gap:0!important;
+        align-items:center!important;
+      }
+      .startup-ui-v104 .title-block-v104 .mobile-menu{
+        grid-column:1!important;grid-row:1!important;align-self:stretch!important;
+        min-width:72px!important;padding:8px 10px!important;
+      }
+      .startup-ui-v104 .header-brand-v104{
+        grid-column:2!important;grid-row:1!important;gap:9px!important;min-width:0!important;
+      }
+      .startup-ui-v104 .header-logo-shell-v104{
+        width:44px;height:44px;border-radius:12px;
+      }
+      .startup-ui-v104 .logo-fallback-header-v104{border-radius:12px;font-size:14px}
+      .startup-ui-v104 .header-brand-copy-v104 h2{
+        font-size:clamp(19px,5.55vw,23px)!important;line-height:1.05!important;
+        letter-spacing:-.55px!important;overflow-wrap:normal!important;word-break:normal!important;
+      }
+      .startup-ui-v104 .header-brand-copy-v104 p{
+        font-size:10.5px!important;line-height:1.3!important;
+        white-space:normal;
+      }
+      .startup-ui-v104 .brand-v104{gap:11px!important}
+      .startup-ui-v104 .brand-v104 .logo-shell-v104{width:54px!important;height:54px!important}
+    }
+
+    @media(max-width:390px){
+      .startup-ui-v104 .header-logo-shell-v104{width:42px;height:42px}
+      .startup-ui-v104 .title-block-v104 .mobile-menu{min-width:67px!important;font-size:11px!important}
+      .startup-ui-v104 .header-brand-copy-v104 h2{font-size:18px!important}
+      .startup-ui-v104 .header-brand-copy-v104 p{font-size:10px!important}
+    }
+
   </style>
 
 </head>
 
-<body class="public-mode startup-ui-v100 startup-ui-v101 startup-ui-v102 startup-ui-v103">
+<body class="public-mode startup-ui-v100 startup-ui-v101 startup-ui-v102 startup-ui-v103 startup-ui-v104">
 <div class="app">
   <aside class="sidebar" id="sidebar">
-    <div class="brand">
-      <div class="logo">SR</div>
-      <div>
+    <div class="brand brand-v104">
+      <div class="logo logo-shell-v104 logo-shell-sidebar-v104">
+        <img src="./assets/images/logo-sirumah-sidebar.png" alt="" aria-hidden="true" class="sirumah-logo-img-v104" loading="eager" decoding="async" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+        <span class="logo-fallback-v104 logo-fallback-sidebar-v104" hidden aria-hidden="true">SR</span>
+      </div>
+      <div class="brand-copy-v104">
         <h1>SIRUMAH</h1>
         <p>Sistem Integrasi Rumah Layak Huni</p>
       </div>
@@ -3318,10 +3423,18 @@
 
   <main class="main">
     <div class="topbar">
-      <div class="title-block">
+      <div class="title-block title-block-v104">
         <button class="btn light mobile-menu" onclick="toggleSidebar()">☰ Menu</button>
-        <h2>SIRUMAH Kota Pangkalpinang</h2>
-        <p>Satu Data, Hunian Layak untuk Semua.</p>
+        <div class="header-brand-v104">
+          <span class="header-logo-shell-v104">
+            <img src="./assets/images/logo-sirumah-header.png" alt="" aria-hidden="true" class="sirumah-logo-img-v104" loading="eager" decoding="async" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+            <span class="logo-fallback-v104 logo-fallback-header-v104" hidden aria-hidden="true">SR</span>
+          </span>
+          <div class="header-brand-copy-v104">
+            <h2>SIRUMAH Kota Pangkalpinang</h2>
+            <p>Satu Data, Hunian Layak untuk Semua.</p>
+          </div>
+        </div>
       </div>
       <div class="toolbar">
         <button type="button" class="command-search-trigger-v94" id="commandSearchTriggerV94" onclick="openCommandSearchV94()" aria-label="Cari di seluruh SIRUMAH">
