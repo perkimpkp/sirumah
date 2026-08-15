@@ -6820,7 +6820,59 @@ body.startup-ui-v164 #laporan .report-hero-meta-v137 .hero-monogram-v164{min-wid
       .startup-ui-v149 .nav .icon svg{width:18px;height:18px}
     }
   </style>
-<body class="public-mode startup-ui-v100 startup-ui-v101 startup-ui-v102 startup-ui-v103 startup-ui-v104 startup-ui-v105 startup-ui-v106 startup-ui-v107 startup-ui-v108 startup-ui-v109 startup-ui-v110 startup-ui-v111 startup-ui-v112 startup-ui-v113 startup-ui-v114 startup-ui-v115 startup-ui-v116 startup-ui-v117 startup-ui-v118 startup-ui-v120 startup-ui-v122 startup-ui-v123 startup-ui-v124 startup-ui-v125 startup-ui-v126 startup-ui-v127 startup-ui-v128 startup-ui-v129 startup-ui-v130 startup-ui-v131 startup-ui-v132 startup-ui-v133 startup-ui-v134 startup-ui-v135 startup-ui-v136 startup-ui-v137 startup-ui-v138 startup-ui-v139 startup-ui-v140 startup-ui-v141 startup-ui-v142 startup-ui-v143 startup-ui-v144 startup-ui-v145 startup-ui-v146 startup-ui-v147 startup-ui-v148 startup-ui-v149 startup-ui-v150 startup-ui-v151 startup-ui-v152 startup-ui-v153 startup-ui-v155 startup-ui-v156 startup-ui-v158 startup-ui-v159 startup-ui-v162 startup-ui-v163 startup-ui-v164">
+
+<style>
+/* =========================================================
+   SIRUMAH v166 — RUSUNAWA Public Experience
+   Public data-story layer; Internal operations remain unchanged.
+   ========================================================= */
+.startup-ui-v166 #rusunawa .rus-public-experience-v166{margin-bottom:18px}
+.startup-ui-v166 #rusunawa .rus-public-overview-grid-v166{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(330px,.88fr);gap:16px;margin-bottom:16px}
+.startup-ui-v166 #rusunawa .rus-public-lower-grid-v166{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(300px,.82fr);gap:16px}
+.startup-ui-v166 #rusunawa .rus-public-occupancy-v166,.startup-ui-v166 #rusunawa .rus-public-status-v166,.startup-ui-v166 #rusunawa .rus-public-facility-v166,.startup-ui-v166 #rusunawa .rus-public-narrative-v166{position:relative;overflow:hidden;border:1px solid #D8DEDA;border-radius:20px;background:#FCFCF9;box-shadow:0 10px 26px rgba(23,59,66,.055)}
+.startup-ui-v166 #rusunawa .rus-public-occupancy-v166{background:linear-gradient(145deg,#FBFCF8 0%,#F3F0E7 118%)}
+.startup-ui-v166 #rusunawa .rus-public-occupancy-v166:after{content:"";position:absolute;right:-78px;bottom:-116px;width:260px;height:260px;border-radius:50%;border:34px solid rgba(43,92,99,.045);pointer-events:none}
+.startup-ui-v166 #rusunawa .rus-public-card-head-v166{position:relative;z-index:1;display:flex;align-items:flex-start;justify-content:space-between;gap:18px;padding:20px 21px 10px}
+.startup-ui-v166 #rusunawa .rus-public-card-head-v166.compact{padding-bottom:7px}
+.startup-ui-v166 #rusunawa .rus-public-card-head-v166 .rus-kicker-v132{margin-bottom:7px}
+.startup-ui-v166 #rusunawa .rus-public-card-head-v166 h3{margin:0 0 5px;color:#284E54;font-size:19px;font-weight:680;letter-spacing:-.2px;line-height:1.22}
+.startup-ui-v166 #rusunawa .rus-public-card-head-v166 p{max-width:680px;margin:0;color:#607274;font-size:12.7px;font-weight:430;line-height:1.5}
+.startup-ui-v166 #rusunawa .rus-public-scope-v166{display:inline-flex;align-items:center;min-height:31px;padding:6px 10px;border:1px solid #D5DEDA;border-radius:999px;background:rgba(255,255,255,.78);color:#526B6D;font-size:11.4px;font-weight:600;white-space:nowrap}
+.startup-ui-v166 #rusunawa .rus-public-occupancy-main-v166{position:relative;z-index:1;display:grid;grid-template-columns:minmax(175px,.72fr) minmax(280px,1.28fr);gap:24px;align-items:end;padding:12px 21px 22px}
+.startup-ui-v166 #rusunawa .rus-public-occupancy-number-v166 strong{display:block;color:#25565E;font-size:54px;font-weight:720;letter-spacing:-2px;line-height:.94}
+.startup-ui-v166 #rusunawa .rus-public-occupancy-number-v166 span{display:block;margin-top:7px;color:#405F63;font-size:14px;font-weight:620}
+.startup-ui-v166 #rusunawa .rus-public-occupancy-number-v166 small{display:block;margin-top:5px;color:#718082;font-size:11.9px;font-weight:430;line-height:1.4}
+.startup-ui-v166 #rusunawa .rus-public-unit-visual-v166{display:grid;gap:11px}
+.startup-ui-v166 #rusunawa .rus-public-unit-segments-v166{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:6px;padding:13px;border:1px solid #D9DFDA;border-radius:16px;background:rgba(255,255,255,.76)}
+.startup-ui-v166 #rusunawa .rus-public-unit-segment-v166{aspect-ratio:1.25;border-radius:5px;background:#E5E9E5;box-shadow:inset 0 0 0 1px rgba(43,92,99,.045)}
+.startup-ui-v166 #rusunawa .rus-public-unit-segment-v166.filled{background:#34727A}.startup-ui-v166 #rusunawa .rus-public-unit-segment-v166.vacant{background:#D7C28F}.startup-ui-v166 #rusunawa .rus-public-unit-segment-v166.repair{background:#B98A56}.startup-ui-v166 #rusunawa .rus-public-unit-segment-v166.unavailable{background:#A76555}.startup-ui-v166 #rusunawa .rus-public-unit-segment-v166.other{background:#AAB7B3}
+.startup-ui-v166 #rusunawa .rus-public-unit-legend-v166{display:flex;flex-wrap:wrap;gap:7px 13px;color:#627577;font-size:11.2px;font-weight:480}
+.startup-ui-v166 #rusunawa .rus-public-unit-legend-v166 span{display:inline-flex;align-items:center;gap:6px}.startup-ui-v166 #rusunawa .rus-public-unit-legend-v166 i{width:7px;height:7px;border-radius:2px;background:#AAB7B3}.startup-ui-v166 #rusunawa .rus-public-unit-legend-v166 i.filled{background:#34727A}.startup-ui-v166 #rusunawa .rus-public-unit-legend-v166 i.vacant{background:#D7C28F}.startup-ui-v166 #rusunawa .rus-public-unit-legend-v166 i.repair{background:#B98A56}.startup-ui-v166 #rusunawa .rus-public-unit-legend-v166 i.unavailable{background:#A76555}
+.startup-ui-v166 #rusunawa .rus-public-status-grid-v166{display:grid;gap:8px;padding:6px 20px 20px}
+.startup-ui-v166 #rusunawa .rus-public-status-item-v166{display:grid;grid-template-columns:42px minmax(0,1fr) auto;gap:11px;align-items:center;min-height:67px;padding:10px 12px;border:1px solid #DCE2DD;border-radius:14px;background:#F8FAF7}
+.startup-ui-v166 #rusunawa .rus-public-status-icon-v166{display:grid;place-items:center;width:42px;height:42px;border:1px solid #D3DDD8;border-radius:13px;background:#fff;color:#37696F}
+.startup-ui-v166 #rusunawa .rus-public-status-icon-v166 svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.startup-ui-v166 #rusunawa .rus-public-status-item-v166.vacant .rus-public-status-icon-v166{color:#8A6A31;background:#FBF6EA;border-color:#E8D8B4}.startup-ui-v166 #rusunawa .rus-public-status-item-v166.repair .rus-public-status-icon-v166,.startup-ui-v166 #rusunawa .rus-public-status-item-v166.unavailable .rus-public-status-icon-v166{color:#935846;background:#FAF2EE;border-color:#E8D2C9}
+.startup-ui-v166 #rusunawa .rus-public-status-copy-v166 strong{display:block;color:#35585D;font-size:13px;font-weight:640}.startup-ui-v166 #rusunawa .rus-public-status-copy-v166 small{display:block;margin-top:2px;color:#718082;font-size:11.3px;font-weight:420}
+.startup-ui-v166 #rusunawa .rus-public-status-value-v166{text-align:right}.startup-ui-v166 #rusunawa .rus-public-status-value-v166 strong{display:block;color:#2A5960;font-size:22px;font-weight:690;line-height:1}.startup-ui-v166 #rusunawa .rus-public-status-value-v166 small{display:block;margin-top:4px;color:#778486;font-size:10.8px}
+.startup-ui-v166 #rusunawa .rus-public-facility-v166{padding-bottom:18px}
+.startup-ui-v166 #rusunawa .rus-public-facility-count-v166{display:grid;min-width:70px;padding:9px 12px;border:1px solid #E3D4B7;border-radius:14px;background:#F6EDDE;text-align:center}.startup-ui-v166 #rusunawa .rus-public-facility-count-v166 strong{color:#755C35;font-size:22px;font-weight:680;line-height:1}.startup-ui-v166 #rusunawa .rus-public-facility-count-v166 small{margin-top:3px;color:#816F53;font-size:10.7px;font-weight:570}
+.startup-ui-v166 #rusunawa .rus-public-facility-stats-v166{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;padding:6px 20px 13px}
+.startup-ui-v166 #rusunawa .rus-public-facility-stat-v166{padding:12px 13px;border:1px solid #DDE3DE;border-radius:14px;background:#F8FAF7}.startup-ui-v166 #rusunawa .rus-public-facility-stat-v166 span{display:block;color:#66787A;font-size:11.1px;font-weight:520}.startup-ui-v166 #rusunawa .rus-public-facility-stat-v166 strong{display:block;margin-top:5px;color:#315C62;font-size:22px;font-weight:680}.startup-ui-v166 #rusunawa .rus-public-facility-stat-v166.light{background:#FBF7EF;border-color:#E8DCC6}.startup-ui-v166 #rusunawa .rus-public-facility-stat-v166.risk{background:#FAF2EE;border-color:#E8D2C9}.startup-ui-v166 #rusunawa .rus-public-facility-stat-v166.risk strong{color:#8B5648}
+.startup-ui-v166 #rusunawa .rus-public-facility-chips-v166{display:flex;flex-wrap:wrap;gap:7px;padding:0 20px}
+.startup-ui-v166 #rusunawa .rus-public-facility-chip-v166{display:inline-flex;align-items:center;gap:7px;min-height:30px;padding:6px 9px;border:1px solid #DCE2DD;border-radius:999px;background:#fff;color:#536D70;font-size:11.3px;font-weight:500}.startup-ui-v166 #rusunawa .rus-public-facility-chip-v166 i{width:7px;height:7px;border-radius:50%;background:#738B85}.startup-ui-v166 #rusunawa .rus-public-facility-chip-v166.good i{background:#4D846B}.startup-ui-v166 #rusunawa .rus-public-facility-chip-v166.light i{background:#C29F58}.startup-ui-v166 #rusunawa .rus-public-facility-chip-v166.risk i{background:#A76555}
+.startup-ui-v166 #rusunawa .rus-public-narrative-v166{display:grid;grid-template-columns:48px minmax(0,1fr);gap:14px;align-content:start;padding:21px;background:linear-gradient(145deg,#28575E,#316B73);border-color:transparent;color:#fff}
+.startup-ui-v166 #rusunawa .rus-public-narrative-v166:after{content:"";position:absolute;right:-75px;bottom:-95px;width:220px;height:220px;border-radius:50%;border:30px solid rgba(211,184,129,.10);pointer-events:none}
+.startup-ui-v166 #rusunawa .rus-public-narrative-monogram-v166{position:relative;z-index:1;display:grid;place-items:center;width:48px;height:48px;border:1px solid rgba(255,255,255,.16);border-radius:15px;background:rgba(255,255,255,.08);color:#E4CF9E}.startup-ui-v166 #rusunawa .rus-public-narrative-monogram-v166 svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.startup-ui-v166 #rusunawa .rus-public-narrative-v166>div:last-child{position:relative;z-index:1}.startup-ui-v166 #rusunawa .rus-public-narrative-v166 .rus-kicker-v132{color:#E6D3AA;margin-bottom:7px}.startup-ui-v166 #rusunawa .rus-public-narrative-v166 h3{margin:0 0 9px;color:#fff;font-size:19px;font-weight:670}.startup-ui-v166 #rusunawa .rus-public-narrative-v166 p{margin:0;color:#F0F5F4;font-size:13.1px;font-weight:440;line-height:1.62}.startup-ui-v166 #rusunawa .rus-public-narrative-v166 small{display:block;margin-top:12px;color:#C8DAD7;font-size:10.9px;font-weight:420;line-height:1.5}
+body.public-mode.startup-ui-v166 #rusunawa .rus-controlbar-v132{box-shadow:none;background:#F8FAF7;border-color:#DCE2DD}
+body.public-mode.startup-ui-v166 #rusunawa .rus-controlbar-v132.rus-public-single-scope-v166{display:none!important}
+body.public-mode.startup-ui-v166 #rusunawa .rus-hero-v132{margin-bottom:14px}
+@media(max-width:1100px){.startup-ui-v166 #rusunawa .rus-public-overview-grid-v166,.startup-ui-v166 #rusunawa .rus-public-lower-grid-v166{grid-template-columns:1fr}.startup-ui-v166 #rusunawa .rus-public-occupancy-main-v166{grid-template-columns:minmax(165px,.55fr) minmax(260px,1.45fr)}}
+@media(max-width:720px){.startup-ui-v166 #rusunawa .rus-public-card-head-v166{padding:17px 16px 9px}.startup-ui-v166 #rusunawa .rus-public-card-head-v166{display:grid}.startup-ui-v166 #rusunawa .rus-public-scope-v166{justify-self:start}.startup-ui-v166 #rusunawa .rus-public-occupancy-main-v166{grid-template-columns:1fr;gap:17px;padding:10px 16px 18px}.startup-ui-v166 #rusunawa .rus-public-occupancy-number-v166 strong{font-size:46px}.startup-ui-v166 #rusunawa .rus-public-unit-segments-v166{grid-template-columns:repeat(10,1fr);gap:4px;padding:10px}.startup-ui-v166 #rusunawa .rus-public-status-grid-v166{padding:5px 15px 16px}.startup-ui-v166 #rusunawa .rus-public-facility-stats-v166{grid-template-columns:1fr;padding:5px 15px 12px}.startup-ui-v166 #rusunawa .rus-public-facility-chips-v166{padding:0 15px}.startup-ui-v166 #rusunawa .rus-public-narrative-v166{grid-template-columns:42px minmax(0,1fr);padding:17px}.startup-ui-v166 #rusunawa .rus-public-narrative-monogram-v166{width:42px;height:42px;border-radius:13px}}
+@media(max-width:430px){.startup-ui-v166 #rusunawa .rus-public-unit-segments-v166{grid-template-columns:repeat(6,1fr)}.startup-ui-v166 #rusunawa .rus-public-status-item-v166{grid-template-columns:38px minmax(0,1fr) auto;padding:9px}.startup-ui-v166 #rusunawa .rus-public-status-icon-v166{width:38px;height:38px}.startup-ui-v166 #rusunawa .rus-public-status-value-v166 strong{font-size:20px}}
+</style>
+<body class="public-mode startup-ui-v100 startup-ui-v101 startup-ui-v102 startup-ui-v103 startup-ui-v104 startup-ui-v105 startup-ui-v106 startup-ui-v107 startup-ui-v108 startup-ui-v109 startup-ui-v110 startup-ui-v111 startup-ui-v112 startup-ui-v113 startup-ui-v114 startup-ui-v115 startup-ui-v116 startup-ui-v117 startup-ui-v118 startup-ui-v120 startup-ui-v122 startup-ui-v123 startup-ui-v124 startup-ui-v125 startup-ui-v126 startup-ui-v127 startup-ui-v128 startup-ui-v129 startup-ui-v130 startup-ui-v131 startup-ui-v132 startup-ui-v133 startup-ui-v134 startup-ui-v135 startup-ui-v136 startup-ui-v137 startup-ui-v138 startup-ui-v139 startup-ui-v140 startup-ui-v141 startup-ui-v142 startup-ui-v143 startup-ui-v144 startup-ui-v145 startup-ui-v146 startup-ui-v147 startup-ui-v148 startup-ui-v149 startup-ui-v150 startup-ui-v151 startup-ui-v152 startup-ui-v153 startup-ui-v155 startup-ui-v156 startup-ui-v158 startup-ui-v159 startup-ui-v162 startup-ui-v163 startup-ui-v164 startup-ui-v165 startup-ui-v166">
 <div class="app">
 <svg aria-hidden="true" class="sirumah-nav-sprite-v149" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
 <defs>
@@ -6889,6 +6941,21 @@ body.startup-ui-v164 #laporan .report-hero-meta-v137 .hero-monogram-v164{min-wid
 </symbol>
 <symbol id="sir-hero-icon-verified-v164" viewbox="0 0 24 24">
 <path d="M12 3.2 19 6v5.2c0 4.3-2.7 7.7-7 9.6-4.3-1.9-7-5.3-7-9.6V6Z"></path><path d="m8.6 12 2.2 2.2 4.7-5"></path>
+</symbol>
+<symbol id="sir-rus-icon-occupied-v166" viewbox="0 0 24 24">
+<path d="M4 21V5l9-2v18"></path><path d="M13 8h7v13"></path><path d="M2.5 21h19"></path><path d="M7 8h2M7 12h2M7 16h2"></path><path d="m15.7 14.7 1.5 1.5 3.2-3.6"></path>
+</symbol>
+<symbol id="sir-rus-icon-vacant-v166" viewbox="0 0 24 24">
+<path d="M5 21V4.5h11V21"></path><path d="M8 7.2h5v13.5"></path><circle cx="11.2" cy="14" r=".65"></circle><path d="M3 21h18"></path><path d="m17 8 3 3-3 3M20 11h-4"></path>
+</symbol>
+<symbol id="sir-rus-icon-repair-v166" viewbox="0 0 24 24">
+<path d="M14.8 5.2a4 4 0 0 0-5.3 5.3L4 16l4 4 5.5-5.5a4 4 0 0 0 5.3-5.3l-2.7 2.7-2.2-2.2Z"></path><path d="m5.5 17.5 1 1"></path>
+</symbol>
+<symbol id="sir-rus-icon-unavailable-v166" viewbox="0 0 24 24">
+<path d="M12 3.5 21 20H3Z"></path><path d="M12 9v5"></path><path d="M12 17.2h.01"></path>
+</symbol>
+<symbol id="sir-rus-icon-facility-v166" viewbox="0 0 24 24">
+<path d="M4 20V8.5L12 4l8 4.5V20"></path><path d="M8 20v-6h8v6"></path><path d="M7 10h2M15 10h2"></path><path d="M2.5 20h19"></path>
 </symbol>
 </defs>
 </svg>
@@ -8096,9 +8163,9 @@ body.startup-ui-v164 #laporan .report-hero-meta-v137 .hero-monogram-v164{min-wid
 </div>
 <div class="rus-hero-v132">
 <div class="rus-hero-copy-v132">
-<div class="rus-kicker-v132">OPERASIONAL RUSUNAWA</div>
-<h3>Pengelolaan RUSUNAWA Kota Pangkalpinang</h3>
-<p>Hunian, pemanfaatan unit, retribusi, dan kesehatan aset dalam satu ruang kerja yang ringkas.</p>
+<div class="rus-kicker-v132" id="rusunawaHeroKickerV166">OPERASIONAL RUSUNAWA</div>
+<h3 id="rusunawaHeroTitleV166">Pengelolaan RUSUNAWA Kota Pangkalpinang</h3>
+<p id="rusunawaHeroDescV166">Hunian, pemanfaatan unit, retribusi, dan kesehatan aset dalam satu ruang kerja yang ringkas.</p>
 </div>
 <div class="rus-hero-context-v132 hero-side-stack-v164">
 <span class="hero-scope-chip-v164" id="rusunawaHeroScopeV132">Seluruh RUSUNAWA</span>
@@ -8108,7 +8175,7 @@ body.startup-ui-v164 #laporan .report-hero-meta-v137 .hero-monogram-v164{min-wid
 </div>
 </div>
 </div>
-<div class="rus-controlbar-v132">
+<div class="rus-controlbar-v132" id="rusunawaControlbarV132">
 <label class="rus-control-select-v132">
 <span>RUSUNAWA</span>
 <select id="rusunawaFilter" onchange="resetRusunawaUnitPagination()">
@@ -8136,7 +8203,65 @@ body.startup-ui-v164 #laporan .report-hero-meta-v137 .hero-monogram-v164{min-wid
 <button class="rus-reset-filter-v132 private-only" onclick="resetRusunawaUnitFilters()" type="button">Reset Filter</button>
 <button class="rus-attention-mode-chip-v132 private-only" hidden="" id="rusAttentionModeChipV132" onclick="clearRusunawaAttentionOnlyV132()" type="button">Hanya unit perhatian ×</button>
 </div>
-<div class="rus-summary-grid-v132" id="rusunawaSummaryGrid"></div>
+<div class="public-only rus-public-experience-v166" id="rusunawaPublicExperienceV166">
+  <div class="rus-public-overview-grid-v166">
+    <article class="rus-public-occupancy-v166">
+      <div class="rus-public-card-head-v166">
+        <div>
+          <div class="rus-kicker-v132">GAMBARAN HUNIAN</div>
+          <h3>Seberapa banyak unit yang sedang dihuni?</h3>
+          <p>Ringkasan pemanfaatan unit pada RUSUNAWA yang sedang dilihat.</p>
+        </div>
+        <span class="rus-public-scope-v166" id="rusPublicScopeV166">Seluruh RUSUNAWA</span>
+      </div>
+      <div class="rus-public-occupancy-main-v166">
+        <div class="rus-public-occupancy-number-v166">
+          <strong id="rusPublicOccupancyV166">0%</strong>
+          <span>unit sedang dihuni</span>
+          <small id="rusPublicOccupancyMetaV166">Belum ada data unit aktif</small>
+        </div>
+        <div class="rus-public-unit-visual-v166">
+          <div aria-hidden="true" class="rus-public-unit-segments-v166" id="rusPublicUnitSegmentsV166"></div>
+          <div class="rus-public-unit-legend-v166" id="rusPublicUnitLegendV166"></div>
+        </div>
+      </div>
+    </article>
+    <article class="rus-public-status-v166">
+      <div class="rus-public-card-head-v166 compact">
+        <div>
+          <div class="rus-kicker-v132">STATUS PEMANFAATAN</div>
+          <h3>Bagaimana unit digunakan</h3>
+          <p>Status unit ditampilkan sebagai angka agregat tanpa rincian penghuni.</p>
+        </div>
+      </div>
+      <div class="rus-public-status-grid-v166" id="rusPublicStatusGridV166"></div>
+    </article>
+  </div>
+  <div class="rus-public-lower-grid-v166">
+    <article class="rus-public-facility-v166">
+      <div class="rus-public-card-head-v166">
+        <div>
+          <div class="rus-kicker-v132">KONDISI FASILITAS</div>
+          <h3>Kondisi sarana dan prasarana yang tercatat</h3>
+          <p>Ringkasan kondisi komponen bangunan dan fasilitas bersama tanpa menampilkan catatan operasional internal.</p>
+        </div>
+        <span class="rus-public-facility-count-v166"><strong id="rusPublicFacilityCountV166">0</strong><small>komponen</small></span>
+      </div>
+      <div class="rus-public-facility-stats-v166" id="rusPublicFacilityStatsV166"></div>
+      <div class="rus-public-facility-chips-v166" id="rusPublicFacilityChipsV166"></div>
+    </article>
+    <article class="rus-public-narrative-v166">
+      <div class="rus-public-narrative-monogram-v166"><svg aria-hidden="true"><use href="#sir-icon-building-v149"></use></svg></div>
+      <div>
+        <div class="rus-kicker-v132">KONDISI SAAT INI</div>
+        <h3>Ringkasan dari data aktif</h3>
+        <p id="rusPublicNarrativeV166">Menunggu data RUSUNAWA.</p>
+        <small>Ringkasan disusun otomatis dari data yang dimuat di SIRUMAH. Data operasional rinci tetap berada pada Mode Internal.</small>
+      </div>
+    </article>
+  </div>
+</div>
+<div class="rus-summary-grid-v132 private-only" id="rusunawaSummaryGrid"></div>
 <div class="rus-insight-grid-v132 private-only">
 <article class="card rus-insight-card-v132">
 <div class="rus-card-head-v132">
@@ -8463,8 +8588,26 @@ const SIRUMAH_ACCESS_CONFIG = {
 let failedInternalPinAttempts = 0;
 let internalPinLockedUntil = 0;
 
+/* =========================================================
+   DATA NORMALIZATION — SIRUMAH v165
+   Standar missing value: blank untuk angka/tahun/tanggal;
+   state teks eksplisit tetap dipertahankan untuk keterbacaan.
+   Legacy NN tetap dikenali agar database lama tetap kompatibel.
+   ========================================================= */
+function isLegacyMissingV165(v){
+  const text=String(v ?? "").trim();
+  return !text || /^(NN|N\/A|NULL|UNDEFINED)$/i.test(text);
+}
+function isUnknownTextV165(v){
+  const text=String(v ?? "").trim();
+  return isLegacyMissingV165(text) || /^(?:-|BELUM\s+(?:DIKETAHUI|TERIDENTIFIKASI)|TIDAK\s+(?:TERSEDIA|BERLAKU))$/i.test(text);
+}
+function displayDataValueV165(v,fallback="Belum tersedia"){
+  const text=String(v ?? "").trim();
+  return isLegacyMissingV165(text) ? fallback : text;
+}
 function toNum(v){
-  if(v === null || v === undefined || v === "" || String(v).trim().toUpperCase() === "NN") return 0;
+  if(isLegacyMissingV165(v) || /^(?:BELUM\s+(?:DIKETAHUI|TERIDENTIFIKASI)|TIDAK\s+(?:TERSEDIA|BERLAKU))$/i.test(String(v ?? "").trim())) return 0;
   const n = Number(String(v).replace(",", "."));
   return Number.isFinite(n) ? n : 0;
 }
@@ -8484,7 +8627,7 @@ function normalizeRow(row, index){
   const noteParts = row.slice(14, noteEnd)
     .filter(v => typeof v === "string")
     .map(v => v.trim())
-    .filter(v => v && v.toUpperCase() !== "NN");
+    .filter(v => v && !isUnknownTextV165(v));
   const catatan = noteParts.join(" | ");
   const tahun = clean(row[2]);
   const yearNum = Number(tahun);
@@ -8500,18 +8643,18 @@ function normalizeRow(row, index){
     id:index+1,
     nama: clean(row[0]),
     kategori: clean(row[1]) || "Tidak ada kategori",
-    tahun: tahun || "NN",
-    alamat: clean(row[3]) || "NN",
-    kelurahan: clean(row[4]) || "NN",
-    kecamatan: clean(row[5]) || "NN",
-    pengembang: clean(row[6]) || "NN",
-    direktur: clean(row[7]) || "NN",
-    asosiasi: clean(row[8]) || "NN",
+    tahun: tahun || "",
+    alamat: clean(row[3]) || "Belum Diketahui",
+    kelurahan: clean(row[4]) || "Belum Diketahui",
+    kecamatan: clean(row[5]) || "Belum Diketahui",
+    pengembang: clean(row[6]) || "Belum Teridentifikasi",
+    direktur: clean(row[7]) || "Belum Teridentifikasi",
+    asosiasi: clean(row[8]) || "Belum Teridentifikasi",
     siteplan: toNum(row[9]),
     terbangun: toNum(row[10]),
     terhuni: toNum(row[11]),
     statusPSU: normStatus(row[12]) || "BELUM DISERAHKAN",
-    tahunPSU: clean(row[13]) || "NN",
+    tahunPSU: clean(row[13]) || "",
     catatan,
     lat, lng,
     age, ageCat
@@ -8848,7 +8991,7 @@ function renderTable(){
       escapeHtml(x.kecamatan),
       escapeHtml(x.kelurahan),
       escapeHtml(x.pengembang),
-      escapeHtml(x.tahun),
+      escapeHtml(displayDataValueV165(x.tahun)),
       fmt(x.siteplan),
       fmt(x.terbangun),
       fmt(x.terhuni),
@@ -10815,18 +10958,18 @@ function buildHousingFromExcel(rows){
       id: sirText(rowValue(row,"ID_PERUMAHAN")) || String(index+1),
       nama: sirText(rowValue(row,"NAMA_PERUMAHAN")) || "Tanpa Nama",
       kategori: sirText(rowValue(row,"KATEGORI")) || "Tidak ada kategori",
-      tahun: yearText || "NN",
-      alamat: sirText(rowValue(row,"ALAMAT")) || "NN",
-      kelurahan: titleCaseWords(rowValue(row,"KELURAHAN")) || "NN",
-      kecamatan: displayKecamatan(rowValue(row,"KECAMATAN")) || "NN",
-      pengembang: sirText(rowValue(row,"PENGEMBANG")) || "NN",
-      direktur: sirText(rowValue(row,"DIREKTUR_PELAKSANA","DIREKTUR/PELAKSANA")) || "-",
-      asosiasi: sirText(rowValue(row,"ASOSIASI")) || "-",
+      tahun: isUnknownTextV165(yearText) ? "" : yearText,
+      alamat: displayDataValueV165(rowValue(row,"ALAMAT"),"Belum Diketahui"),
+      kelurahan: displayDataValueV165(titleCaseWords(rowValue(row,"KELURAHAN")),"Belum Diketahui"),
+      kecamatan: displayDataValueV165(displayKecamatan(rowValue(row,"KECAMATAN")),"Belum Diketahui"),
+      pengembang: displayDataValueV165(rowValue(row,"PENGEMBANG"),"Belum Teridentifikasi"),
+      direktur: displayDataValueV165(rowValue(row,"DIREKTUR_PELAKSANA","DIREKTUR/PELAKSANA"),"Belum Teridentifikasi"),
+      asosiasi: displayDataValueV165(rowValue(row,"ASOSIASI"),"Belum Teridentifikasi"),
       siteplan: sirNumber(rowValue(row,"JUMLAH_SITEPLAN")),
       terbangun: sirNumber(rowValue(row,"JUMLAH_TERBANGUN")),
       terhuni: sirNumber(rowValue(row,"JUMLAH_TERHUNI")),
       statusPSU: normStatus(rowValue(row,"STATUS_PSU")) || "TIDAK DIKETAHUI",
-      tahunPSU: sirText(rowValue(row,"TAHUN_SERAH_TERIMA_PSU")) || "NN",
+      tahunPSU: isUnknownTextV165(rowValue(row,"TAHUN_SERAH_TERIMA_PSU")) ? "" : sirText(rowValue(row,"TAHUN_SERAH_TERIMA_PSU")),
       catatan: notes.join(" | "),
       lat: isBlankExcelValue(rowValue(row,"LATITUDE")) ? null : sirNumber(rowValue(row,"LATITUDE")),
       lng: isBlankExcelValue(rowValue(row,"LONGITUDE")) ? null : sirNumber(rowValue(row,"LONGITUDE")),
@@ -12555,8 +12698,8 @@ function getBerandaDataQualityV34(){
   const total = rows.length;
   const verified = rows.filter(row=>verificationIsValidV34(row.statusVerifikasi)).length;
   const missingCoords = rows.filter(row=>!Number.isFinite(row.lat) || !Number.isFinite(row.lng)).length;
-  const missingYear = rows.filter(row=>!row.tahun || String(row.tahun).toUpperCase()==="NN" || Number(row.tahun)<=0).length;
-  const missingDeveloper = rows.filter(row=>!row.pengembang || ["NN","-"].includes(String(row.pengembang).trim().toUpperCase())).length;
+  const missingYear = rows.filter(row=>isUnknownTextV165(row.tahun) || Number(row.tahun)<=0).length;
+  const missingDeveloper = rows.filter(row=>isUnknownTextV165(row.pengembang)).length;
   const dates = rows.map(row=>parseSirumahDateV34(row.tanggalUpdate)).filter(Boolean);
   const latest = dates.length ? new Date(Math.max(...dates.map(date=>date.getTime()))) : null;
   const staleLimit = Date.now() - (365 * 24 * 60 * 60 * 1000);
@@ -12679,7 +12822,7 @@ function renderDataQualityV34(){
     <div class="stat-row"><div><strong>Data Terverifikasi</strong><br><span>${fmt(q.verified)} dari ${fmt(q.total)} perumahan</span><div class="progress"><i style="width:${Math.min(q.verifiedPct,100)}%"></i></div></div><strong class="${verifiedClass}">${q.verifiedPct}%</strong></div>
     <div class="stat-row"><strong>Tanpa Koordinat</strong><span class="${q.missingCoords?"data-quality-warn":"data-quality-good"}">${fmt(q.missingCoords)} data</span></div>
     <div class="stat-row"><strong>Tanpa Tahun Site Plan</strong><span class="${q.missingYear?"data-quality-warn":"data-quality-good"}">${fmt(q.missingYear)} data</span></div>
-    <div class="stat-row"><strong>Tanpa Pengembang</strong><span class="${q.missingDeveloper?"data-quality-warn":"data-quality-good"}">${fmt(q.missingDeveloper)} data</span></div>
+    <div class="stat-row"><strong>Pengembang Belum Teridentifikasi</strong><span class="${q.missingDeveloper?"data-quality-warn":"data-quality-good"}">${fmt(q.missingDeveloper)} data</span></div>
     <div class="stat-row"><strong>Belum Ada Tanggal Update</strong><span class="${q.missingUpdate?"data-quality-warn":"data-quality-good"}">${fmt(q.missingUpdate)} data</span></div>
     <div class="stat-row"><strong>Update Terakhir</strong><span>${escapeHtml(latest)}</span></div>`;
 }
@@ -14715,7 +14858,7 @@ function housingProfileButtonV90(row,extraHtml=""){
   return `<button type="button" class="housing-profile-link-v90" data-housing-profile-id="${id}" onclick="openHousingProfileV90(this.dataset.housingProfileId)">${escapeHtml(row?.nama||"Tanpa Nama")}</button>${extraHtml||""}`;
 }
 
-function housingProfileValueV90(value,fallback="-"){
+function housingProfileValueV90(value,fallback="Belum tersedia"){
   const text=String(value ?? "").trim();
   return !text || /^(NN|N\/A|NULL|UNDEFINED)$/i.test(text) ? fallback : text;
 }
@@ -18393,15 +18536,52 @@ function clearRusunawaAttentionOnlyV132(){rusunawaAttentionOnlyV132=false;rusuna
 function rusunawaKpiHtmlV132(item){return `<div class="rus-kpi-v132 ${item.tone||""}"><div class="label">${escapeHtml(item.label)}</div><div class="value">${escapeHtml(String(item.value))}</div><span class="rus-kpi-note-v133">${escapeHtml(item.note||"")}</span></div>`;}
 function rusunawaClearInternalDomV132(){["rusunawaStatusDistributionV132","rusunawaConditionDistributionV132","rusunawaRevenuePulseV132","rusunawaRevenueMonthlyV132","rusunawaAttentionQueueV132","rusunawaFacilityHealthV132","rusunawaUnitHeadV132","rusunawaUnitBody","rusunawaFacilityBody"].forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML="";});const c=document.getElementById("rusunawaAttentionCountV132");if(c)c.textContent="0";const u=document.getElementById("rusunawaUnitCount");if(u)u.textContent="0";}
 
+function rusunawaPublicStatusCountsV166(units){
+  const rows=units||[];const counts={filled:0,vacant:0,repair:0,unavailable:0,other:0};
+  rows.forEach(row=>{const s=rusunawaStatusGroupV132(row?.status);if(s==="Terisi")counts.filled++;else if(s==="Kosong")counts.vacant++;else if(s==="Dalam Perbaikan")counts.repair++;else if(s==="Tidak Dapat Digunakan")counts.unavailable++;else counts.other++;});
+  return counts;
+}
+function rusunawaPublicSegmentClassesV166(counts,total,segments=30){
+  if(!total)return Array.from({length:segments},()=>"other");
+  const keys=["filled","vacant","repair","unavailable","other"],raw=keys.map(key=>({key,value:(Number(counts[key]||0)/total)*segments}));
+  const base=raw.map(item=>({key:item.key,n:Math.floor(item.value),fraction:item.value-Math.floor(item.value)}));
+  let used=base.reduce((sum,item)=>sum+item.n,0);base.sort((a,b)=>b.fraction-a.fraction);for(let i=0;i<segments-used;i++)base[i%base.length].n++;
+  const order=Object.fromEntries(base.map(item=>[item.key,item.n]));const result=[];keys.forEach(key=>{for(let i=0;i<(order[key]||0);i++)result.push(key);});
+  while(result.length<segments)result.push("other");return result.slice(0,segments);
+}
+function rusunawaPublicFacilityToneV166(condition){const group=rusunawaConditionGroupV132(condition);if(group==="Baik")return"good";if(group==="Rusak Ringan")return"light";if(group==="Rusak Sedang"||group==="Rusak Berat")return"risk";return"neutral";}
+function rusunawaRenderPublicExperienceV166(units,facilities,selected){
+  const rows=units||[],facilityRows=facilities||[],total=rows.length,counts=rusunawaPublicStatusCountsV166(rows),occupancy=pct(counts.filled,total);
+  const scopeText=selected==="all"?"Seluruh RUSUNAWA":selected;
+  const scope=document.getElementById("rusPublicScopeV166"),occ=document.getElementById("rusPublicOccupancyV166"),meta=document.getElementById("rusPublicOccupancyMetaV166");if(scope)scope.textContent=scopeText;if(occ)occ.textContent=total?`${occupancy}%`:"—";if(meta)meta.textContent=total?`${fmt(counts.filled)} dari ${fmt(total)} unit terdata`:"Belum ada data unit aktif";
+  const segments=document.getElementById("rusPublicUnitSegmentsV166");if(segments){segments.innerHTML=total?rusunawaPublicSegmentClassesV166(counts,total).map(cls=>`<span class="rus-public-unit-segment-v166 ${cls}"></span>`).join(""):`<span class="rus-public-unit-segment-v166 other"></span>`.repeat(30);}
+  const legend=document.getElementById("rusPublicUnitLegendV166");if(legend){const items=[["filled","Terisi",counts.filled],["vacant","Kosong",counts.vacant],["repair","Dalam perbaikan",counts.repair],["unavailable","Tidak dapat digunakan",counts.unavailable],["other","Lainnya",counts.other]].filter(([, ,value])=>value>0);legend.innerHTML=items.length?items.map(([cls,label,value])=>`<span><i class="${cls}"></i>${escapeHtml(label)} · ${fmt(value)}</span>`).join(""):`<span>Belum ada status unit.</span>`;}
+  const statusGrid=document.getElementById("rusPublicStatusGridV166");if(statusGrid){const items=[
+    {key:"filled",label:"Terisi",value:counts.filled,note:"unit sedang dihuni",icon:"#sir-rus-icon-occupied-v166"},
+    {key:"vacant",label:"Kosong",value:counts.vacant,note:"unit belum dihuni",icon:"#sir-rus-icon-vacant-v166"},
+    {key:"repair",label:"Dalam Perbaikan",value:counts.repair,note:"unit sedang ditangani",icon:"#sir-rus-icon-repair-v166"},
+    {key:"unavailable",label:"Tidak Dapat Digunakan",value:counts.unavailable,note:"unit tidak operasional",icon:"#sir-rus-icon-unavailable-v166"},
+    {key:"other",label:"Status Lainnya",value:counts.other,note:"status lain pada data aktif",icon:"#sir-icon-building-v149"}
+  ].filter(item=>item.value>0||["filled","vacant","unavailable"].includes(item.key));statusGrid.innerHTML=items.map(item=>`<div class="rus-public-status-item-v166 ${item.key}"><span class="rus-public-status-icon-v166"><svg aria-hidden="true"><use href="${item.icon}"></use></svg></span><span class="rus-public-status-copy-v166"><strong>${escapeHtml(item.label)}</strong><small>${escapeHtml(item.note)}</small></span><span class="rus-public-status-value-v166"><strong>${fmt(item.value)}</strong><small>unit</small></span></div>`).join("");}
+  const good=facilityRows.filter(row=>rusunawaConditionGroupV132(row.condition)==="Baik").length,light=facilityRows.filter(row=>rusunawaConditionGroupV132(row.condition)==="Rusak Ringan").length,risk=facilityRows.filter(row=>["Rusak Sedang","Rusak Berat"].includes(rusunawaConditionGroupV132(row.condition))).length,otherFacility=Math.max(0,facilityRows.length-good-light-risk);
+  const facilityCount=document.getElementById("rusPublicFacilityCountV166");if(facilityCount)facilityCount.textContent=fmt(facilityRows.length);
+  const facilityStats=document.getElementById("rusPublicFacilityStatsV166");if(facilityStats){facilityStats.innerHTML=facilityRows.length?[{label:"Baik",value:good,tone:"good"},{label:"Gangguan / Rusak Ringan",value:light,tone:"light"},{label:"Sedang / Berat",value:risk,tone:"risk"}].map(item=>`<div class="rus-public-facility-stat-v166 ${item.tone}"><span>${escapeHtml(item.label)}</span><strong>${fmt(item.value)}</strong></div>`).join(""):`<div class="rus-empty-v132">Belum ada data kondisi fasilitas.</div>`;}
+  const chips=document.getElementById("rusPublicFacilityChipsV166");if(chips){chips.innerHTML=facilityRows.length?facilityRows.map(row=>{const tone=rusunawaPublicFacilityToneV166(row.condition);return `<span class="rus-public-facility-chip-v166 ${tone}"><i></i>${escapeHtml(row.component||"Komponen")}</span>`;}).join(""):"";}
+  const narrative=document.getElementById("rusPublicNarrativeV166");if(narrative){if(!total){narrative.textContent="Belum ada data unit RUSUNAWA pada cakupan yang dipilih.";}else{const unitSentence=`Tingkat hunian tercatat ${occupancy}%, yaitu ${fmt(counts.filled)} dari ${fmt(total)} unit. ${fmt(counts.vacant)} unit tercatat kosong${counts.unavailable?` dan ${fmt(counts.unavailable)} unit tidak dapat digunakan`:""}.`;const facilitySentence=facilityRows.length?` Dari ${fmt(facilityRows.length)} komponen fasilitas yang tercatat, ${fmt(good)} berkondisi baik, ${fmt(light)} mengalami gangguan atau rusak ringan, dan ${fmt(risk)} berkondisi rusak sedang atau berat${otherFacility?`; ${fmt(otherFacility)} lainnya belum terkelompok`:""}.`:" Data kondisi fasilitas belum tersedia pada cakupan ini.";narrative.textContent=unitSentence+facilitySentence;}}
+}
+function rusunawaClearPublicDomV166(){["rusPublicUnitSegmentsV166","rusPublicUnitLegendV166","rusPublicStatusGridV166","rusPublicFacilityStatsV166","rusPublicFacilityChipsV166"].forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML="";});}
+
 function renderRusunawa(){
-  const selected=document.getElementById("rusunawaFilter")?.value||"all";const matches=row=>selected==="all"||row.name===selected;const units=(SIRUMAH_RUNTIME?.rusunawaUnits||[]).filter(matches);const totalUnits=units.length,filled=units.filter(row=>rusunawaStatusGroupV132(row.status)==="Terisi").length,vacant=units.filter(row=>rusunawaStatusGroupV132(row.status)==="Kosong").length,unavailable=units.filter(row=>rusunawaStatusGroupV132(row.status)==="Tidak Dapat Digunakan").length,occupancy=pct(filled,totalUnits);
-  const scope=document.getElementById("rusunawaHeroScopeV132"),context=document.getElementById("rusunawaHeroContextV132"),heroTotal=document.getElementById("rusunawaHeroTotalV164");if(scope)scope.textContent=selected==="all"?"Seluruh RUSUNAWA":selected;if(heroTotal)heroTotal.textContent=totalUnits?`${fmt(totalUnits)} unit`:"—";if(context)context.textContent=totalUnits?`${fmt(filled)} terisi`:"Belum ada data unit aktif";
+  const selected=document.getElementById("rusunawaFilter")?.value||"all";const matches=row=>selected==="all"||row.name===selected;const units=(SIRUMAH_RUNTIME?.rusunawaUnits||[]).filter(matches);const facilities=(SIRUMAH_RUNTIME?.rusunawaFacilities||[]).filter(matches);const totalUnits=units.length,filled=units.filter(row=>rusunawaStatusGroupV132(row.status)==="Terisi").length,vacant=units.filter(row=>rusunawaStatusGroupV132(row.status)==="Kosong").length,unavailable=units.filter(row=>rusunawaStatusGroupV132(row.status)==="Tidak Dapat Digunakan").length,occupancy=pct(filled,totalUnits);
+  const scope=document.getElementById("rusunawaHeroScopeV132"),context=document.getElementById("rusunawaHeroContextV132"),heroTotal=document.getElementById("rusunawaHeroTotalV164"),heroKicker=document.getElementById("rusunawaHeroKickerV166"),heroTitle=document.getElementById("rusunawaHeroTitleV166"),heroDesc=document.getElementById("rusunawaHeroDescV166");if(scope)scope.textContent=selected==="all"?"Seluruh RUSUNAWA":selected;if(heroTotal)heroTotal.textContent=totalUnits?`${fmt(totalUnits)} unit`:"—";if(context)context.textContent=totalUnits?`${fmt(filled)} terisi`:"Belum ada data unit aktif";if(heroKicker)heroKicker.textContent=publicMode?"HUNIAN RUSUNAWA KOTA":"OPERASIONAL RUSUNAWA";if(heroTitle)heroTitle.textContent=publicMode?"Hunian RUSUNAWA Kota Pangkalpinang":"Pengelolaan RUSUNAWA Kota Pangkalpinang";if(heroDesc)heroDesc.textContent=publicMode?"Melihat tingkat pemanfaatan unit dan kondisi fasilitas RUSUNAWA yang tercatat di SIRUMAH.":"Hunian, pemanfaatan unit, retribusi, dan kesehatan aset dalam satu ruang kerja yang ringkas.";
+  const uniqueNames=[...new Set((SIRUMAH_RUNTIME?.rusunawaUnits||[]).map(row=>String(row.name||"").trim()).filter(Boolean))],controlbar=document.getElementById("rusunawaControlbarV132");if(controlbar)controlbar.classList.toggle("rus-public-single-scope-v166",publicMode&&uniqueNames.length<=1);
   const summary=document.getElementById("rusunawaSummaryGrid");
   if(publicMode){
-    if(summary){const items=[{label:"Tingkat Hunian",value:`${occupancy}%`,note:`${fmt(filled)} dari ${fmt(totalUnits)} unit terisi`,tone:"anchor"},{label:"Jumlah Unit",value:fmt(totalUnits),note:"unit RUSUNAWA terdata",tone:"strategic"},{label:"Unit Terisi",value:fmt(filled),note:"unit sedang dihuni"},{label:"Unit Kosong",value:fmt(vacant),note:"unit belum dihuni",tone:"alert"}];summary.innerHTML=items.map(rusunawaKpiHtmlV132).join("");}
+    if(summary)summary.innerHTML="";rusunawaRenderPublicExperienceV166(units,facilities,selected);
     rusunawaAttentionOnlyV132=false;rusunawaClearInternalDomV132();closeRusunawaUnitDetailV132();return;
   }
-  const payments=getCurrentYearRusunawaPayments(SIRUMAH_RUNTIME?.rusunawaPayments||[]).filter(matches),facilities=(SIRUMAH_RUNTIME?.rusunawaFacilities||[]).filter(matches),target=sumAnnualRusunawaTargets(payments),realization=rusunawaMonthlyDataV132(payments).reduce((sum,row)=>sum+Number(row.realization||0),0),achievement=target>0?pct(realization,target):null;
+  rusunawaClearPublicDomV166();
+  const payments=getCurrentYearRusunawaPayments(SIRUMAH_RUNTIME?.rusunawaPayments||[]).filter(matches),target=sumAnnualRusunawaTargets(payments),realization=rusunawaMonthlyDataV132(payments).reduce((sum,row)=>sum+Number(row.realization||0),0),achievement=target>0?pct(realization,target):null;
   if(summary){const items=[{label:"Tingkat Hunian",value:`${occupancy}%`,note:`${fmt(filled)} dari ${fmt(totalUnits)} unit terisi`,tone:"anchor"},{label:`Kinerja Retribusi ${CURRENT_YEAR}`,value:achievement===null?"—":`${achievement}%`,note:target>0?`${rupiah(realization)} dari target ${rupiah(target)}`:`Target tahunan ${CURRENT_YEAR} belum tersedia`,tone:"strategic"},{label:"Unit Kosong",value:fmt(vacant),note:"unit belum dihuni"},{label:"Tidak Dapat Digunakan",value:fmt(unavailable),note:"unit berstatus tidak operasional",tone:"alert"}];summary.innerHTML=items.map(rusunawaKpiHtmlV132).join("");}
   rusunawaUpdateFilterLabelsV132();rusunawaRenderDistributionV132(units);rusunawaRenderRevenueV132(payments);rusunawaRenderAttentionV132(units);rusunawaRenderFacilityHealthV132(facilities);
 
@@ -20659,5 +20839,16 @@ body.startup-ui-v164 #integrasi .integration-system-status-v136:before{content:n
 </style>
 <!-- SIRUMAH v164 — Hero Monogram System -->
 
+
+<script id="v165-data-normalization-note">
+/* SIRUMAH v165 — pasangan database v27.
+   UI tetap mengenali legacy NN, namun runtime baru menggunakan blank untuk angka/tahun/tanggal
+   dan state teks eksplisit seperti Belum Diketahui / Belum Teridentifikasi. */
+</script>
+
+<script id="v166-rusunawa-public-note">
+/* SIRUMAH v166 — RUSUNAWA Public Experience.
+   Database remains v27; no schema or business-data mutation. */
+</script>
 </body>
 </html>
