@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
-<title>SIRUMAH - Kota Pangkal Pinang</title>
+<title>SIRUMAH Kota Pangkal Pinang v171 — Spatial Toggle Alignment Refinement</title>
 <link crossorigin="" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" rel="stylesheet"/>
 <style>
     :root{
@@ -6676,6 +6676,150 @@ body.startup-ui-v164 #laporan .report-hero-meta-v137 .hero-monogram-v164{min-wid
 }
 </style>
 
+
+<style>
+/* =========================================================
+   SIRUMAH v169 — SPATIAL INTELLIGENCE EXPERIENCE
+   Floating controls, quieter basemap, progressive disclosure,
+   compact live insight. Data/layer logic remains unchanged.
+   ========================================================= */
+.startup-ui-v169 #data-perumahan .spatial-intelligence-v169{
+  position:relative;overflow:hidden;border:1px solid rgba(43,92,99,.11)!important;
+  border-radius:26px!important;background:#E7ECE9!important;
+  box-shadow:0 18px 44px rgba(23,59,64,.075)!important
+}
+.startup-ui-v169 #data-perumahan .spatial-map-head-v169{
+  position:relative;z-index:720;display:flex;align-items:center;justify-content:space-between;
+  gap:24px;padding:18px 20px 16px!important;border:0!important;
+  background:linear-gradient(180deg,#FCFCFA 0%,#F6F6F2 100%)!important
+}
+.startup-ui-v169 #data-perumahan .spatial-map-title-v169{min-width:0}.startup-ui-v169 #data-perumahan .spatial-map-title-v169 h3{margin:0!important;font-size:20px!important;font-weight:680!important;letter-spacing:-.22px!important}.startup-ui-v169 #data-perumahan .spatial-map-title-v169 p{margin:4px 0 0!important;color:#657779!important;font-size:11.8px!important;font-weight:430!important;line-height:1.45!important}
+.startup-ui-v169 #data-perumahan .spatial-map-actions-v169{flex:0 0 auto;display:flex!important;gap:7px!important}
+.startup-ui-v169 #data-perumahan .spatial-action-v169{display:inline-flex!important;align-items:center;gap:7px;min-height:36px!important;padding:7px 10px!important;border:1px solid #D7DEDA!important;border-radius:12px!important;background:rgba(255,255,255,.82)!important;color:#315B61!important;font-size:11.5px!important;font-weight:620!important;box-shadow:none!important;transition:background .16s ease,border-color .16s ease,transform .16s ease}
+.startup-ui-v169 #data-perumahan .spatial-action-v169:hover{background:#EEF3F0!important;border-color:#BFCFCB!important;transform:translateY(-1px)}.startup-ui-v169 #data-perumahan .spatial-action-v169 svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.startup-ui-v169 #data-perumahan .spatial-info-popover-v169{position:absolute;right:20px;top:76px;z-index:950;display:grid;grid-template-columns:38px minmax(0,1fr);gap:11px;width:min(480px,calc(100% - 40px));margin:0!important;padding:13px 14px!important;border:1px solid rgba(43,92,99,.16)!important;border-radius:16px!important;background:rgba(250,250,247,.96)!important;box-shadow:0 18px 46px rgba(23,59,64,.17)!important;backdrop-filter:blur(16px) saturate(.9)}
+.startup-ui-v169 #data-perumahan .spatial-info-popover-v169[hidden]{display:none!important}.startup-ui-v169 #data-perumahan .spatial-info-icon-v169{display:grid;place-items:center;width:38px;height:38px;border:1px solid #D4DEDA;border-radius:12px;background:#EEF3F0;color:#376C73}.startup-ui-v169 #data-perumahan .spatial-info-icon-v169 svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.startup-ui-v169 #data-perumahan .spatial-info-popover-v169 strong{font-size:12px!important;font-weight:660!important}.startup-ui-v169 #data-perumahan .spatial-info-popover-v169 p{margin-top:4px!important;font-size:11.4px!important;line-height:1.52!important;color:#5F7173!important}
+.startup-ui-v169 #data-perumahan .spatial-map-layout-v169{position:relative;display:block!important;min-height:640px!important;border-top:1px solid rgba(43,92,99,.09)!important;background:#E6ECE8!important}
+.startup-ui-v169 #data-perumahan .spatial-map-stage-v169{position:relative!important;min-height:640px!important;background:#E6ECE8!important}.startup-ui-v169 #data-perumahan .spatial-map-stage-v169 #map{height:clamp(620px,68vh,760px)!important;min-height:640px!important;margin:0!important;border:0!important;border-radius:0!important;background:#E6ECE8!important}
+.startup-ui-v169 #data-perumahan .spatial-map-stage-v169 .leaflet-tile-pane{filter:saturate(.70) contrast(.93) brightness(1.035)}.startup-ui-v169 #data-perumahan .spatial-map-stage-v169 .leaflet-interactive{transition:filter .16s ease,opacity .16s ease}.startup-ui-v169 #data-perumahan .spatial-map-stage-v169 .leaflet-interactive:hover{filter:drop-shadow(0 0 5px rgba(26,99,114,.42))}
+.startup-ui-v169 #data-perumahan .spatial-map-stage-v169 .leaflet-top.leaflet-left{left:276px!important;top:12px!important}.startup-ui-v169 #data-perumahan .spatial-map-stage-v169 .leaflet-control-zoom{overflow:hidden;border:1px solid rgba(43,92,99,.15)!important;border-radius:12px!important;box-shadow:0 8px 22px rgba(23,59,64,.12)!important}.startup-ui-v169 #data-perumahan .spatial-map-stage-v169 .leaflet-control-zoom a{width:34px!important;height:34px!important;line-height:32px!important;border-color:#E0E5E1!important;background:rgba(252,252,249,.94)!important;color:#315C62!important;font-size:18px!important}.startup-ui-v169 #data-perumahan .spatial-map-stage-v169 .leaflet-control-attribution{background:rgba(252,252,249,.72)!important;color:#687B7D!important;font-size:9.5px!important;backdrop-filter:blur(8px)}
+.startup-ui-v169 #data-perumahan .spatial-control-rail-v169{position:absolute!important;left:16px;top:16px;bottom:16px;z-index:700;width:244px;max-height:calc(100% - 32px);padding:12px!important;border:1px solid rgba(255,255,255,.72)!important;border-radius:19px!important;background:rgba(248,248,245,.90)!important;box-shadow:0 16px 40px rgba(23,59,64,.14)!important;backdrop-filter:blur(16px) saturate(.86);overflow:auto!important;scrollbar-width:thin;scrollbar-color:#9EAAA6 transparent}
+.startup-ui-v169 #data-perumahan .spatial-rail-head-v169{display:grid;grid-template-columns:38px minmax(0,1fr);gap:10px;align-items:center;margin-bottom:12px;padding:1px 2px 11px;border-bottom:1px solid rgba(43,92,99,.11)}.startup-ui-v169 #data-perumahan .spatial-rail-monogram-v169{display:grid;place-items:center;width:38px;height:38px;border:1px solid rgba(43,92,99,.13);border-radius:12px;background:rgba(228,236,233,.82);color:#315F65}.startup-ui-v169 #data-perumahan .spatial-rail-monogram-v169 svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.startup-ui-v169 #data-perumahan .spatial-rail-head-v169 strong{display:block;color:#244F55;font-size:12.8px;font-weight:680}.startup-ui-v169 #data-perumahan .spatial-rail-head-v169 small{display:block;margin-top:2px;color:#748284;font-size:9.9px;font-weight:430;line-height:1.3}
+.startup-ui-v169 #data-perumahan .spatial-layer-list-v169{margin:0!important;padding:0!important;border:0!important}.startup-ui-v169 #data-perumahan .spatial-layer-list-v169 .housing-layer-group-label-v96{margin:10px 2px 6px!important;color:#778688!important;font-size:9.2px!important;font-weight:700!important;letter-spacing:.85px!important;text-transform:uppercase}.startup-ui-v169 #data-perumahan .spatial-layer-list-v169 .housing-layer-group-label-v96:first-child{margin-top:0!important}
+.startup-ui-v169 #data-perumahan .housing-layer-toggle-v92.compact-v115{margin:0 0 5px!important}.startup-ui-v169 #data-perumahan .housing-layer-toggle-v92.compact-v115>span{position:relative;display:grid!important;grid-template-columns:15px minmax(0,1fr) 30px!important;column-gap:8px!important;align-items:center!important;min-height:41px;padding:7px 8px!important;border:1px solid transparent!important;border-radius:12px!important;background:transparent!important;box-shadow:none!important;transform:none!important;transition:background .14s ease,border-color .14s ease!important}.startup-ui-v169 #data-perumahan .housing-layer-toggle-v92.compact-v115>span:hover{background:rgba(228,236,233,.60)!important}.startup-ui-v169 #data-perumahan .housing-layer-toggle-v92.compact-v115>span:after{content:""!important;position:relative!important;right:auto!important;top:auto!important;transform:none!important;justify-self:end;width:28px;height:16px;min-width:28px!important;padding:0!important;border-radius:999px!important;background:#CBD4D1!important;box-shadow:inset 0 0 0 1px rgba(43,92,99,.08);transition:background .15s ease!important}.startup-ui-v169 #data-perumahan .housing-layer-toggle-v92.compact-v115>span:before{content:"";position:absolute;right:22px;top:50%;z-index:2;width:12px;height:12px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(23,59,64,.25);transform:translateY(-50%);transition:transform .15s ease}
+.startup-ui-v169 #data-perumahan .housing-layer-toggle-v92.compact-v115 input:checked+span{background:rgba(224,236,232,.82)!important;border-color:rgba(43,92,99,.10)!important;color:#244F55!important;box-shadow:none!important;transform:none!important}.startup-ui-v169 #data-perumahan .housing-layer-toggle-v92.compact-v115 input:checked+span:after{content:""!important;background:#39747B!important;padding:0!important}.startup-ui-v169 #data-perumahan .housing-layer-toggle-v92.compact-v115 input:checked+span:before{transform:translate(12px,-50%)}.startup-ui-v169 #data-perumahan .housing-layer-toggle-v92.compact-v115 input:checked+span b{color:#244F55!important}.startup-ui-v169 #data-perumahan .housing-layer-toggle-v92.compact-v115 input:checked+span small{color:#617678!important}.startup-ui-v169 #data-perumahan .housing-layer-toggle-v92.compact-v115 b{color:#3C5D61!important;font-size:10.8px!important;font-weight:610!important;line-height:1.25!important}.startup-ui-v169 #data-perumahan .housing-layer-toggle-v92.compact-v115 small{grid-column:2!important;color:#7B898A!important;font-size:9.4px!important;line-height:1.25!important}.startup-ui-v169 #data-perumahan .housing-layer-symbol-v92{width:9px!important;height:9px!important;margin:0!important;border:1.5px solid rgba(255,255,255,.95)!important;box-shadow:0 0 0 1px rgba(43,92,99,.23)!important}
+.startup-ui-v169 #data-perumahan .spatial-road-details-v169{margin:5px 0!important;border:1px solid transparent!important;border-radius:12px!important;background:transparent!important;box-shadow:none!important}.startup-ui-v169 #data-perumahan .spatial-road-details-v169>summary{padding:8px!important;border-radius:11px!important}.startup-ui-v169 #data-perumahan .spatial-road-details-v169>summary:hover{background:rgba(228,236,233,.58)!important}.startup-ui-v169 #data-perumahan .spatial-road-details-v169>summary b{font-size:10.8px!important;font-weight:610!important}.startup-ui-v169 #data-perumahan .spatial-road-details-v169>summary small{font-size:9.4px!important}.startup-ui-v169 #data-perumahan .spatial-road-details-v169:has(input:checked){background:rgba(228,236,233,.58)!important;border-color:rgba(43,92,99,.09)!important}
+.startup-ui-v169 #data-perumahan .spatial-quick-v169{margin-top:10px;border-top:1px solid rgba(43,92,99,.11);padding-top:9px}.startup-ui-v169 #data-perumahan .spatial-quick-v169>summary{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 2px;color:#526B6E;cursor:pointer;list-style:none}.startup-ui-v169 #data-perumahan .spatial-quick-v169>summary::-webkit-details-marker{display:none}.startup-ui-v169 #data-perumahan .spatial-quick-v169>summary span{font-size:10.8px;font-weight:650}.startup-ui-v169 #data-perumahan .spatial-quick-v169>summary small{padding:3px 6px;border-radius:999px;background:#ECECE7;color:#768284;font-size:8.8px;font-weight:620}.startup-ui-v169 #data-perumahan .spatial-preset-grid-v169{display:grid!important;gap:4px!important;margin-top:5px}.startup-ui-v169 #data-perumahan .spatial-preset-grid-v169 button{min-height:31px;padding:6px 8px!important;border:1px solid transparent!important;border-radius:9px!important;background:rgba(255,255,255,.55)!important;color:#5C7072!important;font-size:9.8px!important;font-weight:560!important}.startup-ui-v169 #data-perumahan .spatial-preset-grid-v169 button:hover{border-color:#CCD8D4!important;background:#fff!important;color:#2D5C62!important}
+.startup-ui-v169 #data-perumahan .spatial-scope-v169{margin-top:9px;padding-top:10px;border-top:1px solid rgba(43,92,99,.11)}.startup-ui-v169 #data-perumahan .spatial-scope-v169>span{display:block;color:#849091;font-size:8.8px;font-weight:700;letter-spacing:.65px;text-transform:uppercase}.startup-ui-v169 #data-perumahan .spatial-scope-v169>strong{display:block;margin-top:3px;color:#355C61;font-size:10.8px;font-weight:650}.startup-ui-v169 #data-perumahan .spatial-scope-v169 small{margin-top:3px!important;color:#7A898A!important;font-size:9.1px!important;line-height:1.35!important}
+.startup-ui-v169 #data-perumahan .spatial-status-v169{left:auto!important;right:16px!important;top:16px!important;bottom:auto!important;z-index:690!important;max-width:390px!important;padding:7px 10px!important;border:1px solid rgba(255,255,255,.78)!important;border-radius:999px!important;background:rgba(248,248,245,.88)!important;color:#466368!important;box-shadow:0 8px 22px rgba(23,59,64,.11)!important;font-size:9.8px!important;font-weight:610!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;backdrop-filter:blur(12px)}.startup-ui-v169 #data-perumahan .spatial-status-v169.ok{color:#35654B!important;border-color:rgba(142,193,159,.55)!important}.startup-ui-v169 #data-perumahan .spatial-status-v169.warn{color:#8C6334!important;border-color:rgba(213,184,129,.62)!important}
+.startup-ui-v169 #data-perumahan .spatial-insight-v169{position:absolute!important;left:auto!important;right:16px!important;bottom:16px!important;z-index:690!important;display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;align-items:end!important;gap:17px!important;width:min(490px,calc(100% - 310px));margin:0!important;padding:13px 14px!important;border:1px solid rgba(255,255,255,.76)!important;border-radius:18px!important;background:rgba(247,248,244,.90)!important;box-shadow:0 16px 42px rgba(23,59,64,.14)!important;backdrop-filter:blur(16px) saturate(.86)}.startup-ui-v169 #data-perumahan .spatial-insight-copy-v169>span{display:block;color:#2F7179;font-size:8.7px;font-weight:760;letter-spacing:.9px}.startup-ui-v169 #data-perumahan .spatial-insight-copy-v169>strong{display:block;margin-top:3px;color:#234F55;font-size:14.2px;font-weight:680;letter-spacing:-.1px}.startup-ui-v169 #data-perumahan .spatial-insight-copy-v169>small{display:block;margin-top:3px;color:#667A7C;font-size:9.7px;font-weight:430;line-height:1.35}.startup-ui-v169 #data-perumahan .spatial-insight-copy-v169>em{display:block;margin-top:5px;color:#819091;font-size:8.8px;font-style:normal;font-weight:520}.startup-ui-v169 #data-perumahan .spatial-insight-metrics-v169{display:flex;gap:7px}.startup-ui-v169 #data-perumahan .spatial-insight-metrics-v169>div{min-width:75px;padding:8px 9px;border:1px solid #D9E2DE;border-radius:12px;background:rgba(255,255,255,.72)}.startup-ui-v169 #data-perumahan .spatial-insight-metrics-v169>div.missing{background:rgba(244,239,228,.74);border-color:#E3D6BB}.startup-ui-v169 #data-perumahan .spatial-insight-metrics-v169 strong{display:block;color:#285B62;font-size:16px;font-weight:700;line-height:1}.startup-ui-v169 #data-perumahan .spatial-insight-metrics-v169 span{display:block;margin-top:4px;color:#748284;font-size:8.4px;font-weight:520;line-height:1.2}
+.startup-ui-v169 #data-perumahan .spatial-legend-host-v169{position:absolute;left:276px;bottom:16px;z-index:690;padding:0!important;background:transparent!important;border:0!important}.startup-ui-v169 #data-perumahan .spatial-legend-v169{position:relative}.startup-ui-v169 #data-perumahan .spatial-legend-v169>summary{display:flex;align-items:center;gap:7px;min-height:36px;padding:7px 10px;border:1px solid rgba(255,255,255,.78);border-radius:13px;background:rgba(248,248,245,.90);color:#426267;box-shadow:0 10px 28px rgba(23,59,64,.12);cursor:pointer;list-style:none;backdrop-filter:blur(12px)}.startup-ui-v169 #data-perumahan .spatial-legend-v169>summary::-webkit-details-marker{display:none}.startup-ui-v169 #data-perumahan .spatial-legend-icon-v169{display:grid;place-items:center;color:#376B72}.startup-ui-v169 #data-perumahan .spatial-legend-icon-v169 svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.startup-ui-v169 #data-perumahan .spatial-legend-v169>summary strong{font-size:9.8px;font-weight:660}.startup-ui-v169 #data-perumahan .spatial-legend-v169>summary small{color:#7B8889;font-size:8.5px;font-weight:540}.startup-ui-v169 #data-perumahan .spatial-legend-preview-v169{display:flex;gap:3px;margin-left:1px}.startup-ui-v169 #data-perumahan .spatial-legend-preview-v169 i{width:7px;height:7px;border-radius:50%;background:var(--legend-color);box-shadow:0 0 0 1px rgba(255,255,255,.8)}.startup-ui-v169 #data-perumahan .spatial-legend-body-v169{position:absolute;left:0;bottom:calc(100% + 7px);display:grid!important;min-width:190px;max-width:245px;gap:4px!important;padding:8px!important;border:1px solid rgba(255,255,255,.78);border-radius:14px;background:rgba(248,248,245,.96);box-shadow:0 16px 38px rgba(23,59,64,.16);backdrop-filter:blur(16px)}.startup-ui-v169 #data-perumahan .spatial-legend-body-v169 span{display:flex!important;align-items:center!important;gap:7px!important;min-height:27px;padding:4px 6px!important;border:0!important;border-radius:8px!important;background:transparent!important;color:#526B6E!important;font-size:9.3px!important;font-weight:520!important}.startup-ui-v169 #data-perumahan .spatial-legend-body-v169 .dot{width:8px!important;height:8px!important;border-radius:50%!important}.startup-ui-v169 #data-perumahan .spatial-legend-empty-v169{color:#819091!important;font-style:italic}
+#housingMapModule:fullscreen.startup-ui-v169,#housingMapModule:fullscreen{background:#E6ECE8!important}.startup-ui-v169 #housingMapModule:fullscreen .spatial-map-layout-v169,.startup-ui-v169 #housingMapModule:fullscreen .spatial-map-stage-v169{height:100%;min-height:0!important}.startup-ui-v169 #housingMapModule:fullscreen .spatial-map-stage-v169 #map{height:100%!important;min-height:0!important}
+@media(max-width:1050px){.startup-ui-v169 #data-perumahan .spatial-control-rail-v169{width:224px}.startup-ui-v169 #data-perumahan .spatial-map-stage-v169 .leaflet-top.leaflet-left{left:256px!important}.startup-ui-v169 #data-perumahan .spatial-legend-host-v169{left:256px}.startup-ui-v169 #data-perumahan .spatial-insight-v169{width:min(450px,calc(100% - 290px))}}
+@media(max-width:900px){.startup-ui-v169 #data-perumahan .spatial-map-layout-v169{display:grid!important;grid-template-columns:1fr!important;min-height:0!important}.startup-ui-v169 #data-perumahan .spatial-control-rail-v169{position:relative!important;left:auto;top:auto;bottom:auto;z-index:5;width:auto;max-height:none;margin:12px 12px 0;padding:11px!important;border-color:#D7DFDB!important;border-radius:17px!important;background:#F7F7F3!important;box-shadow:none!important;backdrop-filter:none}.startup-ui-v169 #data-perumahan .spatial-layer-list-v169{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px 7px}.startup-ui-v169 #data-perumahan .spatial-layer-list-v169 .housing-layer-group-label-v96{grid-column:1/-1}.startup-ui-v169 #data-perumahan .spatial-road-details-v169{grid-column:1/-1}.startup-ui-v169 #data-perumahan .spatial-map-stage-v169{min-height:520px!important}.startup-ui-v169 #data-perumahan .spatial-map-stage-v169 #map{height:540px!important;min-height:540px!important}.startup-ui-v169 #data-perumahan .spatial-map-stage-v169 .leaflet-top.leaflet-left{left:0!important;top:0!important}.startup-ui-v169 #data-perumahan .spatial-status-v169{top:12px!important;right:12px!important;max-width:calc(100% - 70px)!important}.startup-ui-v169 #data-perumahan .spatial-insight-v169{left:12px!important;right:12px!important;bottom:12px!important;width:auto!important}.startup-ui-v169 #data-perumahan .spatial-legend-host-v169{left:12px!important;bottom:130px!important}.startup-ui-v169 #data-perumahan .spatial-quick-v169,.startup-ui-v169 #data-perumahan .spatial-scope-v169{grid-column:1/-1}}
+@media(max-width:650px){.startup-ui-v169 #data-perumahan .spatial-map-head-v169{align-items:flex-start;flex-direction:column;padding:16px!important}.startup-ui-v169 #data-perumahan .spatial-map-actions-v169{display:grid!important;grid-template-columns:1fr 1fr;width:100%}.startup-ui-v169 #data-perumahan .spatial-action-v169{justify-content:center}.startup-ui-v169 #data-perumahan .spatial-info-popover-v169{position:relative;right:auto;top:auto;width:auto;margin:0 12px 10px!important}.startup-ui-v169 #data-perumahan .spatial-layer-list-v169{grid-template-columns:1fr}.startup-ui-v169 #data-perumahan .spatial-map-stage-v169 #map{height:480px!important;min-height:480px!important}.startup-ui-v169 #data-perumahan .spatial-insight-v169{display:block!important;padding:11px!important}.startup-ui-v169 #data-perumahan .spatial-insight-metrics-v169{margin-top:9px}.startup-ui-v169 #data-perumahan .spatial-insight-metrics-v169>div{flex:1}.startup-ui-v169 #data-perumahan .spatial-legend-host-v169{bottom:164px!important}.startup-ui-v169 #data-perumahan .spatial-status-v169{font-size:9px!important}}
+</style>
+
+
+<style>
+/* =========================================================
+   SIRUMAH v170 — SPATIAL OBJECT CARD
+   High-end Leaflet object card; housing name is the single
+   internal navigation target to Profil Perumahan.
+   ========================================================= */
+.startup-ui-v170 #data-perumahan .sir-spatial-popup-shell-v170 .leaflet-popup-content-wrapper{
+  overflow:hidden;padding:0;border:1px solid rgba(43,92,99,.13);border-radius:20px;
+  background:rgba(252,252,249,.985);box-shadow:0 22px 55px rgba(23,59,64,.19);
+  backdrop-filter:blur(18px) saturate(.92)
+}
+.startup-ui-v170 #data-perumahan .sir-spatial-popup-shell-v170 .leaflet-popup-content{margin:0!important;width:auto!important;min-width:330px}
+.startup-ui-v170 #data-perumahan .sir-spatial-popup-shell-v170 .leaflet-popup-tip{background:#FCFCF9;box-shadow:3px 3px 8px rgba(23,59,64,.07)}
+.startup-ui-v170 #data-perumahan .sir-spatial-popup-shell-v170 .leaflet-popup-close-button{
+  top:10px!important;right:10px!important;z-index:5;width:30px!important;height:30px!important;
+  display:grid!important;place-items:center;padding:0!important;border:1px solid transparent!important;border-radius:10px!important;
+  color:#738183!important;background:rgba(252,252,249,.82)!important;font-size:20px!important;font-weight:350!important;line-height:28px!important;
+  transition:background .16s ease,color .16s ease,border-color .16s ease
+}
+.startup-ui-v170 #data-perumahan .sir-spatial-popup-shell-v170 .leaflet-popup-close-button:hover{background:#EEF3F0!important;border-color:#D8E1DD!important;color:#315D63!important}
+.startup-ui-v170 #data-perumahan .spatial-object-card-v170{min-width:330px;padding:17px 17px 16px;color:#304F54;line-height:1.4}
+.startup-ui-v170 #data-perumahan .spatial-object-head-v170{display:grid;grid-template-columns:42px minmax(0,1fr);gap:11px;align-items:center;padding-right:31px}
+.startup-ui-v170 #data-perumahan .spatial-object-monogram-v170{display:grid;place-items:center;width:42px;height:42px;border:1px solid #D3DEDA;border-radius:13px;background:linear-gradient(145deg,#EEF3F0,#F8F7F2);color:#3B6C72}
+.startup-ui-v170 #data-perumahan .spatial-object-monogram-v170 svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.startup-ui-v170 #data-perumahan .spatial-object-heading-v170{min-width:0}
+.startup-ui-v170 #data-perumahan .spatial-object-title-v170{appearance:none;display:inline-flex;align-items:center;gap:5px;max-width:100%;margin:0;padding:0;border:0;background:transparent;color:#214F57;font:inherit;font-size:15.5px;font-weight:690;letter-spacing:-.12px;text-align:left;cursor:pointer;text-decoration:none;transition:color .16s ease}
+.startup-ui-v170 #data-perumahan .spatial-object-title-v170:hover,.startup-ui-v170 #data-perumahan .spatial-object-title-v170:focus-visible{color:#0F7282;outline:none}
+.startup-ui-v170 #data-perumahan .spatial-object-title-v170 svg{flex:0 0 auto;width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;opacity:.68;transition:transform .16s ease,opacity .16s ease}
+.startup-ui-v170 #data-perumahan .spatial-object-title-v170:hover svg{transform:translate(1px,-1px);opacity:1}
+.startup-ui-v170 #data-perumahan .spatial-object-location-v170{display:flex;align-items:center;gap:5px;margin-top:3px;color:#6C7B7D;font-size:11.8px;font-weight:430;white-space:normal}.startup-ui-v170 #data-perumahan .spatial-object-location-v170 span{color:#A1ADAA}
+.startup-ui-v170 #data-perumahan .spatial-object-status-v170{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.startup-ui-v170 #data-perumahan .spatial-object-status-v170>span{display:inline-flex;align-items:center;gap:6px;min-height:28px;padding:5px 8px;border:1px solid #DCE4DF;border-radius:999px;background:#F7F9F6;color:#5B7072;font-size:10.8px;font-weight:590;line-height:1.15}
+.startup-ui-v170 #data-perumahan .spatial-object-status-v170 i{width:7px;height:7px;border-radius:50%;background:#8D9B97}.startup-ui-v170 #data-perumahan .spatial-object-status-v170 .ok{background:#EFF8F1;border-color:#CEE7D4;color:#2C7047}.startup-ui-v170 #data-perumahan .spatial-object-status-v170 .ok i{background:#3C9A61}.startup-ui-v170 #data-perumahan .spatial-object-status-v170 .pending{background:#FAF4E8;border-color:#E9D8B4;color:#81642C}.startup-ui-v170 #data-perumahan .spatial-object-status-v170 .pending i{background:#C99A3C}
+.startup-ui-v170 #data-perumahan .spatial-object-status-v170 svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round}.startup-ui-v170 #data-perumahan .spatial-object-status-v170 .available{color:#3A6B72;background:#EEF5F3;border-color:#D3E3DF}
+.startup-ui-v170 #data-perumahan .spatial-object-metrics-v170{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:12px;padding:9px;border:1px solid #E0E5E1;border-radius:15px;background:#F6F7F3}
+.startup-ui-v170 #data-perumahan .spatial-object-metrics-v170>div{min-width:0;padding:5px 7px;border-right:1px solid #DDE3DE}.startup-ui-v170 #data-perumahan .spatial-object-metrics-v170>div:last-child{border-right:0}
+.startup-ui-v170 #data-perumahan .spatial-object-metrics-v170 strong{display:block;color:#285B62;font-size:19px;font-weight:690;line-height:1}.startup-ui-v170 #data-perumahan .spatial-object-metrics-v170 span{display:block;margin-top:5px;color:#718082;font-size:10.4px;font-weight:520;white-space:nowrap}
+.startup-ui-v170 #data-perumahan .spatial-object-context-v170,.startup-ui-v170 #data-perumahan .spatial-object-note-v170{margin-top:12px;padding:10px 11px;border:1px solid #E0E5E1;border-radius:13px;background:#F6F7F3;color:#52696C;font-size:11.3px;font-weight:450;line-height:1.5}.startup-ui-v170 #data-perumahan .spatial-object-note-v170{margin-top:7px;background:#FBF7EF;border-color:#E9DDC7;color:#6F624B}
+.startup-ui-v170 #data-perumahan .spatial-object-actions-v170{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:12px;padding-top:12px;border-top:1px solid #E1E6E2}
+.startup-ui-v170 #data-perumahan .spatial-object-actions-v170 a{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:36px;padding:7px 10px;border:1px solid #D2DEDA;border-radius:11px;background:#FBFCF9;color:#3A646A;font-size:11.3px;font-weight:630;text-decoration:none!important;transition:transform .16s ease,background .16s ease,border-color .16s ease,box-shadow .16s ease}
+.startup-ui-v170 #data-perumahan .spatial-object-actions-v170 a:hover{transform:translateY(-1px);background:#EEF4F1;border-color:#BACFC9}.startup-ui-v170 #data-perumahan .spatial-object-actions-v170 a.primary{border-color:#2F6770;background:#2C6169;color:#fff;box-shadow:0 7px 16px rgba(32,83,91,.12)}.startup-ui-v170 #data-perumahan .spatial-object-actions-v170 a.primary:hover{background:#24565E;border-color:#24565E}
+.startup-ui-v170 #data-perumahan .spatial-object-actions-v170 svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.startup-ui-v170 #data-perumahan .spatial-map-stage-v169 .leaflet-interactive.sir-spatial-selected-v170{filter:drop-shadow(0 0 6px rgba(26,99,114,.58)) drop-shadow(0 0 13px rgba(211,184,129,.42));stroke-width:3.2px!important}
+@media(max-width:500px){.startup-ui-v170 #data-perumahan .sir-spatial-popup-shell-v170 .leaflet-popup-content{min-width:280px}.startup-ui-v170 #data-perumahan .spatial-object-card-v170{min-width:280px;padding:15px}.startup-ui-v170 #data-perumahan .spatial-object-actions-v170{grid-template-columns:1fr}.startup-ui-v170 #data-perumahan .spatial-object-metrics-v170 strong{font-size:17px}}
+</style>
+
+<style id="v171-spatial-toggle-alignment">
+/* =========================================================
+   SIRUMAH v171 — Spatial Toggle Alignment Refinement
+   Track + thumb share the same vertical anchor so two-line
+   labels cannot pull the white thumb above the switch track.
+   ========================================================= */
+body.startup-ui-v171 #data-perumahan .housing-layer-toggle-v92.compact-v115>span{
+  /* keep a dedicated trailing column for the switch without
+     letting pseudo-elements participate in implicit grid rows */
+  grid-template-columns:15px minmax(0,1fr) 30px!important;
+  padding-right:8px!important;
+}
+body.startup-ui-v171 #data-perumahan .housing-layer-toggle-v92.compact-v115>span:after{
+  content:""!important;
+  position:absolute!important;
+  right:8px!important;
+  top:50%!important;
+  width:28px!important;
+  height:16px!important;
+  min-width:28px!important;
+  margin:0!important;
+  padding:0!important;
+  border-radius:999px!important;
+  background:#CBD4D1!important;
+  box-shadow:inset 0 0 0 1px rgba(43,92,99,.08)!important;
+  transform:translateY(-50%)!important;
+  transition:background .15s ease!important;
+}
+body.startup-ui-v171 #data-perumahan .housing-layer-toggle-v92.compact-v115>span:before{
+  content:""!important;
+  position:absolute!important;
+  right:22px!important;
+  top:50%!important;
+  z-index:2!important;
+  width:12px!important;
+  height:12px!important;
+  margin:0!important;
+  border-radius:50%!important;
+  background:#fff!important;
+  box-shadow:0 1px 4px rgba(23,59,64,.25)!important;
+  transform:translateY(-50%)!important;
+  transition:transform .15s ease!important;
+}
+body.startup-ui-v171 #data-perumahan .housing-layer-toggle-v92.compact-v115 input:checked+span:after{
+  background:#39747B!important;
+  transform:translateY(-50%)!important;
+}
+body.startup-ui-v171 #data-perumahan .housing-layer-toggle-v92.compact-v115 input:checked+span:before{
+  transform:translate(12px,-50%)!important;
+}
+</style>
+<!-- SIRUMAH v171 — Spatial Toggle Alignment Refinement -->
+
 </head>
 <style>
     /* =========================================================
@@ -6872,7 +7016,7 @@ body.public-mode.startup-ui-v166 #rusunawa .rus-hero-v132{margin-bottom:14px}
 @media(max-width:720px){.startup-ui-v166 #rusunawa .rus-public-card-head-v166{padding:17px 16px 9px}.startup-ui-v166 #rusunawa .rus-public-card-head-v166{display:grid}.startup-ui-v166 #rusunawa .rus-public-scope-v166{justify-self:start}.startup-ui-v166 #rusunawa .rus-public-occupancy-main-v166{grid-template-columns:1fr;gap:17px;padding:10px 16px 18px}.startup-ui-v166 #rusunawa .rus-public-occupancy-number-v166 strong{font-size:46px}.startup-ui-v166 #rusunawa .rus-public-unit-segments-v166{grid-template-columns:repeat(10,1fr);gap:4px;padding:10px}.startup-ui-v166 #rusunawa .rus-public-status-grid-v166{padding:5px 15px 16px}.startup-ui-v166 #rusunawa .rus-public-facility-stats-v166{grid-template-columns:1fr;padding:5px 15px 12px}.startup-ui-v166 #rusunawa .rus-public-facility-chips-v166{padding:0 15px}.startup-ui-v166 #rusunawa .rus-public-narrative-v166{grid-template-columns:42px minmax(0,1fr);padding:17px}.startup-ui-v166 #rusunawa .rus-public-narrative-monogram-v166{width:42px;height:42px;border-radius:13px}}
 @media(max-width:430px){.startup-ui-v166 #rusunawa .rus-public-unit-segments-v166{grid-template-columns:repeat(6,1fr)}.startup-ui-v166 #rusunawa .rus-public-status-item-v166{grid-template-columns:38px minmax(0,1fr) auto;padding:9px}.startup-ui-v166 #rusunawa .rus-public-status-icon-v166{width:38px;height:38px}.startup-ui-v166 #rusunawa .rus-public-status-value-v166 strong{font-size:20px}}
 </style>
-<body class="public-mode startup-ui-v100 startup-ui-v101 startup-ui-v102 startup-ui-v103 startup-ui-v104 startup-ui-v105 startup-ui-v106 startup-ui-v107 startup-ui-v108 startup-ui-v109 startup-ui-v110 startup-ui-v111 startup-ui-v112 startup-ui-v113 startup-ui-v114 startup-ui-v115 startup-ui-v116 startup-ui-v117 startup-ui-v118 startup-ui-v120 startup-ui-v122 startup-ui-v123 startup-ui-v124 startup-ui-v125 startup-ui-v126 startup-ui-v127 startup-ui-v128 startup-ui-v129 startup-ui-v130 startup-ui-v131 startup-ui-v132 startup-ui-v133 startup-ui-v134 startup-ui-v135 startup-ui-v136 startup-ui-v137 startup-ui-v138 startup-ui-v139 startup-ui-v140 startup-ui-v141 startup-ui-v142 startup-ui-v143 startup-ui-v144 startup-ui-v145 startup-ui-v146 startup-ui-v147 startup-ui-v148 startup-ui-v149 startup-ui-v150 startup-ui-v151 startup-ui-v152 startup-ui-v153 startup-ui-v155 startup-ui-v156 startup-ui-v158 startup-ui-v159 startup-ui-v162 startup-ui-v163 startup-ui-v164 startup-ui-v165 startup-ui-v166 startup-ui-v167 startup-ui-v168">
+<body class="public-mode startup-ui-v100 startup-ui-v101 startup-ui-v102 startup-ui-v103 startup-ui-v104 startup-ui-v105 startup-ui-v106 startup-ui-v107 startup-ui-v108 startup-ui-v109 startup-ui-v110 startup-ui-v111 startup-ui-v112 startup-ui-v113 startup-ui-v114 startup-ui-v115 startup-ui-v116 startup-ui-v117 startup-ui-v118 startup-ui-v120 startup-ui-v122 startup-ui-v123 startup-ui-v124 startup-ui-v125 startup-ui-v126 startup-ui-v127 startup-ui-v128 startup-ui-v129 startup-ui-v130 startup-ui-v131 startup-ui-v132 startup-ui-v133 startup-ui-v134 startup-ui-v135 startup-ui-v136 startup-ui-v137 startup-ui-v138 startup-ui-v139 startup-ui-v140 startup-ui-v141 startup-ui-v142 startup-ui-v143 startup-ui-v144 startup-ui-v145 startup-ui-v146 startup-ui-v147 startup-ui-v148 startup-ui-v149 startup-ui-v150 startup-ui-v151 startup-ui-v152 startup-ui-v153 startup-ui-v155 startup-ui-v156 startup-ui-v158 startup-ui-v159 startup-ui-v162 startup-ui-v163 startup-ui-v164 startup-ui-v165 startup-ui-v166 startup-ui-v167 startup-ui-v168 startup-ui-v169 startup-ui-v170 startup-ui-v171">
 <div class="app">
 <svg aria-hidden="true" class="sirumah-nav-sprite-v149" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
 <defs>
@@ -6954,6 +7098,12 @@ body.public-mode.startup-ui-v166 #rusunawa .rus-hero-v132{margin-bottom:14px}
 <symbol id="sir-rus-icon-unavailable-v166" viewbox="0 0 24 24">
 <path d="M12 3.5 21 20H3Z"></path><path d="M12 9v5"></path><path d="M12 17.2h.01"></path>
 </symbol>
+<symbol id="sir-spatial-icon-info-v169" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="8.5"></circle><path d="M12 10.5v5"></path><path d="M12 7.5h.01"></path>
+</symbol>
+<symbol id="sir-spatial-icon-fullscreen-v169" viewbox="0 0 24 24">
+<path d="M8 4H4v4M16 4h4v4M20 16v4h-4M4 16v4h4"></path>
+</symbol>
 <symbol id="sir-rus-icon-facility-v166" viewbox="0 0 24 24">
 <path d="M4 20V8.5L12 4l8 4.5V20"></path><path d="M8 20v-6h8v6"></path><path d="M7 10h2M15 10h2"></path><path d="M2.5 20h19"></path>
 </symbol>
@@ -7001,7 +7151,7 @@ body.public-mode.startup-ui-v166 #rusunawa .rus-hero-v132{margin-bottom:14px}
 </div>
 <div class="sidebar-owner-note">
 <span class="sidebar-owner-update">Pembaruan data berkala</span>
-<span class="sidebar-owner-version">SIRUMAH · v2.0 · 2026</span>
+<span class="sidebar-owner-version">SIRUMAH · v1.0 · 2026</span>
 </div>
 </div>
 </aside>
@@ -7269,26 +7419,29 @@ body.public-mode.startup-ui-v166 #rusunawa .rus-hero-v132{margin-bottom:14px}
 </div>
 </div>
 <!-- v116: Seluruh visual spasial dipusatkan pada satu Peta Analitik. -->
-<div class="card housing-analytic-card-v92 housing-map-unified-v116" id="housingMapModule" style="margin-top:18px;">
-<div class="card-header housing-map-head-v92">
-<div>
+<div class="card housing-analytic-card-v92 housing-map-unified-v116 spatial-intelligence-v169" id="housingMapModule" style="margin-top:18px;">
+<div class="card-header housing-map-head-v92 spatial-map-head-v169">
+<div class="spatial-map-title-v169">
 <div class="housing-map-eyebrow-v92">DATA SPASIAL SIRUMAH</div>
 <h3 id="housingMapTitleV92">Peta Analitik SIRUMAH</h3>
-<p id="housingMapDescriptionV92">Aktifkan layer untuk melihat lokasi, status PSU, dan kondisi lingkungan perumahan.</p>
+<p id="housingMapDescriptionV92">Eksplorasi persebaran perumahan, status PSU, dan kondisi lingkungan dalam satu kanvas spasial.</p>
 </div>
-<div class="housing-map-head-actions-v92">
-<button class="housing-map-info-v115" onclick="toggleHousingMapInfoV115()" type="button">ⓘ Tentang peta</button>
-<button class="housing-map-fullscreen-v92" onclick="toggleHousingMapFullscreenV92()" type="button">⛶ Fullscreen</button>
+<div class="housing-map-head-actions-v92 spatial-map-actions-v169">
+<button class="housing-map-info-v115 spatial-action-v169" onclick="toggleHousingMapInfoV115()" type="button"><svg aria-hidden="true"><use href="#sir-spatial-icon-info-v169"></use></svg><span>Tentang peta</span></button>
+<button class="housing-map-fullscreen-v92 spatial-action-v169" onclick="toggleHousingMapFullscreenV92()" type="button"><svg aria-hidden="true"><use href="#sir-spatial-icon-fullscreen-v169"></use></svg><span>Layar penuh</span></button>
 </div>
 </div>
-<div class="housing-map-info-popover-v115" hidden="" id="housingMapInfoV115">
-<strong>Cara membaca peta</strong>
-<p>Layer dapat diaktifkan lebih dari satu. Jika batas area perumahan tersedia, peta menggunakan delineasi GeoJSON; jika belum, lokasi ditampilkan sebagai titik. Status PSU sudah dan belum diserahkan tersedia sebagai layer tersendiri.</p>
+<div class="housing-map-info-popover-v115 spatial-info-popover-v169" hidden="" id="housingMapInfoV115">
+<div class="spatial-info-icon-v169"><svg aria-hidden="true"><use href="#sir-spatial-icon-info-v169"></use></svg></div>
+<div><strong>Cara membaca peta</strong><p>Layer dapat diaktifkan lebih dari satu. Jika batas area perumahan tersedia, peta menggunakan delineasi GeoJSON; jika belum, lokasi ditampilkan sebagai titik. Status PSU sudah dan belum diserahkan tersedia sebagai layer tersendiri.</p></div>
 </div>
-<div class="housing-analytic-layout-v92">
-<aside class="housing-analytic-panel-v92" id="housingAnalyticPanelV92">
-<div class="housing-analytic-panel-section-v92 housing-layer-section-v115">
-<div class="housing-analytic-panel-title-v92">Pilih layer</div>
+<div class="housing-analytic-layout-v92 spatial-map-layout-v169">
+<aside class="housing-analytic-panel-v92 spatial-control-rail-v169" id="housingAnalyticPanelV92">
+<div class="spatial-rail-head-v169">
+<span class="spatial-rail-monogram-v169"><svg aria-hidden="true"><use href="#sir-hero-icon-layers-v164"></use></svg></span>
+<div><strong>Layer Peta</strong><small>Pilih data yang ingin ditampilkan</small></div>
+</div>
+<div class="housing-analytic-panel-section-v92 housing-layer-section-v115 spatial-layer-list-v169">
 <div class="housing-layer-group-label-v96">Dasar</div>
 <label class="housing-layer-toggle-v92 compact-v115">
 <input checked="" id="analyticLayerHousingV92" onchange="renderMap()" type="checkbox"/>
@@ -7316,7 +7469,7 @@ body.public-mode.startup-ui-v166 #rusunawa .rus-hero-v132{margin-bottom:14px}
 <input id="analyticLayerFloodV92" onchange="renderMap()" type="checkbox"/>
 <span><i class="housing-layer-symbol-v92 flood"></i><b>Rawan Genangan/Banjir</b></span>
 </label>
-<details class="housing-layer-details-v115 private-only">
+<details class="housing-layer-details-v115 private-only spatial-road-details-v169">
 <summary><span><i class="housing-layer-symbol-v92 road-unpaved-v96"></i><b>Jalan</b></span><small>4 kondisi</small></summary>
 <div class="housing-layer-detail-body-v115">
 <label class="housing-layer-toggle-v92 compact-v115"><input id="analyticLayerRoadUnpavedV96" onchange="renderMap()" type="checkbox"/><span><i class="housing-layer-symbol-v92 road-unpaved-v96"></i><b>Belum Perkerasan</b></span></label>
@@ -7330,32 +7483,32 @@ body.public-mode.startup-ui-v166 #rusunawa .rus-hero-v132{margin-bottom:14px}
 <span><i class="housing-layer-symbol-v92 rth-unbuilt-v96"></i><b>RTH Belum Terbangun</b></span>
 </label>
 </div>
-<div class="housing-analytic-panel-section-v92">
-<div class="housing-analytic-panel-title-v92">Tampilan Cepat</div>
-<div class="housing-map-presets-v92">
+<details class="spatial-quick-v169">
+<summary><span>Tampilan cepat</span><small>Preset</small></summary>
+<div class="housing-map-presets-v92 spatial-preset-grid-v169">
 <button onclick="applyHousingMapPresetV92('housing')" type="button">Semua Perumahan</button>
 <button onclick="applyHousingMapPresetV92('psu-handover')" type="button">PSU Sudah Diserahkan</button>
 <button onclick="applyHousingMapPresetV92('psu-pending')" type="button">PSU Belum Diserahkan</button>
 <button class="private-only" onclick="applyHousingMapPresetV92('road')" type="button">Semua Masalah Jalan</button>
 <button class="private-only" onclick="applyHousingMapPresetV92('rth')" type="button">RTH Belum Terbangun</button>
-<button class="private-only" onclick="applyHousingMapPresetV92('psu')" type="button">PSU Milik Pemerintah Kota Prioritas</button>
+<button class="private-only" onclick="applyHousingMapPresetV92('psu')" type="button">PSU Pemerintah Kota Prioritas</button>
 <button class="private-only" onclick="applyHousingMapPresetV92('flood')" type="button">Rawan Genangan</button>
 <button onclick="applyHousingMapPresetV92('slum')" type="button">Kawasan Kumuh</button>
 </div>
-</div>
-<div class="housing-analytic-panel-section-v92">
-<div class="housing-analytic-panel-title-v92">Cakupan</div>
-<div class="housing-map-scope-v92" id="housingMapScopeV92">Seluruh Kota</div>
-<small class="housing-map-scope-note-v92">Seluruh layer mengikuti filter Kecamatan lokal di Modul Data Perumahan. Data tanpa lokasi spasial tetap tersedia pada tabel dan profil objek.</small>
+</details>
+<div class="spatial-scope-v169">
+<span>Cakupan aktif</span>
+<strong id="housingMapScopeV92">Seluruh Kota</strong>
+<small class="housing-map-scope-note-v92">Layer mengikuti filter Kecamatan pada Data Perumahan. Objek tanpa lokasi tetap tersedia pada tabel dan profil.</small>
 </div>
 </aside>
-<div class="housing-map-stage-v92">
+<div class="housing-map-stage-v92 spatial-map-stage-v169">
 <div id="map"></div>
-<div class="housing-map-status-v92" id="housingAnalyticStatusV92">Peta akan aktif ketika menu Data Perumahan dibuka.</div>
-<div class="housing-map-insight-v92 v115-map-floating-insight" id="housingMapInsightV92"></div>
+<div class="housing-map-status-v92 spatial-status-v169" id="housingAnalyticStatusV92">Peta akan aktif ketika menu Data Perumahan dibuka.</div>
+<div class="housing-map-insight-v92 v115-map-floating-insight spatial-insight-v169" id="housingMapInsightV92"></div>
+<div class="legend spatial-legend-host-v169" id="housingMapLegendV92"></div>
 </div>
 </div>
-<div class="legend" id="housingMapLegendV92"></div>
 </div>
 </section>
 <section class="section" id="rtlh">
@@ -9202,8 +9355,22 @@ function initMap(){
     }).addTo(map);
     mapLayer = L.layerGroup().addTo(map);
   }
+  housingMapBindPopupHaloV170();
   renderMap();
 }
+function housingMapBindPopupHaloV170(){
+  if(!map || map._sirSpatialHaloBoundV170) return;
+  map._sirSpatialHaloBoundV170=true;
+  const clear=()=>document.querySelectorAll("#map .sir-spatial-selected-v170").forEach(el=>el.classList.remove("sir-spatial-selected-v170"));
+  const mark=(layer)=>{
+    if(!layer) return;
+    if(layer._path) layer._path.classList.add("sir-spatial-selected-v170");
+    if(typeof layer.eachLayer==="function") layer.eachLayer(mark);
+  };
+  map.on("popupopen",event=>{clear();mark(event?.popup?._source);});
+  map.on("popupclose",clear);
+}
+
 function housingMapScopeTextV92(){
   const select=document.getElementById("housingKecamatanFilter");
   const value=select?.value || "all";
@@ -9279,31 +9446,63 @@ function housingMapIsPemdaPriorityV92(row){
   return status.includes("SUDAH") && priorityMatrix(row).total>=50;
 }
 
+function housingMapMetricValueV170(value){
+  const raw=String(value ?? "").trim();
+  return raw ? fmt(value) : "—";
+}
+function openHousingProfileFromMapV170(id){
+  try{ map?.closePopup?.(); }catch(_){}
+  openHousingProfileV90(id);
+}
 function housingMapPopupV92(row,variant="housing"){
   const hasPoint=housingMapHasCoordinatesV92(row);
   const lat=Number(row.lat),lng=Number(row.lng);
   const maps=hasPoint ? `https://www.google.com/maps/search/?api=1&query=${lat},${lng}` : "";
   const street=hasPoint ? `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${lat},${lng}` : "";
   const matrix=priorityMatrix(row);
-  let detail=`Site plan ${fmt(row.siteplan)} · terbangun ${fmt(row.terbangun)} · terhuni ${fmt(row.terhuni)} unit.`;
+  const id=escapeHtml(String(row?.id ?? ""));
+  const name=escapeHtml(row?.nama||"Tanpa Nama");
+  const kelurahan=escapeHtml(row?.kelurahan||"Belum tersedia");
+  const kecamatan=escapeHtml(row?.kecamatan||"Belum tersedia");
+  const psuRaw=String(row?.statusPSU||"").trim();
+  const psuUpper=psuRaw.toUpperCase();
+  const psuHanded=psuUpper.includes("SUDAH");
+  const psuPending=psuUpper.includes("BELUM");
+  const psuTone=psuHanded?"ok":(psuPending?"pending":"neutral");
+  const psuLabel=psuHanded?"PSU sudah diserahkan":(psuPending?"PSU belum diserahkan":"Status PSU belum tersedia");
+  const spatialLabel=housingMapHasDelineationV96(row) ? "Delineasi area tersedia" : (hasPoint ? "Titik lokasi tersedia" : "Data spasial belum tersedia");
+  const spatialTone=housingMapHasSpatialV96(row)?"available":"neutral";
+  let detail="";
   if(variant==="psu") detail=`PSU milik Pemerintah Kota · skor prioritas ${matrix.total}/100 (${matrix.level}).`;
   if(variant==="flood") detail=`Rawan genangan/banjir · ${String(row.statusRawanBanjir||"indikasi pada data aktif")}.`;
   if(variant==="road") detail=`Kondisi jalan: ${String(row.statusJalan||"belum tersedia")}.`;
   if(variant==="rth") detail=`Status RTH: ${String(row.statusRTH||"belum tersedia")}.`;
-  const spatialLabel=housingMapHasDelineationV96(row) ? "Delineasi area tersedia" : (hasPoint ? "Titik lokasi tersedia" : "Data spasial belum tersedia");
-  const internalDetail=!publicMode && variant!=="housing" ? `<div class="detail">${escapeHtml(String(row.catatan||"Perlu verifikasi kondisi"))}</div>` : "";
-  return `<div class="housing-map-popup-v92">
-    <h4>${escapeHtml(row.nama)}</h4>
-    <div class="meta">${escapeHtml(row.kelurahan)}, ${escapeHtml(row.kecamatan)}</div>
-    <div class="housing-spatial-chip-v96">${escapeHtml(spatialLabel)}</div>
-    <div class="detail">${badge(row.statusPSU)}<br>${escapeHtml(detail)}</div>
-    ${internalDetail}
-    <div class="housing-map-popup-actions-v92">
-      ${housingProfileButtonV90(row)}
-      ${maps?`<a href="${maps}" target="_blank" rel="noopener noreferrer">Buka di Google Maps</a>`:""}
-      ${street?`<a class="street" href="${street}" target="_blank" rel="noopener noreferrer">Street View</a>`:""}
+  const internalDetail=!publicMode && variant!=="housing" && String(row.catatan||"").trim()
+    ? `<div class="spatial-object-note-v170">${escapeHtml(String(row.catatan))}</div>` : "";
+  const metrics=variant==="housing" ? `<div class="spatial-object-metrics-v170">
+      <div><strong>${housingMapMetricValueV170(row.siteplan)}</strong><span>Site plan</span></div>
+      <div><strong>${housingMapMetricValueV170(row.terbangun)}</strong><span>Terbangun</span></div>
+      <div><strong>${housingMapMetricValueV170(row.terhuni)}</strong><span>Terhuni</span></div>
+    </div>` : `<div class="spatial-object-context-v170">${escapeHtml(detail)}</div>`;
+  return `<article class="housing-map-popup-v92 spatial-object-card-v170">
+    <header class="spatial-object-head-v170">
+      <span class="spatial-object-monogram-v170" aria-hidden="true"><svg><use href="#sir-icon-house-v149"></use></svg></span>
+      <div class="spatial-object-heading-v170">
+        <button type="button" class="spatial-object-title-v170" data-housing-profile-id="${id}" onclick="openHousingProfileFromMapV170(this.dataset.housingProfileId)" title="Buka Profil Perumahan">${name}<svg aria-hidden="true"><path d="M8 5h5v5"></path><path d="m13 5-6 6"></path></svg></button>
+        <div class="spatial-object-location-v170">${kelurahan}<span>·</span>${kecamatan}</div>
+      </div>
+    </header>
+    <div class="spatial-object-status-v170">
+      <span class="${psuTone}"><i></i>${escapeHtml(psuLabel)}</span>
+      <span class="${spatialTone}"><svg aria-hidden="true"><use href="#sir-icon-map-pin-v149"></use></svg>${escapeHtml(spatialLabel)}</span>
     </div>
-  </div>`;
+    ${metrics}
+    ${internalDetail}
+    <div class="spatial-object-actions-v170">
+      ${maps?`<a class="primary" href="${maps}" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#sir-icon-map-pin-v149"></use></svg><span>Buka Maps</span></a>`:""}
+      ${street?`<a href="${street}" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#sir-icon-route-v149"></use></svg><span>Street View</span></a>`:""}
+    </div>
+  </article>`;
 }
 
 function housingMapSlumPopupV92(row){
@@ -9342,7 +9541,7 @@ function housingMapRenderHousingGeometryV96(row,{color="#175b72",fillOpacity=.16
       const geometryLayer=L.geoJSON(geo,{
         style:()=>({color,weight,fillColor:color,fillOpacity}),
         pointToLayer:(_feature,latlng)=>L.circleMarker(latlng,{radius,color:"#fff",weight:1.5,fillColor:color,fillOpacity:.9})
-      }).bindPopup(popup,{maxWidth:360});
+      }).bindPopup(popup,{maxWidth:390,minWidth:330,className:"sir-spatial-popup-shell-v170"});
       geometryLayer.addTo(group);
       hasLayer=true;
     }catch(error){
@@ -9353,7 +9552,7 @@ function housingMapRenderHousingGeometryV96(row,{color="#175b72",fillOpacity=.16
   if(housingMapHasCoordinatesV92(row) && (!geo || centerMarker)){
     L.circleMarker([Number(row.lat),Number(row.lng)],{
       radius:geo?3:radius,color:"#fff",weight:geo?1:2,fillColor:color,fillOpacity:geo?.type?.length ? .82 : .93
-    }).bindPopup(popup,{maxWidth:360}).addTo(group);
+    }).bindPopup(popup,{maxWidth:390,minWidth:330,className:"sir-spatial-popup-shell-v170"}).addTo(group);
     hasLayer=true;
   }
 
@@ -9381,7 +9580,7 @@ function syncHousingMapControlsV92(){
   if(insight) insight.hidden=false;
   if(scope) scope.textContent=housingMapScopeTextV92();
   if(title) title.textContent="Peta Analitik SIRUMAH";
-  if(description) description.textContent="Aktifkan layer untuk melihat lokasi, status PSU, dan kondisi lingkungan perumahan.";
+  if(description) description.textContent="Eksplorasi persebaran perumahan, status PSU, dan kondisi lingkungan dalam satu kanvas spasial.";
 }
 
 function setHousingMapModeV92(_mode){
@@ -9419,19 +9618,23 @@ function toggleHousingMapFullscreenV92(){
 function renderHousingMapLegendV92(){
   const legend=document.getElementById("housingMapLegendV92");
   if(!legend) return;
-  legend.innerHTML=`<div class="housing-map-analytic-legend-v92">
-    <span><i class="dot" style="background:#2B5C63"></i> Perumahan</span>
-    <span><i class="dot" style="background:#7C3AED"></i> Kawasan kumuh</span>
-    <span><i class="dot" style="background:#16A34A"></i> PSU sudah diserahkan</span>
-    <span><i class="dot" style="background:#DC2626"></i> PSU belum diserahkan</span>
-    <span class="private-only"><i class="dot" style="background:#F97316"></i> PSU prioritas</span>
-    <span class="private-only"><i class="dot" style="background:#0284C7"></i> Rawan genangan</span>
-    <span class="private-only"><i class="dot" style="background:#8B5E3C"></i> Belum perkerasan</span>
-    <span class="private-only"><i class="dot" style="background:#991B1B"></i> Rusak berat</span>
-    <span class="private-only"><i class="dot" style="background:#D97706"></i> Rusak sedang</span>
-    <span class="private-only"><i class="dot" style="background:#EAB308"></i> Rusak ringan</span>
-    <span class="private-only"><i class="dot" style="background:#65A30D"></i> RTH belum terbangun</span>
-  </div>`;
+  const configs=[
+    ["analyticLayerHousingV92","#2B5C63","Perumahan",false],
+    ["analyticLayerSlumV92","#7C3AED","Kawasan kumuh",false],
+    ["analyticLayerPsuHandoverV116","#16A34A","PSU sudah diserahkan",false],
+    ["analyticLayerPsuPendingV116","#DC2626","PSU belum diserahkan",false],
+    ["analyticLayerPsuV92","#F97316","PSU prioritas",true],
+    ["analyticLayerFloodV92","#0284C7","Rawan genangan",true],
+    ["analyticLayerRoadUnpavedV96","#8B5E3C","Belum perkerasan",true],
+    ["analyticLayerRoadHeavyV96","#991B1B","Rusak berat",true],
+    ["analyticLayerRoadMediumV96","#D97706","Rusak sedang",true],
+    ["analyticLayerRoadLightV96","#EAB308","Rusak ringan",true],
+    ["analyticLayerRthUnbuiltV96","#65A30D","RTH belum terbangun",true]
+  ];
+  const active=configs.filter(([id,_color,_label,isPrivate])=>document.getElementById(id)?.checked && !(publicMode&&isPrivate));
+  const preview=active.slice(0,4).map(([_id,color,label])=>`<i title="${escapeHtml(label)}" style="--legend-color:${color}"></i>`).join("");
+  const items=active.map(([_id,color,label])=>`<span><i class="dot" style="background:${color}"></i>${escapeHtml(label)}</span>`).join("");
+  legend.innerHTML=`<details class="spatial-legend-v169"><summary><span class="spatial-legend-icon-v169"><svg aria-hidden="true"><use href="#sir-hero-icon-layers-v164"></use></svg></span><strong>Legenda</strong><span class="spatial-legend-preview-v169">${preview}</span><small>${active.length} layer aktif</small></summary><div class="housing-map-analytic-legend-v92 spatial-legend-body-v169">${items || '<span class="spatial-legend-empty-v169">Belum ada layer aktif</span>'}</div></details>`;
 }
 
 function renderHousingMapInsightV92(stats){
@@ -9439,12 +9642,10 @@ function renderHousingMapInsightV92(stats){
   if(!el || housingMapModeV92!=="analitik") return;
   const roadTotal=stats.roadUnpaved+stats.roadHeavy+stats.roadMedium+stats.roadLight;
   const summary=publicMode
-    ? `${fmt(stats.spatial)} perumahan memiliki data lokasi dan ${fmt(stats.noSpatial)} belum memiliki data lokasi.`
+    ? `${fmt(stats.spatial)} perumahan memiliki data lokasi; ${fmt(stats.noSpatial)} belum memiliki lokasi spasial.`
     : `${fmt(roadTotal)} perumahan memiliki isu jalan; ${fmt(stats.rthUnbuilt)} RTH belum terbangun.`;
-  const spatialParts=[`<span><strong>${fmt(stats.spatial)}</strong> lokasi tersedia</span>`];
-  if(stats.delineated>0) spatialParts.push(`<span><strong>${fmt(stats.delineated)}</strong> area</span>`,`<span><strong>${fmt(stats.pointOnly)}</strong> titik</span>`);
-  spatialParts.push(`<span><strong>${fmt(stats.noSpatial)}</strong> belum lokasi</span>`);
-  el.innerHTML=`<div class="v115-map-insight-copy"><strong>Ringkasan peta</strong><span>${escapeHtml(summary)}</span></div><div class="v115-map-spatial-pills">${spatialParts.join("")}</div>`;
+  const geometry=stats.delineated>0 ? `${fmt(stats.delineated)} area · ${fmt(stats.pointOnly)} titik` : `${fmt(stats.pointOnly)} titik lokasi`;
+  el.innerHTML=`<div class="spatial-insight-copy-v169"><span>SPATIAL INSIGHT</span><strong>${fmt(stats.spatial)} objek dapat dipetakan</strong><small>${escapeHtml(summary)}</small><em>${escapeHtml(geometry)}</em></div><div class="spatial-insight-metrics-v169"><div><strong>${fmt(stats.spatial)}</strong><span>lokasi tersedia</span></div><div class="missing"><strong>${fmt(stats.noSpatial)}</strong><span>belum lokasi</span></div></div>`;
 }
 
 function renderStandardHousingMapV92(){
@@ -9579,7 +9780,8 @@ function renderAnalyticHousingMapV92(){
   const status=document.getElementById("housingAnalyticStatusV92");
   if(status){
     status.className=`housing-map-status-v92 ${rendered?"ok":"warn"}`;
-    status.textContent=activeLabels.length ? `${fmt(rendered)} objek/layer spasial ditampilkan · ${activeLabels.join(" · ")}.` : "Belum ada layer yang dipilih. Aktifkan minimal satu layer.";
+    status.textContent=activeLabels.length ? `${fmt(rendered)} objek ditampilkan · ${fmt(activeLabels.length)} layer aktif` : "Belum ada layer aktif";
+    status.title=activeLabels.length ? activeLabels.join(" · ") : "Aktifkan minimal satu layer untuk menampilkan data spasial.";
   }
 }
 
@@ -20896,11 +21098,20 @@ body.startup-ui-v167 .sidebar-owner-version{
 
 <script id="v166-rusunawa-public-note">
 /* SIRUMAH v166 — RUSUNAWA Public Experience.
-   Database baseline kini v28; schema dan business logic tetap tidak berubah. */
+   Database baseline tetap v28; v169 hanya menyempurnakan Spatial Intelligence Experience tanpa mengubah schema/business logic. */
 </script>
 
-<!-- SIRUMAH v168 — Pangkal Pinang Nomenclature Alignment
+<!-- SIRUMAH v169 — Spatial Intelligence Experience
      Seluruh literal ejaan kota dinormalisasi menjadi Pangkal Pinang/PANGKAL PINANG.
      Paired baseline database: Template_Resmi_Database_SIRUMAH_v28.xlsx. -->
+
+<!-- SIRUMAH v170 — Spatial Object Card
+     Database baseline v28. Nama perumahan pada popup peta membuka Profil Perumahan;
+     external map actions tetap terpisah. Data dan layer spasial tidak diubah. -->
+
+<!-- SIRUMAH v171 — Spatial Toggle Alignment Refinement
+     Switch track dan thumb pada control rail Peta Analitik memakai anchor vertikal yang sama;
+     data, layer, event handler, dan database baseline v28 tidak berubah. -->
+
 </body>
 </html>
