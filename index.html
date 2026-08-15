@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>SIRUMAH Kota Pangkalpinang v143 — Beranda Clipping Fix & Simplified Hero</title>
+  <title>SIRUMAH Kota Pangkalpinang v149 — High-End Sidebar Icon System</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -6448,8 +6448,116 @@ body.startup-ui-v122 .housing-profile-evidence-card-v93:focus{outline:none;}
     @media(max-width:720px){.startup-ui-v114 #kolaborasi .collaboration-trend-highlights-v114{grid-template-columns:1fr;padding-inline:15px}.startup-ui-v114 #kolaborasi .collaboration-trend-highlight-v114 strong{font-size:19px}.startup-ui-v114 #kolaborasi .collaboration-lollipop-chart-v114{padding-inline:6px!important}.startup-ui-v114 #kolaborasi .collaboration-lollipop-chart-v114 canvas{height:350px!important}.startup-ui-v114 #kolaborasi .collaboration-data-table{min-width:1040px!important}}
   </style>
 
-<body class="public-mode startup-ui-v100 startup-ui-v101 startup-ui-v102 startup-ui-v103 startup-ui-v104 startup-ui-v105 startup-ui-v106 startup-ui-v107 startup-ui-v108 startup-ui-v109 startup-ui-v110 startup-ui-v111 startup-ui-v112 startup-ui-v113 startup-ui-v114 startup-ui-v115 startup-ui-v116 startup-ui-v117 startup-ui-v118 startup-ui-v120 startup-ui-v122 startup-ui-v123 startup-ui-v124 startup-ui-v125 startup-ui-v126 startup-ui-v127 startup-ui-v128 startup-ui-v129 startup-ui-v130 startup-ui-v131 startup-ui-v132 startup-ui-v133 startup-ui-v134 startup-ui-v135 startup-ui-v136 startup-ui-v137 startup-ui-v138 startup-ui-v139 startup-ui-v140 startup-ui-v141 startup-ui-v142 startup-ui-v143 startup-ui-v144 startup-ui-v145 startup-ui-v146 startup-ui-v147">
+  <style>
+    /* =========================================================
+       SIRUMAH v149 — High-End Sidebar Icon System
+       Monochrome outline icons, one visual family, no emoji.
+       ========================================================= */
+    .startup-ui-v149 .nav{gap:4px!important}
+    .startup-ui-v149 .nav button{
+      min-height:48px!important;
+      padding:8px 10px!important;
+      gap:10px!important;
+      border-radius:14px!important;
+      font-size:13.5px!important;
+      font-weight:590!important;
+      letter-spacing:-.05px;
+      color:#C7D5D5!important;
+      transition:background .18s ease,color .18s ease,box-shadow .18s ease!important;
+    }
+    .startup-ui-v149 .nav button:hover{
+      background:rgba(239,239,237,.065)!important;
+      color:#F7FAF8!important;
+    }
+    .startup-ui-v149 .nav button.active{
+      background:linear-gradient(135deg,rgba(211,184,129,.20),rgba(239,239,237,.075))!important;
+      color:#FFF9EE!important;
+      box-shadow:inset 0 0 0 1px rgba(211,184,129,.25),0 10px 24px rgba(16,50,55,.14)!important;
+    }
+    .startup-ui-v149 .nav .icon{
+      width:31px!important;height:31px!important;min-width:31px!important;
+      display:grid!important;place-items:center!important;
+      border-radius:10px!important;
+      color:#A9C0C0!important;
+      background:transparent;
+      opacity:1!important;
+      transition:background .18s ease,color .18s ease,transform .18s ease,box-shadow .18s ease!important;
+    }
+    .startup-ui-v149 .nav .icon svg{
+      width:19px;height:19px;display:block;
+      fill:none;stroke:currentColor;stroke-width:1.75;
+      stroke-linecap:round;stroke-linejoin:round;
+      vector-effect:non-scaling-stroke;
+    }
+    .startup-ui-v149 .nav button:hover .icon{
+      color:#D9E5E3!important;
+      background:rgba(239,239,237,.055);
+    }
+    .startup-ui-v149 .nav button.active .icon{
+      color:#F1D9A5!important;
+      background:rgba(211,184,129,.13);
+      box-shadow:inset 0 0 0 1px rgba(211,184,129,.12);
+    }
+    .startup-ui-v149 .nav button.active .icon svg{stroke-width:1.9}
+    .startup-ui-v149 .sidebar-owner-icon{
+      font-size:0!important;color:#D8C18F!important;
+      background:rgba(211,184,129,.11)!important;
+      border:1px solid rgba(211,184,129,.09);
+    }
+    .startup-ui-v149 .sidebar-owner-icon svg{
+      width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;
+      stroke-linecap:round;stroke-linejoin:round;
+    }
+    @media(max-width:1100px){
+      .startup-ui-v149 .nav button{min-height:46px!important}
+      .startup-ui-v149 .nav .icon{width:29px!important;height:29px!important;min-width:29px!important}
+      .startup-ui-v149 .nav .icon svg{width:18px;height:18px}
+    }
+  </style>
+
+<body class="public-mode startup-ui-v100 startup-ui-v101 startup-ui-v102 startup-ui-v103 startup-ui-v104 startup-ui-v105 startup-ui-v106 startup-ui-v107 startup-ui-v108 startup-ui-v109 startup-ui-v110 startup-ui-v111 startup-ui-v112 startup-ui-v113 startup-ui-v114 startup-ui-v115 startup-ui-v116 startup-ui-v117 startup-ui-v118 startup-ui-v120 startup-ui-v122 startup-ui-v123 startup-ui-v124 startup-ui-v125 startup-ui-v126 startup-ui-v127 startup-ui-v128 startup-ui-v129 startup-ui-v130 startup-ui-v131 startup-ui-v132 startup-ui-v133 startup-ui-v134 startup-ui-v135 startup-ui-v136 startup-ui-v137 startup-ui-v138 startup-ui-v139 startup-ui-v140 startup-ui-v141 startup-ui-v142 startup-ui-v143 startup-ui-v144 startup-ui-v145 startup-ui-v146 startup-ui-v147 startup-ui-v148 startup-ui-v149">
 <div class="app">
+  <svg class="sirumah-nav-sprite-v149" aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+    <defs>
+      <symbol id="sir-icon-dashboard-v149" viewBox="0 0 24 24">
+        <rect x="3" y="3" width="7" height="7" rx="1.4"/><rect x="14" y="3" width="7" height="4" rx="1.4"/><rect x="14" y="10" width="7" height="11" rx="1.4"/><rect x="3" y="13" width="7" height="8" rx="1.4"/>
+      </symbol>
+      <symbol id="sir-icon-house-v149" viewBox="0 0 24 24">
+        <path d="M3.5 10.5 12 3.8l8.5 6.7"/><path d="M5.5 9.4V20h13V9.4"/><path d="M9.2 20v-6.2h5.6V20"/>
+      </symbol>
+      <symbol id="sir-icon-clipboard-v149" viewBox="0 0 24 24">
+        <rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2.8h6V4"/><path d="M8.5 9h1"/><path d="M12 9h4"/><path d="M8.5 13h1"/><path d="M12 13h4"/><path d="M8.5 17h1"/><path d="M12 17h4"/>
+      </symbol>
+      <symbol id="sir-icon-house-heart-v149" viewBox="0 0 24 24">
+        <path d="M3.5 10.5 12 3.8l8.5 6.7"/><path d="M5.5 9.4V20h13V9.4"/><path d="M12 17.5s-3.1-1.8-3.1-4.1c0-1.2.8-2.1 1.9-2.1.7 0 1.1.3 1.2.7.2-.4.6-.7 1.3-.7 1.1 0 1.9.9 1.9 2.1 0 2.3-3.2 4.1-3.2 4.1Z"/>
+      </symbol>
+      <symbol id="sir-icon-map-pin-v149" viewBox="0 0 24 24">
+        <path d="m3.5 6 5-2.2 7 2.2 5-2.2v14.5l-5 2.2-7-2.2-5 2.2Z"/><path d="M8.5 3.8v14.5M15.5 6v14.5"/><path d="M12 8.2a2.6 2.6 0 1 1 5.2 0c0 2-2.6 4.6-2.6 4.6S12 10.2 12 8.2Z"/><circle cx="14.6" cy="8.2" r=".7"/>
+      </symbol>
+      <symbol id="sir-icon-route-v149" viewBox="0 0 24 24">
+        <circle cx="6" cy="18" r="2"/><circle cx="18" cy="6" r="2"/><path d="M8 18h2.3c4.8 0 2.1-7.2 6.1-7.2H18"/><path d="M6 16V8.5c0-1.4 1.1-2.5 2.5-2.5H16"/>
+      </symbol>
+      <symbol id="sir-icon-building-v149" viewBox="0 0 24 24">
+        <path d="M4 21V5l9-2v18"/><path d="M13 8h7v13"/><path d="M2.5 21h19"/><path d="M7 8h2M7 12h2M7 16h2M16 11h1.5M16 15h1.5"/>
+      </symbol>
+      <symbol id="sir-icon-messages-v149" viewBox="0 0 24 24">
+        <path d="M20 15a3 3 0 0 1-3 3H9l-4 3v-3H4a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h13a3 3 0 0 1 3 3Z"/><path d="M6 9h9M6 13h6"/>
+      </symbol>
+      <symbol id="sir-icon-handshake-v149" viewBox="0 0 24 24">
+        <path d="m8.7 12.7 2.1 2.1a2 2 0 0 0 2.8 0l3.9-3.9"/><path d="m14.5 8.5-2.1-1.1a2.6 2.6 0 0 0-2.6.2L6.5 10"/><path d="m3 7 3.3-1.7 3.1 5.9-3.3 1.7Z"/><path d="m21 7-3.3-1.7-3.1 5.9 3.3 1.7Z"/><path d="m6.4 12.3 1.4 1.5M8 14.5l1.4 1.4M10 16l1.2 1.1"/>
+      </symbol>
+      <symbol id="sir-icon-workflow-v149" viewBox="0 0 24 24">
+        <rect x="3" y="3" width="6" height="5" rx="1.3"/><rect x="15" y="16" width="6" height="5" rx="1.3"/><rect x="15" y="3" width="6" height="5" rx="1.3"/><path d="M9 5.5h6M18 8v4.2a3.8 3.8 0 0 1-3.8 3.8H9"/><path d="m10.5 13.8-2.5 2.2 2.5 2.2"/>
+      </symbol>
+      <symbol id="sir-icon-file-chart-v149" viewBox="0 0 24 24">
+        <path d="M6 2.8h8l4 4V21H6Z"/><path d="M14 2.8V7h4"/><path d="M9 17v-3M12 17v-6M15 17v-4"/>
+      </symbol>
+      <symbol id="sir-icon-landmark-v149" viewBox="0 0 24 24">
+        <path d="m3 9 9-5 9 5"/><path d="M5 10h14M6 10v8M10 10v8M14 10v8M18 10v8M4 18h16M3 21h18"/>
+      </symbol>
+    </defs>
+  </svg>
+
   <aside class="sidebar" id="sidebar">
     <div class="brand brand-v104">
       <div class="logo logo-shell-v104 logo-shell-sidebar-v104">
@@ -6469,22 +6577,22 @@ body.startup-ui-v122 .housing-profile-evidence-card-v93:focus{outline:none;}
 
     <div class="nav-title">Menu Utama</div>
     <nav class="nav" id="nav">
-      <button class="active" data-section="beranda"><span class="icon">🏠</span> Beranda</button>
-      <button data-section="data-perumahan"><span class="icon">🏘️</span> Data Perumahan</button>
-      <button data-section="backlog"><span class="icon">👨‍👩‍👧</span> Backlog</button>
-      <button data-section="rtlh"><span class="icon">🧱</span> RTLH & RLH</button>
-      <button data-section="kawasan-kumuh"><span class="icon">🏚️</span> Kawasan Kumuh</button>
-      <button data-section="psu"><span class="icon">🛣️</span> PSU</button>
-      <button data-section="rusunawa"><span class="icon">🏢</span> RUSUNAWA</button>
-      <button data-section="layanan"><span class="icon">☎️</span> Layanan & Pengaduan</button>
-      <button data-section="kolaborasi"><span class="icon">🤝</span> Kolaborasi</button>
-      <button data-section="integrasi"><span class="icon">🔗</span> Integrasi SIRUMAH</button>
-      <button data-section="laporan"><span class="icon">📄</span> Laporan</button>
+      <button class="active" data-section="beranda"><span class="icon" aria-hidden="true"><svg><use href="#sir-icon-dashboard-v149"></use></svg></span> Beranda</button>
+      <button data-section="data-perumahan"><span class="icon" aria-hidden="true"><svg><use href="#sir-icon-house-v149"></use></svg></span> Data Perumahan</button>
+      <button data-section="backlog"><span class="icon" aria-hidden="true"><svg><use href="#sir-icon-clipboard-v149"></use></svg></span> Backlog</button>
+      <button data-section="rtlh"><span class="icon" aria-hidden="true"><svg><use href="#sir-icon-house-heart-v149"></use></svg></span> RTLH & RLH</button>
+      <button data-section="kawasan-kumuh"><span class="icon" aria-hidden="true"><svg><use href="#sir-icon-map-pin-v149"></use></svg></span> Kawasan Kumuh</button>
+      <button data-section="psu"><span class="icon" aria-hidden="true"><svg><use href="#sir-icon-route-v149"></use></svg></span> PSU</button>
+      <button data-section="rusunawa"><span class="icon" aria-hidden="true"><svg><use href="#sir-icon-building-v149"></use></svg></span> RUSUNAWA</button>
+      <button data-section="layanan"><span class="icon" aria-hidden="true"><svg><use href="#sir-icon-messages-v149"></use></svg></span> Layanan & Pengaduan</button>
+      <button data-section="kolaborasi"><span class="icon" aria-hidden="true"><svg><use href="#sir-icon-handshake-v149"></use></svg></span> Kolaborasi</button>
+      <button data-section="integrasi"><span class="icon" aria-hidden="true"><svg><use href="#sir-icon-workflow-v149"></use></svg></span> Integrasi SIRUMAH</button>
+      <button data-section="laporan"><span class="icon" aria-hidden="true"><svg><use href="#sir-icon-file-chart-v149"></use></svg></span> Laporan</button>
     </nav>
 
     <div class="sidebar-owner-card" aria-label="Informasi pengelola SIRUMAH">
       <div class="sidebar-owner-head">
-        <div class="sidebar-owner-icon" aria-hidden="true">🏛️</div>
+        <div class="sidebar-owner-icon" aria-hidden="true"><svg><use href="#sir-icon-landmark-v149"></use></svg></div>
         <div class="sidebar-owner-label">Dikelola oleh</div>
       </div>
       <div class="sidebar-owner-name">
@@ -7959,25 +8067,34 @@ body.startup-ui-v122 .housing-profile-evidence-card-v93:focus{outline:none;}
 <div id="internalPinModal" class="access-modal" aria-hidden="true" onclick="closeInternalPinModalOnBackdrop(event)">
   <div class="access-modal-card" role="dialog" aria-modal="true" aria-labelledby="internalPinTitle">
     <div class="access-modal-head">
-      <div>
-        <h3 id="internalPinTitle">Masuk Mode Internal</h3>
-        <p>Masukkan PIN petugas untuk menampilkan informasi internal SIRUMAH.</p>
+      <div class="access-modal-heading">
+        <div class="access-modal-kicker">AKSES INTERNAL</div>
+        <h3 id="internalPinTitle">Masuk ke Mode Internal</h3>
+        <p>Gunakan PIN petugas untuk membuka data dan fitur internal SIRUMAH.</p>
       </div>
-      <button class="access-modal-close" type="button" onclick="closeInternalPinModal()" aria-label="Tutup">×</button>
+      <button class="access-modal-close" type="button" onclick="closeInternalPinModal()" aria-label="Tutup">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+      </button>
     </div>
     <form class="access-modal-body" onsubmit="submitInternalPin(event)">
-      <label for="internalPinInput">PIN Mode Internal</label>
+      <label for="internalPinInput">PIN Petugas</label>
       <div class="pin-input-wrap">
         <input id="internalPinInput" type="password" inputmode="numeric" autocomplete="off" maxlength="12" placeholder="••••" required />
-        <button class="pin-toggle" type="button" onclick="togglePinVisibility()" aria-label="Tampilkan atau sembunyikan PIN">👁️</button>
+        <button class="pin-toggle" type="button" onclick="togglePinVisibility()" aria-label="Tampilkan PIN" aria-pressed="false">
+          <svg class="pin-eye-open" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2.7 12s3.4-5.2 9.3-5.2S21.3 12 21.3 12 17.9 17.2 12 17.2 2.7 12 2.7 12Z"></path><circle cx="12" cy="12" r="2.4"></circle></svg>
+          <svg class="pin-eye-off" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 3l18 18M10.6 6.9c.45-.08.92-.12 1.4-.12 5.9 0 9.3 5.22 9.3 5.22a16.2 16.2 0 0 1-2.5 2.93M6.2 8.05A16.4 16.4 0 0 0 2.7 12s3.4 5.2 9.3 5.2c1.2 0 2.3-.22 3.28-.57M9.8 9.8a3.1 3.1 0 0 0 4.4 4.4"></path></svg>
+        </button>
       </div>
       <div id="internalPinError" class="pin-error" role="alert"></div>
       <div class="access-modal-actions">
-        <button class="btn light" type="button" onclick="closeInternalPinModal()">Batal</button>
-        <button id="internalPinSubmit" class="btn" type="submit">Buka Mode Internal</button>
+        <button class="btn light access-modal-cancel" type="button" onclick="closeInternalPinModal()">Batal</button>
+        <button id="internalPinSubmit" class="btn access-modal-submit" type="submit">Masuk</button>
       </div>
       <div class="access-security-note">
-        PIN pada HTML statis hanya membatasi tampilan antarmuka. File Excel atau data yang ditempatkan pada repository publik tetap dapat diakses melalui alamat file.
+        <span class="access-security-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><path d="M12 3 19 6v5c0 4.7-2.8 8.3-7 10-4.2-1.7-7-5.3-7-10V6l7-3Z"></path><path d="M9.5 12.2 11.2 14l3.7-4"></path></svg>
+        </span>
+        <span class="access-security-copy"><strong>Catatan keamanan</strong><span>PIN hanya membatasi akses antarmuka. Data sensitif tetap harus disimpan di sumber nonpublik.</span></span>
       </div>
     </form>
   </div>
@@ -9118,6 +9235,8 @@ function openInternalPinModal(){
   modal.setAttribute("aria-hidden","false");
   if(error){ error.classList.remove("show"); error.textContent = ""; }
   if(input){ input.value = ""; input.type = "password"; setTimeout(()=>input.focus(),60); }
+  const toggle = modal.querySelector(".pin-toggle");
+  if(toggle){ toggle.setAttribute("aria-pressed","false"); toggle.setAttribute("aria-label","Tampilkan PIN"); }
 }
 
 function closeInternalPinModal(){
@@ -9133,7 +9252,14 @@ function closeInternalPinModalOnBackdrop(event){
 
 function togglePinVisibility(){
   const input = document.getElementById("internalPinInput");
-  if(input) input.type = input.type === "password" ? "text" : "password";
+  const button = document.querySelector("#internalPinModal .pin-toggle");
+  if(!input) return;
+  const showing = input.type === "password";
+  input.type = showing ? "text" : "password";
+  if(button){
+    button.setAttribute("aria-pressed",showing?"true":"false");
+    button.setAttribute("aria-label",showing?"Sembunyikan PIN":"Tampilkan PIN");
+  }
 }
 
 async function sha256Text(value){
@@ -19150,5 +19276,199 @@ else renderPublicDataTrustV146();
   .startup-ui-v147 #beranda .startup-public-hero-copy-v100 p{font-size:12px!important;line-height:1.5!important}
 }
 </style>
+
+<style id="sirumah-v148-internal-access-gate-css">
+/* =========================================================
+   SIRUMAH v148 — Internal Access Gate Refinement
+   Compact, quiet, high-end access modal without changing auth logic.
+   ========================================================= */
+.startup-ui-v148 .access-modal{
+  padding:24px!important;
+  background:rgba(13,38,43,.62)!important;
+  backdrop-filter:blur(14px) saturate(115%)!important;
+  -webkit-backdrop-filter:blur(14px) saturate(115%)!important;
+}
+.startup-ui-v148 .access-modal-card{
+  width:min(420px,100%)!important;
+  border:1px solid rgba(43,92,99,.13)!important;
+  border-radius:28px!important;
+  background:#FBFBF8!important;
+  box-shadow:0 32px 90px rgba(13,38,43,.30),0 1px 0 rgba(255,255,255,.80) inset!important;
+  overflow:hidden!important;
+}
+.startup-ui-v148 .access-modal-head{
+  padding:26px 28px 18px!important;
+  gap:18px!important;
+  border-bottom:1px solid rgba(43,92,99,.10)!important;
+  background:linear-gradient(180deg,#FCFCFA 0%,#F8F8F4 100%)!important;
+}
+.startup-ui-v148 .access-modal-heading{min-width:0!important}
+.startup-ui-v148 .access-modal-kicker{
+  margin-bottom:7px!important;
+  color:#A97838!important;
+  font-size:10.5px!important;
+  line-height:1!important;
+  font-weight:700!important;
+  letter-spacing:1.25px!important;
+}
+.startup-ui-v148 .access-modal-head h3{
+  margin:0!important;
+  color:#173F49!important;
+  font-size:27px!important;
+  line-height:1.12!important;
+  font-weight:680!important;
+  letter-spacing:-.55px!important;
+}
+.startup-ui-v148 .access-modal-head p{
+  margin:8px 0 0!important;
+  max-width:315px!important;
+  color:#627579!important;
+  font-size:13.5px!important;
+  line-height:1.52!important;
+  font-weight:450!important;
+}
+.startup-ui-v148 .access-modal-close{
+  display:grid!important;
+  place-items:center!important;
+  width:42px!important;
+  height:42px!important;
+  min-width:42px!important;
+  border:1px solid transparent!important;
+  border-radius:14px!important;
+  background:#F0F2EE!important;
+  color:#3A6268!important;
+  font-size:0!important;
+  transition:background .18s ease,border-color .18s ease,transform .18s ease!important;
+}
+.startup-ui-v148 .access-modal-close svg{
+  width:19px!important;height:19px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.8!important;stroke-linecap:round!important
+}
+.startup-ui-v148 .access-modal-close:hover{background:#E7ECE8!important;border-color:rgba(43,92,99,.10)!important;transform:translateY(-1px)!important}
+.startup-ui-v148 .access-modal-body{padding:22px 28px 26px!important}
+.startup-ui-v148 .access-modal-body>label{
+  display:block!important;
+  margin:0 0 8px!important;
+  color:#35585F!important;
+  font-size:12.5px!important;
+  line-height:1.2!important;
+  font-weight:650!important;
+  letter-spacing:.1px!important;
+}
+.startup-ui-v148 .pin-input-wrap{position:relative!important}
+.startup-ui-v148 .pin-input-wrap input{
+  width:100%!important;
+  min-height:60px!important;
+  padding:0 56px 0 18px!important;
+  border:1px solid rgba(43,92,99,.22)!important;
+  border-radius:18px!important;
+  background:#FFF!important;
+  color:#214C55!important;
+  box-shadow:0 1px 0 rgba(255,255,255,.85) inset!important;
+  font-size:21px!important;
+  font-weight:650!important;
+  letter-spacing:6px!important;
+  text-align:center!important;
+  outline:none!important;
+  transition:border-color .18s ease,box-shadow .18s ease,background .18s ease!important;
+}
+.startup-ui-v148 .pin-input-wrap input:focus{
+  border-color:#2B6F78!important;
+  background:#FFFEFC!important;
+  box-shadow:0 0 0 4px rgba(43,111,120,.11),0 10px 28px rgba(43,92,99,.06)!important;
+}
+.startup-ui-v148 .pin-input-wrap input::placeholder{color:#9AA6A4!important;opacity:.75!important;font-weight:500!important}
+.startup-ui-v148 .pin-toggle{
+  right:9px!important;
+  width:42px!important;
+  height:42px!important;
+  display:grid!important;
+  place-items:center!important;
+  border:1px solid transparent!important;
+  border-radius:13px!important;
+  background:#F3F5F1!important;
+  color:#456A70!important;
+  transition:background .18s ease,color .18s ease!important;
+}
+.startup-ui-v148 .pin-toggle:hover{background:#E9EFEB!important;color:#23545D!important}
+.startup-ui-v148 .pin-toggle svg{width:19px!important;height:19px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.7!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+.startup-ui-v148 .pin-toggle .pin-eye-off{display:none!important}
+.startup-ui-v148 .pin-toggle[aria-pressed="true"] .pin-eye-open{display:none!important}
+.startup-ui-v148 .pin-toggle[aria-pressed="true"] .pin-eye-off{display:block!important}
+.startup-ui-v148 .pin-error{
+  margin-top:10px!important;
+  padding:9px 11px!important;
+  border:1px solid rgba(185,28,28,.10)!important;
+  border-radius:12px!important;
+  background:#FFF1F0!important;
+  color:#A33A32!important;
+  font-size:12px!important;
+  font-weight:550!important;
+}
+.startup-ui-v148 .access-modal-actions{
+  margin-top:16px!important;
+  gap:9px!important;
+  justify-content:flex-end!important;
+}
+.startup-ui-v148 .access-modal-actions .btn{
+  min-height:44px!important;
+  padding:10px 16px!important;
+  border-radius:14px!important;
+  font-size:13.5px!important;
+  line-height:1!important;
+  font-weight:650!important;
+  box-shadow:none!important;
+}
+.startup-ui-v148 .access-modal-cancel{
+  border:1px solid rgba(43,92,99,.14)!important;
+  background:#F8F8F5!important;
+  color:#355D64!important;
+}
+.startup-ui-v148 .access-modal-cancel:hover{background:#EFF2EE!important}
+.startup-ui-v148 .access-modal-submit{
+  min-width:92px!important;
+  border:1px solid #1D6874!important;
+  background:#1D6874!important;
+  color:#FFF!important;
+  box-shadow:0 10px 24px rgba(29,104,116,.16)!important;
+}
+.startup-ui-v148 .access-modal-submit:hover{background:#175C66!important;border-color:#175C66!important;transform:translateY(-1px)!important}
+.startup-ui-v148 .access-security-note{
+  display:grid!important;
+  grid-template-columns:34px minmax(0,1fr)!important;
+  align-items:start!important;
+  gap:10px!important;
+  margin-top:17px!important;
+  padding:11px 12px!important;
+  border:1px solid rgba(197,159,94,.20)!important;
+  border-radius:14px!important;
+  background:#F7F1E7!important;
+  color:#5D6868!important;
+  font-size:11.8px!important;
+  line-height:1.45!important;
+}
+.startup-ui-v148 .access-security-icon{
+  display:grid!important;
+  place-items:center!important;
+  width:34px!important;
+  height:34px!important;
+  border-radius:11px!important;
+  background:rgba(211,184,129,.22)!important;
+  color:#8A6734!important;
+}
+.startup-ui-v148 .access-security-icon svg{width:18px!important;height:18px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.7!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+.startup-ui-v148 .access-security-copy{display:block!important;min-width:0!important}
+.startup-ui-v148 .access-security-copy strong{display:block!important;margin:0 0 2px!important;color:#4F5E5D!important;font-size:11.8px!important;font-weight:650!important}
+.startup-ui-v148 .access-security-copy>span{display:block!important;color:#697777!important;font-size:11.6px!important;font-weight:430!important}
+@media(max-width:720px){
+  .startup-ui-v148 .access-modal{padding:10px!important;align-items:flex-end!important}
+  .startup-ui-v148 .access-modal-card{width:100%!important;max-width:none!important;border-radius:26px 26px 18px 18px!important}
+  .startup-ui-v148 .access-modal-head{padding:22px 20px 15px!important}
+  .startup-ui-v148 .access-modal-head h3{font-size:24px!important}
+  .startup-ui-v148 .access-modal-head p{font-size:13px!important}
+  .startup-ui-v148 .access-modal-body{padding:18px 20px max(22px,env(safe-area-inset-bottom))!important}
+  .startup-ui-v148 .access-modal-actions .btn{flex:1!important}
+}
+</style>
+<!-- SIRUMAH v148: Internal Access Gate Refinement -->
 </body>
 </html>
