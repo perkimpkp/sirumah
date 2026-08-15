@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
-<title>SIRUMAH - Kota Pangkalpinang</title>
+<title>SIRUMAH Kota Pangkalpinang v149 — High-End Sidebar Icon System</title>
 <link crossorigin="" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" rel="stylesheet"/>
 <style>
     :root{
@@ -6582,6 +6582,100 @@ body.startup-ui-v159 #layanan .layanan-table-v134 .layanan-service-v134{
   body.startup-ui-v159 #layanan .layanan-table-v134{min-width:1116px!important}
 }
 </style>
+
+<style id="v164-hero-monogram-system">
+/* =========================================================
+   SIRUMAH v164 — Hero Monogram System
+   Three variants: Metric, Metadata, Analytical Card.
+   Monochrome outline icons, compact context, no KPI duplication.
+   ========================================================= */
+body.startup-ui-v164{
+  --hm-sand:#E7CD98;--hm-off:#F7FAF8;--hm-teal:#2E666D;--hm-deep:#244F55;
+}
+body.startup-ui-v164 .hero-monogram-v164{display:flex;align-items:center;gap:11px;min-width:0;padding:9px 11px;border:1px solid rgba(255,255,255,.17);border-radius:17px;background:rgba(255,255,255,.085);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+body.startup-ui-v164 .hero-monogram-tile-v164{flex:0 0 46px;width:46px;height:46px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.16);border-radius:14px;background:rgba(255,255,255,.09);color:#F4F8F6}
+body.startup-ui-v164 .hero-monogram-tile-v164.sand{background:rgba(231,205,152,.14);border-color:rgba(231,205,152,.24);color:var(--hm-sand)}
+body.startup-ui-v164 .hero-monogram-tile-v164 svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+body.startup-ui-v164 .hero-monogram-content-v164{min-width:0;display:grid;gap:1px;align-content:center}
+body.startup-ui-v164 .hero-monogram-content-v164 strong{display:block;color:#fff;font-size:22px;font-weight:690;line-height:1.05;letter-spacing:-.35px;font-variant-numeric:tabular-nums lining-nums;white-space:nowrap}
+body.startup-ui-v164 .hero-monogram-content-v164 span{display:block;color:#EFF5F3;font-size:11.8px;font-weight:600;line-height:1.3}
+body.startup-ui-v164 .hero-monogram-content-v164 small{display:block;margin-top:1px;color:#C9D9D7;font-size:10.8px;font-weight:430;line-height:1.3;white-space:normal}
+body.startup-ui-v164 .hero-monogram-metadata-v164 .hero-monogram-content-v164 strong{font-size:15px;letter-spacing:-.08px;white-space:normal}
+body.startup-ui-v164 .hero-monogram-cluster-v164{display:flex;justify-content:flex-end;align-items:stretch;gap:10px;min-width:0}
+body.startup-ui-v164 .hero-scope-chip-v164{display:inline-flex;align-items:center;min-height:30px;padding:5px 10px;border:1px solid rgba(255,255,255,.17);border-radius:999px;background:rgba(255,255,255,.08);color:#F5F8F7;font-size:11.5px;font-weight:580;white-space:nowrap}
+body.startup-ui-v164 .hero-side-stack-v164{display:grid!important;justify-items:end!important;gap:8px!important}
+
+/* Data Perumahan — Monogram Metric */
+body.startup-ui-v164 #data-perumahan .housing-catalog-context-v152{min-width:390px}
+body.startup-ui-v164 #data-perumahan .housing-catalog-signals-v152{display:grid!important;grid-template-columns:repeat(2,minmax(175px,1fr))!important;gap:10px!important}
+body.startup-ui-v164 #data-perumahan .housing-catalog-signal-v152{min-height:70px!important;padding:10px 12px!important;text-align:left!important;background:rgba(255,255,255,.08)!important;border-color:rgba(255,255,255,.16)!important}
+body.startup-ui-v164 #data-perumahan .housing-catalog-signal-v152.sand{background:rgba(231,205,152,.09)!important}
+body.startup-ui-v164 #data-perumahan .housing-catalog-signal-v152>span:not(.hero-monogram-tile-v164),body.startup-ui-v164 #data-perumahan .housing-catalog-signal-v152>strong,body.startup-ui-v164 #data-perumahan .housing-catalog-signal-v152>small{display:none!important}
+
+/* Backlog + RTLH — Monogram Metadata */
+body.startup-ui-v164 #backlog .backlog-meta-strip-v123,body.startup-ui-v164 #rtlh .rtlh-meta-strip-v125{display:grid!important;grid-template-columns:minmax(190px,1.25fr) minmax(155px,.75fr)!important;gap:9px!important;align-content:center!important;max-width:470px!important;background:transparent!important;border:0!important;padding:0!important}
+body.startup-ui-v164 #backlog .backlog-meta-strip-v123 .hero-monogram-v164,body.startup-ui-v164 #rtlh .rtlh-meta-strip-v125 .hero-monogram-v164{min-height:68px}
+body.startup-ui-v164 #backlog .backlog-meta-strip-v123 .hero-monogram-content-v164 small,body.startup-ui-v164 #rtlh .rtlh-meta-strip-v125 .hero-monogram-content-v164 small{max-width:205px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* Kawasan Kumuh — Monogram Analytical Card */
+body.startup-ui-v164 #kawasan-kumuh .hero-analytical-card-v164{display:grid!important;grid-template-columns:1fr!important;gap:8px!important;padding:14px 16px!important}
+body.startup-ui-v164 #kawasan-kumuh .hero-analytical-head-v164{display:flex;align-items:center;gap:10px;margin-bottom:1px}
+body.startup-ui-v164 #kawasan-kumuh .hero-analytical-head-v164>div{min-width:0;display:grid;gap:1px}
+body.startup-ui-v164 #kawasan-kumuh .hero-analytical-head-v164>div>span{color:#D7E3E1;font-size:10.8px;font-weight:560;text-transform:uppercase;letter-spacing:.45px}
+body.startup-ui-v164 #kawasan-kumuh .hero-analytical-head-v164>div>strong{color:var(--hm-sand);font-size:19px;font-weight:690;line-height:1.08}
+body.startup-ui-v164 #kawasan-kumuh .slum-hero-progress-foot-v128 small{color:#D3E0DE;font-size:10.7px;font-weight:500}
+
+/* PSU — scope + Monogram Metric */
+body.startup-ui-v164 #psu .psu-hero-metric-v162{min-width:245px!important;padding:10px 12px!important;display:flex!important;gap:11px!important;background:rgba(255,255,255,.085)!important;border-color:rgba(255,255,255,.17)!important}
+body.startup-ui-v164 #psu .psu-hero-metric-v162>span:not(.hero-monogram-tile-v164),body.startup-ui-v164 #psu .psu-hero-metric-v162>div:not(.hero-monogram-content-v164),body.startup-ui-v164 #psu .psu-hero-metric-v162>p{display:none!important}
+body.startup-ui-v164 #psu .psu-hero-scope-v162{min-height:30px!important;padding:5px 10px!important;font-size:11.5px!important}
+
+/* RUSUNAWA — scope + Monogram Metric */
+body.startup-ui-v164 #rusunawa .rus-hero-context-v132{min-width:260px}
+body.startup-ui-v164 #rusunawa .rus-hero-context-v132 .hero-monogram-v164{min-width:245px;text-align:left}
+body.startup-ui-v164 #rusunawa .rus-hero-context-v132>span:not(.hero-scope-chip-v164){display:none!important}
+
+/* Layanan — Sync + Count */
+body.startup-ui-v164 #layanan .layanan-hero-meta-v134{display:grid!important;grid-template-columns:repeat(2,minmax(175px,1fr))!important;gap:9px!important;max-width:410px!important}
+body.startup-ui-v164 #layanan .layanan-hero-meta-v134 .hero-monogram-v164{min-height:68px;text-align:left}
+
+/* Kolaborasi — active year metadata */
+body.startup-ui-v164 #kolaborasi .collaboration-process-note.hero-monogram-v164{min-width:210px!important;max-width:235px!important;padding:9px 11px!important;border-radius:17px!important;background:rgba(255,255,255,.085)!important;color:#fff!important;text-align:left!important}
+body.startup-ui-v164 #kolaborasi .collaboration-process-note.hero-monogram-v164 .hero-monogram-content-v164 strong{color:#fff!important}
+
+/* Integrasi — status monogram, actions remain actions */
+body.startup-ui-v164 #integrasi .integration-hero-meta-v135{display:block!important}
+body.startup-ui-v164 #integrasi .integration-hero-meta-v135 .hero-monogram-v164{min-width:220px}
+body.startup-ui-v164 #integrasi .integration-system-status-v136{padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;min-height:0!important;color:#fff!important}
+body.startup-ui-v164 #integrasi .integration-system-status-v136.active{color:#fff!important}
+
+/* Laporan — briefing metadata + action */
+body.startup-ui-v164 #laporan .report-hero-meta-v137{display:block!important}
+body.startup-ui-v164 #laporan .report-hero-meta-v137 .hero-monogram-v164{min-width:245px;text-align:left}
+
+@media(max-width:1100px){
+ body.startup-ui-v164 #data-perumahan .housing-catalog-context-v152{min-width:330px}
+ body.startup-ui-v164 #data-perumahan .housing-catalog-signals-v152,body.startup-ui-v164 #layanan .layanan-hero-meta-v134{grid-template-columns:1fr!important}
+ body.startup-ui-v164 #backlog .backlog-meta-strip-v123,body.startup-ui-v164 #rtlh .rtlh-meta-strip-v125{grid-template-columns:1fr!important;max-width:320px!important}
+}
+@media(max-width:760px){
+ body.startup-ui-v164 .hero-monogram-v164{padding:8px 10px;border-radius:15px}
+ body.startup-ui-v164 .hero-monogram-tile-v164{flex-basis:42px;width:42px;height:42px;border-radius:13px}
+ body.startup-ui-v164 .hero-monogram-tile-v164 svg{width:21px;height:21px}
+ body.startup-ui-v164 .hero-monogram-content-v164 strong{font-size:19px}
+ body.startup-ui-v164 .hero-monogram-metadata-v164 .hero-monogram-content-v164 strong{font-size:14px}
+ body.startup-ui-v164 #data-perumahan .housing-catalog-context-v152,body.startup-ui-v164 #rusunawa .rus-hero-context-v132{min-width:0;width:100%}
+ body.startup-ui-v164 #data-perumahan .housing-catalog-signals-v152{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ body.startup-ui-v164 #backlog .backlog-meta-strip-v123,body.startup-ui-v164 #rtlh .rtlh-meta-strip-v125{max-width:none!important;width:100%;grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ body.startup-ui-v164 #layanan .layanan-hero-meta-v134{max-width:none!important;width:100%;grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ body.startup-ui-v164 #kolaborasi .collaboration-process-note.hero-monogram-v164{min-width:0!important;max-width:none!important;width:100%}
+ body.startup-ui-v164 #integrasi .integration-hero-meta-v135 .hero-monogram-v164,body.startup-ui-v164 #laporan .report-hero-meta-v137 .hero-monogram-v164{min-width:0;width:100%}
+}
+@media(max-width:480px){
+ body.startup-ui-v164 #data-perumahan .housing-catalog-signals-v152,body.startup-ui-v164 #backlog .backlog-meta-strip-v123,body.startup-ui-v164 #rtlh .rtlh-meta-strip-v125,body.startup-ui-v164 #layanan .layanan-hero-meta-v134{grid-template-columns:1fr!important}
+}
+</style>
+
 </head>
 <style>
     /* =========================================================
@@ -6726,7 +6820,7 @@ body.startup-ui-v159 #layanan .layanan-table-v134 .layanan-service-v134{
       .startup-ui-v149 .nav .icon svg{width:18px;height:18px}
     }
   </style>
-<body class="public-mode startup-ui-v100 startup-ui-v101 startup-ui-v102 startup-ui-v103 startup-ui-v104 startup-ui-v105 startup-ui-v106 startup-ui-v107 startup-ui-v108 startup-ui-v109 startup-ui-v110 startup-ui-v111 startup-ui-v112 startup-ui-v113 startup-ui-v114 startup-ui-v115 startup-ui-v116 startup-ui-v117 startup-ui-v118 startup-ui-v120 startup-ui-v122 startup-ui-v123 startup-ui-v124 startup-ui-v125 startup-ui-v126 startup-ui-v127 startup-ui-v128 startup-ui-v129 startup-ui-v130 startup-ui-v131 startup-ui-v132 startup-ui-v133 startup-ui-v134 startup-ui-v135 startup-ui-v136 startup-ui-v137 startup-ui-v138 startup-ui-v139 startup-ui-v140 startup-ui-v141 startup-ui-v142 startup-ui-v143 startup-ui-v144 startup-ui-v145 startup-ui-v146 startup-ui-v147 startup-ui-v148 startup-ui-v149 startup-ui-v150 startup-ui-v151 startup-ui-v152 startup-ui-v153 startup-ui-v155 startup-ui-v156 startup-ui-v158 startup-ui-v159 startup-ui-v162">
+<body class="public-mode startup-ui-v100 startup-ui-v101 startup-ui-v102 startup-ui-v103 startup-ui-v104 startup-ui-v105 startup-ui-v106 startup-ui-v107 startup-ui-v108 startup-ui-v109 startup-ui-v110 startup-ui-v111 startup-ui-v112 startup-ui-v113 startup-ui-v114 startup-ui-v115 startup-ui-v116 startup-ui-v117 startup-ui-v118 startup-ui-v120 startup-ui-v122 startup-ui-v123 startup-ui-v124 startup-ui-v125 startup-ui-v126 startup-ui-v127 startup-ui-v128 startup-ui-v129 startup-ui-v130 startup-ui-v131 startup-ui-v132 startup-ui-v133 startup-ui-v134 startup-ui-v135 startup-ui-v136 startup-ui-v137 startup-ui-v138 startup-ui-v139 startup-ui-v140 startup-ui-v141 startup-ui-v142 startup-ui-v143 startup-ui-v144 startup-ui-v145 startup-ui-v146 startup-ui-v147 startup-ui-v148 startup-ui-v149 startup-ui-v150 startup-ui-v151 startup-ui-v152 startup-ui-v153 startup-ui-v155 startup-ui-v156 startup-ui-v158 startup-ui-v159 startup-ui-v162 startup-ui-v163 startup-ui-v164">
 <div class="app">
 <svg aria-hidden="true" class="sirumah-nav-sprite-v149" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
 <defs>
@@ -6780,6 +6874,21 @@ body.startup-ui-v159 #layanan .layanan-table-v134 .layanan-service-v134{
 </symbol>
 <symbol id="sir-icon-globe-v151" viewbox="0 0 24 24">
 <circle cx="12" cy="12" r="9"></circle><path d="M3.5 12h17"></path><path d="M12 3c2.4 2.45 3.7 5.45 3.7 9S14.4 18.55 12 21c-2.4-2.45-3.7-5.45-3.7-9S9.6 5.45 12 3Z"></path>
+</symbol>
+<symbol id="sir-hero-icon-database-v164" viewbox="0 0 24 24">
+<ellipse cx="12" cy="5" rx="7.5" ry="2.7"></ellipse><path d="M4.5 5v5c0 1.5 3.4 2.7 7.5 2.7s7.5-1.2 7.5-2.7V5"></path><path d="M4.5 10v5c0 1.5 3.4 2.7 7.5 2.7 1.6 0 3-.2 4.2-.5"></path><path d="m16.2 17.2 1.5 1.5 3-3.3"></path>
+</symbol>
+<symbol id="sir-hero-icon-calendar-v164" viewbox="0 0 24 24">
+<rect x="3.5" y="5" width="17" height="15" rx="2.3"></rect><path d="M7.5 3v4M16.5 3v4M3.5 9h17"></path><path d="M8 13h2M14 13h2M8 16.5h2"></path><circle cx="16" cy="16.5" r="1.6"></circle>
+</symbol>
+<symbol id="sir-hero-icon-layers-v164" viewbox="0 0 24 24">
+<path d="m12 3.5 8.5 4.3L12 12.1 3.5 7.8Z"></path><path d="m5 11.3 7 3.5 7-3.5M5 15.2l7 3.5 7-3.5"></path>
+</symbol>
+<symbol id="sir-hero-icon-handover-v164" viewbox="0 0 24 24">
+<path d="M4 7.5h7.5a3 3 0 0 1 3 3v.7"></path><path d="m12 8.8 2.5 2.4 2.5-2.4"></path><path d="M4 17h6"></path><path d="m13.2 16.4 2.1 2.1 4.4-5"></path><path d="M4 4.5v15"></path>
+</symbol>
+<symbol id="sir-hero-icon-verified-v164" viewbox="0 0 24 24">
+<path d="M12 3.2 19 6v5.2c0 4.3-2.7 7.7-7 9.6-4.3-1.9-7-5.3-7-9.6V6Z"></path><path d="m8.6 12 2.2 2.2 4.7-5"></path>
 </symbol>
 </defs>
 </svg>
@@ -7021,16 +7130,14 @@ body.startup-ui-v159 #layanan .layanan-table-v134 .layanan-service-v134{
 <p>Telusuri lokasi, perkembangan pembangunan, pengembang, dan status PSU pada perumahan yang terdata di SIRUMAH.</p>
 </div>
 <div aria-label="Ringkasan Data Perumahan" class="housing-catalog-context-v152">
-<div class="housing-catalog-signals-v152">
-<div class="housing-catalog-signal-v152">
-<span>Data spasial</span>
-<strong id="housingHeroSpatialV152">0</strong>
-<small>perumahan dapat dipetakan</small>
+<div class="housing-catalog-signals-v152 hero-monogram-cluster-v164">
+<div class="housing-catalog-signal-v152 hero-monogram-v164 hero-monogram-metric-v164">
+<span class="hero-monogram-tile-v164"><svg aria-hidden="true"><use href="#sir-icon-map-pin-v149"></use></svg></span>
+<div class="hero-monogram-content-v164"><strong id="housingHeroSpatialV152">0</strong><span>Data spasial</span><small>Perumahan dapat dipetakan</small></div>
 </div>
-<div class="housing-catalog-signal-v152 sand">
-<span>PSU diserahkan</span>
-<strong id="housingHeroPsuV152">0</strong>
-<small>perumahan</small>
+<div class="housing-catalog-signal-v152 sand hero-monogram-v164 hero-monogram-metric-v164">
+<span class="hero-monogram-tile-v164 sand"><svg aria-hidden="true"><use href="#sir-hero-icon-handover-v164"></use></svg></span>
+<div class="hero-monogram-content-v164"><strong id="housingHeroPsuV152">0</strong><span>PSU diserahkan</span><small>Perumahan</small></div>
 </div>
 </div>
 </div>
@@ -7449,9 +7556,9 @@ body.startup-ui-v159 #layanan .layanan-table-v134 .layanan-service-v134{
 <h3>Layanan &amp; Pengaduan SIRUMAH</h3>
 <p>Sampaikan kebutuhan informasi dan pengaduan bidang perumahan melalui satu kanal layanan yang terhubung dengan Google Sheets.</p>
 </div>
-<div aria-label="Status layanan" class="layanan-hero-meta-v134">
-<span id="layananHeroSyncV134">Menunggu sinkronisasi</span>
-<span id="layananHeroCountV134">0 layanan tercatat</span>
+<div aria-label="Status layanan" class="layanan-hero-meta-v134 hero-monogram-cluster-v164">
+<div class="hero-monogram-v164 hero-monogram-metadata-v164"><span class="hero-monogram-tile-v164"><svg aria-hidden="true"><use href="#sir-icon-workflow-v149"></use></svg></span><div class="hero-monogram-content-v164"><strong id="layananHeroSyncV134">Menunggu</strong><span>Google Sheets</span><small>Status sinkronisasi</small></div></div>
+<div class="hero-monogram-v164 hero-monogram-metric-v164"><span class="hero-monogram-tile-v164 sand"><svg aria-hidden="true"><use href="#sir-icon-messages-v149"></use></svg></span><div class="hero-monogram-content-v164"><strong id="layananHeroCountV134">0</strong><span>Layanan tercatat</span><small>Rekap aktif</small></div></div>
 </div>
 </div>
 <div class="layanan-start-grid-v134">
@@ -7604,7 +7711,7 @@ body.startup-ui-v159 #layanan .layanan-table-v134 .layanan-service-v134{
 <h3>Kolaborasi penanganan rumah dari berbagai sumber pendanaan</h3>
 <p>Melihat rumah yang sudah ditangani, yang masih diproses, dan dukungan pendanaan dari tahun 2018 hingga 2026.</p>
 </div>
-<span class="collaboration-process-note">2026 masih berjalan</span>
+<div class="collaboration-process-note hero-monogram-v164 hero-monogram-metadata-v164"><span class="hero-monogram-tile-v164 sand"><svg aria-hidden="true"><use href="#sir-hero-icon-calendar-v164"></use></svg></span><div class="hero-monogram-content-v164"><strong id="collaborationHeroYearV164">—</strong><span id="collaborationHeroStatusV164">Tahun berjalan</span><small>Penanganan aktif</small></div></div>
 </div>
 </div>
 <div class="grid kpi-grid collaboration-summary-grid collaboration-summary-v112" id="kolaborasiSummaryGrid"></div>
@@ -7690,10 +7797,11 @@ body.startup-ui-v159 #layanan .layanan-table-v134 .layanan-service-v134{
 <span id="kumuhHeroMethodBadgeV128">Perubahan metode ditandai pada riwayat</span>
 </div>
 </div>
-<div aria-label="Perbandingan baseline dan luas kawasan kumuh terkini" class="slum-hero-progress-v128">
+<div aria-label="Perbandingan baseline dan luas kawasan kumuh terkini" class="slum-hero-progress-v128 hero-analytical-card-v164">
+<div class="hero-analytical-head-v164"><span class="hero-monogram-tile-v164 sand"><svg aria-hidden="true"><use href="#sir-hero-icon-layers-v164"></use></svg></span><div><span>Perubahan luas</span><strong id="kumuhReductionValueV128">—</strong></div></div>
 <div class="slum-hero-progress-head-v128"><span>Baseline</span><strong id="kumuhBaselineValueV128">—</strong></div>
 <div class="slum-hero-progress-track-v128"><span id="kumuhHeroProgressFillV128"></span></div>
-<div class="slum-hero-progress-foot-v128"><span id="kumuhCurrentValueV128">—</span><strong id="kumuhReductionValueV128">—</strong></div>
+<div class="slum-hero-progress-foot-v128"><span id="kumuhCurrentValueV128">—</span><small>Terkini</small></div>
 </div>
 </div>
 <div class="slum-metric-grid-v128" id="kumuhSummaryGrid"></div>
@@ -7847,10 +7955,9 @@ body.startup-ui-v159 #layanan .layanan-table-v134 .layanan-service-v134{
 </div>
 <div class="psu-hero-side-v162">
 <span class="psu-hero-scope-v162" id="psuProfileScope">Seluruh Kota</span>
-<div class="psu-hero-metric-v162">
-<span>Capaian penyerahan</span>
-<div><strong id="psuHeroCompletionV162">0%</strong><small>PSU telah diserahkan</small></div>
-<p id="psuHeroCompletionNoteV162">Belum ada data aktif.</p>
+<div class="psu-hero-metric-v162 hero-monogram-v164 hero-monogram-metric-v164">
+<span class="hero-monogram-tile-v164 sand"><svg aria-hidden="true"><use href="#sir-hero-icon-handover-v164"></use></svg></span>
+<div class="hero-monogram-content-v164"><strong id="psuHeroCompletionV162">0%</strong><span>PSU diserahkan</span><small id="psuHeroCompletionNoteV162">Belum ada data aktif.</small></div>
 </div>
 </div>
 </div>
@@ -7993,9 +8100,12 @@ body.startup-ui-v159 #layanan .layanan-table-v134 .layanan-service-v134{
 <h3>Pengelolaan RUSUNAWA Kota Pangkalpinang</h3>
 <p>Hunian, pemanfaatan unit, retribusi, dan kesehatan aset dalam satu ruang kerja yang ringkas.</p>
 </div>
-<div class="rus-hero-context-v132">
-<span id="rusunawaHeroScopeV132">Seluruh RUSUNAWA</span>
-<span id="rusunawaHeroContextV132">Belum ada data aktif</span>
+<div class="rus-hero-context-v132 hero-side-stack-v164">
+<span class="hero-scope-chip-v164" id="rusunawaHeroScopeV132">Seluruh RUSUNAWA</span>
+<div class="hero-monogram-v164 hero-monogram-metric-v164">
+<span class="hero-monogram-tile-v164"><svg aria-hidden="true"><use href="#sir-icon-building-v149"></use></svg></span>
+<div class="hero-monogram-content-v164"><strong id="rusunawaHeroTotalV164">0 unit</strong><span>Unit RUSUNAWA</span><small id="rusunawaHeroContextV132">Belum ada data aktif</small></div>
+</div>
 </div>
 </div>
 <div class="rus-controlbar-v132">
@@ -8134,7 +8244,7 @@ body.startup-ui-v159 #layanan .layanan-table-v134 .layanan-service-v134{
 </div>
 <div class="integration-hero-side-v135">
 <div class="integration-hero-meta-v135">
-<span class="integration-system-status-v136" id="integrationHeroSystemV136">Sistem data menunggu workbook</span>
+<div class="hero-monogram-v164 hero-monogram-metadata-v164"><span class="hero-monogram-tile-v164"><svg aria-hidden="true"><use href="#sir-hero-icon-database-v164"></use></svg></span><div class="hero-monogram-content-v164"><strong class="integration-system-status-v136" id="integrationHeroSystemV136">Menunggu Workbook</strong><span>Sistem data</span><small>Status integrasi</small></div></div>
 </div>
 <div class="integration-actions-v135">
 <button class="btn light" id="excelRemoteBtn" onclick="loadExcelFromRepository({showAlert:true})" type="button">Sinkronkan Database</button>
@@ -8154,8 +8264,7 @@ body.startup-ui-v159 #layanan .layanan-table-v134 .layanan-service-v134{
 </div>
 <div class="report-hero-side-v137">
 <div class="report-hero-meta-v137">
-<span id="reportHeroScopeV137">Kota Pangkalpinang</span>
-<span id="reportHeroFreshnessV137">Menunggu data aktif</span>
+<div class="hero-monogram-v164 hero-monogram-metadata-v164"><span class="hero-monogram-tile-v164"><svg aria-hidden="true"><use href="#sir-icon-file-chart-v149"></use></svg></span><div class="hero-monogram-content-v164"><strong id="reportHeroFreshnessV137">Menunggu data aktif</strong><span>Data briefing</span><small id="reportHeroScopeV137">Kota Pangkalpinang</small></div></div>
 </div>
 <button class="btn light report-print-v137" onclick="printDashboardSection('laporan','Laporan SIRUMAH')" type="button">Cetak / PDF</button>
 </div>
@@ -13351,10 +13460,8 @@ function renderBacklogAggregate(){
     const source = String(meta.source||"Sumber belum tersedia").trim() || "Sumber belum tersedia";
     const verified = /terverifikasi|verified/i.test(verification) && !/belum|tidak/i.test(verification);
     metaEl.innerHTML = `
-      <span class="backlog-meta-status-v123 ${verified?"verified":"neutral"}"><i></i>${escapeHtml(verification)}</span>
-      <span>Data ${escapeHtml(year)}</span>
-      <span>${escapeHtml(source)}</span>
-      <span>${fmt(rows.length)} kecamatan</span>`;
+      <div class="hero-monogram-v164 hero-monogram-metadata-v164"><span class="hero-monogram-tile-v164"><svg aria-hidden="true"><use href="#sir-hero-icon-verified-v164"></use></svg></span><div class="hero-monogram-content-v164"><strong>Data ${escapeHtml(year)}</strong><span>${escapeHtml(verification)}</span><small>${escapeHtml(source)}</small></div></div>
+      <div class="hero-monogram-v164 hero-monogram-metadata-v164"><span class="hero-monogram-tile-v164 sand"><svg aria-hidden="true"><use href="#sir-icon-map-pin-v149"></use></svg></span><div class="hero-monogram-content-v164"><strong>${fmt(rows.length)}</strong><span>Kecamatan</span><small>Cakupan data aktif</small></div></div>`;
   }
 
   const summaryEl = document.getElementById("backlogSummaryGrid");
@@ -13756,6 +13863,13 @@ function renderKolaborasi(){
   const process = collaborationSumV70(rows.filter(row=>collaborationStatusClassV70(row.dataStatus)==="process"),"total");
   const sources = collaborationSourceTotalsV70(rows);
   const topSource = [...sources].sort((a,b)=>b.value-a.value)[0] || {label:"Belum tersedia",value:0};
+  const processRows=rows.filter(row=>collaborationStatusClassV70(row.dataStatus)==="process");
+  const activeYears=processRows.map(row=>Number(row.year||0)).filter(Boolean);
+  const latestActiveYear=activeYears.length?Math.max(...activeYears):null;
+  const collaborationHeroYear=document.getElementById("collaborationHeroYearV164");
+  const collaborationHeroStatus=document.getElementById("collaborationHeroStatusV164");
+  if(collaborationHeroYear) collaborationHeroYear.textContent=latestActiveYear?String(latestActiveYear):"—";
+  if(collaborationHeroStatus) collaborationHeroStatus.textContent=latestActiveYear?"Masih berjalan":"Tidak ada proses aktif";
 
   const summary = document.getElementById("kolaborasiSummaryGrid");
   if(summary){
@@ -15642,7 +15756,7 @@ function renderExcelIntegrationInfo(){
 
   const heroSystem=document.getElementById("integrationHeroSystemV136");
   if(heroSystem){
-    heroSystem.textContent=workbookActive?"Sistem Data Aktif":"Sistem Data Menunggu Workbook";
+    heroSystem.textContent=workbookActive?"Aktif":"Menunggu Workbook";
     heroSystem.classList.toggle("active",workbookActive);
     heroSystem.classList.toggle("waiting",!workbookActive);
   }
@@ -17618,7 +17732,7 @@ renderRTLHAggregate=function(){
   if(source){
     const meta=SIRUMAH_RUNTIME?.rtlhMeta||{};
     const verification=String(meta.verification||'Belum tersedia');
-    source.innerHTML=`<span class="${/terverifikasi/i.test(verification)?'verified':''}">${escapeHtml(verification)}</span><span>Data ${escapeHtml(meta.year||'—')}</span><span>${escapeHtml(meta.source||'Sumber belum tersedia')}</span><span>${fmt(rows.length)} kecamatan</span>`;
+    source.innerHTML=`<div class="hero-monogram-v164 hero-monogram-metadata-v164"><span class="hero-monogram-tile-v164"><svg aria-hidden="true"><use href="#sir-icon-house-heart-v149"></use></svg></span><div class="hero-monogram-content-v164"><strong>Data ${escapeHtml(meta.year||'—')}</strong><span>${escapeHtml(verification)}</span><small>${escapeHtml(meta.source||'Sumber belum tersedia')}</small></div></div><div class="hero-monogram-v164 hero-monogram-metadata-v164"><span class="hero-monogram-tile-v164 sand"><svg aria-hidden="true"><use href="#sir-icon-map-pin-v149"></use></svg></span><div class="hero-monogram-content-v164"><strong>${fmt(rows.length)}</strong><span>Kecamatan</span><small>Cakupan data aktif</small></div></div>`;
   }
 };
 
@@ -18281,7 +18395,7 @@ function rusunawaClearInternalDomV132(){["rusunawaStatusDistributionV132","rusun
 
 function renderRusunawa(){
   const selected=document.getElementById("rusunawaFilter")?.value||"all";const matches=row=>selected==="all"||row.name===selected;const units=(SIRUMAH_RUNTIME?.rusunawaUnits||[]).filter(matches);const totalUnits=units.length,filled=units.filter(row=>rusunawaStatusGroupV132(row.status)==="Terisi").length,vacant=units.filter(row=>rusunawaStatusGroupV132(row.status)==="Kosong").length,unavailable=units.filter(row=>rusunawaStatusGroupV132(row.status)==="Tidak Dapat Digunakan").length,occupancy=pct(filled,totalUnits);
-  const scope=document.getElementById("rusunawaHeroScopeV132"),context=document.getElementById("rusunawaHeroContextV132");if(scope)scope.textContent=selected==="all"?"Seluruh RUSUNAWA":selected;if(context)context.textContent=totalUnits?`${fmt(totalUnits)} unit terdata · ${fmt(filled)} terisi`:"Belum ada data unit aktif";
+  const scope=document.getElementById("rusunawaHeroScopeV132"),context=document.getElementById("rusunawaHeroContextV132"),heroTotal=document.getElementById("rusunawaHeroTotalV164");if(scope)scope.textContent=selected==="all"?"Seluruh RUSUNAWA":selected;if(heroTotal)heroTotal.textContent=totalUnits?`${fmt(totalUnits)} unit`:"—";if(context)context.textContent=totalUnits?`${fmt(filled)} terisi`:"Belum ada data unit aktif";
   const summary=document.getElementById("rusunawaSummaryGrid");
   if(publicMode){
     if(summary){const items=[{label:"Tingkat Hunian",value:`${occupancy}%`,note:`${fmt(filled)} dari ${fmt(totalUnits)} unit terisi`,tone:"anchor"},{label:"Jumlah Unit",value:fmt(totalUnits),note:"unit RUSUNAWA terdata",tone:"strategic"},{label:"Unit Terisi",value:fmt(filled),note:"unit sedang dihuni"},{label:"Unit Kosong",value:fmt(vacant),note:"unit belum dihuni",tone:"alert"}];summary.innerHTML=items.map(rusunawaKpiHtmlV132).join("");}
@@ -18371,8 +18485,8 @@ function renderLayananPulseV134(summary){
   const legend=document.getElementById("layananPipelineLegendV134");
   if(legend)legend.innerHTML=statuses.map(([label,value,cls])=>`<div class="layanan-pipeline-item-v134"><span><i class="layanan-pipeline-dot-v134 ${cls}"></i>${escapeHtml(label)}</span><strong>${fmt(value)}</strong></div>`).join("");
   const scope=document.getElementById("layananPulseScopeV134");if(scope)scope.textContent=`${layananScopeTextV134()} · rekap layanan Google Sheets.`;
-  const heroCount=document.getElementById("layananHeroCountV134");if(heroCount)heroCount.textContent=`${fmt(total)} layanan tercatat`;
-  const heroSync=document.getElementById("layananHeroSyncV134");if(heroSync)heroSync.textContent=SIRUMAH_LAYANAN_REMOTE.loaded?"Google Sheets tersinkron":"Menunggu sinkronisasi";
+  const heroCount=document.getElementById("layananHeroCountV134");if(heroCount)heroCount.textContent=fmt(total);
+  const heroSync=document.getElementById("layananHeroSyncV134");if(heroSync)heroSync.textContent=SIRUMAH_LAYANAN_REMOTE.loaded?"Tersinkron":"Menunggu";
 }
 function renderLayananQueueV134(rows){
   const queue=document.getElementById("layananQueueV134"),count=document.getElementById("layananQueueCountV134"),footer=document.getElementById("layananQueueFooterV134");if(!queue)return;
@@ -18575,7 +18689,7 @@ updateReportContextV76=function(){
   if(a)a.textContent=scope;if(b)b.textContent=source;if(c)c.textContent=loaded.full;
   const heroScope=document.getElementById("reportHeroScopeV137"),heroFresh=document.getElementById("reportHeroFreshnessV137");
   if(heroScope)heroScope.textContent=scope;
-  if(heroFresh)heroFresh.textContent=SIRUMAH_RUNTIME?.source?.mode==="excel"?`Data dimuat ${loaded.date}`:"Menunggu workbook aktif";
+  if(heroFresh)heroFresh.textContent=SIRUMAH_RUNTIME?.source?.mode==="excel"?`Dimuat ${loaded.date}`:"Menunggu workbook";
 };
 
 const generateReportBeforeV137=generateReport;
@@ -20449,5 +20563,101 @@ body.startup-ui-v162 #psu .psu-overview-body-v130{padding-top:16px!important}
 }
 </style>
 <!-- SIRUMAH v162 — PSU Hero & Portfolio Header Refinement -->
+
+<style id="v163-focus-signal-rail-readability">
+/* =========================================================
+   SIRUMAH v163 — Focus Mode Signal Rail Readability Fix
+   KPI rail gets a guaranteed vertical reading area so value,
+   label, and helper text are never clipped in presentation mode.
+   ========================================================= */
+body.startup-ui-v163.v101-focus-mode #beranda>.startup-internal-home-v100.v139-situation-room{
+  grid-template-rows:minmax(96px,12vh) minmax(80px,auto) minmax(0,1fr)!important;
+}
+body.startup-ui-v163.v101-focus-mode #beranda .v139-signal-rail{
+  min-height:80px!important;height:auto!important;overflow:hidden!important;
+}
+body.startup-ui-v163.v101-focus-mode #beranda .v139-signal{
+  min-height:0!important;height:100%!important;padding:7px 14px!important;
+  display:grid!important;grid-template-rows:auto auto auto!important;align-content:center!important;
+}
+body.startup-ui-v163.v101-focus-mode #beranda .v139-signal strong{
+  line-height:1.02!important;overflow:visible!important;text-overflow:clip!important;
+}
+body.startup-ui-v163.v101-focus-mode #beranda .v139-signal span{
+  margin-top:4px!important;line-height:1.16!important;overflow:visible!important;text-overflow:clip!important;
+}
+body.startup-ui-v163.v101-focus-mode #beranda .v139-signal small{
+  display:block!important;margin-top:2px!important;line-height:1.18!important;overflow:visible!important;text-overflow:clip!important;
+}
+@media(min-width:1101px) and (max-height:820px){
+  body.startup-ui-v163.v101-focus-mode #beranda>.startup-internal-home-v100.v139-situation-room{
+    grid-template-rows:84px minmax(76px,auto) minmax(0,1fr)!important;gap:8px!important;
+  }
+  body.startup-ui-v163.v101-focus-mode #beranda .v139-signal-rail{
+    min-height:76px!important;height:auto!important;
+  }
+  body.startup-ui-v163.v101-focus-mode #beranda .v139-signal{padding:6px 12px!important}
+  body.startup-ui-v163.v101-focus-mode #beranda .v139-signal strong{font-size:24px!important}
+  body.startup-ui-v163.v101-focus-mode #beranda .v139-signal span{font-size:10.8px!important}
+  body.startup-ui-v163.v101-focus-mode #beranda .v139-signal small{font-size:9.8px!important}
+}
+@media(max-width:1100px){
+  body.startup-ui-v163.v101-focus-mode #beranda>.startup-internal-home-v100.v139-situation-room{grid-template-rows:auto!important}
+  body.startup-ui-v163.v101-focus-mode #beranda .v139-signal-rail{height:auto!important;min-height:0!important}
+  body.startup-ui-v163.v101-focus-mode #beranda .v139-signal{height:auto!important;min-height:76px!important}
+}
+</style>
+<!-- SIRUMAH v163 — Focus Mode Signal Rail Readability Fix -->
+
+<style id="v164-hero-monogram-late-normalization">
+/* v164 late normalization: neutralize legacy pill/signal descendant rules. */
+body.startup-ui-v164 :is(#data-perumahan,#backlog,#rtlh,#kawasan-kumuh,#psu,#rusunawa,#layanan,#kolaborasi,#integrasi,#laporan) .hero-monogram-v164{
+  display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:11px!important;white-space:normal!important;
+}
+body.startup-ui-v164 :is(#data-perumahan,#backlog,#rtlh,#kawasan-kumuh,#psu,#rusunawa,#layanan,#kolaborasi,#integrasi,#laporan) .hero-monogram-tile-v164{
+  display:grid!important;place-items:center!important;flex:0 0 46px!important;width:46px!important;height:46px!important;min-width:46px!important;min-height:46px!important;
+  margin:0!important;padding:0!important;border:1px solid rgba(255,255,255,.16)!important;border-radius:14px!important;background:rgba(255,255,255,.09)!important;color:#F4F8F6!important;
+  font-size:0!important;line-height:1!important;white-space:normal!important;
+}
+body.startup-ui-v164 :is(#data-perumahan,#backlog,#rtlh,#kawasan-kumuh,#psu,#rusunawa,#layanan,#kolaborasi,#integrasi,#laporan) .hero-monogram-tile-v164.sand{
+  background:rgba(231,205,152,.14)!important;border-color:rgba(231,205,152,.24)!important;color:#E7CD98!important;
+}
+body.startup-ui-v164 :is(#data-perumahan,#backlog,#rtlh,#kawasan-kumuh,#psu,#rusunawa,#layanan,#kolaborasi,#integrasi,#laporan) .hero-monogram-tile-v164 svg{
+  display:block!important;width:23px!important;height:23px!important;margin:0!important;padding:0!important;fill:none!important;stroke:currentColor!important;stroke-width:1.7!important;stroke-linecap:round!important;stroke-linejoin:round!important;
+}
+body.startup-ui-v164 :is(#data-perumahan,#backlog,#rtlh,#kawasan-kumuh,#psu,#rusunawa,#layanan,#kolaborasi,#integrasi,#laporan) .hero-monogram-content-v164{
+  display:grid!important;min-width:0!important;gap:1px!important;align-content:center!important;margin:0!important;padding:0!important;text-align:left!important;background:transparent!important;border:0!important;
+}
+body.startup-ui-v164 :is(#data-perumahan,#backlog,#rtlh,#kawasan-kumuh,#psu,#rusunawa,#layanan,#kolaborasi,#integrasi,#laporan) .hero-monogram-content-v164 strong{
+  display:block!important;min-height:0!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;color:#fff!important;
+  font-size:22px!important;font-weight:690!important;line-height:1.05!important;letter-spacing:-.35px!important;white-space:nowrap!important;
+}
+body.startup-ui-v164 :is(#data-perumahan,#backlog,#rtlh,#kawasan-kumuh,#psu,#rusunawa,#layanan,#kolaborasi,#integrasi,#laporan) .hero-monogram-metadata-v164 .hero-monogram-content-v164 strong{
+  font-size:15px!important;letter-spacing:-.08px!important;white-space:normal!important;
+}
+body.startup-ui-v164 :is(#data-perumahan,#backlog,#rtlh,#kawasan-kumuh,#psu,#rusunawa,#layanan,#kolaborasi,#integrasi,#laporan) .hero-monogram-content-v164 span{
+  display:block!important;min-height:0!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;color:#EFF5F3!important;
+  font-size:11.8px!important;font-weight:600!important;line-height:1.3!important;letter-spacing:0!important;text-transform:none!important;white-space:normal!important;
+}
+body.startup-ui-v164 :is(#data-perumahan,#backlog,#rtlh,#kawasan-kumuh,#psu,#rusunawa,#layanan,#kolaborasi,#integrasi,#laporan) .hero-monogram-content-v164 small{
+  display:block!important;min-height:0!important;margin:1px 0 0!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;color:#C9D9D7!important;
+  font-size:10.8px!important;font-weight:430!important;line-height:1.3!important;letter-spacing:0!important;text-transform:none!important;white-space:normal!important;
+}
+body.startup-ui-v164 #data-perumahan .housing-catalog-signal-v152.sand .hero-monogram-content-v164 strong,
+body.startup-ui-v164 #psu .psu-hero-metric-v162 .hero-monogram-content-v164 strong,
+body.startup-ui-v164 #layanan .layanan-hero-meta-v134 .hero-monogram-v164:last-child .hero-monogram-content-v164 strong,
+body.startup-ui-v164 #kolaborasi .collaboration-process-note.hero-monogram-v164 .hero-monogram-content-v164 strong{color:#E7CD98!important}
+body.startup-ui-v164 #kolaborasi .collaboration-process-note.hero-monogram-v164{justify-content:flex-start!important;white-space:normal!important}
+body.startup-ui-v164 #integrasi .integration-system-status-v136{display:block!important;min-height:0!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
+body.startup-ui-v164 #integrasi .integration-system-status-v136:before{content:none!important;display:none!important}
+@media(max-width:760px){
+ body.startup-ui-v164 :is(#data-perumahan,#backlog,#rtlh,#kawasan-kumuh,#psu,#rusunawa,#layanan,#kolaborasi,#integrasi,#laporan) .hero-monogram-tile-v164{flex-basis:42px!important;width:42px!important;height:42px!important;min-width:42px!important;min-height:42px!important;border-radius:13px!important}
+ body.startup-ui-v164 :is(#data-perumahan,#backlog,#rtlh,#kawasan-kumuh,#psu,#rusunawa,#layanan,#kolaborasi,#integrasi,#laporan) .hero-monogram-tile-v164 svg{width:21px!important;height:21px!important}
+ body.startup-ui-v164 :is(#data-perumahan,#backlog,#rtlh,#kawasan-kumuh,#psu,#rusunawa,#layanan,#kolaborasi,#integrasi,#laporan) .hero-monogram-content-v164 strong{font-size:19px!important}
+ body.startup-ui-v164 :is(#data-perumahan,#backlog,#rtlh,#kawasan-kumuh,#psu,#rusunawa,#layanan,#kolaborasi,#integrasi,#laporan) .hero-monogram-metadata-v164 .hero-monogram-content-v164 strong{font-size:14px!important}
+}
+</style>
+<!-- SIRUMAH v164 — Hero Monogram System -->
+
 </body>
 </html>
