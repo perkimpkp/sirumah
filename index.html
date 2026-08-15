@@ -7051,7 +7051,7 @@ body.startup-ui-v159 #layanan .layanan-table-v134 .layanan-service-v134{
 <div class="housing-advanced-filter-head-v115"><div><span>FILTER TAMBAHAN</span><strong>Persempit data bila diperlukan</strong></div><button aria-label="Tutup filter tambahan" onclick="toggleHousingAdvancedFiltersV115(false)" type="button">×</button></div>
 <div class="housing-advanced-selects-v115">
 <label><span>Kategori</span><select id="filterKategori" onchange="applyFilters()"><option value="all">Semua Kategori</option></select></label>
-<label><span>Urutan Tahun</span><select id="sortTahun" onchange="applyFilters()"><option value="default">Urut Default</option><option value="asc">Tahun Lama ke Baru</option><option value="desc">Tahun Baru ke Lama</option></select></label>
+<label><span>Urutkan berdasarkan</span><select id="sortTahun" onchange="applyFilters()"><option value="name-asc">Nama Perumahan A–Z</option><option value="name-desc">Nama Perumahan Z–A</option><option value="year-desc">Tahun Site Plan — terbaru</option><option value="year-asc">Tahun Site Plan — terlama</option></select></label>
 </div>
 <div class="housing-filter-group-v115 private-only">
 <span class="housing-filter-group-label-v115">Kondisi &amp; catatan</span>
@@ -8576,7 +8576,7 @@ function applyFilters(){
   const kategori = document.getElementById("filterKategori")?.value || "all";
   const status = document.getElementById("filterStatus")?.value || "all";
   const tahun = document.getElementById("filterTahun")?.value || "all";
-  const sortTahun = document.getElementById("sortTahun")?.value || "default";
+  const sortMode = document.getElementById("sortTahun")?.value || "name-asc";
 
   const selectedCatatan = publicMode ? [] : Array.from(document.querySelectorAll(".catatan-filter:checked")).map(el => el.value.toLowerCase());
   const selectedUsia = Array.from(document.querySelectorAll(".usia-filter:checked")).map(el => el.value);
@@ -8597,13 +8597,37 @@ function applyFilters(){
       matchCatatan && matchUsia;
   });
 
-  if(sortTahun !== "default"){
-    housingFilteredV96.sort((a,b)=>{
-      const ay = toNum(a.tahun) || (sortTahun === "asc" ? 9999 : -1);
-      const by = toNum(b.tahun) || (sortTahun === "asc" ? 9999 : -1);
-      return sortTahun === "asc" ? ay - by : by - ay;
-    });
-  }
+  // Tampilan katalog tidak bergantung pada urutan input Excel.
+  // Default profesional: Nama Perumahan A–Z. Pada sort tahun, nama A–Z menjadi tie-breaker.
+  const compareHousingNameV160 = (a,b) => {
+    const an = String(a?.nama || "").trim();
+    const bn = String(b?.nama || "").trim();
+    if(!an && bn) return 1;
+    if(an && !bn) return -1;
+    return an.localeCompare(bn, "id", {sensitivity:"base", numeric:true});
+  };
+  const compareHousingFallbackV160 = (a,b) => {
+    const byName = compareHousingNameV160(a,b);
+    if(byName !== 0) return byName;
+    const byKec = String(a?.kecamatan || "").localeCompare(String(b?.kecamatan || ""), "id", {sensitivity:"base", numeric:true});
+    if(byKec !== 0) return byKec;
+    return String(a?.kelurahan || "").localeCompare(String(b?.kelurahan || ""), "id", {sensitivity:"base", numeric:true});
+  };
+
+  housingFilteredV96.sort((a,b)=>{
+    if(sortMode === "name-desc") return -compareHousingFallbackV160(a,b);
+    if(sortMode === "year-asc" || sortMode === "year-desc"){
+      const ayRaw = toNum(a?.tahun);
+      const byRaw = toNum(b?.tahun);
+      const ay = Number.isFinite(ayRaw) && ayRaw > 0 ? ayRaw : null;
+      const by = Number.isFinite(byRaw) && byRaw > 0 ? byRaw : null;
+      if(ay === null && by !== null) return 1;
+      if(ay !== null && by === null) return -1;
+      if(ay !== null && by !== null && ay !== by) return sortMode === "year-asc" ? ay - by : by - ay;
+      return compareHousingFallbackV160(a,b);
+    }
+    return compareHousingFallbackV160(a,b);
+  });
 
   filtered = [...housing];
   const global=document.getElementById("globalKecamatan");
@@ -8725,7 +8749,7 @@ function renderTable(){
 }
 
 function prevPage(){ if(page>1){page--;renderTable();} }
-function nextPage(){ const totalPages=Math.max(1,Math.ceil(filtered.length/pageSize)); if(page<totalPages){page++;renderTable();} }
+function nextPage(){ const totalPages=Math.max(1,Math.ceil(housingFilteredV96.length/pageSize)); if(page<totalPages){page++;renderTable();} }
 
 function groupByKecamatan(arr){
   const map = {};
@@ -20329,5 +20353,8 @@ body.startup-ui-v155.startup-ui-v156 :is(
   #rusunawa .rus-payment-total-v156
 ) strong{font-weight:600!important;color:inherit!important}
 </style>
+<!-- SIRUMAH v160 — Data Perumahan Smart Default Sorting
+     Urutan input Excel bebas; web default Nama Perumahan A–Z.
+     Opsi: A–Z, Z–A, Tahun Site Plan terbaru/terlama; sort tahun memakai nama A–Z sebagai tie-breaker. -->
 </body>
 </html>
