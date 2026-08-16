@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
-<title>SIRUMAH Kota Pangkal Pinang v171 — Spatial Toggle Alignment Refinement</title>
+<title>SIRUMAH Kota Pangkal Pinang v174 — Profile to Spatial Navigation</title>
 <link crossorigin="" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" rel="stylesheet"/>
 <style>
     :root{
@@ -7016,7 +7016,7 @@ body.public-mode.startup-ui-v166 #rusunawa .rus-hero-v132{margin-bottom:14px}
 @media(max-width:720px){.startup-ui-v166 #rusunawa .rus-public-card-head-v166{padding:17px 16px 9px}.startup-ui-v166 #rusunawa .rus-public-card-head-v166{display:grid}.startup-ui-v166 #rusunawa .rus-public-scope-v166{justify-self:start}.startup-ui-v166 #rusunawa .rus-public-occupancy-main-v166{grid-template-columns:1fr;gap:17px;padding:10px 16px 18px}.startup-ui-v166 #rusunawa .rus-public-occupancy-number-v166 strong{font-size:46px}.startup-ui-v166 #rusunawa .rus-public-unit-segments-v166{grid-template-columns:repeat(10,1fr);gap:4px;padding:10px}.startup-ui-v166 #rusunawa .rus-public-status-grid-v166{padding:5px 15px 16px}.startup-ui-v166 #rusunawa .rus-public-facility-stats-v166{grid-template-columns:1fr;padding:5px 15px 12px}.startup-ui-v166 #rusunawa .rus-public-facility-chips-v166{padding:0 15px}.startup-ui-v166 #rusunawa .rus-public-narrative-v166{grid-template-columns:42px minmax(0,1fr);padding:17px}.startup-ui-v166 #rusunawa .rus-public-narrative-monogram-v166{width:42px;height:42px;border-radius:13px}}
 @media(max-width:430px){.startup-ui-v166 #rusunawa .rus-public-unit-segments-v166{grid-template-columns:repeat(6,1fr)}.startup-ui-v166 #rusunawa .rus-public-status-item-v166{grid-template-columns:38px minmax(0,1fr) auto;padding:9px}.startup-ui-v166 #rusunawa .rus-public-status-icon-v166{width:38px;height:38px}.startup-ui-v166 #rusunawa .rus-public-status-value-v166 strong{font-size:20px}}
 </style>
-<body class="public-mode startup-ui-v100 startup-ui-v101 startup-ui-v102 startup-ui-v103 startup-ui-v104 startup-ui-v105 startup-ui-v106 startup-ui-v107 startup-ui-v108 startup-ui-v109 startup-ui-v110 startup-ui-v111 startup-ui-v112 startup-ui-v113 startup-ui-v114 startup-ui-v115 startup-ui-v116 startup-ui-v117 startup-ui-v118 startup-ui-v120 startup-ui-v122 startup-ui-v123 startup-ui-v124 startup-ui-v125 startup-ui-v126 startup-ui-v127 startup-ui-v128 startup-ui-v129 startup-ui-v130 startup-ui-v131 startup-ui-v132 startup-ui-v133 startup-ui-v134 startup-ui-v135 startup-ui-v136 startup-ui-v137 startup-ui-v138 startup-ui-v139 startup-ui-v140 startup-ui-v141 startup-ui-v142 startup-ui-v143 startup-ui-v144 startup-ui-v145 startup-ui-v146 startup-ui-v147 startup-ui-v148 startup-ui-v149 startup-ui-v150 startup-ui-v151 startup-ui-v152 startup-ui-v153 startup-ui-v155 startup-ui-v156 startup-ui-v158 startup-ui-v159 startup-ui-v162 startup-ui-v163 startup-ui-v164 startup-ui-v165 startup-ui-v166 startup-ui-v167 startup-ui-v168 startup-ui-v169 startup-ui-v170 startup-ui-v171">
+<body class="public-mode startup-ui-v100 startup-ui-v101 startup-ui-v102 startup-ui-v103 startup-ui-v104 startup-ui-v105 startup-ui-v106 startup-ui-v107 startup-ui-v108 startup-ui-v109 startup-ui-v110 startup-ui-v111 startup-ui-v112 startup-ui-v113 startup-ui-v114 startup-ui-v115 startup-ui-v116 startup-ui-v117 startup-ui-v118 startup-ui-v120 startup-ui-v122 startup-ui-v123 startup-ui-v124 startup-ui-v125 startup-ui-v126 startup-ui-v127 startup-ui-v128 startup-ui-v129 startup-ui-v130 startup-ui-v131 startup-ui-v132 startup-ui-v133 startup-ui-v134 startup-ui-v135 startup-ui-v136 startup-ui-v137 startup-ui-v138 startup-ui-v139 startup-ui-v140 startup-ui-v141 startup-ui-v142 startup-ui-v143 startup-ui-v144 startup-ui-v145 startup-ui-v146 startup-ui-v147 startup-ui-v148 startup-ui-v149 startup-ui-v150 startup-ui-v151 startup-ui-v152 startup-ui-v153 startup-ui-v155 startup-ui-v156 startup-ui-v158 startup-ui-v159 startup-ui-v162 startup-ui-v163 startup-ui-v164 startup-ui-v165 startup-ui-v166 startup-ui-v167 startup-ui-v168 startup-ui-v169 startup-ui-v170 startup-ui-v171 startup-ui-v174">
 <div class="app">
 <svg aria-hidden="true" class="sirumah-nav-sprite-v149" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
 <defs>
@@ -9557,6 +9557,8 @@ function housingMapRenderHousingGeometryV96(row,{color="#175b72",fillOpacity=.16
   }
 
   if(!hasLayer) return null;
+  group._sirHousingIdV174=String(row?.id ?? "");
+  group._sirHousingRowV174=row;
   group.addTo(mapLayer);
   return group;
 }
@@ -16862,7 +16864,14 @@ renderAll=function(){
 <h2 id="housingProfileTitleV90">Profil Perumahan</h2>
 <div class="housing-profile-subtitle-v90" id="housingProfileSubtitleV90"></div>
 </div>
+<div class="housing-profile-head-actions-v174">
+<button aria-label="Lihat lokasi perumahan pada Peta Analitik SIRUMAH" class="housing-profile-spatial-action-v174" id="housingProfileMapActionV174" onclick="openHousingSpatialFromProfileV174(this.dataset.housingProfileId)" type="button">
+<span class="housing-profile-spatial-icon-v174" aria-hidden="true"><svg><use href="#sir-icon-map-pin-v149"></use></svg></span>
+<span class="housing-profile-spatial-copy-v174"><strong id="housingProfileMapActionLabelV174">Lihat di Peta</strong><small id="housingProfileMapActionMetaV174">Lokasi tersedia</small></span>
+<svg class="housing-profile-spatial-arrow-v174" aria-hidden="true" viewBox="0 0 16 16"><path d="M5 11 11 5M7 5h4v4"></path></svg>
+</button>
 <button aria-label="Tutup profil perumahan" class="housing-profile-close-v90" onclick="closeHousingProfileV90()" type="button">×</button>
+</div>
 </div>
 <div class="housing-profile-body-v90" id="housingProfileBodyV90"></div>
 </section>
@@ -17641,7 +17650,7 @@ function housingProfileTimelineHtmlV121(row,timeline){
       ${ordered.map(event=>`<div class="housing-profile-event-v90 ${event.current?"current":""} ${String(event.type||"").toUpperCase()==="PSU"?"event-psu-v118":""}">
         <div class="housing-profile-event-meta-v90"><span class="housing-profile-event-year-v90">${event.current?"SEKARANG":escapeHtml(String(event.year))}</span><span class="housing-profile-event-type-v90">${escapeHtml(event.type)}</span></div>
         <h4>${escapeHtml(event.title)}</h4><p>${escapeHtml(event.description)}</p>
-        ${event.current&&issues.length?`<div class="hp-timeline-issues-v121">${issues.map(issue=>`<span class="housing-profile-issue-v90 ${housingProfileIssueClassV118(issue)}">${escapeHtml(issue)}</span>`).join("")}</div>`:""}
+        ${event.current&&!publicMode&&issues.length?`<div class="hp-timeline-issues-v121">${issues.map(issue=>`<span class="housing-profile-issue-v90 ${housingProfileIssueClassV118(issue)}">${escapeHtml(issue)}</span>`).join("")}</div>`:""}
         ${documentEvidenceTimelineHtmlV122(row,event)}
       </div>`).join("")}
     </div>
@@ -21112,6 +21121,212 @@ body.startup-ui-v167 .sidebar-owner-version{
 <!-- SIRUMAH v171 — Spatial Toggle Alignment Refinement
      Switch track dan thumb pada control rail Peta Analitik memakai anchor vertikal yang sama;
      data, layer, event handler, dan database baseline v28 tidak berubah. -->
+
+<!-- SIRUMAH v173 — Public Timeline Internal Note Guard -->
+
+<style id="v174-profile-spatial-navigation-style">
+/* =========================================================
+   SIRUMAH v174 — Profile to Spatial Navigation
+   Connected object flow: Profil Perumahan → Peta Analitik.
+   ========================================================= */
+body.startup-ui-v174 .housing-profile-head-actions-v174{
+  flex:0 0 auto;display:flex;align-items:center;gap:10px;margin-left:auto
+}
+body.startup-ui-v174 .housing-profile-spatial-action-v174{
+  min-height:48px;display:inline-flex;align-items:center;gap:10px;padding:7px 11px 7px 8px;
+  border:1px solid rgba(43,92,99,.16);border-radius:15px;background:rgba(255,255,255,.72);
+  color:#2B5C63;font:inherit;text-align:left;cursor:pointer;box-shadow:0 7px 18px rgba(23,59,64,.055);
+  backdrop-filter:blur(10px);transition:border-color .18s ease,background .18s ease,transform .18s ease,box-shadow .18s ease
+}
+body.startup-ui-v174 .housing-profile-spatial-action-v174:hover:not(:disabled){
+  background:#E8F1EF;border-color:rgba(26,99,114,.30);transform:translateY(-1px);box-shadow:0 10px 22px rgba(23,59,64,.09)
+}
+body.startup-ui-v174 .housing-profile-spatial-action-v174:focus-visible{outline:3px solid rgba(211,184,129,.34);outline-offset:2px}
+body.startup-ui-v174 .housing-profile-spatial-action-v174:disabled{
+  cursor:default;opacity:.58;background:rgba(246,247,244,.72);box-shadow:none
+}
+body.startup-ui-v174 .housing-profile-spatial-icon-v174{
+  width:34px;height:34px;flex:0 0 34px;display:grid;place-items:center;border-radius:11px;
+  background:linear-gradient(145deg,rgba(43,92,99,.10),rgba(211,184,129,.12));border:1px solid rgba(43,92,99,.10)
+}
+body.startup-ui-v174 .housing-profile-spatial-icon-v174 svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+body.startup-ui-v174 .housing-profile-spatial-copy-v174{display:grid;gap:1px;min-width:90px}
+body.startup-ui-v174 .housing-profile-spatial-copy-v174 strong{font-size:11.8px;line-height:1.2;font-weight:700;color:#244F56;white-space:nowrap}
+body.startup-ui-v174 .housing-profile-spatial-copy-v174 small{font-size:9.8px;line-height:1.25;font-weight:550;color:#6B7E7F;white-space:nowrap}
+body.startup-ui-v174 .housing-profile-spatial-arrow-v174{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;opacity:.72;transition:transform .18s ease}
+body.startup-ui-v174 .housing-profile-spatial-action-v174:hover:not(:disabled) .housing-profile-spatial-arrow-v174{transform:translate(1px,-1px)}
+body.startup-ui-v174 #map .sir-profile-spatial-focus-v174{filter:drop-shadow(0 0 7px rgba(211,184,129,.72)) drop-shadow(0 0 3px rgba(43,92,99,.42))}
+body.startup-ui-v174 .housing-map-status-v92.profile-focus-v174{background:rgba(247,242,230,.94)!important;color:#5E4B2F!important;border-color:rgba(211,184,129,.42)!important}
+@media(max-width:720px){
+  body.startup-ui-v174 .housing-profile-head-v90{flex-wrap:wrap}
+  body.startup-ui-v174 .housing-profile-head-main-v90{flex:1 1 100%;padding-right:46px}
+  body.startup-ui-v174 .housing-profile-head-actions-v174{width:100%;justify-content:space-between;margin-left:0}
+  body.startup-ui-v174 .housing-profile-spatial-action-v174{flex:1 1 auto;max-width:205px}
+}
+@media(max-width:440px){
+  body.startup-ui-v174 .housing-profile-spatial-copy-v174 small{display:none}
+  body.startup-ui-v174 .housing-profile-spatial-action-v174{min-height:42px;padding:5px 9px 5px 6px}
+  body.startup-ui-v174 .housing-profile-spatial-icon-v174{width:30px;height:30px;flex-basis:30px}
+}
+</style>
+<script id="v174-profile-spatial-navigation-script">
+/* SIRUMAH v174 — Profile to Spatial Navigation */
+let housingMapFocusLayerV174=null;
+let housingMapFocusPopupTimerV174=null;
+
+function updateHousingProfileSpatialActionV174(row){
+  const button=document.getElementById("housingProfileMapActionV174");
+  const label=document.getElementById("housingProfileMapActionLabelV174");
+  const meta=document.getElementById("housingProfileMapActionMetaV174");
+  if(!button) return;
+  const hasSpatial=Boolean(row && housingMapHasSpatialV96(row));
+  button.dataset.housingProfileId=String(row?.id ?? "");
+  button.disabled=!hasSpatial;
+  button.setAttribute("aria-disabled",hasSpatial?"false":"true");
+  button.title=hasSpatial ? "Tampilkan objek ini pada Peta Analitik SIRUMAH" : "Data spasial perumahan ini belum tersedia";
+  if(label) label.textContent=hasSpatial?"Lihat di Peta":"Lokasi belum tersedia";
+  if(meta) meta.textContent=hasSpatial?(housingMapHasDelineationV96(row)?"Delineasi tersedia":"Titik lokasi tersedia"):"Data spasial belum tersedia";
+}
+
+function clearHousingMapFocusV174(){
+  if(housingMapFocusPopupTimerV174){clearTimeout(housingMapFocusPopupTimerV174);housingMapFocusPopupTimerV174=null;}
+  if(housingMapFocusLayerV174 && map){try{map.removeLayer(housingMapFocusLayerV174);}catch(_){}}
+  housingMapFocusLayerV174=null;
+  document.querySelectorAll("#map .sir-profile-spatial-focus-v174").forEach(el=>el.classList.remove("sir-profile-spatial-focus-v174"));
+}
+
+function housingMapFindRenderedObjectV174(id){
+  let found=null;
+  if(!mapLayer) return null;
+  mapLayer.eachLayer(layer=>{if(!found && String(layer?._sirHousingIdV174 ?? "")===String(id??"")) found=layer;});
+  return found;
+}
+
+function housingMapMarkFocusLayerV174(layer){
+  if(!layer) return;
+  const mark=current=>{
+    if(current?._path) current._path.classList.add("sir-profile-spatial-focus-v174");
+    if(typeof current?.eachLayer==="function") current.eachLayer(mark);
+  };
+  mark(layer);
+}
+
+function housingMapPopupAnchorV174(layer){
+  let anchor=null;
+  const inspect=current=>{
+    if(anchor) return;
+    if(current && typeof current.openPopup==="function" && current.getLatLng) anchor=current;
+    if(!anchor && typeof current?.eachLayer==="function") current.eachLayer(inspect);
+  };
+  inspect(layer);
+  return anchor;
+}
+
+function housingMapBuildFallbackFocusV174(row){
+  if(!map || typeof L==="undefined") return null;
+  const popup=housingMapPopupV92(row,"housing");
+  const group=L.featureGroup();
+  const geo=housingMapParseGeoJSONV96(row);
+  let added=false;
+  if(geo){
+    try{
+      L.geoJSON(geo,{
+        style:()=>({color:"#D3B881",weight:4,fillColor:"#2B5C63",fillOpacity:.16}),
+        pointToLayer:(_feature,latlng)=>L.circleMarker(latlng,{radius:9,color:"#D3B881",weight:3,fillColor:"#2B5C63",fillOpacity:.96})
+      }).bindPopup(popup,{maxWidth:390,minWidth:330,className:"sir-spatial-popup-shell-v170"}).addTo(group);
+      added=true;
+    }catch(error){console.warn("Fokus spasial GeoJSON v174 gagal:",error);}
+  }
+  if(housingMapHasCoordinatesV92(row)){
+    L.circleMarker([Number(row.lat),Number(row.lng)],{radius:9,color:"#D3B881",weight:3,fillColor:"#2B5C63",fillOpacity:.96})
+      .bindPopup(popup,{maxWidth:390,minWidth:330,className:"sir-spatial-popup-shell-v170"}).addTo(group);
+    added=true;
+  }
+  if(!added) return null;
+  group._sirHousingIdV174=String(row?.id ?? "");
+  group.addTo(map);
+  housingMapFocusLayerV174=group;
+  return group;
+}
+
+function focusHousingSpatialV174(row){
+  if(!row || !map || !housingMapHasSpatialV96(row)) return;
+  clearHousingMapFocusV174();
+  map.invalidateSize?.();
+  let layer=housingMapFindRenderedObjectV174(row.id);
+  if(!layer) layer=housingMapBuildFallbackFocusV174(row);
+  if(!layer) return;
+  housingMapMarkFocusLayerV174(layer);
+  try{layer.bringToFront?.();}catch(_){}
+
+  const hasDelineation=housingMapHasDelineationV96(row);
+  let bounds=null;
+  try{bounds=layer.getBounds?.();}catch(_){}
+  if(hasDelineation && bounds?.isValid?.()){
+    map.fitBounds(bounds.pad(.38),{maxZoom:17,animate:true});
+  }else if(housingMapHasCoordinatesV92(row)){
+    const latlng=[Number(row.lat),Number(row.lng)];
+    if(typeof map.flyTo==="function") map.flyTo(latlng,17,{animate:true,duration:.65});
+    else map.setView(latlng,17,{animate:true});
+  }else if(bounds?.isValid?.()){
+    map.fitBounds(bounds.pad(.45),{maxZoom:17,animate:true});
+  }
+
+  const status=document.getElementById("housingAnalyticStatusV92");
+  if(status){
+    status.className="housing-map-status-v92 spatial-status-v169 profile-focus-v174";
+    status.textContent=`Fokus objek · ${row.nama||"Perumahan"}`;
+    status.title="Objek dibuka dari Profil Perumahan.";
+  }
+
+  housingMapFocusPopupTimerV174=setTimeout(()=>{
+    housingMapFocusPopupTimerV174=null;
+    const anchor=housingMapPopupAnchorV174(layer);
+    if(anchor){try{anchor.openPopup();return;}catch(_){}}
+    try{
+      const center=bounds?.isValid?.()?bounds.getCenter():(housingMapHasCoordinatesV92(row)?L.latLng(Number(row.lat),Number(row.lng)):null);
+      if(center)L.popup({maxWidth:390,minWidth:330,className:"sir-spatial-popup-shell-v170"}).setLatLng(center).setContent(housingMapPopupV92(row,"housing")).openOn(map);
+    }catch(_){}
+  },hasDelineation?420:520);
+}
+
+function focusHousingSpatialWhenReadyV174(row,attempt=0){
+  if(!row) return;
+  if(typeof L==="undefined"){
+    if(attempt<10) setTimeout(()=>focusHousingSpatialWhenReadyV174(row,attempt+1),140);
+    return;
+  }
+  if(!map || !mapLayer){
+    try{initMap();}catch(_){}
+    if(attempt<10) setTimeout(()=>focusHousingSpatialWhenReadyV174(row,attempt+1),140);
+    return;
+  }
+  const baseLayer=document.getElementById("analyticLayerHousingV92");
+  if(baseLayer) baseLayer.checked=true;
+  try{renderMap();}catch(_){}
+  setTimeout(()=>focusHousingSpatialV174(row),130);
+}
+
+function openHousingSpatialFromProfileV174(id){
+  const row=(housing||[]).find(item=>String(item?.id ?? "")===String(id??""));
+  if(!row || !housingMapHasSpatialV96(row)) return;
+  closeHousingProfileV90();
+  navigateSectionV94("data-perumahan");
+  setTimeout(()=>{
+    const module=document.getElementById("housingMapModule");
+    module?.scrollIntoView?.({behavior:"smooth",block:"start"});
+    focusHousingSpatialWhenReadyV174(row,0);
+  },170);
+}
+
+const renderHousingProfileV173BeforeV174=renderHousingProfileV90;
+renderHousingProfileV90=function(row){
+  renderHousingProfileV173BeforeV174(row);
+  updateHousingProfileSpatialActionV174(row);
+};
+</script>
+<!-- SIRUMAH v174 — Profile to Spatial Navigation
+     Profil Perumahan terhubung dua arah dengan Peta Analitik; data/schema baseline v28 tidak berubah. -->
 
 </body>
 </html>
