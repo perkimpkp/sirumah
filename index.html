@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
-<title>SIRUMAH Kota Pangkal Pinang v183 — Land & PSU Readability Refinement</title>
+<title>SIRUMAH Kota Pangkal Pinang v184 — Database Helper Name Compatibility</title>
 <link crossorigin="" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" rel="stylesheet"/>
 <style>
     :root{
@@ -7016,7 +7016,7 @@ body.public-mode.startup-ui-v166 #rusunawa .rus-hero-v132{margin-bottom:14px}
 @media(max-width:720px){.startup-ui-v166 #rusunawa .rus-public-card-head-v166{padding:17px 16px 9px}.startup-ui-v166 #rusunawa .rus-public-card-head-v166{display:grid}.startup-ui-v166 #rusunawa .rus-public-scope-v166{justify-self:start}.startup-ui-v166 #rusunawa .rus-public-occupancy-main-v166{grid-template-columns:1fr;gap:17px;padding:10px 16px 18px}.startup-ui-v166 #rusunawa .rus-public-occupancy-number-v166 strong{font-size:46px}.startup-ui-v166 #rusunawa .rus-public-unit-segments-v166{grid-template-columns:repeat(10,1fr);gap:4px;padding:10px}.startup-ui-v166 #rusunawa .rus-public-status-grid-v166{padding:5px 15px 16px}.startup-ui-v166 #rusunawa .rus-public-facility-stats-v166{grid-template-columns:1fr;padding:5px 15px 12px}.startup-ui-v166 #rusunawa .rus-public-facility-chips-v166{padding:0 15px}.startup-ui-v166 #rusunawa .rus-public-narrative-v166{grid-template-columns:42px minmax(0,1fr);padding:17px}.startup-ui-v166 #rusunawa .rus-public-narrative-monogram-v166{width:42px;height:42px;border-radius:13px}}
 @media(max-width:430px){.startup-ui-v166 #rusunawa .rus-public-unit-segments-v166{grid-template-columns:repeat(6,1fr)}.startup-ui-v166 #rusunawa .rus-public-status-item-v166{grid-template-columns:38px minmax(0,1fr) auto;padding:9px}.startup-ui-v166 #rusunawa .rus-public-status-icon-v166{width:38px;height:38px}.startup-ui-v166 #rusunawa .rus-public-status-value-v166 strong{font-size:20px}}
 </style>
-<body class="public-mode startup-ui-v100 startup-ui-v101 startup-ui-v102 startup-ui-v103 startup-ui-v104 startup-ui-v105 startup-ui-v106 startup-ui-v107 startup-ui-v108 startup-ui-v109 startup-ui-v110 startup-ui-v111 startup-ui-v112 startup-ui-v113 startup-ui-v114 startup-ui-v115 startup-ui-v116 startup-ui-v117 startup-ui-v118 startup-ui-v120 startup-ui-v122 startup-ui-v123 startup-ui-v124 startup-ui-v125 startup-ui-v126 startup-ui-v127 startup-ui-v128 startup-ui-v129 startup-ui-v130 startup-ui-v131 startup-ui-v132 startup-ui-v133 startup-ui-v134 startup-ui-v135 startup-ui-v136 startup-ui-v137 startup-ui-v138 startup-ui-v139 startup-ui-v140 startup-ui-v141 startup-ui-v142 startup-ui-v143 startup-ui-v144 startup-ui-v145 startup-ui-v146 startup-ui-v147 startup-ui-v148 startup-ui-v149 startup-ui-v150 startup-ui-v151 startup-ui-v152 startup-ui-v153 startup-ui-v155 startup-ui-v156 startup-ui-v158 startup-ui-v159 startup-ui-v162 startup-ui-v163 startup-ui-v164 startup-ui-v165 startup-ui-v166 startup-ui-v167 startup-ui-v168 startup-ui-v169 startup-ui-v170 startup-ui-v171 startup-ui-v174 startup-ui-v175 startup-ui-v176 startup-ui-v177 startup-ui-v178 startup-ui-v179 startup-ui-v180 startup-ui-v181 startup-ui-v182 startup-ui-v183">
+<body class="public-mode startup-ui-v100 startup-ui-v101 startup-ui-v102 startup-ui-v103 startup-ui-v104 startup-ui-v105 startup-ui-v106 startup-ui-v107 startup-ui-v108 startup-ui-v109 startup-ui-v110 startup-ui-v111 startup-ui-v112 startup-ui-v113 startup-ui-v114 startup-ui-v115 startup-ui-v116 startup-ui-v117 startup-ui-v118 startup-ui-v120 startup-ui-v122 startup-ui-v123 startup-ui-v124 startup-ui-v125 startup-ui-v126 startup-ui-v127 startup-ui-v128 startup-ui-v129 startup-ui-v130 startup-ui-v131 startup-ui-v132 startup-ui-v133 startup-ui-v134 startup-ui-v135 startup-ui-v136 startup-ui-v137 startup-ui-v138 startup-ui-v139 startup-ui-v140 startup-ui-v141 startup-ui-v142 startup-ui-v143 startup-ui-v144 startup-ui-v145 startup-ui-v146 startup-ui-v147 startup-ui-v148 startup-ui-v149 startup-ui-v150 startup-ui-v151 startup-ui-v152 startup-ui-v153 startup-ui-v155 startup-ui-v156 startup-ui-v158 startup-ui-v159 startup-ui-v162 startup-ui-v163 startup-ui-v164 startup-ui-v165 startup-ui-v166 startup-ui-v167 startup-ui-v168 startup-ui-v169 startup-ui-v170 startup-ui-v171 startup-ui-v174 startup-ui-v175 startup-ui-v176 startup-ui-v177 startup-ui-v178 startup-ui-v179 startup-ui-v180 startup-ui-v181 startup-ui-v182 startup-ui-v183 startup-ui-v184">
 <div class="app">
 <svg aria-hidden="true" class="sirumah-nav-sprite-v149" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
 <defs>
@@ -10881,7 +10881,7 @@ function rusunawaBadge(status){
 
 /* =========================================================
    INTEGRASI DATABASE EXCEL SIRUMAH v59 — GITHUB READY + MATRIKS PRIORITAS + PAGINASI RTLH
-   Satu workbook dengan dua belas sheet resmi. Seluruh penerapan
+   Satu workbook dengan tiga belas sheet resmi. Seluruh penerapan
    data bersifat atomik: dashboard tidak berubah bila validasi gagal.
    ========================================================= */
 const SIRUMAH_EXCEL_SCHEMAS = {
@@ -10897,7 +10897,8 @@ const SIRUMAH_EXCEL_SCHEMAS = {
       "LUAS_RENCANA_M2","JUMLAH_RENCANA","SATUAN","STATUS_FISIK","RENCANA_DISERAHKAN",
       "STATUS_PENYERAHAN","LUAS_SUDAH_DISERAHKAN_M2","JUMLAH_SUDAH_DISERAHKAN",
       "TAHUN_SERAH_TERIMA","KETERANGAN","SUMBER_DATA","STATUS_VERIFIKASI","TANGGAL_UPDATE","OPERATOR"
-    ]
+    ],
+    optionalHeaders: ["NAMA_PERUMAHAN"]
   },
   BACKLOG_KECAMATAN: {
     anchor: "ID_BACKLOG",
@@ -10994,7 +10995,8 @@ const SIRUMAH_EXCEL_SCHEMAS = {
       "ID_DOKUMEN","JENIS_OBJEK","ID_OBJEK","JENIS_DOKUMEN","JUDUL_DOKUMEN",
       "NOMOR_DOKUMEN","TANGGAL_DOKUMEN","URL_DOKUMEN","AKSES","STATUS_VERIFIKASI",
       "KETERANGAN","SUMBER_DATA","TANGGAL_UPDATE","OPERATOR"
-    ]
+    ],
+    optionalHeaders: ["NAMA_PERUMAHAN"]
   }
 };
 
@@ -11682,6 +11684,7 @@ function buildDocumentsFromExcel(rows){
     id:sirText(rowValue(row,"ID_DOKUMEN")),
     objectType:sirText(rowValue(row,"JENIS_OBJEK")).toUpperCase(),
     objectId:sirText(rowValue(row,"ID_OBJEK")),
+    housingName:sirText(rowValue(row,"NAMA_PERUMAHAN")),
     documentType:sirText(rowValue(row,"JENIS_DOKUMEN")).toUpperCase(),
     title:sirText(rowValue(row,"JUDUL_DOKUMEN")),
     number:sirText(rowValue(row,"NOMOR_DOKUMEN")),
@@ -11700,6 +11703,7 @@ function buildHousingPsuDetailsFromExcel(rows){
   return rows.map((row,index)=>({
     id: sirText(rowValue(row,"ID_PSU_DETAIL")) || `PSU-${index+1}`,
     housingId: sirText(rowValue(row,"ID_PERUMAHAN")),
+    housingName: sirText(rowValue(row,"NAMA_PERUMAHAN")),
     sitePlanYear: sirNumber(rowValue(row,"TAHUN_SITEPLAN_ACUAN")),
     group: sirText(rowValue(row,"KELOMPOK_PSU")).toUpperCase(),
     type: sirText(rowValue(row,"JENIS_PSU")),
@@ -22218,5 +22222,6 @@ function housingLandPsuHtmlV182(row){
 </script>
 <!-- SIRUMAH v183 — Land & PSU Readability Refinement. Database v29 unchanged. -->
 
+<!-- SIRUMAH v184 — Database Helper Name Compatibility: NAMA_PERUMAHAN helper columns supported in PSU Detail and Dokumen Pendukung. -->
 </body>
 </html>
