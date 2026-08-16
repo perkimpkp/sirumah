@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
-<title>SIRUMAH Kota Pangkal Pinang v174 — Profile to Spatial Navigation</title>
+<title>SIRUMAH Kota Pangkal Pinang v183 — Land & PSU Readability Refinement</title>
 <link crossorigin="" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" rel="stylesheet"/>
 <style>
     :root{
@@ -4240,8 +4240,8 @@
 .startup-ui-v116 #data-perumahan .housing-analytic-panel-v92{display:block!important}
 .startup-ui-v116 #data-perumahan .housing-layer-symbol-v92.housing{background:#2B5C63}
 .startup-ui-v116 #data-perumahan .housing-layer-symbol-v92.slum{background:#D3B881}
-.startup-ui-v116 #data-perumahan .housing-layer-symbol-v92.psu-handover-v116{background:#16a34a}
-.startup-ui-v116 #data-perumahan .housing-layer-symbol-v92.psu-pending-v116{background:#dc2626}
+.startup-ui-v116 #data-perumahan .housing-layer-symbol-v92.psu-handover-v116{background:#2F9A66}
+.startup-ui-v116 #data-perumahan .housing-layer-symbol-v92.psu-pending-v116{background:#C28A36}
 
 /* Layer aktif harus langsung terasa secara visual. */
 .startup-ui-v116 #data-perumahan .housing-layer-toggle-v92.compact-v115>span{
@@ -4278,8 +4278,8 @@
    Satu warna yang benar-benar berbeda untuk tiap layer analitik. */
 .startup-ui-v117 #data-perumahan .housing-layer-symbol-v92.housing{background:#2B5C63!important}
 .startup-ui-v117 #data-perumahan .housing-layer-symbol-v92.slum{background:#7C3AED!important}
-.startup-ui-v117 #data-perumahan .housing-layer-symbol-v92.psu-handover-v116{background:#16A34A!important}
-.startup-ui-v117 #data-perumahan .housing-layer-symbol-v92.psu-pending-v116{background:#DC2626!important}
+.startup-ui-v117 #data-perumahan .housing-layer-symbol-v92.psu-handover-v116{background:#2F9A66!important}
+.startup-ui-v117 #data-perumahan .housing-layer-symbol-v92.psu-pending-v116{background:#C28A36!important}
 .startup-ui-v117 #data-perumahan .housing-layer-symbol-v92.psu{background:#F97316!important}
 .startup-ui-v117 #data-perumahan .housing-layer-symbol-v92.flood{background:#0284C7!important}
 .startup-ui-v117 #data-perumahan .housing-layer-symbol-v92.road-unpaved-v96{background:#8B5E3C!important}
@@ -7016,7 +7016,7 @@ body.public-mode.startup-ui-v166 #rusunawa .rus-hero-v132{margin-bottom:14px}
 @media(max-width:720px){.startup-ui-v166 #rusunawa .rus-public-card-head-v166{padding:17px 16px 9px}.startup-ui-v166 #rusunawa .rus-public-card-head-v166{display:grid}.startup-ui-v166 #rusunawa .rus-public-scope-v166{justify-self:start}.startup-ui-v166 #rusunawa .rus-public-occupancy-main-v166{grid-template-columns:1fr;gap:17px;padding:10px 16px 18px}.startup-ui-v166 #rusunawa .rus-public-occupancy-number-v166 strong{font-size:46px}.startup-ui-v166 #rusunawa .rus-public-unit-segments-v166{grid-template-columns:repeat(10,1fr);gap:4px;padding:10px}.startup-ui-v166 #rusunawa .rus-public-status-grid-v166{padding:5px 15px 16px}.startup-ui-v166 #rusunawa .rus-public-facility-stats-v166{grid-template-columns:1fr;padding:5px 15px 12px}.startup-ui-v166 #rusunawa .rus-public-facility-chips-v166{padding:0 15px}.startup-ui-v166 #rusunawa .rus-public-narrative-v166{grid-template-columns:42px minmax(0,1fr);padding:17px}.startup-ui-v166 #rusunawa .rus-public-narrative-monogram-v166{width:42px;height:42px;border-radius:13px}}
 @media(max-width:430px){.startup-ui-v166 #rusunawa .rus-public-unit-segments-v166{grid-template-columns:repeat(6,1fr)}.startup-ui-v166 #rusunawa .rus-public-status-item-v166{grid-template-columns:38px minmax(0,1fr) auto;padding:9px}.startup-ui-v166 #rusunawa .rus-public-status-icon-v166{width:38px;height:38px}.startup-ui-v166 #rusunawa .rus-public-status-value-v166 strong{font-size:20px}}
 </style>
-<body class="public-mode startup-ui-v100 startup-ui-v101 startup-ui-v102 startup-ui-v103 startup-ui-v104 startup-ui-v105 startup-ui-v106 startup-ui-v107 startup-ui-v108 startup-ui-v109 startup-ui-v110 startup-ui-v111 startup-ui-v112 startup-ui-v113 startup-ui-v114 startup-ui-v115 startup-ui-v116 startup-ui-v117 startup-ui-v118 startup-ui-v120 startup-ui-v122 startup-ui-v123 startup-ui-v124 startup-ui-v125 startup-ui-v126 startup-ui-v127 startup-ui-v128 startup-ui-v129 startup-ui-v130 startup-ui-v131 startup-ui-v132 startup-ui-v133 startup-ui-v134 startup-ui-v135 startup-ui-v136 startup-ui-v137 startup-ui-v138 startup-ui-v139 startup-ui-v140 startup-ui-v141 startup-ui-v142 startup-ui-v143 startup-ui-v144 startup-ui-v145 startup-ui-v146 startup-ui-v147 startup-ui-v148 startup-ui-v149 startup-ui-v150 startup-ui-v151 startup-ui-v152 startup-ui-v153 startup-ui-v155 startup-ui-v156 startup-ui-v158 startup-ui-v159 startup-ui-v162 startup-ui-v163 startup-ui-v164 startup-ui-v165 startup-ui-v166 startup-ui-v167 startup-ui-v168 startup-ui-v169 startup-ui-v170 startup-ui-v171 startup-ui-v174">
+<body class="public-mode startup-ui-v100 startup-ui-v101 startup-ui-v102 startup-ui-v103 startup-ui-v104 startup-ui-v105 startup-ui-v106 startup-ui-v107 startup-ui-v108 startup-ui-v109 startup-ui-v110 startup-ui-v111 startup-ui-v112 startup-ui-v113 startup-ui-v114 startup-ui-v115 startup-ui-v116 startup-ui-v117 startup-ui-v118 startup-ui-v120 startup-ui-v122 startup-ui-v123 startup-ui-v124 startup-ui-v125 startup-ui-v126 startup-ui-v127 startup-ui-v128 startup-ui-v129 startup-ui-v130 startup-ui-v131 startup-ui-v132 startup-ui-v133 startup-ui-v134 startup-ui-v135 startup-ui-v136 startup-ui-v137 startup-ui-v138 startup-ui-v139 startup-ui-v140 startup-ui-v141 startup-ui-v142 startup-ui-v143 startup-ui-v144 startup-ui-v145 startup-ui-v146 startup-ui-v147 startup-ui-v148 startup-ui-v149 startup-ui-v150 startup-ui-v151 startup-ui-v152 startup-ui-v153 startup-ui-v155 startup-ui-v156 startup-ui-v158 startup-ui-v159 startup-ui-v162 startup-ui-v163 startup-ui-v164 startup-ui-v165 startup-ui-v166 startup-ui-v167 startup-ui-v168 startup-ui-v169 startup-ui-v170 startup-ui-v171 startup-ui-v174 startup-ui-v175 startup-ui-v176 startup-ui-v177 startup-ui-v178 startup-ui-v179 startup-ui-v180 startup-ui-v181 startup-ui-v182 startup-ui-v183">
 <div class="app">
 <svg aria-hidden="true" class="sirumah-nav-sprite-v149" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
 <defs>
@@ -7376,7 +7376,7 @@ body.public-mode.startup-ui-v166 #rusunawa .rus-hero-v132{margin-bottom:14px}
 <div class="housing-advanced-filter-head-v115"><div><span>FILTER TAMBAHAN</span><strong>Persempit data bila diperlukan</strong></div><button aria-label="Tutup filter tambahan" onclick="toggleHousingAdvancedFiltersV115(false)" type="button">×</button></div>
 <div class="housing-advanced-selects-v115">
 <label><span>Kategori</span><select id="filterKategori" onchange="applyFilters()"><option value="all">Semua Kategori</option></select></label>
-<label><span>Urutkan berdasarkan</span><select id="sortTahun" onchange="applyFilters()"><option value="name-asc">Nama Perumahan A–Z</option><option value="name-desc">Nama Perumahan Z–A</option><option value="year-desc">Tahun Site Plan — terbaru</option><option value="year-asc">Tahun Site Plan — terlama</option></select></label>
+<label><span>Urutkan berdasarkan</span><select id="sortTahun" onchange="applyFilters()"><option value="name-asc">Nama Perumahan A–Z</option><option value="name-desc">Nama Perumahan Z–A</option><option value="year-desc">Site Plan Terbaru — terbaru</option><option value="year-asc">Site Plan Terbaru — terlama</option></select></label>
 </div>
 <div class="housing-filter-group-v115 private-only">
 <span class="housing-filter-group-label-v115">Kondisi &amp; catatan</span>
@@ -8928,6 +8928,8 @@ function priorityLevelBadge(level){
 function badge(status){
   const s = String(status || "");
   const upper = s.toUpperCase();
+  if(/BELUM\s+(DISERAHKAN|SERAH)/.test(upper)) return `<span class="badge psu-pending-v178">${escapeHtml(s)}</span>`;
+  if(/SUDAH\s+(DISERAHKAN|SERAH)|^DISERAHKAN$/.test(upper)) return `<span class="badge psu-handed-v178">${escapeHtml(s)}</span>`;
   let c = "blue";
   if(upper.includes("SUDAH") || upper.startsWith("SELESAI") || upper === "BAIK") c = "green";
   else if(upper.includes("BELUM") || upper.includes("PRIORITAS")) c = "red";
@@ -9623,8 +9625,8 @@ function renderHousingMapLegendV92(){
   const configs=[
     ["analyticLayerHousingV92","#2B5C63","Perumahan",false],
     ["analyticLayerSlumV92","#7C3AED","Kawasan kumuh",false],
-    ["analyticLayerPsuHandoverV116","#16A34A","PSU sudah diserahkan",false],
-    ["analyticLayerPsuPendingV116","#DC2626","PSU belum diserahkan",false],
+    ["analyticLayerPsuHandoverV116","#2F9A66","PSU sudah diserahkan",false],
+    ["analyticLayerPsuPendingV116","#C28A36","PSU belum diserahkan",false],
     ["analyticLayerPsuV92","#F97316","PSU prioritas",true],
     ["analyticLayerFloodV92","#0284C7","Rawan genangan",true],
     ["analyticLayerRoadUnpavedV96","#8B5E3C","Belum perkerasan",true],
@@ -9657,7 +9659,8 @@ function renderStandardHousingMapV92(){
   const bounds=[];
   let spatial=0,delineated=0,pointOnly=0;
   rows.forEach(row=>{
-    const color=String(row.statusPSU||"").includes("SUDAH") ? "#16a34a" : "#dc2626";
+    const psuState=String(row.statusPSU||"").toUpperCase();
+    const color=psuState.includes("SUDAH") ? "#2F9A66" : (psuState.includes("BELUM") ? "#C28A36" : "#7B8C8D");
     const layer=housingMapRenderHousingGeometryV96(row,{color,fillOpacity:.15,weight:2,radius:7,variant:"housing",centerMarker:true});
     if(!layer) return;
     housingMapAddBoundsV92(bounds,layer,row);
@@ -9718,8 +9721,8 @@ function renderAnalyticHousingMapV92(){
   };
 
   if(active.housing) drawRows(rows,{color:"#2B5C63",fillOpacity:.10,weight:1.7,radius:5,variant:"housing",centerMarker:true});
-  if(active.psuHandover) drawRows(psuHandoverRows,{color:"#16A34A",fillOpacity:.24,weight:2.5,radius:8,variant:"housing",centerMarker:true});
-  if(active.psuPending) drawRows(psuPendingRows,{color:"#DC2626",fillOpacity:.24,weight:2.5,radius:8,variant:"housing",centerMarker:true});
+  if(active.psuHandover) drawRows(psuHandoverRows,{color:"#2F9A66",fillOpacity:.24,weight:2.5,radius:8,variant:"housing",centerMarker:true});
+  if(active.psuPending) drawRows(psuPendingRows,{color:"#C28A36",fillOpacity:.24,weight:2.5,radius:8,variant:"housing",centerMarker:true});
   if(active.psu){
     psuRows.forEach(row=>{
       const matrix=priorityMatrix(row),color="#F97316";
@@ -9801,7 +9804,7 @@ function exportCSV(fileName="data_perumahan_sirumah.csv"){
     ["No",(_,i)=>i+1],
     ["Nama Perumahan",x=>x.nama],
     ["Kategori",x=>x.kategori],
-    ["Tahun",x=>x.tahun],
+    ["Riwayat Tahun Site Plan",x=>x.tahun],
     ["Alamat",x=>x.alamat],
     ["Kelurahan",x=>x.kelurahan],
     ["Kecamatan",x=>x.kecamatan],
@@ -10884,8 +10887,17 @@ function rusunawaBadge(status){
 const SIRUMAH_EXCEL_SCHEMAS = {
   PERUMAHAN: {
     anchor: "ID_PERUMAHAN",
-    headers: ["ID_PERUMAHAN","NAMA_PERUMAHAN","KATEGORI","KECAMATAN","KELURAHAN","ALAMAT","PENGEMBANG","TAHUN_SITEPLAN","JUMLAH_SITEPLAN","JUMLAH_TERBANGUN","JUMLAH_TERHUNI","STATUS_PSU","TAHUN_SERAH_TERIMA_PSU","LUAS_RTH_M2","STATUS_RTH","CATATAN","LATITUDE","LONGITUDE","GEOJSON","TAHUN_DATA","SUMBER_DATA","STATUS_VERIFIKASI","TANGGAL_UPDATE","OPERATOR","PERSEN_TERBANGUN","PERSEN_TERHUNI"],
+    headers: ["ID_PERUMAHAN","NAMA_PERUMAHAN","KATEGORI","KECAMATAN","KELURAHAN","ALAMAT","PENGEMBANG","TAHUN_SITEPLAN","JUMLAH_SITEPLAN","JUMLAH_TERBANGUN","JUMLAH_TERHUNI","STATUS_PSU","TAHUN_SERAH_TERIMA_PSU","LUAS_RTH_M2","STATUS_RTH","CATATAN","LATITUDE","LONGITUDE","GEOJSON","TAHUN_DATA","SUMBER_DATA","STATUS_VERIFIKASI","TANGGAL_UPDATE","OPERATOR","PERSEN_TERBANGUN","PERSEN_TERHUNI","LUAS_SITEPLAN_M2","LUAS_LAHAN_EFEKTIF_M2","LUAS_LAHAN_NON_EFEKTIF_M2"],
     optionalHeaders: ["DIREKTUR/PELAKSANA","DIREKTUR_PELAKSANA","ASOSIASI","STATUS_JALAN","STATUS_PENGEMBANG","STATUS_RAWAN_BANJIR"]
+  },
+  PERUMAHAN_PSU_DETAIL: {
+    anchor: "ID_PSU_DETAIL",
+    headers: [
+      "ID_PSU_DETAIL","ID_PERUMAHAN","TAHUN_SITEPLAN_ACUAN","KELOMPOK_PSU","JENIS_PSU","URAIAN",
+      "LUAS_RENCANA_M2","JUMLAH_RENCANA","SATUAN","STATUS_FISIK","RENCANA_DISERAHKAN",
+      "STATUS_PENYERAHAN","LUAS_SUDAH_DISERAHKAN_M2","JUMLAH_SUDAH_DISERAHKAN",
+      "TAHUN_SERAH_TERIMA","KETERANGAN","SUMBER_DATA","STATUS_VERIFIKASI","TANGGAL_UPDATE","OPERATOR"
+    ]
   },
   BACKLOG_KECAMATAN: {
     anchor: "ID_BACKLOG",
@@ -10994,6 +11006,7 @@ function cloneSirumah(value){
 
 const SIRUMAH_DEFAULT_RUNTIME = {
   housing: [],
+  housingPsuDetails: [],
   backlogOwnership: [],
   backlogHunian: 0,
   backlogMeta: {source:"", year:"", verification:"Belum dimuat"},
@@ -11010,6 +11023,7 @@ const SIRUMAH_DEFAULT_RUNTIME = {
   documents: [],
   counts: {
     PERUMAHAN: 0,
+    PERUMAHAN_PSU_DETAIL: 0,
     BACKLOG_KECAMATAN: 0,
     RTLH_RLH_KECAMATAN: 0,
     RTLH_INDIVIDU: 0,
@@ -11176,9 +11190,13 @@ function buildHousingFromExcel(rows){
       statusPSU: normStatus(rowValue(row,"STATUS_PSU")) || "TIDAK DIKETAHUI",
       tahunPSU: isUnknownTextV165(rowValue(row,"TAHUN_SERAH_TERIMA_PSU")) ? "" : sirText(rowValue(row,"TAHUN_SERAH_TERIMA_PSU")),
       catatan: notes.join(" | "),
+      catatanTambahan: sirText(rowValue(row,"CATATAN")),
       lat: isBlankExcelValue(rowValue(row,"LATITUDE")) ? null : sirNumber(rowValue(row,"LATITUDE")),
       lng: isBlankExcelValue(rowValue(row,"LONGITUDE")) ? null : sirNumber(rowValue(row,"LONGITUDE")),
       luasRTH: sirNumber(rowValue(row,"LUAS_RTH_M2")),
+      luasSitePlan: sirNumber(rowValue(row,"LUAS_SITEPLAN_M2")),
+      luasLahanEfektif: sirNumber(rowValue(row,"LUAS_LAHAN_EFEKTIF_M2")),
+      luasLahanNonEfektif: sirNumber(rowValue(row,"LUAS_LAHAN_NON_EFEKTIF_M2")),
       statusRTH: rthRaw,
       statusJalan: statusJalanRaw,
       statusPengembang: statusPengembangRaw,
@@ -11678,6 +11696,31 @@ function buildDocumentsFromExcel(rows){
   })).filter(row=>row.id && row.objectType && row.objectId && row.title);
 }
 
+function buildHousingPsuDetailsFromExcel(rows){
+  return rows.map((row,index)=>({
+    id: sirText(rowValue(row,"ID_PSU_DETAIL")) || `PSU-${index+1}`,
+    housingId: sirText(rowValue(row,"ID_PERUMAHAN")),
+    sitePlanYear: sirNumber(rowValue(row,"TAHUN_SITEPLAN_ACUAN")),
+    group: sirText(rowValue(row,"KELOMPOK_PSU")).toUpperCase(),
+    type: sirText(rowValue(row,"JENIS_PSU")),
+    description: sirText(rowValue(row,"URAIAN")),
+    plannedArea: isBlankExcelValue(rowValue(row,"LUAS_RENCANA_M2")) ? null : sirNumber(rowValue(row,"LUAS_RENCANA_M2")),
+    plannedQty: isBlankExcelValue(rowValue(row,"JUMLAH_RENCANA")) ? null : sirNumber(rowValue(row,"JUMLAH_RENCANA")),
+    unit: sirText(rowValue(row,"SATUAN")),
+    physicalStatus: sirText(rowValue(row,"STATUS_FISIK")).toUpperCase(),
+    plannedHandover: sirText(rowValue(row,"RENCANA_DISERAHKAN")).toUpperCase(),
+    handoverStatus: sirText(rowValue(row,"STATUS_PENYERAHAN")).toUpperCase(),
+    handedArea: isBlankExcelValue(rowValue(row,"LUAS_SUDAH_DISERAHKAN_M2")) ? null : sirNumber(rowValue(row,"LUAS_SUDAH_DISERAHKAN_M2")),
+    handedQty: isBlankExcelValue(rowValue(row,"JUMLAH_SUDAH_DISERAHKAN")) ? null : sirNumber(rowValue(row,"JUMLAH_SUDAH_DISERAHKAN")),
+    handoverYear: sirText(rowValue(row,"TAHUN_SERAH_TERIMA")),
+    note: sirText(rowValue(row,"KETERANGAN")),
+    source: sirText(rowValue(row,"SUMBER_DATA")),
+    verification: sirText(rowValue(row,"STATUS_VERIFIKASI")),
+    updatedAt: sirText(rowValue(row,"TANGGAL_UPDATE")),
+    operator: sirText(rowValue(row,"OPERATOR"))
+  })).filter(item=>item.housingId && item.group && item.type);
+}
+
 function buildRuntimeFromWorkbook(workbook, fileName){
   const available = new Set(workbook.SheetNames.map(name => String(name).trim().toUpperCase()));
   const missingSheets = SIRUMAH_SHEET_NAMES.filter(name => !available.has(name));
@@ -11692,6 +11735,7 @@ function buildRuntimeFromWorkbook(workbook, fileName){
 
   return {
     housing: buildHousingFromExcel(parsed.PERUMAHAN),
+    housingPsuDetails: buildHousingPsuDetailsFromExcel(parsed.PERUMAHAN_PSU_DETAIL),
     backlogOwnership: backlog.ownership,
     backlogHunian: backlog.backlogHunian,
     backlogMeta: backlog.meta,
@@ -17550,13 +17594,11 @@ function housingVerificationKindV121(value){
 }
 
 function housingProfileExtraNotesV121(row,issues){
-  const issueSet=new Set((issues||[]).map(v=>String(v).trim().toLowerCase()));
-  return String(row?.catatan||"").split("|").map(v=>v.trim()).filter(Boolean).filter(part=>{
-    const lower=part.toLowerCase();
-    if(issueSet.has(lower)) return false;
-    if(/pengembang\s+(?:masih\s+)?aktif|pengembang\s+tidak\s+aktif|nonaktif/.test(lower)) return false;
-    return true;
-  });
+  // v180: "Catatan tambahan" hanya berasal dari field Excel CATATAN.
+  // Status terstruktur (pengembang, jalan, RTH, banjir) tetap memiliki komponen UI masing-masing
+  // dan tidak boleh diduplikasi sebagai free-text note.
+  const note=String(row?.catatanTambahan||"").trim();
+  return note ? [note] : [];
 }
 
 function housingProfileInternalHtmlV121(row){
@@ -18722,8 +18764,8 @@ function rusunawaMonthlyDataV132(payments){
 }
 function rusunawaRenderRevenueV132(payments){
   const pulse=document.getElementById("rusunawaRevenuePulseV132"),list=document.getElementById("rusunawaRevenueMonthlyV132");const target=sumAnnualRusunawaTargets(payments||[]),monthly=rusunawaMonthlyDataV132(payments),realization=monthly.reduce((sum,row)=>sum+Number(row.realization||0),0),achievement=target>0?pct(realization,target):null;
-  if(pulse)pulse.innerHTML=`<div class="rus-revenue-pulse-v132"><div class="rus-revenue-main-v132"><div><span>Realisasi ${CURRENT_YEAR}</span><strong>${escapeHtml(rupiahCompactV132(realization))}</strong></div><b>${achievement===null?"—":`${achievement}%`}</b></div><div class="rus-revenue-track-v132"><i style="width:${achievement===null?0:Math.max(0,Math.min(100,achievement))}%"></i></div><div class="rus-revenue-note-v132"><span>${target>0?`Target ${rupiah(target)}`:`Target tahunan ${CURRENT_YEAR} belum tersedia`}</span><span>${monthly.length?`${fmt(monthly.length)} bulan tercatat`:"Belum ada realisasi bulanan"}</span></div></div>`;
-  if(list){const max=Math.max(0,...monthly.map(row=>Number(row.realization||0)));list.innerHTML=monthly.length?monthly.map(row=>`<div class="rus-monthly-row-v132"><span>${escapeHtml(row.month)}</span><div class="rus-monthly-track-v132"><i style="width:${max?Math.max(3,Number(row.realization||0)/max*100):0}%"></i></div><strong>${escapeHtml(rupiahCompactV132(row.realization))}</strong></div>`).join(""):`<div class="rus-empty-v132">Belum ada data realisasi bulanan RUSUNAWA untuk tahun ${CURRENT_YEAR}.</div>`;}
+  if(pulse)pulse.innerHTML=`<div class="rus-revenue-pulse-v132"><div class="rus-revenue-main-v132"><div><span>Realisasi ${CURRENT_YEAR}</span><strong>${escapeHtml(rupiah(realization))}</strong></div><b>${achievement===null?"—":`${achievement}%`}</b></div><div class="rus-revenue-track-v132"><i style="width:${achievement===null?0:Math.max(0,Math.min(100,achievement))}%"></i></div><div class="rus-revenue-note-v132"><span>${target>0?`Target ${rupiah(target)}`:`Target tahunan ${CURRENT_YEAR} belum tersedia`}</span><span>${monthly.length?`${fmt(monthly.length)} bulan tercatat`:"Belum ada realisasi bulanan"}</span></div></div>`;
+  if(list){const max=Math.max(0,...monthly.map(row=>Number(row.realization||0)));list.innerHTML=monthly.length?monthly.map(row=>`<div class="rus-monthly-row-v132"><span>${escapeHtml(row.month)}</span><div class="rus-monthly-track-v132"><i style="width:${max?Math.max(3,Number(row.realization||0)/max*100):0}%"></i></div><strong>${escapeHtml(rupiah(row.realization))}</strong></div>`).join(""):`<div class="rus-empty-v132">Belum ada data realisasi bulanan RUSUNAWA untuk tahun ${CURRENT_YEAR}.</div>`;}
 }
 function rusunawaRenderFacilityHealthV132(facilities){
   const el=document.getElementById("rusunawaFacilityHealthV132");if(!el)return;const rows=facilities||[];const good=rows.filter(row=>rusunawaConditionGroupV132(row.condition)==="Baik").length,light=rows.filter(row=>rusunawaConditionGroupV132(row.condition)==="Rusak Ringan").length,mediumHeavy=rows.filter(row=>["Rusak Sedang","Rusak Berat"].includes(rusunawaConditionGroupV132(row.condition))).length,high=rows.filter(row=>/tinggi|mendesak|urgent/i.test(String(row.priority||""))).length;
@@ -21327,6 +21369,854 @@ renderHousingProfileV90=function(row){
 </script>
 <!-- SIRUMAH v174 — Profile to Spatial Navigation
      Profil Perumahan terhubung dua arah dengan Peta Analitik; data/schema baseline v28 tidak berubah. -->
+
+
+<style id="v175-siteplan-version-history-style">
+/* =========================================================
+   SIRUMAH v175 — Site Plan Version History
+   TAHUN_SITEPLAN: satu tahun atau riwayat dipisahkan titik koma.
+   Contoh: 2019; 2022; 2025
+   ========================================================= */
+body.startup-ui-v175 #data-perumahan .housing-siteplan-cell-v175{display:grid;gap:3px;min-width:92px;line-height:1.15}
+body.startup-ui-v175 #data-perumahan .housing-siteplan-cell-v175 strong{font-size:12.5px;font-weight:700;color:#244F56;font-variant-numeric:tabular-nums}
+body.startup-ui-v175 #data-perumahan .housing-siteplan-cell-v175 small{font-size:10.2px;font-weight:550;color:#718083;white-space:nowrap}
+body.startup-ui-v175 .hp-siteplan-context-helper-v175{display:block;margin-top:3px;color:#6B7E7F;font-size:10.2px;line-height:1.3;font-weight:550}
+body.startup-ui-v175 .hp-siteplan-history-v175{margin:0 0 16px;padding:16px 18px 17px;border:1px solid rgba(43,92,99,.11);border-radius:18px;background:linear-gradient(145deg,#FCFCF9,#F5F2EA);box-shadow:0 8px 22px rgba(23,59,66,.035)}
+body.startup-ui-v175 .hp-siteplan-history-head-v175{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:14px}
+body.startup-ui-v175 .hp-siteplan-history-head-v175 span{display:block;color:#1A6372;font-size:10.5px;font-weight:750;letter-spacing:.095em;text-transform:uppercase}
+body.startup-ui-v175 .hp-siteplan-history-head-v175 h3{margin:3px 0 0;color:#173B40;font-size:16px;line-height:1.25;font-weight:680}
+body.startup-ui-v175 .hp-siteplan-history-head-v175 small{color:#697B7C;font-size:10.5px;font-weight:550;white-space:nowrap}
+body.startup-ui-v175 .hp-siteplan-track-v175{position:relative;display:grid;grid-template-columns:repeat(var(--siteplan-count-v175),minmax(88px,1fr));gap:12px;padding-top:3px}
+body.startup-ui-v175 .hp-siteplan-track-v175:before{content:"";position:absolute;left:17px;right:17px;top:13px;height:1px;background:linear-gradient(90deg,rgba(43,92,99,.24),rgba(211,184,129,.6))}
+body.startup-ui-v175 .hp-siteplan-node-v175{position:relative;display:grid;gap:5px;align-content:start;min-width:0}
+body.startup-ui-v175 .hp-siteplan-node-dot-v175{position:relative;z-index:1;width:20px;height:20px;border-radius:7px;display:grid;place-items:center;background:#F8F8F4;border:1px solid rgba(43,92,99,.24);box-shadow:0 0 0 4px #F7F5EF}
+body.startup-ui-v175 .hp-siteplan-node-dot-v175:after{content:"";width:6px;height:6px;border-radius:50%;background:#2B5C63}
+body.startup-ui-v175 .hp-siteplan-node-v175.latest .hp-siteplan-node-dot-v175{background:#2B5C63;border-color:#2B5C63;box-shadow:0 0 0 4px rgba(211,184,129,.18)}
+body.startup-ui-v175 .hp-siteplan-node-v175.latest .hp-siteplan-node-dot-v175:after{background:#E8D5AD}
+body.startup-ui-v175 .hp-siteplan-node-v175 strong{font-size:13px;line-height:1;font-weight:750;color:#173B40;font-variant-numeric:tabular-nums}
+body.startup-ui-v175 .hp-siteplan-node-v175 span{font-size:10.5px;line-height:1.35;font-weight:600;color:#647779}
+body.startup-ui-v175 .hp-siteplan-node-v175.latest span{color:#745D36}
+@media(max-width:720px){
+  body.startup-ui-v175 .hp-siteplan-history-v175{padding:14px 15px}
+  body.startup-ui-v175 .hp-siteplan-history-head-v175{display:grid;gap:4px}
+  body.startup-ui-v175 .hp-siteplan-history-head-v175 small{white-space:normal}
+  body.startup-ui-v175 .hp-siteplan-track-v175{display:flex;overflow-x:auto;gap:18px;padding:4px 2px 8px;scrollbar-width:thin}
+  body.startup-ui-v175 .hp-siteplan-track-v175:before{display:none}
+  body.startup-ui-v175 .hp-siteplan-node-v175{min-width:105px}
+}
+</style>
+<script id="v175-siteplan-version-history-script">
+/* SIRUMAH v175 — Site Plan Version History */
+function housingSitePlanYearsV175(value){
+  const raw=String(value ?? "").trim();
+  if(!raw || isUnknownTextV165(raw)) return [];
+  const parts=raw.split(/[;；]/).map(part=>part.trim()).filter(Boolean);
+  const years=[];
+  parts.forEach(part=>{
+    const exact=part.match(/^(\d{4})(?:\.0+)?$/);
+    if(!exact) return;
+    const year=Number(exact[1]);
+    if(year>=1900 && year<=CURRENT_YEAR+1 && !years.includes(year)) years.push(year);
+  });
+  return years.sort((a,b)=>a-b);
+}
+function housingSitePlanInfoV175(value){
+  const years=housingSitePlanYearsV175(value);
+  return {years,initial:years[0]??null,latest:years.at(-1)??null,count:years.length};
+}
+function housingSitePlanRomanV175(number){
+  const map=[[10,"X"],[9,"IX"],[5,"V"],[4,"IV"],[1,"I"]];
+  let n=Math.max(1,Math.floor(Number(number)||1)),out="";
+  map.forEach(([value,label])=>{while(n>=value){out+=label;n-=value;}});
+  return out;
+}
+function housingSitePlanVersionLabelV175(index,count){
+  if(count<=1) return "Site Plan Awal · Terbaru";
+  if(index===0) return "Site Plan Awal";
+  const revision=housingSitePlanRomanV175(index);
+  return index===count-1 ? `Revisi ${revision} · Terbaru` : `Revisi ${revision}`;
+}
+function housingSitePlanTableHtmlV175(value){
+  const info=housingSitePlanInfoV175(value);
+  if(!info.count) return escapeHtml(displayDataValueV165(value));
+  if(info.count===1) return `<div class="housing-siteplan-cell-v175"><strong>${info.latest}</strong></div>`;
+  return `<div class="housing-siteplan-cell-v175" title="Riwayat Site Plan: ${info.years.join(" → ")}"><strong>${info.latest}</strong><small>Awal ${info.initial} · ${info.count} versi</small></div>`;
+}
+function housingSitePlanHistoryCardV175(row){
+  const info=housingSitePlanInfoV175(row?.tahun);
+  if(info.count<=1) return "";
+  return `<section class="hp-siteplan-history-v175">
+    <div class="hp-siteplan-history-head-v175"><div><span>RIWAYAT SITE PLAN</span><h3>Perjalanan versi site plan</h3></div><small>${info.count} versi · terbaru ${info.latest}</small></div>
+    <div class="hp-siteplan-track-v175" style="--siteplan-count-v175:${info.count}">${info.years.map((year,index)=>`<div class="hp-siteplan-node-v175 ${index===info.count-1?"latest":""}"><i class="hp-siteplan-node-dot-v175" aria-hidden="true"></i><strong>${year}</strong><span>${escapeHtml(housingSitePlanVersionLabelV175(index,info.count))}</span></div>`).join("")}</div>
+  </section>`;
+}
+
+/* Enrich workbook rows without changing the Excel schema. */
+const buildHousingFromExcelBeforeV175=buildHousingFromExcel;
+buildHousingFromExcel=function(rows){
+  const result=buildHousingFromExcelBeforeV175(rows);
+  result.forEach(item=>{
+    const info=housingSitePlanInfoV175(item.tahun);
+    item.sitePlanYears=info.years;
+    item.sitePlanInitial=info.initial;
+    item.sitePlanLatest=info.latest;
+    item.sitePlanVersionCount=info.count;
+    item.age=info.latest?CURRENT_YEAR-info.latest:null;
+    item.ageCat=item.age===null?"Tidak diketahui":item.age<=5?"Baru":item.age<=10?"Sedang":"Lama";
+  });
+  return result;
+};
+
+/* Tahun filter memuat seluruh versi yang tercatat, bukan string gabungannya. */
+populateFilters=function(){
+  const selectedHousing=document.getElementById("housingKecamatanFilter")?.value||"all";
+  const selectedRtlh=document.getElementById("rtlhKecamatanFilter")?.value||"all";
+  const selectedYear=document.getElementById("filterTahun")?.value||"all";
+  const housingKec=unique(housing.map(row=>row.kecamatan));
+  const rtlhKec=publicMode?[]:unique((SIRUMAH_RUNTIME?.rtlhIndividuals||[]).map(row=>row.kecamatan));
+  const kat=unique(housing.map(x=>x.kategori));
+  const years=[...new Set(housing.flatMap(x=>housingSitePlanYearsV175(x.tahun)))].sort((a,b)=>a-b).map(String);
+  fillSelect("housingKecamatanFilter",housingKec,"Semua Kecamatan");
+  fillSelect("rtlhKecamatanFilter",rtlhKec,"Semua Kecamatan");
+  fillSelect("filterKategori",kat,"Semua Kategori");
+  fillSelect("filterTahun",years,"Semua Tahun");
+  const housingSelect=document.getElementById("housingKecamatanFilter");
+  if(housingSelect&&[...housingSelect.options].some(option=>option.value===selectedHousing)) housingSelect.value=selectedHousing;
+  const rtlhSelect=document.getElementById("rtlhKecamatanFilter");
+  if(rtlhSelect&&[...rtlhSelect.options].some(option=>option.value===selectedRtlh)) rtlhSelect.value=selectedRtlh;
+  const yearSelect=document.getElementById("filterTahun");
+  if(yearSelect&&[...yearSelect.options].some(option=>option.value===selectedYear)) yearSelect.value=selectedYear;
+  const global=document.getElementById("globalKecamatan");
+  if(global) global.value="all";
+};
+
+applyFilters=function(){
+  const q=(document.getElementById("searchInput")?.value||"").toLowerCase();
+  const kec=document.getElementById("housingKecamatanFilter")?.value||"all";
+  const kategori=document.getElementById("filterKategori")?.value||"all";
+  const status=document.getElementById("filterStatus")?.value||"all";
+  const tahun=document.getElementById("filterTahun")?.value||"all";
+  const sortMode=document.getElementById("sortTahun")?.value||"name-asc";
+  const selectedCatatan=publicMode?[]:Array.from(document.querySelectorAll(".catatan-filter:checked")).map(el=>el.value.toLowerCase());
+  const selectedUsia=Array.from(document.querySelectorAll(".usia-filter:checked")).map(el=>el.value);
+
+  housingFilteredV96=housing.filter(x=>{
+    const searchableFields=publicMode
+      ?[x.nama,x.kategori,x.tahun,x.alamat,x.kelurahan,x.kecamatan,x.pengembang,x.asosiasi,x.statusPSU,x.tahunPSU]
+      :[x.nama,x.kategori,x.tahun,x.alamat,x.kelurahan,x.kecamatan,x.pengembang,x.direktur,x.asosiasi,x.statusPSU,x.tahunPSU,x.statusJalan,x.statusRTH,x.statusPengembang,x.statusRawanBanjir,x.catatan];
+    const textValue=searchableFields.join(" ").toLowerCase();
+    const catatanText=String(x.catatan||"").toLowerCase();
+    const matchCatatan=selectedCatatan.length===0||selectedCatatan.some(item=>catatanText.includes(item));
+    const matchUsia=selectedUsia.length===0||selectedUsia.includes(x.ageCat);
+    const yearHistory=housingSitePlanYearsV175(x.tahun).map(String);
+    return (!q||textValue.includes(q))&&
+      (kec==="all"||normalizeKecamatanName(x.kecamatan)===normalizeKecamatanName(kec))&&
+      (kategori==="all"||x.kategori===kategori)&&
+      (status==="all"||x.statusPSU===status)&&
+      (tahun==="all"||yearHistory.includes(String(tahun)))&&matchCatatan&&matchUsia;
+  });
+
+  const compareName=(a,b)=>{
+    const an=String(a?.nama||"").trim(),bn=String(b?.nama||"").trim();
+    if(!an&&bn)return 1;if(an&&!bn)return -1;
+    return an.localeCompare(bn,"id",{sensitivity:"base",numeric:true});
+  };
+  const compareFallback=(a,b)=>{
+    const byName=compareName(a,b);if(byName!==0)return byName;
+    const byKec=String(a?.kecamatan||"").localeCompare(String(b?.kecamatan||""),"id",{sensitivity:"base",numeric:true});
+    if(byKec!==0)return byKec;
+    return String(a?.kelurahan||"").localeCompare(String(b?.kelurahan||""),"id",{sensitivity:"base",numeric:true});
+  };
+  housingFilteredV96.sort((a,b)=>{
+    if(sortMode==="name-desc")return -compareFallback(a,b);
+    if(sortMode==="year-asc"||sortMode==="year-desc"){
+      const ay=housingSitePlanInfoV175(a?.tahun).latest;
+      const by=housingSitePlanInfoV175(b?.tahun).latest;
+      if(ay===null&&by!==null)return 1;if(ay!==null&&by===null)return -1;
+      if(ay!==null&&by!==null&&ay!==by)return sortMode==="year-asc"?ay-by:by-ay;
+      return compareFallback(a,b);
+    }
+    return compareFallback(a,b);
+  });
+  filtered=[...housing];
+  const global=document.getElementById("globalKecamatan");if(global)global.value="all";
+  page=1;renderAll();
+};
+
+renderTable=function(){
+  const headersInternal=["NO","NAMA PERUMAHAN","KECAMATAN","KELURAHAN","PENGEMBANG","TAHUN SITE PLAN","UNIT SITE PLAN","TERBANGUN","TERHUNI","STATUS PSU","STATUS / ISU"];
+  const headersPublic=headersInternal.filter(h=>h!=="STATUS / ISU");
+  const headers=publicMode?headersPublic:headersInternal;
+  document.getElementById("housingHead").innerHTML=`<tr>${headers.map(h=>`<th>${h}</th>`).join("")}</tr>`;
+  const start=(page-1)*pageSize;
+  const rows=housingFilteredV96.slice(start,start+pageSize);
+  document.getElementById("tableCount").textContent=fmt(housingFilteredV96.length);
+  document.getElementById("housingBody").innerHTML=rows.length?rows.map((x,idx)=>{
+    const cells=[start+idx+1,housingProfileButtonV90(x),escapeHtml(x.kecamatan),escapeHtml(x.kelurahan),escapeHtml(x.pengembang),housingSitePlanTableHtmlV175(x.tahun),fmt(x.siteplan),fmt(x.terbangun),fmt(x.terhuni),badge(x.statusPSU)];
+    if(!publicMode)cells.push(housingIssueBadgesV96(x));
+    return `<tr>${cells.map(c=>`<td>${c}</td>`).join("")}</tr>`;
+  }).join(""):`<tr><td colspan="${headers.length}" style="text-align:center;color:#64748b;padding:28px;">Tidak ada data sesuai filter Data Perumahan.</td></tr>`;
+  const totalPages=Math.max(1,Math.ceil(housingFilteredV96.length/pageSize));
+  document.getElementById("pageInfo").textContent=`Halaman ${page} dari ${totalPages}`;
+  document.getElementById("prevBtn").disabled=page<=1;
+  document.getElementById("nextBtn").disabled=page>=totalPages;
+};
+
+/* Data-quality memahami riwayat tahun sebagai data valid. */
+const getBerandaDataQualityBeforeV175=getBerandaDataQualityV34;
+getBerandaDataQualityV34=function(){
+  const result=getBerandaDataQualityBeforeV175();
+  result.missingYear=(filtered||[]).filter(row=>housingSitePlanYearsV175(row?.tahun).length===0).length;
+  return result;
+};
+
+/* Scalar year helper now resolves the latest year in a site-plan history. */
+housingProfileValidYearV90=function(value){
+  const years=housingSitePlanYearsV175(value);
+  return years.length?years.at(-1):null;
+};
+
+function buildHousingTimelineV175(row){
+  const events=[];
+  const info=housingSitePlanInfoV175(row?.tahun);
+  const psuYear=(()=>{const match=String(row?.tahunPSU??"").match(/\d{4}/);const y=match?Number(match[0]):null;return y&&y>=1900&&y<=CURRENT_YEAR+1?y:null;})();
+  const built=Number(row?.terbangun||0),occupied=Number(row?.terhuni||0);
+  const status=housingProfileValueV90(row?.statusPSU,"Belum diketahui");
+  events.push({year:CURRENT_YEAR,order:0,type:"Kondisi Terkini",current:true,title:"Kondisi terkini",description:`${fmt(built)} rumah dibangun · ${fmt(occupied)} rumah ditempati · PSU ${String(status).toLowerCase()}`});
+  if(psuYear){
+    const handed=String(row?.statusPSU||"").toUpperCase().includes("SUDAH");
+    events.push({year:psuYear,order:10,type:"PSU",title:handed?"PSU diserahterimakan":"Data PSU tercatat",description:handed?`Status saat ini ${status}.`:`Status PSU saat ini ${status}.`});
+  }
+  info.years.forEach((year,index)=>{
+    const first=index===0,last=index===info.count-1;
+    const title=info.count===1?"Site Plan awal · terbaru":first?"Site Plan awal":last?`Revisi Site Plan ${housingSitePlanRomanV175(index)} · terbaru`:`Revisi Site Plan ${housingSitePlanRomanV175(index)}`;
+    const description=info.count===1?"Tahun site plan yang tercatat dan menjadi versi terbaru pada database SIRUMAH.":first?"Tahun site plan awal yang tercatat pada database SIRUMAH.":last?"Tahun revisi site plan terbaru yang tercatat pada database SIRUMAH.":"Tahun revisi site plan yang tercatat pada database SIRUMAH.";
+    events.push({year,order:30+index,type:"Site Plan",title,description,sitePlanVersionV175:true});
+  });
+  return events.sort((a,b)=>{if(a.current&&!b.current)return -1;if(!a.current&&b.current)return 1;return Number(b.year)-Number(a.year)||Number(a.order)-Number(b.order);});
+}
+buildHousingTimelineV121=buildHousingTimelineV175;
+buildHousingTimelineV90=buildHousingTimelineV175;
+
+/* Enhance the active v174 profile renderer without disturbing Profile ⇄ Map navigation. */
+const renderHousingProfileBeforeV175=renderHousingProfileV90;
+renderHousingProfileV90=function(row){
+  renderHousingProfileBeforeV175(row);
+  const info=housingSitePlanInfoV175(row?.tahun);
+  const summary=document.querySelector('[data-housing-profile-panel-v93="summary"]');
+  const contextFirst=summary?.querySelector('.hp-context-meta-v118>div:first-child');
+  if(contextFirst){
+    const label=contextFirst.querySelector('span');
+    const value=contextFirst.querySelector('strong');
+    if(label)label.textContent="Site Plan Terbaru";
+    if(value)value.textContent=info.latest?String(info.latest):"Belum tersedia";
+    contextFirst.querySelector('.hp-siteplan-context-helper-v175')?.remove();
+    if(info.count>1){
+      const helper=document.createElement('small');
+      helper.className='hp-siteplan-context-helper-v175';
+      helper.textContent=`Awal ${info.initial} · ${info.count} versi`;
+      contextFirst.appendChild(helper);
+    }
+  }
+  if(summary&&info.count>1&&!summary.querySelector('.hp-siteplan-history-v175')){
+    const infoSection=summary.querySelector('.hp-info-section-v118');
+    if(infoSection)infoSection.insertAdjacentHTML('beforebegin',housingSitePlanHistoryCardV175(row));
+    else summary.insertAdjacentHTML('beforeend',housingSitePlanHistoryCardV175(row));
+  }
+};
+</script>
+<!-- SIRUMAH v175 — Site Plan Version History
+     Input TAHUN_SITEPLAN dapat berupa 2019 atau 2019; 2022; 2025. Database v28 tidak berubah. -->
+
+
+<style id="v176-psu-occupancy-threshold-style">
+/* =========================================================
+   SIRUMAH v176 — PSU Occupancy Threshold Signal
+   Informational ratio = TERHUNI / UNIT SITE PLAN terbaru.
+   Internal-only regulatory/action wording; no compliance claim.
+   ========================================================= */
+body.startup-ui-v176 .hp-psu-threshold-v176{
+  margin-top:16px;padding-top:15px;border-top:1px solid rgba(43,92,99,.12);
+  display:grid;gap:10px
+}
+body.startup-ui-v176 .hp-psu-threshold-head-v176{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+body.startup-ui-v176 .hp-psu-threshold-copy-v176{display:grid;gap:3px;min-width:0}
+body.startup-ui-v176 .hp-psu-threshold-kicker-v176{
+  color:#597072;font-size:10.5px;line-height:1.2;font-weight:750;letter-spacing:.085em;text-transform:uppercase
+}
+body.startup-ui-v176 .hp-psu-threshold-value-v176{
+  color:#173B40;font-size:25px;line-height:1;font-weight:760;letter-spacing:-.025em;font-variant-numeric:tabular-nums
+}
+body.startup-ui-v176 .hp-psu-threshold-badge-v176{
+  display:inline-flex;align-items:center;gap:6px;min-height:28px;padding:5px 9px;border-radius:999px;
+  border:1px solid rgba(43,92,99,.12);background:#EEF3F1;color:#4B6163;font-size:10.5px;font-weight:700;white-space:nowrap
+}
+body.startup-ui-v176 .hp-psu-threshold-badge-v176:before{content:"";width:7px;height:7px;border-radius:50%;background:#7B8C8D;box-shadow:0 0 0 3px rgba(123,140,141,.10)}
+body.startup-ui-v176 .hp-psu-threshold-badge-v176.met{background:#F5EBDD;border-color:rgba(184,137,62,.24);color:#795B27}
+body.startup-ui-v176 .hp-psu-threshold-badge-v176.met:before{background:#C2913D;box-shadow:0 0 0 3px rgba(194,145,61,.12)}
+body.startup-ui-v176 .hp-psu-threshold-badge-v176.handed{background:#E9F2ED;border-color:rgba(42,124,82,.18);color:#2F694A}
+body.startup-ui-v176 .hp-psu-threshold-badge-v176.handed:before{background:#2F9A66;box-shadow:0 0 0 3px rgba(47,154,102,.11)}
+body.startup-ui-v176 .hp-psu-threshold-detail-v176{color:#53686A;font-size:11px;line-height:1.45;font-weight:550}
+body.startup-ui-v176 .hp-psu-threshold-track-v176{height:5px;border-radius:999px;overflow:hidden;background:#E5ECEA}
+body.startup-ui-v176 .hp-psu-threshold-fill-v176{height:100%;border-radius:inherit;background:linear-gradient(90deg,#8EA9A4,#D3B881)}
+body.startup-ui-v176 .hp-psu-threshold-action-v176{
+  display:grid;grid-template-columns:34px minmax(0,1fr);gap:9px;align-items:start;padding:10px 11px;
+  border:1px solid rgba(184,137,62,.22);border-radius:12px;background:#F7EFE2
+}
+body.startup-ui-v176 .hp-psu-threshold-action-icon-v176{
+  width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:rgba(211,184,129,.18);color:#745A2F
+}
+body.startup-ui-v176 .hp-psu-threshold-action-icon-v176 svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+body.startup-ui-v176 .hp-psu-threshold-action-v176 strong{display:block;color:#674D24;font-size:11px;line-height:1.3;font-weight:750;margin:0 0 2px}
+body.startup-ui-v176 .hp-psu-threshold-action-v176 span{display:block;color:#715F43;font-size:10.5px;line-height:1.45;font-weight:550}
+body.startup-ui-v176 .hp-psu-threshold-public-v176{margin-top:15px;padding-top:14px;border-top:1px solid rgba(43,92,99,.10);display:grid;gap:4px}
+body.startup-ui-v176 .hp-psu-threshold-public-v176 span{color:#5E7274;font-size:10.5px;font-weight:650}
+body.startup-ui-v176 .hp-psu-threshold-public-v176 strong{color:#244F56;font-size:15px;font-weight:720;font-variant-numeric:tabular-nums}
+body.startup-ui-v176 .hp-psu-threshold-public-v176 small{color:#718083;font-size:10.2px;line-height:1.4;font-weight:550}
+@media(max-width:620px){
+  body.startup-ui-v176 .hp-psu-threshold-head-v176{align-items:center}
+  body.startup-ui-v176 .hp-psu-threshold-value-v176{font-size:23px}
+}
+</style>
+<script id="v176-psu-occupancy-threshold-script">
+/* SIRUMAH v176 — Ambang Hunian PSU
+   70% is presented as an occupancy threshold signal only, not as a claim
+   that every legal/technical requirement for PSU handover has been fulfilled. */
+function housingPsuOccupancySignalV176(row){
+  const planned=Number(row?.siteplan||0);
+  const occupied=Number(row?.terhuni||0);
+  const ratio=planned>0&&Number.isFinite(occupied)?(occupied/planned)*100:null;
+  const reached=ratio!==null&&ratio>=70;
+  const status=String(row?.statusPSU||"").trim().toUpperCase();
+  const handed=/SUDAH\s+DISERAHKAN|SUDAH\s+SERAH|DISERAHKAN/.test(status)&&!/BELUM/.test(status);
+  return {planned,occupied,ratio,reached,handed};
+}
+function housingPsuThresholdIconV176(){
+  return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19h16"></path><path d="M6.5 19v-7.5L12 8l5.5 3.5V19"></path><path d="M9.5 19v-4h5v4"></path><path d="M15.5 5.5 18 8l3-4"></path></svg>`;
+}
+function housingPsuThresholdHtmlV176(row){
+  const signal=housingPsuOccupancySignalV176(row);
+  const planLabel="site plan yang berlaku";
+  if(publicMode){
+    if(signal.ratio===null) return `<div class="hp-psu-threshold-public-v176"><span>Tingkat hunian terhadap rencana</span><strong>Belum tersedia</strong><small>Belum dapat dihitung dari data yang tersedia.</small></div>`;
+    return `<div class="hp-psu-threshold-public-v176"><span>Tingkat hunian terhadap rencana</span><strong>${fmt(signal.ratio)}%</strong><small>${fmt(signal.occupied)} dari ${fmt(signal.planned)} unit sesuai ${escapeHtml(planLabel)} telah dihuni.</small></div>`;
+  }
+  if(signal.ratio===null){
+    return `<div class="hp-psu-threshold-v176"><div class="hp-psu-threshold-head-v176"><div class="hp-psu-threshold-copy-v176"><span class="hp-psu-threshold-kicker-v176">AMBANG HUNIAN PSU</span><strong class="hp-psu-threshold-value-v176">Belum tersedia</strong></div><span class="hp-psu-threshold-badge-v176">Belum dapat dihitung</span></div><div class="hp-psu-threshold-detail-v176">Data unit site plan belum tersedia untuk menghitung tingkat hunian terhadap rencana.</div></div>`;
+  }
+  const pct=Math.max(0,signal.ratio);
+  const visualPct=Math.max(0,Math.min(100,pct));
+  const badgeClass=signal.reached?(signal.handed?"handed":"met"):"";
+  const badgeLabel=signal.reached?"Tercapai":"Belum tercapai";
+  const action=!signal.handed&&signal.reached?`<div class="hp-psu-threshold-action-v176"><div class="hp-psu-threshold-action-icon-v176">${housingPsuThresholdIconV176()}</div><div><strong>Tindak lanjut PSU</strong><span>Ambang hunian ≥70% tercapai. Tindak lanjuti verifikasi kesiapan dan proses penyerahan PSU.</span></div></div>`:"";
+  return `<div class="hp-psu-threshold-v176">
+    <div class="hp-psu-threshold-head-v176"><div class="hp-psu-threshold-copy-v176"><span class="hp-psu-threshold-kicker-v176">AMBANG HUNIAN PSU</span><strong class="hp-psu-threshold-value-v176">${fmt(pct)}%</strong></div><span class="hp-psu-threshold-badge-v176 ${badgeClass}">${badgeLabel}</span></div>
+    <div class="hp-psu-threshold-detail-v176">${fmt(signal.occupied)} dari ${fmt(signal.planned)} unit sesuai ${escapeHtml(planLabel)} telah dihuni.</div>
+    <div class="hp-psu-threshold-track-v176" aria-hidden="true"><div class="hp-psu-threshold-fill-v176" style="width:${visualPct}%"></div></div>
+    ${action}
+  </div>`;
+}
+const renderHousingProfileBeforeV176=renderHousingProfileV90;
+renderHousingProfileV90=function(row){
+  renderHousingProfileBeforeV176(row);
+  const summary=document.querySelector('[data-housing-profile-panel-v93="summary"]');
+  const context=summary?.querySelector('.hp-context-v118>div');
+  if(!context) return;
+  context.querySelector('.hp-psu-threshold-v176,.hp-psu-threshold-public-v176')?.remove();
+  context.insertAdjacentHTML('beforeend',housingPsuThresholdHtmlV176(row));
+};
+</script>
+<!-- SIRUMAH v176 — PSU Occupancy Threshold Signal
+     Ratio = TERHUNI / UNIT_SITEPLAN yang berlaku. Internal reminder is a workflow signal, not a legal-compliance conclusion. Database v28 unchanged. -->
+
+
+
+<style id="v177-psu-status-semantic-style">
+/* =========================================================
+   SIRUMAH v177 — PSU Status Semantic Refinement
+   Clarifies what is handed over and applies calm semantic color.
+   ========================================================= */
+body.startup-ui-v177 .hp-context-psu-helper-v177{
+  display:block;margin-top:3px;color:#718083;font-size:10.2px;line-height:1.35;font-weight:550
+}
+body.startup-ui-v177 .hp-context-status-v118.hp-psu-status-v177{
+  display:flex;align-items:center;gap:8px;margin-top:8px
+}
+body.startup-ui-v177 .hp-context-status-v118.hp-psu-status-v177:before{
+  content:"";flex:0 0 auto;width:9px;height:9px;border-radius:50%;background:#7B8C8D;
+  box-shadow:0 0 0 4px rgba(123,140,141,.10)
+}
+body.startup-ui-v177 .hp-context-status-v118.hp-psu-status-v177.handed{
+  color:#2F7457
+}
+body.startup-ui-v177 .hp-context-status-v118.hp-psu-status-v177.handed:before{
+  background:#2F9A66;box-shadow:0 0 0 4px rgba(47,154,102,.11)
+}
+body.startup-ui-v177 .hp-context-status-v118.hp-psu-status-v177.pending{
+  color:#9A641F
+}
+body.startup-ui-v177 .hp-context-status-v118.hp-psu-status-v177.pending:before{
+  background:#C28A36;box-shadow:0 0 0 4px rgba(194,138,54,.12)
+}
+body.startup-ui-v177 .hp-context-eyebrow-v118.hp-psu-eyebrow-v177{
+  color:#53686A;letter-spacing:.72px
+}
+@media(max-width:620px){
+  body.startup-ui-v177 .hp-context-status-v118.hp-psu-status-v177{font-size:19px;gap:7px}
+  body.startup-ui-v177 .hp-context-psu-helper-v177{font-size:9.9px}
+}
+</style>
+<script id="v177-psu-status-semantic-script">
+function housingPsuStatusStateV177(value){
+  const status=String(value??"").trim().toUpperCase();
+  if(/BELUM\s+(DISERAHKAN|SERAH)/.test(status)) return "pending";
+  if(/SUDAH\s+(DISERAHKAN|SERAH)|^DISERAHKAN$/.test(status)) return "handed";
+  return "unknown";
+}
+function refineHousingPsuStatusV177(row){
+  const summary=document.querySelector('[data-housing-profile-panel-v93="summary"]');
+  const context=summary?.querySelector('.hp-context-v118');
+  if(!context) return;
+  const eyebrow=context.querySelector('.hp-context-eyebrow-v118');
+  const statusEl=context.querySelector('.hp-context-status-v118');
+  if(eyebrow){
+    eyebrow.textContent="STATUS PENYERAHAN PSU";
+    eyebrow.classList.add('hp-psu-eyebrow-v177');
+    let helper=context.querySelector('.hp-context-psu-helper-v177');
+    if(!helper){
+      helper=document.createElement('span');
+      helper.className='hp-context-psu-helper-v177';
+      eyebrow.insertAdjacentElement('afterend',helper);
+    }
+    helper.textContent="Prasarana, Sarana, dan Utilitas Umum";
+  }
+  if(statusEl){
+    const state=housingPsuStatusStateV177(row?.statusPSU ?? statusEl.textContent);
+    statusEl.classList.remove('handed','pending');
+    statusEl.classList.add('hp-psu-status-v177');
+    if(state!=="unknown") statusEl.classList.add(state);
+  }
+}
+const renderHousingProfileBeforeV177=renderHousingProfileV90;
+renderHousingProfileV90=function(row){
+  renderHousingProfileBeforeV177(row);
+  refineHousingPsuStatusV177(row);
+};
+</script>
+<!-- SIRUMAH v177 — PSU Status Semantic Refinement
+     Status card now explicitly refers to PSU handover; database v28 unchanged. -->
+
+
+<style id="v178-psu-semantic-consistency-style">
+/* =========================================================
+   SIRUMAH v178 — PSU Semantic Consistency Refinement
+   Green = handed over / established; amber = pending process.
+   Red remains reserved for genuinely critical/problem states.
+   ========================================================= */
+body.startup-ui-v178 .badge.psu-handed-v178{
+  background:#E7F5EE!important;color:#23745C!important;border:1px solid rgba(47,154,102,.14);
+  font-weight:650!important
+}
+body.startup-ui-v178 .badge.psu-pending-v178{
+  background:#F8EEDC!important;color:#99601F!important;border:1px solid rgba(194,138,54,.17);
+  font-weight:650!important
+}
+body.startup-ui-v178 #data-perumahan .housing-layer-symbol-v92.psu-handover-v116{background:#2F9A66!important}
+body.startup-ui-v178 #data-perumahan .housing-layer-symbol-v92.psu-pending-v116{background:#C28A36!important}
+</style>
+<!-- SIRUMAH v178 — PSU Semantic Consistency Refinement
+     PSU status colors aligned across profile, Data Perumahan table, and map.
+     Occupancy copy now uses "site plan yang berlaku". Database v28 unchanged. -->
+
+
+<style id="v179-full-rupiah-revenue-style">
+/* =========================================================
+   SIRUMAH v179 — Full Rupiah Revenue Display
+   Nominal realisasi retribusi ditampilkan penuh, bukan notasi compact/jt.
+   ========================================================= */
+body.startup-ui-v179 #rusunawa .rus-revenue-main-v132 strong{
+  white-space:nowrap;
+  font-variant-numeric:tabular-nums;
+}
+body.startup-ui-v179 #rusunawa .rus-monthly-row-v132{
+  grid-template-columns:72px minmax(80px,1fr) max-content;
+}
+body.startup-ui-v179 #rusunawa .rus-monthly-row-v132>strong{
+  white-space:nowrap;
+  font-variant-numeric:tabular-nums;
+}
+@media(max-width:620px){
+  body.startup-ui-v179 #rusunawa .rus-monthly-row-v132{
+    grid-template-columns:58px minmax(48px,1fr) max-content;
+    gap:8px;
+  }
+}
+</style>
+<!-- SIRUMAH v179 — Full Rupiah Revenue Display: realisasi tahunan dan bulanan memakai rupiah penuh. -->
+
+
+<style id="v180-profile-psu-hierarchy-style">
+/* =========================================================
+   SIRUMAH v180 — Profile PSU Information Hierarchy Refinement
+   Stronger PSU context heading; free-text note remains conditional.
+   ========================================================= */
+body.startup-ui-v180 .hp-context-eyebrow-v118.hp-psu-eyebrow-v177{
+  font-size:17px!important;
+  line-height:1.25;
+  font-weight:700!important;
+  letter-spacing:.35px!important;
+  color:#425F63;
+}
+body.startup-ui-v180 .hp-context-psu-helper-v177{
+  margin-top:4px;
+}
+@media(max-width:620px){
+  body.startup-ui-v180 .hp-context-eyebrow-v118.hp-psu-eyebrow-v177{
+    font-size:15.5px!important;
+  }
+}
+</style>
+<!-- SIRUMAH v180 — STATUS PENYERAHAN PSU hierarchy strengthened.
+     "Catatan tambahan" reads only the dedicated Excel CATATAN field and renders only when populated.
+     Structured statuses remain separate; database v28 unchanged. -->
+
+<style id="v181-psu-status-heading-alignment-style">
+/* =========================================================
+   SIRUMAH v181 — PSU Status Heading Alignment
+   Match STATUS PENYERAHAN PSU kicker to ALUR HUNIAN hierarchy.
+   ========================================================= */
+body.startup-ui-v181 .hp-context-eyebrow-v118.hp-psu-eyebrow-v177{
+  font-size:12px!important;
+  line-height:1.25;
+  font-weight:700!important;
+  letter-spacing:.9px!important;
+  color:#53686A;
+}
+body.startup-ui-v181 .hp-context-psu-helper-v177{
+  margin-top:4px;
+}
+@media(max-width:620px){
+  body.startup-ui-v181 .hp-context-eyebrow-v118.hp-psu-eyebrow-v177{
+    font-size:12px!important;
+  }
+}
+</style>
+<!-- SIRUMAH v181 — STATUS PENYERAHAN PSU aligned with ALUR HUNIAN kicker; database v28 unchanged. -->
+
+
+<style id="v182-land-psu-composition-style">
+/* =========================================================
+   SIRUMAH v182 — Land & PSU Composition Experience
+   Database v29: land summary + structured PSU detail.
+   ========================================================= */
+body.startup-ui-v182 .hp-land-v182{margin:0 0 16px;padding:18px 20px;border:1px solid rgba(43,92,99,.12);border-radius:19px;background:linear-gradient(145deg,#FCFCF9 0%,#F4F6F2 100%);box-shadow:0 9px 24px rgba(23,59,66,.04)}
+body.startup-ui-v182 .hp-land-head-v182{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:15px}
+body.startup-ui-v182 .hp-land-kicker-v182{display:block;color:#1A6372;font-size:10.5px;font-weight:750;letter-spacing:.095em;text-transform:uppercase}
+body.startup-ui-v182 .hp-land-head-v182 h3{margin:4px 0 0;color:#173B40;font-size:17px;line-height:1.25;font-weight:690}
+body.startup-ui-v182 .hp-land-head-v182 p{margin:5px 0 0;color:#627577;font-size:11.5px;line-height:1.45;font-weight:500}
+body.startup-ui-v182 .hp-land-scope-v182{display:inline-flex;align-items:center;min-height:27px;padding:5px 9px;border:1px solid rgba(43,92,99,.11);border-radius:999px;background:#EEF3EF;color:#53686A;font-size:10.5px;font-weight:650;white-space:nowrap}
+body.startup-ui-v182 .hp-land-metrics-v182{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+body.startup-ui-v182 .hp-land-metric-v182{min-width:0;padding:13px 14px;border:1px solid rgba(43,92,99,.10);border-radius:14px;background:rgba(255,255,255,.82)}
+body.startup-ui-v182 .hp-land-metric-v182 span{display:block;color:#647779;font-size:10.5px;font-weight:650;letter-spacing:.035em;text-transform:uppercase}
+body.startup-ui-v182 .hp-land-metric-v182 strong{display:block;margin-top:6px;color:#244F56;font-size:20px;line-height:1.1;font-weight:760;font-variant-numeric:tabular-nums}
+body.startup-ui-v182 .hp-land-metric-v182 small{display:block;margin-top:4px;color:#718083;font-size:10.5px;line-height:1.35;font-weight:520}
+body.startup-ui-v182 .hp-land-metric-v182.rth{background:#F5F0E6;border-color:rgba(184,153,99,.20)}
+body.startup-ui-v182 .hp-land-bar-v182{display:grid;gap:7px;margin-top:13px;padding-top:13px;border-top:1px solid rgba(43,92,99,.09)}
+body.startup-ui-v182 .hp-land-bar-track-v182{display:flex;height:8px;overflow:hidden;border-radius:999px;background:#E7ECE9}
+body.startup-ui-v182 .hp-land-bar-effective-v182{background:#2B5C63}
+body.startup-ui-v182 .hp-land-bar-noneffective-v182{background:#D3B881}
+body.startup-ui-v182 .hp-land-bar-meta-v182{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#647779;font-size:10.8px;font-weight:550}
+body.startup-ui-v182 .hp-land-bar-meta-v182 b{color:#244F56;font-weight:700}
+body.startup-ui-v182 .hp-psu-detail-v182{margin-top:15px;padding-top:15px;border-top:1px solid rgba(43,92,99,.10)}
+body.startup-ui-v182 .hp-psu-detail-head-v182{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:11px}
+body.startup-ui-v182 .hp-psu-detail-head-v182 h4{margin:0;color:#244F56;font-size:13px;font-weight:700}
+body.startup-ui-v182 .hp-psu-detail-head-v182 p{margin:3px 0 0;color:#718083;font-size:10.8px;line-height:1.4}
+body.startup-ui-v182 .hp-psu-summary-v182{display:flex;align-items:center;flex-wrap:wrap;gap:7px}
+body.startup-ui-v182 .hp-psu-summary-v182 span{display:inline-flex;align-items:center;min-height:26px;padding:5px 8px;border:1px solid rgba(43,92,99,.11);border-radius:999px;background:#F8F8F4;color:#53686A;font-size:10.5px;font-weight:650}
+body.startup-ui-v182 .hp-psu-groups-v182{display:grid;gap:10px}
+body.startup-ui-v182 .hp-psu-group-v182{overflow:hidden;border:1px solid rgba(43,92,99,.10);border-radius:14px;background:rgba(255,255,255,.76)}
+body.startup-ui-v182 .hp-psu-group-head-v182{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 12px;background:#F0F3EE;color:#355D63;font-size:10.5px;font-weight:750;letter-spacing:.07em;text-transform:uppercase}
+body.startup-ui-v182 .hp-psu-group-head-v182 small{color:#718083;font-size:10px;font-weight:600;letter-spacing:0;text-transform:none}
+body.startup-ui-v182 .hp-psu-row-v182{display:grid;grid-template-columns:minmax(210px,1.7fr) minmax(120px,.75fr) minmax(145px,.95fr) minmax(145px,.95fr);gap:10px;align-items:center;padding:10px 12px;border-top:1px solid rgba(43,92,99,.075)}
+body.startup-ui-v182 .hp-psu-row-v182:first-of-type{border-top:0}
+body.startup-ui-v182 .hp-psu-name-v182 strong{display:block;color:#244F56;font-size:11.5px;font-weight:650;line-height:1.35}
+body.startup-ui-v182 .hp-psu-name-v182 small{display:block;margin-top:2px;color:#7A898A;font-size:10px;line-height:1.35}
+body.startup-ui-v182 .hp-psu-qty-v182{color:#244F56;font-size:11.5px;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+body.startup-ui-v182 .hp-psu-chip-v182{display:inline-flex;align-items:center;width:max-content;max-width:100%;min-height:25px;padding:4px 8px;border-radius:999px;background:#E9EEEB;color:#53686A;font-size:9.8px;font-weight:700;line-height:1.25;text-transform:none}
+body.startup-ui-v182 .hp-psu-chip-v182.good{background:#E7F5EE;color:#23745C}
+body.startup-ui-v182 .hp-psu-chip-v182.pending{background:#F8EEDC;color:#99601F}
+body.startup-ui-v182 .hp-psu-chip-v182.info{background:#E3EFF0;color:#1A6372}
+body.startup-ui-v182 .hp-psu-empty-v182{padding:12px 13px;border:1px dashed rgba(83,104,106,.26);border-radius:13px;background:#F8F8F5;color:#647779;font-size:11px;line-height:1.45}
+body.startup-ui-v182 .hp-psu-empty-v182 strong{color:#355D63;font-weight:700}
+@media(max-width:850px){
+  body.startup-ui-v182 .hp-land-metrics-v182{grid-template-columns:repeat(2,minmax(0,1fr))}
+  body.startup-ui-v182 .hp-psu-row-v182{grid-template-columns:minmax(180px,1.5fr) minmax(110px,.7fr) minmax(135px,.9fr) minmax(135px,.9fr);overflow-x:auto}
+}
+@media(max-width:620px){
+  body.startup-ui-v182 .hp-land-v182{padding:15px}
+  body.startup-ui-v182 .hp-land-head-v182{display:grid;gap:6px}
+  body.startup-ui-v182 .hp-land-scope-v182{width:max-content;white-space:normal}
+  body.startup-ui-v182 .hp-land-metrics-v182{grid-template-columns:1fr 1fr}
+  body.startup-ui-v182 .hp-land-metric-v182 strong{font-size:18px}
+  body.startup-ui-v182 .hp-psu-detail-head-v182{display:grid;gap:7px}
+  body.startup-ui-v182 .hp-psu-row-v182{display:grid;grid-template-columns:1fr 1fr;gap:7px;padding:11px 12px}
+  body.startup-ui-v182 .hp-psu-name-v182{grid-column:1/-1}
+}
+</style>
+<script id="v182-land-psu-composition-script">
+/* SIRUMAH v182 — Land & PSU Composition Experience */
+function housingAreaAvailableV182(value){return Number.isFinite(Number(value))&&Number(value)>0;}
+function housingAreaTextV182(value){return housingAreaAvailableV182(value)?`${fmt(Number(value))} m²`:`Belum tersedia`;}
+function housingPctV182(part,total){return housingAreaAvailableV182(part)&&housingAreaAvailableV182(total)?Number(part)/Number(total)*100:null;}
+function housingPctTextV182(value){return Number.isFinite(Number(value))?`${Number(value).toLocaleString('id-ID',{minimumFractionDigits:0,maximumFractionDigits:2})}%`:`Belum tersedia`;}
+function housingPsuDetailSetV182(row){
+  const all=(SIRUMAH_RUNTIME?.housingPsuDetails||[]).filter(item=>String(item?.housingId||'')===String(row?.id||''));
+  const latest=Number(row?.sitePlanLatest||housingSitePlanInfoV175(row?.tahun).latest||0)||null;
+  const active=latest?all.filter(item=>Number(item?.sitePlanYear||0)===latest):all;
+  return {all,active,latest,historicalOnly:Boolean(all.length&&!active.length)};
+}
+function housingPsuQuantityV182(item){
+  if(housingAreaAvailableV182(item?.plannedArea)) return `${fmt(Number(item.plannedArea))} m²`;
+  if(Number.isFinite(Number(item?.plannedQty))&&Number(item.plannedQty)>0) return `${fmt(Number(item.plannedQty))} ${escapeHtml(item?.unit||'unit')}`;
+  return 'Belum tersedia';
+}
+function housingPsuPhysicalClassV182(value){
+  const s=String(value||'').toUpperCase();
+  if(/SUDAH\s+DIBANGUN|BAIK|TERSEDIA\s+DAN\s+TERBANGUN/.test(s))return 'good';
+  if(/LAHAN\s+TERSEDIA/.test(s))return 'info';
+  if(/BELUM\s+TERBANGUN|BELUM\s+TERSEDIA/.test(s))return 'pending';
+  return '';
+}
+function housingPsuHandoverClassV182(value){
+  const s=String(value||'').toUpperCase();
+  if(/SUDAH\s+DISERAHKAN|^DISERAHKAN$/.test(s))return 'good';
+  if(/SEBAGIAN/.test(s))return 'info';
+  if(/BELUM\s+DISERAHKAN/.test(s))return 'pending';
+  return '';
+}
+function housingPsuGroupLabelV182(group){
+  const g=String(group||'').toUpperCase();
+  return g==='UTILITAS UMUM'?'Utilitas Umum':g==='PRASARANA'?'Prasarana':g==='SARANA'?'Sarana':titleCaseWords(group||'Lainnya');
+}
+function housingPsuGroupHtmlV182(group,items){
+  const area=items.reduce((sum,item)=>sum+(housingAreaAvailableV182(item.plannedArea)?Number(item.plannedArea):0),0);
+  const unitItems=items.filter(item=>Number.isFinite(Number(item.plannedQty))&&Number(item.plannedQty)>0);
+  const meta=[area>0?`${fmt(area)} m²`:'' ,unitItems.length?`${fmt(unitItems.length)} komponen berbasis jumlah`:'' ].filter(Boolean).join(' · ')||`${fmt(items.length)} komponen`;
+  return `<section class="hp-psu-group-v182"><div class="hp-psu-group-head-v182"><span>${escapeHtml(housingPsuGroupLabelV182(group))}</span><small>${escapeHtml(meta)}</small></div>${items.map(item=>`<div class="hp-psu-row-v182"><div class="hp-psu-name-v182"><strong>${escapeHtml(item.type||'Komponen PSU')}</strong>${item.description?`<small>${escapeHtml(item.description)}</small>`:''}</div><div class="hp-psu-qty-v182">${housingPsuQuantityV182(item)}</div><div><span class="hp-psu-chip-v182 ${housingPsuPhysicalClassV182(item.physicalStatus)}">${escapeHtml(item.physicalStatus||'Status fisik belum tersedia')}</span></div><div><span class="hp-psu-chip-v182 ${housingPsuHandoverClassV182(item.handoverStatus)}">${escapeHtml(item.handoverStatus||'Status penyerahan belum tersedia')}</span></div></div>`).join('')}</section>`;
+}
+function housingLandPsuHtmlV182(row){
+  const total=Number(row?.luasSitePlan||0),effective=Number(row?.luasLahanEfektif||0),nonEffective=Number(row?.luasLahanNonEfektif||0),rth=Number(row?.luasRTH||0);
+  const hasLand=[total,effective,nonEffective,rth].some(housingAreaAvailableV182);
+  const detailSet=housingPsuDetailSetV182(row);
+  if(!hasLand&&!detailSet.all.length){
+    return publicMode?'':`<section class="hp-land-v182"><div class="hp-land-head-v182"><div><span class="hp-land-kicker-v182">KOMPOSISI LAHAN & PSU</span><h3>Data site plan terstruktur</h3><p>Luas lahan dan rincian komponen PSU untuk objek ini.</p></div></div><div class="hp-psu-empty-v182"><strong>Data komposisi lahan dan rincian PSU belum tersedia.</strong> Isi field luas pada sheet PERUMAHAN dan/atau sheet PERUMAHAN_PSU_DETAIL untuk menampilkan bagian ini.</div></section>`;
+  }
+  const effectivePct=housingPctV182(effective,total),nonEffectivePct=housingPctV182(nonEffective,total),rthPct=housingPctV182(rth,total);
+  const yearLabel=detailSet.latest?`Site plan ${detailSet.latest}`:'Site plan yang berlaku';
+  const metrics=`<div class="hp-land-metrics-v182"><div class="hp-land-metric-v182"><span>Luas Site Plan</span><strong>${housingAreaTextV182(total)}</strong><small>Total area rencana tapak</small></div><div class="hp-land-metric-v182"><span>Lahan Efektif</span><strong>${housingAreaTextV182(effective)}</strong><small>${housingPctTextV182(effectivePct)} dari site plan</small></div><div class="hp-land-metric-v182"><span>Lahan Non Efektif / PSU</span><strong>${housingAreaTextV182(nonEffective)}</strong><small>${housingPctTextV182(nonEffectivePct)} dari site plan</small></div><div class="hp-land-metric-v182 rth"><span>Alokasi Lahan RTH</span><strong>${housingAreaTextV182(rth)}</strong><small>${housingPctTextV182(rthPct)} dari site plan</small></div></div>`;
+  const bar=(Number.isFinite(effectivePct)&&Number.isFinite(nonEffectivePct))?`<div class="hp-land-bar-v182"><div class="hp-land-bar-track-v182" aria-hidden="true"><div class="hp-land-bar-effective-v182" style="width:${Math.max(0,Math.min(100,effectivePct))}%"></div><div class="hp-land-bar-noneffective-v182" style="width:${Math.max(0,Math.min(100,nonEffectivePct))}%"></div></div><div class="hp-land-bar-meta-v182"><span><b>${housingPctTextV182(effectivePct)}</b> lahan efektif</span><span><b>${housingPctTextV182(nonEffectivePct)}</b> lahan non efektif / PSU</span></div></div>`:'';
+  let detail='';
+  if(!publicMode){
+    if(detailSet.active.length){
+      const plannedArea=detailSet.active.filter(item=>String(item.plannedHandover||'').toUpperCase()==='YA').reduce((sum,item)=>sum+(housingAreaAvailableV182(item.plannedArea)?Number(item.plannedArea):0),0);
+      const groups=[...new Set(detailSet.active.map(item=>item.group))];
+      detail=`<div class="hp-psu-detail-v182"><div class="hp-psu-detail-head-v182"><div><h4>Komposisi PSU</h4><p>Rincian PSU berdasarkan ${escapeHtml(yearLabel)}. Status fisik dipisahkan dari status penyerahan.</p></div><div class="hp-psu-summary-v182"><span>${fmt(detailSet.active.length)} komponen</span>${plannedArea>0?`<span>${fmt(plannedArea)} m² direncanakan diserahkan</span>`:''}</div></div><div class="hp-psu-groups-v182">${groups.map(group=>housingPsuGroupHtmlV182(group,detailSet.active.filter(item=>item.group===group))).join('')}</div></div>`;
+    }else if(detailSet.historicalOnly){
+      const years=[...new Set(detailSet.all.map(item=>Number(item.sitePlanYear)).filter(Boolean))].sort((a,b)=>a-b);
+      detail=`<div class="hp-psu-detail-v182"><div class="hp-psu-empty-v182"><strong>Rincian PSU untuk site plan yang berlaku belum tersedia.</strong> Database memiliki rincian untuk versi ${escapeHtml(years.join(', '))}; data tersebut tidak dipakai sebagai komposisi aktif.</div></div>`;
+    }else{
+      detail=`<div class="hp-psu-detail-v182"><div class="hp-psu-empty-v182"><strong>Rincian PSU belum tersedia pada data site plan.</strong> Ringkasan luas tetap ditampilkan dari sheet PERUMAHAN.</div></div>`;
+    }
+  }
+  return `<section class="hp-land-v182"><div class="hp-land-head-v182"><div><span class="hp-land-kicker-v182">KOMPOSISI LAHAN${publicMode?'':' & PSU'}</span><h3>Struktur lahan site plan</h3><p>${publicMode?'Ringkasan luas lahan yang tercatat pada site plan.':'Ringkasan lahan dan komponen PSU terstruktur untuk kebutuhan pengelolaan internal.'}</p></div><span class="hp-land-scope-v182">${escapeHtml(yearLabel)}</span></div>${metrics}${bar}${detail}</section>`;
+}
+const renderHousingProfileBeforeV182=renderHousingProfileV90;
+renderHousingProfileV90=function(row){
+  renderHousingProfileBeforeV182(row);
+  const summary=document.querySelector('[data-housing-profile-panel-v93="summary"]');
+  if(!summary)return;
+  summary.querySelector('.hp-land-v182')?.remove();
+  const html=housingLandPsuHtmlV182(row);
+  if(!html)return;
+  const infoSection=summary.querySelector('.hp-info-section-v118');
+  if(infoSection)infoSection.insertAdjacentHTML('beforebegin',html);
+  else summary.insertAdjacentHTML('beforeend',html);
+};
+</script>
+<!-- SIRUMAH v182 — Land & PSU Composition Experience. Paired database baseline: v29. -->
+
+
+<style id="v183-land-psu-readability-style">
+/* =========================================================
+   SIRUMAH v183 — Land & PSU Readability Refinement
+   Editorial density, calmer status language, narrower object workspace.
+   ========================================================= */
+@media(min-width:821px){
+  body.startup-ui-v183 .housing-profile-modal-v90{
+    width:min(1120px,calc(100vw - 48px));
+  }
+}
+body.startup-ui-v183 .hp-land-v182{
+  margin-bottom:14px;padding:17px 18px;border-radius:18px;
+  box-shadow:0 8px 22px rgba(23,59,66,.035)
+}
+body.startup-ui-v183 .hp-land-head-v182{margin-bottom:14px}
+body.startup-ui-v183 .hp-land-kicker-v182{font-size:10.5px;font-weight:700;letter-spacing:.09em}
+body.startup-ui-v183 .hp-land-head-v182 h3{
+  margin-top:4px;font-size:19px;line-height:1.22;font-weight:700;letter-spacing:-.2px
+}
+body.startup-ui-v183 .hp-land-head-v182 p{font-size:11.3px;font-weight:480;line-height:1.45}
+body.startup-ui-v183 .hp-land-scope-v182{font-weight:600;background:#F1F4F0}
+body.startup-ui-v183 .hp-land-metric-v182{padding:12px 13px;border-radius:13px}
+body.startup-ui-v183 .hp-land-metric-v182 span{font-size:10.2px;font-weight:620}
+body.startup-ui-v183 .hp-land-metric-v182 strong{
+  margin-top:5px;font-size:19px;font-weight:700;letter-spacing:-.15px
+}
+body.startup-ui-v183 .hp-land-metric-v182 small{font-size:10.3px;font-weight:480;color:#758385}
+body.startup-ui-v183 .hp-land-bar-v182{gap:8px;margin-top:12px;padding-top:12px}
+body.startup-ui-v183 .hp-land-bar-track-v182{
+  height:10px;border:1px solid rgba(43,92,99,.08);background:#E8ECE9
+}
+body.startup-ui-v183 .hp-land-bar-meta-v182{font-size:10.5px;font-weight:520}
+body.startup-ui-v183 .hp-land-bar-meta-v182 span{display:inline-flex;align-items:center;gap:6px}
+body.startup-ui-v183 .hp-land-bar-meta-v182 span:before{
+  content:"";width:7px;height:7px;border-radius:50%;background:#2B5C63;box-shadow:0 0 0 3px rgba(43,92,99,.07)
+}
+body.startup-ui-v183 .hp-land-bar-meta-v182 span:last-child:before{
+  background:#D3B881;box-shadow:0 0 0 3px rgba(211,184,129,.12)
+}
+body.startup-ui-v183 .hp-psu-detail-v182{margin-top:14px;padding-top:14px}
+body.startup-ui-v183 .hp-psu-detail-head-v182{align-items:center;margin-bottom:10px}
+body.startup-ui-v183 .hp-psu-detail-head-v182 h4{font-size:14px;font-weight:700}
+body.startup-ui-v183 .hp-psu-detail-head-v182 p{font-size:10.7px;font-weight:480}
+body.startup-ui-v183 .hp-psu-summary-v183{display:flex;align-items:stretch;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+body.startup-ui-v183 .hp-psu-context-v183{
+  min-width:96px;padding:7px 10px;border:1px solid rgba(43,92,99,.10);border-radius:12px;background:#F8F8F4
+}
+body.startup-ui-v183 .hp-psu-context-v183 span{display:block;color:#788789;font-size:9.4px;font-weight:600;line-height:1.25}
+body.startup-ui-v183 .hp-psu-context-v183 strong{display:block;margin-top:2px;color:#2B5C63;font-size:12px;font-weight:700;line-height:1.25;font-variant-numeric:tabular-nums;white-space:nowrap}
+body.startup-ui-v183 .hp-psu-context-v183.wide{min-width:174px}
+body.startup-ui-v183 .hp-psu-groups-v182{gap:9px}
+body.startup-ui-v183 .hp-psu-group-v182{border-radius:13px;background:rgba(255,255,255,.70)}
+body.startup-ui-v183 .hp-psu-group-head-v182{
+  padding:8px 11px;background:#F1F4EF;font-size:10.3px;font-weight:700;letter-spacing:.065em
+}
+body.startup-ui-v183 .hp-psu-group-head-v182 small{font-size:9.9px;font-weight:520;color:#738184}
+body.startup-ui-v183 .hp-psu-row-v182{
+  grid-template-columns:minmax(225px,1.7fr) minmax(105px,.66fr) minmax(150px,.92fr) minmax(150px,.92fr);
+  gap:11px;padding:10px 11px
+}
+body.startup-ui-v183 .hp-psu-name-v182 strong{font-size:11.6px;font-weight:600;line-height:1.38}
+body.startup-ui-v183 .hp-psu-name-v182 small{font-size:9.9px;font-weight:470}
+body.startup-ui-v183 .hp-psu-qty-v182{font-size:11.5px;font-weight:650}
+body.startup-ui-v183 .hp-psu-state-v183{display:grid;gap:3px;align-content:center;min-width:0}
+body.startup-ui-v183 .hp-psu-state-v183>span{color:#839092;font-size:9px;font-weight:600;letter-spacing:.02em}
+body.startup-ui-v183 .hp-psu-state-value-v183{
+  display:flex;align-items:center;gap:6px;min-width:0;color:#53686A;font-size:10.1px;font-weight:600;line-height:1.25
+}
+body.startup-ui-v183 .hp-psu-state-value-v183 i{
+  flex:0 0 auto;width:7px;height:7px;border-radius:50%;background:#8B999A;box-shadow:0 0 0 3px rgba(139,153,154,.09)
+}
+body.startup-ui-v183 .hp-psu-state-value-v183.good{color:#23745C}
+body.startup-ui-v183 .hp-psu-state-value-v183.good i{background:#2F9A66;box-shadow:0 0 0 3px rgba(47,154,102,.10)}
+body.startup-ui-v183 .hp-psu-state-value-v183.pending{color:#8C642B}
+body.startup-ui-v183 .hp-psu-state-value-v183.pending i{background:#C28A36;box-shadow:0 0 0 3px rgba(194,138,54,.11)}
+body.startup-ui-v183 .hp-psu-state-value-v183.info{color:#1A6372}
+body.startup-ui-v183 .hp-psu-state-value-v183.info i{background:#3A8792;box-shadow:0 0 0 3px rgba(58,135,146,.10)}
+body.startup-ui-v183 .hp-internal-title-v183{display:flex;align-items:center;gap:8px}
+body.startup-ui-v183 .hp-internal-monogram-v183{
+  width:27px;height:27px;display:grid;place-items:center;border:1px solid rgba(43,92,99,.13);border-radius:9px;
+  background:rgba(255,255,255,.40);color:#725B38
+}
+body.startup-ui-v183 .hp-internal-monogram-v183 svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+body.startup-ui-v183 .hp-internal-title-v183 h3{margin:0!important}
+@media(max-width:900px){
+  body.startup-ui-v183 .hp-psu-row-v182{grid-template-columns:minmax(190px,1.45fr) minmax(100px,.7fr) minmax(138px,.9fr) minmax(138px,.9fr)}
+}
+@media(max-width:720px){
+  body.startup-ui-v183 .hp-land-v182{padding:15px}
+  body.startup-ui-v183 .hp-land-head-v182 h3{font-size:18px}
+  body.startup-ui-v183 .hp-psu-summary-v183{justify-content:flex-start}
+  body.startup-ui-v183 .hp-psu-row-v182{grid-template-columns:1fr 1fr;gap:8px}
+  body.startup-ui-v183 .hp-psu-name-v182{grid-column:1/-1}
+  body.startup-ui-v183 .hp-psu-state-v183{padding-top:2px}
+}
+</style>
+<script id="v183-land-psu-readability-script">
+/* SIRUMAH v183 — Land & PSU Readability Refinement */
+function housingInternalLockIconV183(){
+  return `<span class="hp-internal-monogram-v183" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2.5"></rect><path d="M8.5 10V7.5a3.5 3.5 0 0 1 7 0V10"></path><path d="M12 14v2.5"></path></svg></span>`;
+}
+function housingProfileInternalHtmlV121(row){
+  if(publicMode) return "";
+  const matrix=priorityMatrix(row);
+  const developerStatus=housingDeveloperStatusV90(row);
+  const verification=housingProfileValueV90(row?.statusVerifikasi,"Belum tersedia");
+  const issues=housingIssuesV90(row);
+  const extraNotes=housingProfileExtraNotesV121(row,issues);
+  const score=Math.max(0,Math.min(100,Number(matrix.total)||0));
+  const updated=housingProfileDateLongV121(row?.tanggalUpdate);
+  const source=housingProfileValueV90(row?.sumberData,"Belum tersedia");
+  return `<section class="housing-profile-internal-v90">
+    <div class="hp-section-head-v118"><div><div class="hp-internal-title-v183">${housingInternalLockIconV183()}<h3>Informasi Internal</h3></div><p>Informasi operasional untuk pengelolaan dan tindak lanjut.</p></div></div>
+    <div class="hp-private-grid-v118">
+      <div class="hp-private-item-v118"><span>Direktur / Pelaksana</span><strong>${escapeHtml(housingProfileValueV90(row?.direktur))}</strong></div>
+      <div class="hp-private-item-v118"><span>Status Pengembang</span>${housingProfileStatusPillV121(developerStatus,housingDeveloperStatusKindV121(developerStatus))}</div>
+      <div class="hp-private-item-v118"><span>Status Verifikasi</span>${housingProfileStatusPillV121(verification,housingVerificationKindV121(verification))}</div>
+      <div class="hp-priority-v118">
+        <div class="hp-priority-head-v118"><span>Prioritas tindak lanjut PSU</span><strong>${fmt(score)}/100 · ${escapeHtml(matrix.level)}</strong></div>
+        <div class="hp-priority-track-v118"><div class="hp-priority-fill-v118" style="width:${score}%"></div></div>
+      </div>
+    </div>
+    <div class="housing-profile-issues-v90">${issues.length
+      ? issues.map(issue=>`<span class="housing-profile-issue-v90 ${housingProfileIssueClassV118(issue)}">${escapeHtml(issue)}</span>`).join("")
+      : `<span class="housing-profile-issue-v90">Tidak ada isu terstruktur yang terdeteksi</span>`}</div>
+    ${extraNotes.length?`<div class="hp-extra-note-v121"><strong>Catatan tambahan:</strong> ${escapeHtml(extraNotes.join(" · "))}</div>`:""}
+    <div class="hp-private-meta-v121"><span>Diperbarui <strong>${escapeHtml(updated)}</strong></span><span>Sumber: <strong>${escapeHtml(source)}</strong></span></div>
+  </section>`;
+}
+
+function housingPsuStateHtmlV183(label,value,kind){
+  const safe=String(value||'').trim()||`Belum tersedia`;
+  return `<div class="hp-psu-state-v183"><span>${escapeHtml(label)}</span><strong class="hp-psu-state-value-v183 ${kind||''}"><i aria-hidden="true"></i>${escapeHtml(safe)}</strong></div>`;
+}
+function housingPsuGroupHtmlV182(group,items){
+  const area=items.reduce((sum,item)=>sum+(housingAreaAvailableV182(item.plannedArea)?Number(item.plannedArea):0),0);
+  const unitItems=items.filter(item=>Number.isFinite(Number(item.plannedQty))&&Number(item.plannedQty)>0);
+  const parts=[`${fmt(items.length)} komponen`];
+  if(area>0) parts.push(`${fmt(area)} m²`);
+  else if(unitItems.length) parts.push('berbasis jumlah');
+  const meta=parts.join(' · ');
+  return `<section class="hp-psu-group-v182"><div class="hp-psu-group-head-v182"><span>${escapeHtml(housingPsuGroupLabelV182(group))}</span><small>${escapeHtml(meta)}</small></div>${items.map(item=>`<div class="hp-psu-row-v182"><div class="hp-psu-name-v182"><strong>${escapeHtml(item.type||'Komponen PSU')}</strong>${item.description?`<small>${escapeHtml(item.description)}</small>`:''}</div><div class="hp-psu-qty-v182">${housingPsuQuantityV182(item)}</div>${housingPsuStateHtmlV183('Fisik',item.physicalStatus,housingPsuPhysicalClassV182(item.physicalStatus))}${housingPsuStateHtmlV183('Penyerahan',item.handoverStatus,housingPsuHandoverClassV182(item.handoverStatus))}</div>`).join('')}</section>`;
+}
+function housingLandPsuHtmlV182(row){
+  const total=Number(row?.luasSitePlan||0),effective=Number(row?.luasLahanEfektif||0),nonEffective=Number(row?.luasLahanNonEfektif||0),rth=Number(row?.luasRTH||0);
+  const hasLand=[total,effective,nonEffective,rth].some(housingAreaAvailableV182);
+  const detailSet=housingPsuDetailSetV182(row);
+  if(!hasLand&&!detailSet.all.length){
+    return publicMode?'':`<section class="hp-land-v182"><div class="hp-land-head-v182"><div><span class="hp-land-kicker-v182">KOMPOSISI LAHAN & PSU</span><h3>Data site plan terstruktur</h3><p>Luas lahan dan rincian komponen PSU untuk objek ini.</p></div></div><div class="hp-psu-empty-v182"><strong>Data komposisi lahan dan rincian PSU belum tersedia.</strong> Isi field luas pada sheet PERUMAHAN dan/atau sheet PERUMAHAN_PSU_DETAIL untuk menampilkan bagian ini.</div></section>`;
+  }
+  const effectivePct=housingPctV182(effective,total),nonEffectivePct=housingPctV182(nonEffective,total),rthPct=housingPctV182(rth,total);
+  const yearLabel=detailSet.latest?`Site plan ${detailSet.latest}`:'Site plan yang berlaku';
+  const metrics=`<div class="hp-land-metrics-v182"><div class="hp-land-metric-v182"><span>Luas Site Plan</span><strong>${housingAreaTextV182(total)}</strong><small>Total area rencana tapak</small></div><div class="hp-land-metric-v182"><span>Lahan Efektif</span><strong>${housingAreaTextV182(effective)}</strong><small>${housingPctTextV182(effectivePct)} dari site plan</small></div><div class="hp-land-metric-v182"><span>Lahan Non Efektif / PSU</span><strong>${housingAreaTextV182(nonEffective)}</strong><small>${housingPctTextV182(nonEffectivePct)} dari site plan</small></div><div class="hp-land-metric-v182 rth"><span>Alokasi Lahan RTH</span><strong>${housingAreaTextV182(rth)}</strong><small>${housingPctTextV182(rthPct)} dari site plan</small></div></div>`;
+  const bar=(Number.isFinite(effectivePct)&&Number.isFinite(nonEffectivePct))?`<div class="hp-land-bar-v182"><div class="hp-land-bar-track-v182" aria-hidden="true"><div class="hp-land-bar-effective-v182" style="width:${Math.max(0,Math.min(100,effectivePct))}%"></div><div class="hp-land-bar-noneffective-v182" style="width:${Math.max(0,Math.min(100,nonEffectivePct))}%"></div></div><div class="hp-land-bar-meta-v182"><span><b>${housingPctTextV182(effectivePct)}</b> lahan efektif</span><span><b>${housingPctTextV182(nonEffectivePct)}</b> lahan non efektif / PSU</span></div></div>`:'';
+  let detail='';
+  if(!publicMode){
+    if(detailSet.active.length){
+      const plannedArea=detailSet.active.filter(item=>String(item.plannedHandover||'').toUpperCase()==='YA').reduce((sum,item)=>sum+(housingAreaAvailableV182(item.plannedArea)?Number(item.plannedArea):0),0);
+      const groups=[...new Set(detailSet.active.map(item=>item.group))];
+      detail=`<div class="hp-psu-detail-v182"><div class="hp-psu-detail-head-v182"><div><h4>Komposisi PSU</h4><p>Rincian PSU berdasarkan ${escapeHtml(yearLabel)}. Status fisik dipisahkan dari status penyerahan.</p></div><div class="hp-psu-summary-v183"><div class="hp-psu-context-v183"><span>Komponen PSU</span><strong>${fmt(detailSet.active.length)}</strong></div>${plannedArea>0?`<div class="hp-psu-context-v183 wide"><span>Direncanakan diserahkan</span><strong>${fmt(plannedArea)} m²</strong></div>`:''}</div></div><div class="hp-psu-groups-v182">${groups.map(group=>housingPsuGroupHtmlV182(group,detailSet.active.filter(item=>item.group===group))).join('')}</div></div>`;
+    }else if(detailSet.historicalOnly){
+      const years=[...new Set(detailSet.all.map(item=>Number(item.sitePlanYear)).filter(Boolean))].sort((a,b)=>a-b);
+      detail=`<div class="hp-psu-detail-v182"><div class="hp-psu-empty-v182"><strong>Rincian PSU untuk site plan yang berlaku belum tersedia.</strong> Database memiliki rincian untuk versi ${escapeHtml(years.join(', '))}; data tersebut tidak dipakai sebagai komposisi aktif.</div></div>`;
+    }else{
+      detail=`<div class="hp-psu-detail-v182"><div class="hp-psu-empty-v182"><strong>Rincian PSU belum tersedia pada data site plan.</strong> Ringkasan luas tetap ditampilkan dari sheet PERUMAHAN.</div></div>`;
+    }
+  }
+  return `<section class="hp-land-v182"><div class="hp-land-head-v182"><div><span class="hp-land-kicker-v182">KOMPOSISI LAHAN${publicMode?'':' & PSU'}</span><h3>Struktur lahan site plan</h3><p>${publicMode?'Ringkasan luas lahan yang tercatat pada site plan.':'Ringkasan lahan dan komponen PSU terstruktur untuk kebutuhan pengelolaan internal.'}</p></div><span class="hp-land-scope-v182">${escapeHtml(yearLabel)}</span></div>${metrics}${bar}${detail}</section>`;
+}
+</script>
+<!-- SIRUMAH v183 — Land & PSU Readability Refinement. Database v29 unchanged. -->
 
 </body>
 </html>
