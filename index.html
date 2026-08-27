@@ -7016,7 +7016,7 @@ body.public-mode.startup-ui-v166 #rusunawa .rus-hero-v132{margin-bottom:14px}
 @media(max-width:720px){.startup-ui-v166 #rusunawa .rus-public-card-head-v166{padding:17px 16px 9px}.startup-ui-v166 #rusunawa .rus-public-card-head-v166{display:grid}.startup-ui-v166 #rusunawa .rus-public-scope-v166{justify-self:start}.startup-ui-v166 #rusunawa .rus-public-occupancy-main-v166{grid-template-columns:1fr;gap:17px;padding:10px 16px 18px}.startup-ui-v166 #rusunawa .rus-public-occupancy-number-v166 strong{font-size:46px}.startup-ui-v166 #rusunawa .rus-public-unit-segments-v166{grid-template-columns:repeat(10,1fr);gap:4px;padding:10px}.startup-ui-v166 #rusunawa .rus-public-status-grid-v166{padding:5px 15px 16px}.startup-ui-v166 #rusunawa .rus-public-facility-stats-v166{grid-template-columns:1fr;padding:5px 15px 12px}.startup-ui-v166 #rusunawa .rus-public-facility-chips-v166{padding:0 15px}.startup-ui-v166 #rusunawa .rus-public-narrative-v166{grid-template-columns:42px minmax(0,1fr);padding:17px}.startup-ui-v166 #rusunawa .rus-public-narrative-monogram-v166{width:42px;height:42px;border-radius:13px}}
 @media(max-width:430px){.startup-ui-v166 #rusunawa .rus-public-unit-segments-v166{grid-template-columns:repeat(6,1fr)}.startup-ui-v166 #rusunawa .rus-public-status-item-v166{grid-template-columns:38px minmax(0,1fr) auto;padding:9px}.startup-ui-v166 #rusunawa .rus-public-status-icon-v166{width:38px;height:38px}.startup-ui-v166 #rusunawa .rus-public-status-value-v166 strong{font-size:20px}}
 </style>
-<body class="public-mode startup-ui-v100 startup-ui-v101 startup-ui-v102 startup-ui-v103 startup-ui-v104 startup-ui-v105 startup-ui-v106 startup-ui-v107 startup-ui-v108 startup-ui-v109 startup-ui-v110 startup-ui-v111 startup-ui-v112 startup-ui-v113 startup-ui-v114 startup-ui-v115 startup-ui-v116 startup-ui-v117 startup-ui-v118 startup-ui-v120 startup-ui-v122 startup-ui-v123 startup-ui-v124 startup-ui-v125 startup-ui-v126 startup-ui-v127 startup-ui-v128 startup-ui-v129 startup-ui-v130 startup-ui-v131 startup-ui-v132 startup-ui-v133 startup-ui-v134 startup-ui-v135 startup-ui-v136 startup-ui-v137 startup-ui-v138 startup-ui-v139 startup-ui-v140 startup-ui-v141 startup-ui-v142 startup-ui-v143 startup-ui-v144 startup-ui-v145 startup-ui-v146 startup-ui-v147 startup-ui-v148 startup-ui-v149 startup-ui-v150 startup-ui-v151 startup-ui-v152 startup-ui-v153 startup-ui-v155 startup-ui-v156 startup-ui-v158 startup-ui-v159 startup-ui-v162 startup-ui-v163 startup-ui-v164 startup-ui-v165 startup-ui-v166 startup-ui-v167 startup-ui-v168 startup-ui-v169 startup-ui-v170 startup-ui-v171 startup-ui-v174 startup-ui-v175 startup-ui-v176 startup-ui-v177 startup-ui-v178 startup-ui-v179 startup-ui-v180 startup-ui-v181 startup-ui-v182 startup-ui-v183 startup-ui-v184">
+<body class="public-mode startup-ui-v100 startup-ui-v101 startup-ui-v102 startup-ui-v103 startup-ui-v104 startup-ui-v105 startup-ui-v106 startup-ui-v107 startup-ui-v108 startup-ui-v109 startup-ui-v110 startup-ui-v111 startup-ui-v112 startup-ui-v113 startup-ui-v114 startup-ui-v115 startup-ui-v116 startup-ui-v117 startup-ui-v118 startup-ui-v120 startup-ui-v122 startup-ui-v123 startup-ui-v124 startup-ui-v125 startup-ui-v126 startup-ui-v127 startup-ui-v128 startup-ui-v129 startup-ui-v130 startup-ui-v131 startup-ui-v132 startup-ui-v133 startup-ui-v134 startup-ui-v135 startup-ui-v136 startup-ui-v137 startup-ui-v138 startup-ui-v139 startup-ui-v140 startup-ui-v141 startup-ui-v142 startup-ui-v143 startup-ui-v144 startup-ui-v145 startup-ui-v146 startup-ui-v147 startup-ui-v148 startup-ui-v149 startup-ui-v150 startup-ui-v151 startup-ui-v152 startup-ui-v153 startup-ui-v155 startup-ui-v156 startup-ui-v158 startup-ui-v159 startup-ui-v162 startup-ui-v163 startup-ui-v164 startup-ui-v165 startup-ui-v166 startup-ui-v167 startup-ui-v168 startup-ui-v169 startup-ui-v170 startup-ui-v171 startup-ui-v174 startup-ui-v175 startup-ui-v176 startup-ui-v177 startup-ui-v178 startup-ui-v179 startup-ui-v180 startup-ui-v181 startup-ui-v182 startup-ui-v183 startup-ui-v184 startup-ui-v185">
 <div class="app">
 <svg aria-hidden="true" class="sirumah-nav-sprite-v149" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
 <defs>
@@ -8332,7 +8332,7 @@ body.public-mode.startup-ui-v166 #rusunawa .rus-hero-v132{margin-bottom:14px}
 <div class="rus-controlbar-v132" id="rusunawaControlbarV132">
 <label class="rus-control-select-v132">
 <span>RUSUNAWA</span>
-<select id="rusunawaFilter" onchange="resetRusunawaUnitPagination()">
+<select aria-label="Pilih RUSUNAWA" id="rusunawaFilter" onchange="resetRusunawaUnitPagination()">
 <option value="all">Semua RUSUNAWA</option>
 </select>
 </label>
@@ -22223,5 +22223,91 @@ function housingLandPsuHtmlV182(row){
 <!-- SIRUMAH v183 — Land & PSU Readability Refinement. Database v29 unchanged. -->
 
 <!-- SIRUMAH v184 — Database Helper Name Compatibility: NAMA_PERUMAHAN helper columns supported in PSU Detail and Dokumen Pendukung. -->
+<style id="v185-rusunawa-unit-filter-toolbar-style">
+/* SIRUMAH v185 — RUSUNAWA internal filter toolbar placement
+   Mode Internal: filter menjadi toolbar tabel Data Unit, bukan card modul tersendiri.
+   Mode Publik: selector cakupan tetap berada di bawah hero agar fungsi publik tidak berubah. */
+body.startup-ui-v185 #rusunawa .rus-controlbar-v132.rus-unit-toolbar-v185{
+  z-index:12;
+  align-items:center;
+  margin:0 20px 14px;
+  padding:0 0 14px;
+  border:0;
+  border-bottom:1px solid var(--rus-line);
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+}
+body.startup-ui-v185 #rusunawa .rus-unit-toolbar-v185 .rus-control-select-v132{
+  gap:0;
+}
+/* Label konteks tetap tersedia untuk pembaca layar, tetapi tidak menambah satu baris visual. */
+body.startup-ui-v185 #rusunawa .rus-unit-toolbar-v185 .rus-control-select-v132>span{
+  position:absolute!important;
+  width:1px!important;
+  height:1px!important;
+  padding:0!important;
+  margin:-1px!important;
+  overflow:hidden!important;
+  clip:rect(0,0,0,0)!important;
+  white-space:nowrap!important;
+  border:0!important;
+}
+@media(max-width:620px){
+  body.startup-ui-v185 #rusunawa .rus-controlbar-v132.rus-unit-toolbar-v185{
+    margin:0 15px 12px;
+    padding-bottom:12px;
+  }
+}
+</style>
+<script id="v185-rusunawa-unit-filter-toolbar-script">
+/* SIRUMAH v185 — Context-aware RUSUNAWA filter placement.
+   Satu controlbar/ID dipindahkan sesuai mode agar state filter dan fungsi yang sudah ada tetap utuh. */
+function placeRusunawaControlbarV185(){
+  const controlbar=document.getElementById('rusunawaControlbarV132');
+  const hero=document.querySelector('#rusunawa > .rus-hero-v132');
+  const unitCard=document.getElementById('rusunawaUnitOperationsCardV132');
+  const unitHead=unitCard?.querySelector('.rus-card-head-v132');
+  if(!controlbar)return;
+
+  if(publicMode){
+    controlbar.classList.remove('rus-unit-toolbar-v185');
+    if(hero && hero.nextElementSibling!==controlbar){
+      hero.insertAdjacentElement('afterend',controlbar);
+    }
+    return;
+  }
+
+  controlbar.classList.add('rus-unit-toolbar-v185');
+  if(unitHead && unitHead.nextElementSibling!==controlbar){
+    unitHead.insertAdjacentElement('afterend',controlbar);
+  }
+}
+
+const updateAccessModeUIBeforeV185=updateAccessModeUI;
+updateAccessModeUI=function(){
+  updateAccessModeUIBeforeV185();
+  placeRusunawaControlbarV185();
+};
+
+const renderRusunawaBeforeV185=renderRusunawa;
+renderRusunawa=function(){
+  const result=renderRusunawaBeforeV185();
+  placeRusunawaControlbarV185();
+  return result;
+};
+
+const renderAllBeforeV185=renderAll;
+renderAll=function(){
+  const result=renderAllBeforeV185();
+  placeRusunawaControlbarV185();
+  return result;
+};
+
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',placeRusunawaControlbarV185);
+else placeRusunawaControlbarV185();
+</script>
+<!-- SIRUMAH v185 — RUSUNAWA Internal Filter Toolbar. Database v31 unchanged. -->
+
 </body>
 </html>
