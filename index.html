@@ -22814,5 +22814,316 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
 </script>
 <!-- SIRUMAH v187 — Secure Split Tahap 2 Master Sync Pilot. Database v31 unchanged. -->
 
+<!-- SIRUMAH v188 — Secure Split Tahap 2: Runtime Secure Backend Pilot. Database v31 unchanged. -->
+<style id="v188-secure-runtime-style">
+/* v188 keeps the local workbook as fallback while allowing CURRENT Firestore
+   to become the active Internal runtime after authenticated retrieval. */
+body.startup-ui-v186 .secure-split-card-v186{width:min(610px,100%)}
+body.startup-ui-v186 .secure-split-actions-v186{align-items:center}
+body.startup-ui-v186 .secure-runtime-choice-v188{background:#E8F1EF!important;color:#285A61!important;border-color:#CFE0DC!important}
+body.startup-ui-v186 .secure-runtime-choice-v188:hover{background:#DDEBE7!important}
+.startup-ui-v135 #integrasi .secure-runtime-btn-v188{background:#E9F2F0!important;color:#285B61!important;border-color:#CFE0DC!important}
+.startup-ui-v135 #integrasi .secure-runtime-btn-v188:hover{background:#DDEBE7!important}
+.secure-runtime-overlay-v188{position:fixed;inset:0;z-index:10045;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(20,43,47,.62);backdrop-filter:blur(5px)}
+.secure-runtime-overlay-v188.open{display:flex}
+.secure-runtime-dialog-v188{width:min(540px,100%);overflow:hidden;border:1px solid rgba(255,255,255,.72);border-radius:23px;background:#FCFCF9;box-shadow:0 30px 85px rgba(17,44,48,.28)}
+.secure-runtime-head-v188{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;padding:22px 23px 16px;border-bottom:1px solid #E5ECE8}
+.secure-runtime-head-v188 .kicker{margin-bottom:5px;color:#698082;font-size:10px;font-weight:820;letter-spacing:.8px}
+.secure-runtime-head-v188 h3{margin:0;color:#244F55;font-size:20px;letter-spacing:-.25px}
+.secure-runtime-head-v188 p{max-width:455px;margin:6px 0 0;color:#718485;font-size:11.8px;line-height:1.55}
+.secure-runtime-close-v188{display:grid;place-items:center;width:34px;height:34px;flex:0 0 auto;border:1px solid #DCE5E1;border-radius:11px;background:#fff;color:#547074;cursor:pointer;font-size:18px}
+.secure-runtime-body-v188{padding:18px 23px 22px}
+.secure-runtime-current-v188{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-bottom:14px}
+.secure-runtime-current-v188>div{min-width:0;padding:10px 11px;border:1px solid #DFE7E3;border-radius:12px;background:#F7F8F4}
+.secure-runtime-current-v188 span{display:block;color:#78888A;font-size:9.8px;font-weight:760;letter-spacing:.45px;text-transform:uppercase}
+.secure-runtime-current-v188 strong{display:block;margin-top:4px;color:#315C62;font-size:12px;overflow-wrap:anywhere}
+.secure-runtime-auth-v188{padding-top:2px}.secure-runtime-auth-v188 label{display:block;color:#536E71;font-size:11px;font-weight:760}.secure-runtime-auth-v188 input{width:100%;min-height:44px;margin-top:6px;border:1px solid #D7E2DE;border-radius:12px;background:#fff;padding:9px 12px;color:#284F55;font-size:13px}.secure-runtime-auth-v188 small{display:block;margin-top:6px;color:#839092;font-size:10px;line-height:1.45}
+.secure-runtime-status-v188{display:none;margin-top:13px;padding:11px 12px;border:1px solid #D6E4DF;border-radius:12px;background:#F0F6F4;color:#496B6E;font-size:11px;line-height:1.5}.secure-runtime-status-v188.show{display:block}.secure-runtime-status-v188.error{border-color:#EED2CC;background:#FFF7F5;color:#8A493C}.secure-runtime-status-v188.ok{border-color:#CBE1D8;background:#F1F8F4;color:#37685B}
+.secure-runtime-progress-v188{height:6px;margin-top:8px;overflow:hidden;border-radius:999px;background:#DDE9E5}.secure-runtime-progress-v188 i{display:block;width:0;height:100%;border-radius:999px;background:#4C7C80;transition:width .18s ease}
+.secure-runtime-actions-v188{display:flex;justify-content:flex-end;gap:9px;margin-top:16px}.secure-runtime-actions-v188 .btn{min-height:39px;padding:8px 13px;font-size:11.5px}.secure-runtime-actions-v188 .btn:disabled{opacity:.55;cursor:not-allowed}
+.secure-backend-panel-v187.runtime-active-v188{border-color:#BFD9D0;background:linear-gradient(180deg,#F7FBF9,#F0F7F4)}
+.secure-backend-panel-v187.runtime-active-v188 .secure-backend-state-v187{background:#DCEDE6;color:#326559;border-color:#C5E0D5}
+@media(max-width:620px){.secure-runtime-overlay-v188{padding:14px}.secure-runtime-head-v188,.secure-runtime-body-v188{padding-left:17px;padding-right:17px}.secure-runtime-current-v188{grid-template-columns:1fr}.secure-runtime-actions-v188{flex-direction:column-reverse}.secure-runtime-actions-v188 .btn{width:100%}}
+</style>
+
+<div aria-hidden="true" class="secure-runtime-overlay-v188" id="secureRuntimeModalV188" onclick="closeSecureRuntimeModalBackdropV188(event)">
+  <div aria-labelledby="secureRuntimeTitleV188" aria-modal="true" class="secure-runtime-dialog-v188" role="dialog">
+    <div class="secure-runtime-head-v188">
+      <div><div class="kicker">SECURE SPLIT · INTERNAL RUNTIME</div><h3 id="secureRuntimeTitleV188">Gunakan Secure Backend</h3><p>Memuat dataset CURRENT yang sudah diverifikasi dari Firestore. File Excel tidak diperlukan untuk membuka runtime Internal.</p></div>
+      <button aria-label="Tutup" class="secure-runtime-close-v188" onclick="closeSecureRuntimeModalV188(true)" type="button">×</button>
+    </div>
+    <div class="secure-runtime-body-v188">
+      <div class="secure-runtime-current-v188" id="secureRuntimeMetaV188">
+        <div><span>Database</span><strong>CURRENT akan diperiksa setelah login</strong></div>
+        <div><span>Penyimpanan</span><strong>Firestore · Jakarta</strong></div>
+      </div>
+      <div class="secure-runtime-auth-v188" id="secureRuntimeAuthV188">
+        <label for="secureRuntimePasswordV188">Password Secure Backend</label>
+        <input autocomplete="current-password" id="secureRuntimePasswordV188" placeholder="Masukkan password backend" type="password" onkeydown="if(event.key==='Enter'){event.preventDefault();loadSecureRuntimeFromModalV188();}"/>
+        <small>Password hanya dipakai untuk membuat sesi backend sementara dan tidak disimpan di HTML, localStorage, atau database.</small>
+      </div>
+      <div aria-live="polite" class="secure-runtime-status-v188" id="secureRuntimeStatusV188"><span id="secureRuntimeStatusTextV188"></span><div class="secure-runtime-progress-v188"><i id="secureRuntimeProgressBarV188"></i></div></div>
+      <div class="secure-runtime-actions-v188">
+        <button class="btn light" id="secureRuntimeBackV188" onclick="closeSecureRuntimeModalV188(true)" type="button">Kembali</button>
+        <button class="btn" id="secureRuntimeLoadBtnV188" onclick="loadSecureRuntimeFromModalV188()" type="button">Muat CURRENT</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script id="v188-secure-runtime-script">
+/* =========================================================
+   SIRUMAH v188 — SECURE BACKEND RUNTIME PILOT
+   - Backend CURRENT dapat menjadi runtime aktif Mode Internal.
+   - Password backend tidak disimpan; token hanya hidup di memori.
+   - Saat kembali ke Publik, token/session backend ikut dipurge.
+   - Database Lokal tetap tersedia sebagai fallback.
+   ========================================================= */
+let SIRUMAH_SECURE_RUNTIME_STATE_V188={loading:false,active:false,error:""};
+
+function secureSessionValidV188(){
+  return Boolean(SIRUMAH_SECURE_SESSION_V187?.token) && Date.now() < Number(SIRUMAH_SECURE_SESSION_V187?.expiresAt||0)-5000;
+}
+function isSecureRuntimeV188(){
+  const source=SIRUMAH_RUNTIME?.source||{};
+  return source.mode==="excel" && source.origin==="secure-backend" && source.scope==="internal";
+}
+function secureRuntimeTotalV188(counts){return Object.values(counts||{}).reduce((sum,value)=>sum+Number(value||0),0);}
+function secureRuntimeDateV188(value){if(!value)return "Belum tersedia";try{return new Intl.DateTimeFormat("id-ID",{day:"2-digit",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit",hour12:false,timeZone:"Asia/Jakarta"}).format(new Date(value)).replace(/\./g,":");}catch(_){return String(value);}}
+
+function validateSecurePackageV188(pkg,meta={}){
+  if(!pkg || typeof pkg!=="object")throw new Error("Paket CURRENT tidak dikenali.");
+  if(String(pkg.schema||"")!==SIRUMAH_SYNC_SCHEMA_V187)throw new Error(`Schema backend tidak sesuai (${pkg.schema||"tanpa schema"}).`);
+  if(String(pkg.databaseVersion||"")!==SIRUMAH_SYNC_DB_VERSION_V187)throw new Error(`Versi database backend ${pkg.databaseVersion||"-"} belum sesuai dengan runtime ${SIRUMAH_SYNC_DB_VERSION_V187}.`);
+  if(!pkg.sheets || typeof pkg.sheets!=="object")throw new Error("Paket backend tidak memiliki kumpulan sheet.");
+  const missing=SIRUMAH_SHEET_NAMES.filter(name=>!Array.isArray(pkg.sheets[name]));
+  if(missing.length)throw new Error(`Sheet CURRENT belum lengkap: ${missing.join(", ")}.`);
+  const counts=Object.fromEntries(SIRUMAH_SHEET_NAMES.map(name=>[name,pkg.sheets[name].length]));
+  const manifestCounts=meta?.sheetCounts||{};
+  const mismatch=SIRUMAH_SHEET_NAMES.filter(name=>manifestCounts[name]!==undefined && Number(manifestCounts[name])!==Number(counts[name]));
+  if(mismatch.length)throw new Error(`Jumlah record CURRENT tidak cocok dengan manifest pada: ${mismatch.join(", ")}.`);
+  return counts;
+}
+
+function buildRuntimeFromSecurePackageV188(pkg,meta={}){
+  const parsed=pkg.sheets;
+  const counts=validateSecurePackageV188(pkg,meta);
+  const backlog=buildBacklogFromExcel(parsed.BACKLOG_KECAMATAN||[]);
+  const rtlhAggregate=buildRTLHAggregateFromExcel(parsed.RTLH_RLH_KECAMATAN||[]);
+  const warnings=SIRUMAH_SHEET_NAMES.filter(name=>Number(counts[name]||0)===0).map(name=>`${name} belum berisi data.`);
+  return {
+    housing:buildHousingFromExcel(parsed.PERUMAHAN||[]),
+    housingPsuDetails:buildHousingPsuDetailsFromExcel(parsed.PERUMAHAN_PSU_DETAIL||[]),
+    backlogOwnership:backlog.ownership,
+    backlogHunian:backlog.backlogHunian,
+    backlogMeta:backlog.meta,
+    rtlhAggregate:rtlhAggregate.rows,
+    rtlhMeta:rtlhAggregate.meta,
+    rtlhIndividuals:buildRTLHIndividualsFromExcel(parsed.RTLH_INDIVIDU||[]),
+    rusunawaUnits:buildRusunawaUnitsFromExcel(parsed.RUSUNAWA_UNIT||[]),
+    rusunawaPayments:buildRusunawaPaymentsFromExcel(parsed.RUSUNAWA_RETRIBUSI||[]),
+    rusunawaFacilities:buildRusunawaFacilitiesFromExcel(parsed.RUSUNAWA_SARPRAS||[]),
+    rtlhCollaboration:buildCollaborationRTLHFromExcel(parsed.KOLABORASI_RTLH||[]),
+    slumRecap:buildKawasanKumuhRekapFromExcel(parsed.KAWASAN_KUMUH_REKAP||[]),
+    slumLocations:buildKawasanKumuhLokasiFromExcel(parsed.KAWASAN_KUMUH_LOKASI||[]),
+    annualSnapshots:buildAnnualSnapshotsFromExcel(parsed.SNAPSHOT_TAHUNAN||[]),
+    documents:buildDocumentsFromExcel(parsed.DOKUMEN_PENDUKUNG||[]),
+    counts,
+    source:{
+      mode:"excel",origin:"secure-backend",scope:"internal",fileName:`Secure Backend · ${meta.databaseVersion||pkg.databaseVersion||SIRUMAH_SYNC_DB_VERSION_V187}`,
+      loadedAt:new Date().toISOString(),warnings,url:SIRUMAH_SECURE_API_V187,
+      backend:"firestore",backendRegion:"Jakarta",backendVersion:meta.databaseVersion||pkg.databaseVersion||SIRUMAH_SYNC_DB_VERSION_V187,
+      backendSyncId:meta.syncId||"",backendPreviousSyncId:meta.previousSyncId||null,backendCommittedAt:meta.committedAt||null,
+      secureRuntime:"current"
+    }
+  };
+}
+
+function setSecureRuntimeStatusV188(text,pct=0,state=""){
+  const box=document.getElementById("secureRuntimeStatusV188"),label=document.getElementById("secureRuntimeStatusTextV188"),bar=document.getElementById("secureRuntimeProgressBarV188");
+  if(box){box.classList.add("show");box.classList.toggle("error",state==="error");box.classList.toggle("ok",state==="ok");}
+  if(label)label.textContent=text;
+  if(bar)bar.style.width=`${Math.max(0,Math.min(100,Number(pct)||0))}%`;
+}
+function resetSecureRuntimeModalV188(){
+  const pwd=document.getElementById("secureRuntimePasswordV188"),auth=document.getElementById("secureRuntimeAuthV188"),status=document.getElementById("secureRuntimeStatusV188"),button=document.getElementById("secureRuntimeLoadBtnV188"),back=document.getElementById("secureRuntimeBackV188");
+  if(pwd)pwd.value="";if(auth)auth.hidden=secureSessionValidV188();if(status){status.className="secure-runtime-status-v188";const bar=document.getElementById("secureRuntimeProgressBarV188");if(bar)bar.style.width="0";}
+  if(button){button.disabled=false;button.dataset.done="";button.textContent=secureSessionValidV188()?"Muat CURRENT":"Masuk & Muat CURRENT";}
+  if(back){back.disabled=false;back.textContent="Kembali";}
+  const metaHost=document.getElementById("secureRuntimeMetaV188"),meta=SIRUMAH_SECURE_META_V187||{};
+  if(metaHost)metaHost.innerHTML=`<div><span>Database</span><strong>${secureSyncEscapeV187(meta.databaseVersion||"CURRENT akan diperiksa setelah login")}</strong></div><div><span>Penyimpanan</span><strong>Firestore · Jakarta</strong></div>`;
+}
+function openSecureRuntimeModalV188(){
+  if(publicMode){alert("Secure Backend Internal hanya tersedia pada Mode Internal.");return;}
+  if(window.location?.protocol!=="https:"){alert("Secure Backend hanya dapat digunakan dari situs SIRUMAH resmi melalui HTTPS.");return;}
+  closeSecureSplitInternalDataModalV186();resetSecureRuntimeModalV188();
+  const modal=document.getElementById("secureRuntimeModalV188");if(!modal)return;modal.classList.add("open");modal.setAttribute("aria-hidden","false");
+  setTimeout(()=>secureSessionValidV188()?document.getElementById("secureRuntimeLoadBtnV188")?.focus():document.getElementById("secureRuntimePasswordV188")?.focus(),50);
+}
+function closeSecureRuntimeModalV188(returnToChoice=false){
+  const modal=document.getElementById("secureRuntimeModalV188");if(modal){modal.classList.remove("open");modal.setAttribute("aria-hidden","true");}
+  const pwd=document.getElementById("secureRuntimePasswordV188");if(pwd)pwd.value="";
+  if(returnToChoice && !publicMode && !isInternalRuntimeV186())setTimeout(openSecureSplitInternalDataModalV186,40);
+}
+function closeSecureRuntimeModalBackdropV188(event){if(event.target?.id==="secureRuntimeModalV188")closeSecureRuntimeModalV188(true);}
+
+async function fetchAndApplySecureRuntimeV188({password="",silent=false}={}){
+  if(publicMode)throw new Error("Mode Internal belum aktif.");
+  SIRUMAH_SECURE_RUNTIME_STATE_V188={loading:true,active:false,error:""};
+  if(!secureSessionValidV188()){
+    if(!password)throw new Error("Masukkan password Secure Backend terlebih dahulu.");
+    if(!silent)setSecureRuntimeStatusV188("Memverifikasi akses Secure Backend…",10);
+    await secureLoginV187(password);
+  }
+  if(!silent)setSecureRuntimeStatusV188("Membaca manifest CURRENT…",28);
+  const metaPayload=await secureApiV187("/internal/meta");const meta=metaPayload?.meta||{};
+  if(!silent)setSecureRuntimeStatusV188("Mengambil database CURRENT dari Firestore…",52);
+  const dataPayload=await secureApiV187("/internal/data");
+  if(dataPayload?.syncId && meta.syncId && String(dataPayload.syncId)!==String(meta.syncId))throw new Error("Pointer CURRENT berubah selama pemuatan. Silakan ulangi.");
+  if(!silent)setSecureRuntimeStatusV188("Memverifikasi struktur runtime…",78);
+  const runtime=buildRuntimeFromSecurePackageV188(dataPayload?.data,meta);
+  SIRUMAH_SECURE_META_V187=meta;
+  applyRuntimeData(runtime);
+  SIRUMAH_SECURE_RUNTIME_STATE_V188={loading:false,active:true,error:""};
+  closeSecureSplitInternalDataModalV186();
+  try{renderSecureBackendPanelV187("ok");}catch(_){ }
+  if(!silent)setSecureRuntimeStatusV188(`CURRENT ${meta.databaseVersion||SIRUMAH_SYNC_DB_VERSION_V187} aktif · ${fmt(secureRuntimeTotalV188(runtime.counts))} record dimuat dari Secure Backend.`,100,"ok");
+  return runtime;
+}
+async function loadSecureRuntimeFromModalV188(){
+  const button=document.getElementById("secureRuntimeLoadBtnV188"),pwd=document.getElementById("secureRuntimePasswordV188"),auth=document.getElementById("secureRuntimeAuthV188"),back=document.getElementById("secureRuntimeBackV188");
+  if(button?.dataset.done==="1"){closeSecureRuntimeModalV188(false);return;}
+  const password=String(pwd?.value||"");
+  if(!secureSessionValidV188()&&!password){setSecureRuntimeStatusV188("Password Secure Backend wajib diisi.",0,"error");pwd?.focus();return;}
+  if(button){button.disabled=true;button.textContent="Memuat…";}if(back)back.disabled=true;
+  try{
+    const runtime=await fetchAndApplySecureRuntimeV188({password});if(pwd)pwd.value="";if(auth)auth.hidden=true;
+    if(button){button.disabled=false;button.dataset.done="1";button.textContent="Tutup";}if(back){back.disabled=false;back.textContent="Kembali";}
+    const metaHost=document.getElementById("secureRuntimeMetaV188"),meta=SIRUMAH_SECURE_META_V187||{};if(metaHost)metaHost.innerHTML=`<div><span>Database CURRENT</span><strong>${secureSyncEscapeV187(meta.databaseVersion||SIRUMAH_SYNC_DB_VERSION_V187)} · ${fmt(secureRuntimeTotalV188(runtime.counts))} record</strong></div><div><span>Commit Backend</span><strong>${secureSyncEscapeV187(secureRuntimeDateV188(meta.committedAt||""))}</strong></div>`;
+  }catch(error){
+    console.error("Secure runtime gagal dimuat:",error);SIRUMAH_SECURE_RUNTIME_STATE_V188={loading:false,active:false,error:String(error?.message||error)};setSecureRuntimeStatusV188(secureSyncErrorMessageV187(error),0,"error");
+    if(button){button.disabled=false;button.textContent=secureSessionValidV188()?"Coba Muat Lagi":"Masuk & Muat CURRENT";}if(back)back.disabled=false;if(!secureSessionValidV188()&&auth)auth.hidden=false;
+  }
+}
+
+/* Internal runtime detector now accepts either local fallback or authenticated backend CURRENT. */
+isInternalRuntimeV186=function(){
+  const source=SIRUMAH_RUNTIME?.source||{};
+  return source.mode==="excel" && source.scope==="internal" && (source.origin==="local" || source.origin==="secure-backend");
+};
+
+/* Purge backend token whenever the user goes back to Public Mode. */
+const setAccessModeBeforeV188=setAccessMode;
+setAccessMode=function(mode,{render=true}={}){
+  const goingPublic=mode!=="internal";
+  if(goingPublic){
+    SIRUMAH_SECURE_SESSION_V187={token:"",expiresAt:0};
+    SIRUMAH_SECURE_META_V187=null;
+    SIRUMAH_SECURE_RUNTIME_STATE_V188={loading:false,active:false,error:""};
+    closeSecureRuntimeModalV188(false);
+  }
+  return setAccessModeBeforeV188(mode,{render});
+};
+
+/* Accurate source status for Secure Backend runtime. */
+const updateExcelStatusBeforeV188=updateExcelStatus;
+updateExcelStatus=function(){
+  const source=SIRUMAH_RUNTIME?.source||{};
+  if(source.mode!=="excel" || source.origin!=="secure-backend")return updateExcelStatusBeforeV188();
+  const bar=document.getElementById("excelStatusBar"),countsEl=document.getElementById("excelSheetCounts");
+  if(bar){bar.classList.remove("import-error","import-loading");bar.classList.add("import-success");const main=bar.querySelector(".data-source-main");if(main)main.innerHTML=`<strong>Secure Backend CURRENT aktif: ${escapeHtml(source.backendVersion||SIRUMAH_SYNC_DB_VERSION_V187)}</strong><span>Dimuat melalui Cloudflare Worker dari Firestore · Jakarta pada ${escapeHtml(new Date(source.loadedAt).toLocaleString("id-ID"))}. Excel lokal tidak diperlukan untuk runtime ini.</span>`;}
+  if(countsEl)countsEl.innerHTML=SIRUMAH_SHEET_NAMES.map(name=>{const count=Number(SIRUMAH_RUNTIME.counts?.[name]||0);return `<span class="sheet-chip ${count?"ok":"warn"}" title="${escapeHtml(name)}"><b>${escapeHtml(name.replace("_KECAMATAN","").replace("RUSUNAWA_","RUS-"))}</b> ${fmt(count)}</span>`;}).join("");
+  renderExcelIntegrationInfo();
+};
+
+const updateAccessModeUIBeforeV188=updateAccessModeUI;
+updateAccessModeUI=function(){
+  updateAccessModeUIBeforeV188();
+  if(publicMode)return;
+  const description=document.getElementById("accessModeDescription"),source=SIRUMAH_RUNTIME?.source||{};
+  if(description){
+    if(source.origin==="secure-backend")description.textContent=`Secure Backend CURRENT ${source.backendVersion||SIRUMAH_SYNC_DB_VERSION_V187} aktif. Data operasional internal dimuat melalui sesi backend sementara.`;
+    else if(source.origin==="local")description.textContent="Database Lokal aktif sebagai fallback pada sesi browser ini. Data diproses hanya di perangkat.";
+    else description.textContent="Secure Split aktif. Pilih Secure Backend CURRENT atau Database Lokal untuk membuka data operasional internal.";
+  }
+};
+
+function patchSecureIntegrationRuntimeV188(){
+  if(!isSecureRuntimeV188())return;
+  const el=document.getElementById("excelIntegrationInfo"),source=SIRUMAH_RUNTIME?.source||{},meta=SIRUMAH_SECURE_META_V187||{};if(!el)return;
+  const metrics=el.querySelectorAll(".integration-metric-v135");
+  if(metrics[0]){const note=metrics[0].querySelector(".note");if(note)note.textContent=`Secure Backend · ${source.backendVersion||SIRUMAH_SYNC_DB_VERSION_V187}`;}
+  if(metrics[3]){const note=metrics[3].querySelector(".note");if(note)note.textContent=`${secureRuntimeDateV188(source.loadedAt)} · Secure Backend`;}
+  const lane=el.querySelector(".integration-pipeline-lane-v135");if(lane){const src=lane.querySelector(".integration-pipeline-source-v135");if(src){const strong=src.querySelector("strong"),small=src.querySelector("small");if(strong)strong.textContent="Secure Backend";if(small)small.textContent="Firestore · Jakarta";}}
+  const cards=el.querySelectorAll(".integration-source-card-v135");if(cards[0]){const h3=cards[0].querySelector("h3"),p=cards[0].querySelector("p");if(h3)h3.textContent="Database Internal SIRUMAH";if(p)p.textContent=`CURRENT ${source.backendVersion||SIRUMAH_SYNC_DB_VERSION_V187} · Firestore`;}
+  if(cards[2]){const p=cards[2].querySelector("p");if(p)p.textContent="Antarmuka dashboard statis; data internal diterima dari Secure Backend hanya setelah autentikasi.";}
+  const registry=el.querySelector(".integration-registry-card-v135");if(registry){const h3=registry.querySelector("h3"),p=registry.querySelector(".integration-section-head-v135 p");if(h3)h3.textContent="Struktur Database Internal";if(p)p.textContent=`CURRENT ${source.backendVersion||SIRUMAH_SYNC_DB_VERSION_V187} · ${SIRUMAH_SHEET_NAMES.length} sheet resmi · manifest dan checksum telah diverifikasi backend.`;}
+  const security=el.querySelector(".integration-security-v135");if(security){const h3=security.querySelector("h3"),p=security.querySelector("p");if(h3)h3.textContent="Secure Split aktif";if(p)p.textContent="Dataset publik dan database internal dipisahkan. Data CURRENT internal hanya dimuat setelah autentikasi Secure Backend; token sesi dibuang saat kembali ke Mode Publik.";}
+  const diag=el.querySelector(".integration-diagnostics-grid-v135");if(diag){const rows=diag.querySelectorAll(":scope > div");if(rows[0]){const s=rows[0].querySelector("span");if(s)s.textContent=`Secure Backend · ${source.backendVersion||SIRUMAH_SYNC_DB_VERSION_V187}`;}if(rows[1]){const s=rows[1].querySelector("span");if(s)s.textContent="CURRENT Firestore · sesi backend";}}
+  try{renderSecureBackendPanelV187("ok");}catch(_){ }
+}
+
+const renderExcelIntegrationInfoBeforeV188=renderExcelIntegrationInfo;
+renderExcelIntegrationInfo=function(){const result=renderExcelIntegrationInfoBeforeV188();setTimeout(patchSecureIntegrationRuntimeV188,0);return result;};
+
+const renderSecureBackendPanelBeforeV188=renderSecureBackendPanelV187;
+renderSecureBackendPanelV187=function(state=""){
+  renderSecureBackendPanelBeforeV188(state);
+  const panel=document.getElementById("secureBackendPanelV187");if(!panel)return;
+  const active=isSecureRuntimeV188(),meta=SIRUMAH_SECURE_META_V187||{};
+  panel.classList.toggle("runtime-active-v188",active);
+  const kicker=panel.querySelector(".secure-backend-kicker-v187"),title=panel.querySelector("h4"),copy=panel.querySelector(".secure-backend-copy-v187 p"),badge=panel.querySelector(".secure-backend-state-v187");
+  if(kicker)kicker.textContent="SECURE SPLIT TAHAP 2 · RUNTIME PILOT";
+  if(title)title.textContent="Secure Backend Internal";
+  if(copy)copy.textContent=active?"Dataset CURRENT sedang menjadi sumber runtime Mode Internal. Database Lokal tetap tersedia sebagai fallback.":"Dataset CURRENT tersimpan di Firestore dan dapat dijadikan runtime Internal setelah autentikasi. Database Lokal tetap tersedia sebagai fallback.";
+  if(badge)badge.textContent=active?"Runtime aktif":(meta.databaseVersion?"CURRENT tersedia":"Siap digunakan");
+};
+
+/* Keep common source labels accurate outside the Integration page. */
+const reportSourceTextBeforeV188=reportSourceTextV44;
+reportSourceTextV44=function(){if(isSecureRuntimeV188())return `Secure Backend · Firestore: ${SIRUMAH_RUNTIME.source.backendVersion||SIRUMAH_SYNC_DB_VERSION_V187}`;return reportSourceTextBeforeV188();};
+const commandSourceLabelBeforeV188=commandSourceLabelV98;
+commandSourceLabelV98=function(){if(isSecureRuntimeV188())return "Secure Backend";return commandSourceLabelBeforeV188();};
+
+const renderHomeDataActivityBeforeV188=renderHomeDataActivityV59;
+renderHomeDataActivityV59=function(){const result=renderHomeDataActivityBeforeV188();if(isSecureRuntimeV188()){const el=document.getElementById("homeDataActivitySummary");if(el){const first=el.querySelector(".stat-row");if(first){const strong=first.querySelector("strong"),span=first.querySelector("span");if(strong)strong.textContent="Sumber Database";if(span)span.textContent=`Secure Backend · ${SIRUMAH_RUNTIME.source.backendVersion||SIRUMAH_SYNC_DB_VERSION_V187}`;}}}return result;};
+
+/* After a successful master commit, switch runtime to the verified backend CURRENT automatically. */
+const commitSecureMasterSyncBeforeV188=commitSecureMasterSyncV187;
+commitSecureMasterSyncV187=async function(){
+  const pending=SIRUMAH_SECURE_SYNC_PENDING_V187;
+  await commitSecureMasterSyncBeforeV188();
+  if(pending?.runtime?.source?.secureSync==="committed" && secureSessionValidV188()){
+    try{await fetchAndApplySecureRuntimeV188({silent:true});renderSecureBackendPanelV187("ok");}catch(error){console.warn("Commit berhasil, tetapi runtime CURRENT belum dimuat ulang:",error);}
+  }
+};
+
+function configureSecureRuntimeV188(){
+  const choice=document.getElementById("secureSplitInternalModalV186");
+  if(choice){
+    const title=choice.querySelector("#secureSplitInternalTitleV186"),desc=choice.querySelector(".secure-split-head-v186 p"),note=choice.querySelector(".secure-split-note-v186"),actions=choice.querySelector(".secure-split-actions-v186");
+    if(title)title.textContent="Pilih sumber database internal";
+    if(desc)desc.textContent="Secure Split Tahap 2 aktif. Mode Internal dapat memakai dataset CURRENT dari Secure Backend tanpa memilih Excel, atau Database Lokal sebagai fallback.";
+    if(note)note.innerHTML="<strong>Tahap 2 — runtime terlindungi</strong>Secure Backend memuat data CURRENT dari Firestore hanya setelah autentikasi. File Excel master tetap berada di perangkat dan hanya diperlukan saat memperbarui atau memakai fallback lokal.";
+    if(actions){
+      const local=actions.querySelector('button[onclick="chooseInternalWorkbookV186()"]');if(local){local.textContent="Gunakan Database Lokal";local.classList.add("light");}
+      let backend=document.getElementById("secureRuntimeChoiceBtnV188");if(!backend){backend=document.createElement("button");backend.id="secureRuntimeChoiceBtnV188";backend.className="btn secure-runtime-choice-v188";backend.type="button";backend.textContent="Gunakan Secure Backend";backend.onclick=openSecureRuntimeModalV188;actions.appendChild(backend);}
+    }
+  }
+  const actions=document.querySelector("#integrasi .integration-actions-v135");
+  if(actions){let btn=document.getElementById("secureRuntimeBtnV188");if(!btn){btn=document.createElement("button");btn.id="secureRuntimeBtnV188";btn.className="btn secure-runtime-btn-v188";btn.type="button";btn.textContent="Gunakan Secure Backend";btn.title="Muat dataset CURRENT dari Firestore sebagai runtime Mode Internal.";btn.onclick=openSecureRuntimeModalV188;actions.insertBefore(btn,actions.firstChild);}}
+  const syncBtn=document.getElementById("excelRemoteBtn"),localBtn=document.getElementById("excelImportBtn");if(syncBtn)syncBtn.textContent="Sinkronkan Database Master";if(localBtn)localBtn.textContent="Gunakan Database Lokal";
+  const pinModal=document.getElementById("internalPinModal");if(pinModal){const note=pinModal.querySelector(".access-security-copy span");if(note)note.textContent="Tahap migrasi v188: PIN antarmuka lama masih membuka Mode Internal, lalu database CURRENT dilindungi oleh login Secure Backend. Password backend dan token tidak disimpan permanen di browser.";}
+  renderSecureBackendPanelV187(SIRUMAH_SECURE_META_V187?"ok":"");
+}
+
+const configureSecureSplitUiBeforeV188=configureSecureSplitUiV186;
+configureSecureSplitUiV186=function(){configureSecureSplitUiBeforeV188();configureSecureRuntimeV188();};
+
+document.addEventListener("keydown",event=>{if(event.key==="Escape"&&document.getElementById("secureRuntimeModalV188")?.classList.contains("open"))closeSecureRuntimeModalV188(true);});
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",configureSecureRuntimeV188);else configureSecureRuntimeV188();
+</script>
+<!-- SIRUMAH v188 — Secure Backend CURRENT Runtime Pilot. Database v31 unchanged. -->
+
 </body>
 </html>
