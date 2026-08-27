@@ -7016,7 +7016,7 @@ body.public-mode.startup-ui-v166 #rusunawa .rus-hero-v132{margin-bottom:14px}
 @media(max-width:720px){.startup-ui-v166 #rusunawa .rus-public-card-head-v166{padding:17px 16px 9px}.startup-ui-v166 #rusunawa .rus-public-card-head-v166{display:grid}.startup-ui-v166 #rusunawa .rus-public-scope-v166{justify-self:start}.startup-ui-v166 #rusunawa .rus-public-occupancy-main-v166{grid-template-columns:1fr;gap:17px;padding:10px 16px 18px}.startup-ui-v166 #rusunawa .rus-public-occupancy-number-v166 strong{font-size:46px}.startup-ui-v166 #rusunawa .rus-public-unit-segments-v166{grid-template-columns:repeat(10,1fr);gap:4px;padding:10px}.startup-ui-v166 #rusunawa .rus-public-status-grid-v166{padding:5px 15px 16px}.startup-ui-v166 #rusunawa .rus-public-facility-stats-v166{grid-template-columns:1fr;padding:5px 15px 12px}.startup-ui-v166 #rusunawa .rus-public-facility-chips-v166{padding:0 15px}.startup-ui-v166 #rusunawa .rus-public-narrative-v166{grid-template-columns:42px minmax(0,1fr);padding:17px}.startup-ui-v166 #rusunawa .rus-public-narrative-monogram-v166{width:42px;height:42px;border-radius:13px}}
 @media(max-width:430px){.startup-ui-v166 #rusunawa .rus-public-unit-segments-v166{grid-template-columns:repeat(6,1fr)}.startup-ui-v166 #rusunawa .rus-public-status-item-v166{grid-template-columns:38px minmax(0,1fr) auto;padding:9px}.startup-ui-v166 #rusunawa .rus-public-status-icon-v166{width:38px;height:38px}.startup-ui-v166 #rusunawa .rus-public-status-value-v166 strong{font-size:20px}}
 </style>
-<body class="public-mode startup-ui-v100 startup-ui-v101 startup-ui-v102 startup-ui-v103 startup-ui-v104 startup-ui-v105 startup-ui-v106 startup-ui-v107 startup-ui-v108 startup-ui-v109 startup-ui-v110 startup-ui-v111 startup-ui-v112 startup-ui-v113 startup-ui-v114 startup-ui-v115 startup-ui-v116 startup-ui-v117 startup-ui-v118 startup-ui-v120 startup-ui-v122 startup-ui-v123 startup-ui-v124 startup-ui-v125 startup-ui-v126 startup-ui-v127 startup-ui-v128 startup-ui-v129 startup-ui-v130 startup-ui-v131 startup-ui-v132 startup-ui-v133 startup-ui-v134 startup-ui-v135 startup-ui-v136 startup-ui-v137 startup-ui-v138 startup-ui-v139 startup-ui-v140 startup-ui-v141 startup-ui-v142 startup-ui-v143 startup-ui-v144 startup-ui-v145 startup-ui-v146 startup-ui-v147 startup-ui-v148 startup-ui-v149 startup-ui-v150 startup-ui-v151 startup-ui-v152 startup-ui-v153 startup-ui-v155 startup-ui-v156 startup-ui-v158 startup-ui-v159 startup-ui-v162 startup-ui-v163 startup-ui-v164 startup-ui-v165 startup-ui-v166 startup-ui-v167 startup-ui-v168 startup-ui-v169 startup-ui-v170 startup-ui-v171 startup-ui-v174 startup-ui-v175 startup-ui-v176 startup-ui-v177 startup-ui-v178 startup-ui-v179 startup-ui-v180 startup-ui-v181 startup-ui-v182 startup-ui-v183 startup-ui-v184 startup-ui-v185">
+<body class="public-mode startup-ui-v100 startup-ui-v101 startup-ui-v102 startup-ui-v103 startup-ui-v104 startup-ui-v105 startup-ui-v106 startup-ui-v107 startup-ui-v108 startup-ui-v109 startup-ui-v110 startup-ui-v111 startup-ui-v112 startup-ui-v113 startup-ui-v114 startup-ui-v115 startup-ui-v116 startup-ui-v117 startup-ui-v118 startup-ui-v120 startup-ui-v122 startup-ui-v123 startup-ui-v124 startup-ui-v125 startup-ui-v126 startup-ui-v127 startup-ui-v128 startup-ui-v129 startup-ui-v130 startup-ui-v131 startup-ui-v132 startup-ui-v133 startup-ui-v134 startup-ui-v135 startup-ui-v136 startup-ui-v137 startup-ui-v138 startup-ui-v139 startup-ui-v140 startup-ui-v141 startup-ui-v142 startup-ui-v143 startup-ui-v144 startup-ui-v145 startup-ui-v146 startup-ui-v147 startup-ui-v148 startup-ui-v149 startup-ui-v150 startup-ui-v151 startup-ui-v152 startup-ui-v153 startup-ui-v155 startup-ui-v156 startup-ui-v158 startup-ui-v159 startup-ui-v162 startup-ui-v163 startup-ui-v164 startup-ui-v165 startup-ui-v166 startup-ui-v167 startup-ui-v168 startup-ui-v169 startup-ui-v170 startup-ui-v171 startup-ui-v174 startup-ui-v175 startup-ui-v176 startup-ui-v177 startup-ui-v178 startup-ui-v179 startup-ui-v180 startup-ui-v181 startup-ui-v182 startup-ui-v183 startup-ui-v184 startup-ui-v185 startup-ui-v186">
 <div class="app">
 <svg aria-hidden="true" class="sirumah-nav-sprite-v149" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
 <defs>
@@ -8725,7 +8725,7 @@ let publicMode = true;
 
 /*
   KONFIGURASI AKSES SIRUMAH
-  - PIN sementara v45 adalah 2026.
+  - Secure Split Tahap 1: PIN masih diverifikasi di sisi klien dan bukan security boundary backend.
   - Nilai yang disimpan adalah hash SHA-256, bukan teks PIN.
   - hiddenSections dapat diisi nanti, contoh: ["integrasi", "laporan"].
   - Elemen dengan class .private-only otomatis tidak tampil pada Mode Publik.
@@ -11778,7 +11778,7 @@ function applyRuntimeData(runtime){
   updateExcelStatus();
 }
 
-const SIRUMAH_REMOTE_EXCEL_URL = "./data/Template_Resmi_Database_SIRUMAH.xlsx";
+const SIRUMAH_REMOTE_EXCEL_URL = "./data/sirumah-public.json"; /* v186: master Excel tidak pernah diminta dari repository publik. */
 let SIRUMAH_REMOTE_REQUEST_ID = 0;
 
 function setExcelLoadingStatus(message){
@@ -22308,6 +22308,261 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 else placeRusunawaControlbarV185();
 </script>
 <!-- SIRUMAH v185 — RUSUNAWA Internal Filter Toolbar. Database v31 unchanged. -->
+
+<!-- SIRUMAH v186 — Secure Split Tahap 1. Database master v31 unchanged. -->
+<style id="v186-secure-split-style">
+/* Public browser receives only ./data/sirumah-public.json.
+   Master Excel is loaded only by an authorized user from the local device while Mode Internal is active. */
+body.startup-ui-v186 .secure-split-modal-v186{
+  position:fixed;inset:0;z-index:10030;display:none;align-items:center;justify-content:center;padding:22px;
+  background:rgba(15,39,47,.64);backdrop-filter:blur(5px)
+}
+body.startup-ui-v186 .secure-split-modal-v186.open{display:flex}
+body.startup-ui-v186 .secure-split-card-v186{
+  width:min(520px,100%);overflow:hidden;border:1px solid #D9E2DF;border-radius:22px;background:#FCFCF9;
+  box-shadow:0 30px 80px rgba(15,39,47,.28)
+}
+body.startup-ui-v186 .secure-split-head-v186{display:flex;gap:14px;align-items:flex-start;padding:22px 22px 16px;border-bottom:1px solid #E3E9E6}
+body.startup-ui-v186 .secure-split-icon-v186{
+  width:42px;height:42px;display:grid;place-items:center;flex:0 0 auto;border-radius:13px;
+  background:#E7F0EE;color:#285E65;border:1px solid #D2E0DD
+}
+body.startup-ui-v186 .secure-split-icon-v186 svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+body.startup-ui-v186 .secure-split-head-v186 h3{margin:0 0 6px;color:#244E54;font-size:20px;letter-spacing:-.3px}
+body.startup-ui-v186 .secure-split-head-v186 p{margin:0;color:#687B7C;font-size:13px;line-height:1.55}
+body.startup-ui-v186 .secure-split-body-v186{padding:18px 22px 22px}
+body.startup-ui-v186 .secure-split-note-v186{padding:13px 14px;border:1px solid #E2E7DF;border-radius:14px;background:#F4F3EC;color:#596D6E;font-size:12px;line-height:1.55}
+body.startup-ui-v186 .secure-split-note-v186 strong{display:block;margin-bottom:4px;color:#31595E;font-size:12px}
+body.startup-ui-v186 .secure-split-actions-v186{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap;margin-top:18px}
+body.startup-ui-v186.internal-mode #excelStatusBar.secure-split-public-source-v186{display:flex!important;background:#FFF8E8;border-color:#E8D6A7}
+body.startup-ui-v186 #excelStatusBar.secure-split-public-source-v186 .data-source-main strong{color:#775B2D}
+body.startup-ui-v186 #excelStatusBar.secure-split-public-source-v186 .data-source-main span{color:#756A52}
+body.startup-ui-v186 #excelRemoteBtn[data-secure-split-v186="public-check"]{background:#fff;color:#42656A;border:1px solid #D5E0DE}
+@media(max-width:620px){
+  body.startup-ui-v186 .secure-split-modal-v186{padding:14px}
+  body.startup-ui-v186 .secure-split-head-v186{padding:19px 18px 14px}
+  body.startup-ui-v186 .secure-split-body-v186{padding:16px 18px 18px}
+  body.startup-ui-v186 .secure-split-actions-v186{display:grid;grid-template-columns:1fr}
+  body.startup-ui-v186 .secure-split-actions-v186 .btn{width:100%}
+}
+</style>
+<div aria-hidden="true" class="secure-split-modal-v186" id="secureSplitInternalModalV186" role="dialog" aria-modal="true" aria-labelledby="secureSplitInternalTitleV186">
+  <div class="secure-split-card-v186">
+    <div class="secure-split-head-v186">
+      <span class="secure-split-icon-v186" aria-hidden="true"><svg><use href="#sir-icon-lock-v151"></use></svg></span>
+      <div>
+        <h3 id="secureSplitInternalTitleV186">Muat database internal</h3>
+        <p>Secure Split aktif. Dataset publik tidak membawa data operasional internal, sehingga Mode Internal memerlukan database master dari perangkat Anda.</p>
+      </div>
+    </div>
+    <div class="secure-split-body-v186">
+      <div class="secure-split-note-v186"><strong>Tahap 1 — diproses lokal di browser</strong>File Excel master tidak diunggah oleh SIRUMAH. Data hanya dibaca pada sesi browser ini. Saat kembali ke Mode Publik, runtime internal dibuang dan diganti kembali dengan dataset publik.</div>
+      <div class="secure-split-actions-v186">
+        <button class="btn light" type="button" onclick="returnToPublicFromSecureSplitV186()">Kembali ke Mode Publik</button>
+        <button class="btn" type="button" onclick="chooseInternalWorkbookV186()">Pilih Database Internal</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script id="v186-secure-split-script">
+/* =========================================================
+   SIRUMAH v186 — SECURE SPLIT TAHAP 1
+   - Mode Publik: hanya ./data/sirumah-public.json.
+   - Master Excel tidak lagi diambil otomatis dari repository.
+   - Mode Internal: master Excel dipilih dari perangkat dan diproses lokal.
+   - Kembali ke Publik: runtime internal dipurge sebelum UI publik dirender.
+   ========================================================= */
+const SIRUMAH_PUBLIC_DATA_URL_V186="./data/sirumah-public.json";
+let SIRUMAH_PUBLIC_RUNTIME_CACHE_V186=null;
+let SIRUMAH_PUBLIC_DATA_REQUEST_V186=0;
+
+function publicSheetRowsV186(payload,name){
+  const rows=payload?.sheets?.[name];
+  return Array.isArray(rows)?rows:[];
+}
+function buildRuntimeFromPublicDatasetV186(payload){
+  if(!payload || payload.format!=="SIRUMAH_PUBLIC_DATASET") throw new Error("Format dataset publik SIRUMAH tidak dikenali.");
+  const parsed=name=>publicSheetRowsV186(payload,name);
+  const backlog=buildBacklogFromExcel(parsed("BACKLOG_KECAMATAN"));
+  const rtlhAggregate=buildRTLHAggregateFromExcel(parsed("RTLH_RLH_KECAMATAN"));
+  const publicCounts=Object.fromEntries(SIRUMAH_SHEET_NAMES.map(name=>[name,Number(payload?.counts?.[name]||0)]));
+  return {
+    housing:buildHousingFromExcel(parsed("PERUMAHAN")),
+    housingPsuDetails:[],
+    backlogOwnership:backlog.ownership,
+    backlogHunian:backlog.backlogHunian,
+    backlogMeta:backlog.meta,
+    rtlhAggregate:rtlhAggregate.rows,
+    rtlhMeta:rtlhAggregate.meta,
+    rtlhIndividuals:[],
+    rusunawaUnits:buildRusunawaUnitsFromExcel(parsed("RUSUNAWA_UNIT")),
+    rusunawaPayments:buildRusunawaPaymentsFromExcel(parsed("RUSUNAWA_RETRIBUSI")),
+    rusunawaFacilities:buildRusunawaFacilitiesFromExcel(parsed("RUSUNAWA_SARPRAS")),
+    rtlhCollaboration:buildCollaborationRTLHFromExcel(parsed("KOLABORASI_RTLH")),
+    slumRecap:buildKawasanKumuhRekapFromExcel(parsed("KAWASAN_KUMUH_REKAP")),
+    slumLocations:buildKawasanKumuhLokasiFromExcel(parsed("KAWASAN_KUMUH_LOKASI")),
+    annualSnapshots:buildAnnualSnapshotsFromExcel(parsed("SNAPSHOT_TAHUNAN")),
+    documents:buildDocumentsFromExcel(parsed("DOKUMEN_PENDUKUNG")).filter(doc=>String(doc.access||"").toUpperCase()==="PUBLIK"),
+    counts:publicCounts,
+    source:{
+      mode:"public-json",origin:"public-repository",scope:"public",fileName:"sirumah-public.json",
+      loadedAt:new Date().toISOString(),generatedAt:String(payload.generatedAt||""),warnings:[],url:SIRUMAH_PUBLIC_DATA_URL_V186
+    }
+  };
+}
+function isInternalRuntimeV186(){
+  const source=SIRUMAH_RUNTIME?.source||{};
+  return source.mode==="excel" && source.origin==="local" && source.scope==="internal";
+}
+function clonePublicRuntimeV186(){
+  return SIRUMAH_PUBLIC_RUNTIME_CACHE_V186?cloneSirumah(SIRUMAH_PUBLIC_RUNTIME_CACHE_V186):cloneSirumah(SIRUMAH_DEFAULT_RUNTIME);
+}
+async function loadPublicDatasetV186(options={}){
+  const showAlert=Boolean(options.showAlert),apply=options.apply!==false;
+  const requestId=++SIRUMAH_PUBLIC_DATA_REQUEST_V186;
+  if(window.location?.protocol==="file:"){
+    const message="Dataset publik membutuhkan GitHub Pages atau server web. Untuk pengujian lokal, jalankan HTML melalui server lokal.";
+    if(showAlert)alert(message);else console.warn(message);
+    return false;
+  }
+  try{
+    const url=new URL(SIRUMAH_PUBLIC_DATA_URL_V186,window.location.href);
+    url.searchParams.set("sirumah_refresh",String(Date.now()));
+    const response=await fetch(url.href,{cache:"no-store"});
+    if(!response.ok)throw new Error(`Dataset publik tidak ditemukan (HTTP ${response.status}).`);
+    const payload=await response.json();
+    const candidate=buildRuntimeFromPublicDatasetV186(payload);
+    if(requestId!==SIRUMAH_PUBLIC_DATA_REQUEST_V186)return false;
+    SIRUMAH_PUBLIC_RUNTIME_CACHE_V186=cloneSirumah(candidate);
+    if(apply && publicMode)applyRuntimeData(cloneSirumah(candidate));
+    if(showAlert){
+      const total=Object.values(candidate.counts||{}).reduce((sum,value)=>sum+Number(value||0),0);
+      alert(`Dataset publik valid. ${fmt(total)} record aman tersedia untuk Mode Publik.`);
+    }
+    return true;
+  }catch(error){
+    console.error("Gagal memuat dataset publik SIRUMAH:",error);
+    if(showAlert)alert(`Dataset publik gagal dimuat. ${error.message||error}`);
+    return false;
+  }
+}
+
+/* Nama lama dipertahankan agar init v185 dan referensi legacy tetap bekerja,
+   tetapi tidak lagi mengambil workbook master dari repository. */
+loadExcelFromRepository=async function(options={}){
+  return loadPublicDatasetV186({...options,apply:publicMode});
+};
+
+const triggerExcelImportBeforeV186=triggerExcelImport;
+triggerExcelImport=function(){
+  if(publicMode){
+    alert("Database master hanya dapat dimuat pada Mode Internal.");
+    return;
+  }
+  return triggerExcelImportBeforeV186();
+};
+
+const handleExcelUploadBeforeV186=handleExcelUpload;
+handleExcelUpload=async function(event){
+  if(publicMode){
+    if(event?.target)event.target.value="";
+    alert("Masuk ke Mode Internal sebelum memilih database master.");
+    return;
+  }
+  const beforeOrigin=String(SIRUMAH_RUNTIME?.source?.origin||"");
+  await handleExcelUploadBeforeV186(event);
+  if(String(SIRUMAH_RUNTIME?.source?.origin||"")==="local" && String(SIRUMAH_RUNTIME?.source?.origin||"")!==beforeOrigin){
+    SIRUMAH_RUNTIME.source.scope="internal";
+    closeSecureSplitInternalDataModalV186();
+    updateExcelStatus();
+  }else if(String(SIRUMAH_RUNTIME?.source?.origin||"")==="local"){
+    SIRUMAH_RUNTIME.source.scope="internal";
+    closeSecureSplitInternalDataModalV186();
+    updateExcelStatus();
+  }
+};
+
+function openSecureSplitInternalDataModalV186(){
+  const modal=document.getElementById("secureSplitInternalModalV186");
+  if(!modal || publicMode || isInternalRuntimeV186())return;
+  modal.classList.add("open");modal.setAttribute("aria-hidden","false");
+  setTimeout(()=>modal.querySelector(".btn:not(.light)")?.focus(),40);
+}
+function closeSecureSplitInternalDataModalV186(){
+  const modal=document.getElementById("secureSplitInternalModalV186");
+  if(!modal)return;modal.classList.remove("open");modal.setAttribute("aria-hidden","true");
+}
+function chooseInternalWorkbookV186(){
+  closeSecureSplitInternalDataModalV186();
+  triggerExcelImport();
+  setTimeout(()=>{if(!publicMode&&!isInternalRuntimeV186())openSecureSplitInternalDataModalV186();},1200);
+}
+function returnToPublicFromSecureSplitV186(){
+  closeSecureSplitInternalDataModalV186();
+  setAccessMode("public");
+}
+
+const setAccessModeBeforeV186=setAccessMode;
+setAccessMode=function(mode,{render=true}={}){
+  const goingPublic=mode!=="internal";
+  if(goingPublic){
+    /* Purge first: no internal object is retained as the active runtime in Mode Publik. */
+    publicMode=true;
+    applyRuntimeData(clonePublicRuntimeV186());
+    closeSecureSplitInternalDataModalV186();
+    const result=setAccessModeBeforeV186("public",{render});
+    Promise.resolve().then(()=>loadPublicDatasetV186({showAlert:false,apply:true})).catch(()=>{});
+    return result;
+  }
+  const result=setAccessModeBeforeV186("internal",{render});
+  if(!isInternalRuntimeV186())setTimeout(openSecureSplitInternalDataModalV186,30);
+  return result;
+};
+
+const updateExcelStatusBeforeV186=updateExcelStatus;
+updateExcelStatus=function(){
+  const source=SIRUMAH_RUNTIME?.source||{};
+  if(source.mode!=="public-json")return updateExcelStatusBeforeV186();
+  const bar=document.getElementById("excelStatusBar"),countsEl=document.getElementById("excelSheetCounts");
+  if(bar){
+    bar.classList.remove("import-error","import-success","import-loading");
+    bar.classList.add("secure-split-public-source-v186");
+    const main=bar.querySelector(".data-source-main");
+    if(main)main.innerHTML=`<strong>Secure Split aktif — dataset publik</strong><span>Browser hanya menerima <b>${escapeHtml(SIRUMAH_PUBLIC_DATA_URL_V186)}</b>. Untuk data operasional lengkap, pilih database master lokal pada Mode Internal.</span>`;
+  }
+  if(countsEl)countsEl.innerHTML=SIRUMAH_SHEET_NAMES.map(name=>{const count=Number(SIRUMAH_RUNTIME.counts?.[name]||0);return `<span class="sheet-chip ${count?"ok":"warn"}" title="${escapeHtml(name)}"><b>${escapeHtml(name.replace("_KECAMATAN","").replace("RUSUNAWA_","RUS-"))}</b> ${fmt(count)}</span>`;}).join("");
+  try{renderExcelIntegrationInfo();}catch(_){ }
+};
+
+function configureSecureSplitUiV186(){
+  const remote=document.getElementById("excelRemoteBtn");
+  if(remote){
+    remote.textContent="Verifikasi Dataset Publik";
+    remote.dataset.secureSplitV186="public-check";
+    remote.onclick=()=>loadPublicDatasetV186({showAlert:true,apply:false});
+    remote.title="Memeriksa dataset publik tanpa mengganti database internal yang sedang aktif.";
+  }
+  const local=document.getElementById("excelImportBtn");
+  if(local){local.textContent="Pilih Database Internal";local.title="Muat database master dari perangkat; file diproses lokal di browser.";}
+}
+
+const updateAccessModeUIBeforeV186=updateAccessModeUI;
+updateAccessModeUI=function(){
+  updateAccessModeUIBeforeV186();
+  const description=document.getElementById("accessModeDescription");
+  if(description && !publicMode){
+    description.textContent=isInternalRuntimeV186()
+      ? "Database internal aktif pada sesi browser ini. Data operasional lengkap tersedia sesuai sumber lokal yang dipilih."
+      : "Secure Split aktif. Muat database master dari perangkat untuk membuka data operasional internal.";
+  }
+};
+
+/* Setelah login PIN legacy berhasil, setAccessMode('internal') otomatis memunculkan loader master.
+   Tahap 2 akan memindahkan autentikasi ini ke backend/session token. */
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",configureSecureSplitUiV186);
+else configureSecureSplitUiV186();
+</script>
+<!-- SIRUMAH v186 — Secure Split Tahap 1. Public JSON + local-only internal master. -->
 
 </body>
 </html>
