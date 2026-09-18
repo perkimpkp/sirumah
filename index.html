@@ -1,4 +1,4 @@
-<!-- SIRUMAH v200 — Public Home Reference Map -->
+<!-- SIRUMAH v202 — Restore Hero Badges -->
 <!DOCTYPE html>
 
 <html lang="id">
@@ -24160,7 +24160,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 <style id="sirumah-v200-public-home-reference-map">
 /* =========================================================
-   SIRUMAH v200 — Public Home Reference Map
+   SIRUMAH v202 — Restore Hero Badges
    Uses the exact user-approved map visual as the desktop hero artwork.
    ========================================================= */
 
@@ -24219,6 +24219,28 @@ document.addEventListener("DOMContentLoaded",()=>{
   .startup-ui-v200 #beranda .startup-public-hero-v100::before{
     display:none!important;
   }
+}
+</style>
+
+
+<style id="sirumah-v201-hide-hero-badges">
+/* SIRUMAH v201 — hide live hero badges on all breakpoints
+   because the approved hero map artwork already contains the badges */
+#beranda .startup-public-scope-v100{
+  display:none !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+}
+</style>
+
+
+<style id="sirumah-v202-restore-hero-badges">
+/* SIRUMAH v202 — restore live hero badges on all breakpoints.
+   The hero map artwork can now be edited without embedded badges. */
+#beranda .startup-public-scope-v100{
+  display:flex !important;
+  visibility:visible !important;
+  pointer-events:auto !important;
 }
 </style>
 
